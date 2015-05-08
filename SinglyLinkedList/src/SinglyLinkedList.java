@@ -1,6 +1,5 @@
 import java.util.Iterator;
 
-
 public class SinglyLinkedList<E>
 {
 	protected Entry<E> head;
