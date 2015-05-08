@@ -28,7 +28,8 @@ public class SinglyLinkedListTest {
 
 	@Test
 	public void testSize() {
-		fail("Not yet implemented");
+		list.addToFront("Test");
+		assertEquals( 1, list.size() );
 	}
 
 	@Test
