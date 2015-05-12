@@ -33,6 +33,30 @@ public class SinglyLinkedList<E>
 		return count;
 	}
 	
+	public E get(int index)
+	{
+		if(index < 0 || index> this.size() - 1)
+		{
+			throw new IndexOutOfBoundsException();
+		}
+		int count = 0;
+		E returner = null;
+		for(Entry<E> current = head; current != null; current = current.next)
+		{
+			if(count == index)
+			{
+				returner = current.element;
+			}
+			count++;
+		}
+		return returner;
+	}
+	
+	public Iterator<E> iterator()
+	{
+		return new SinglyLinkedListIterator();
+	}
+	
 	protected class SinglyLinkedListIterator implements Iterator<E> 
 	{
 	    protected Entry<E> next;

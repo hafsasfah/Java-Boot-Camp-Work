@@ -1,4 +1,7 @@
 import static org.junit.Assert.*;
+
+import java.util.Iterator;
+
 import org.junit.*;
 
 public class SinglyLinkedListTest 
@@ -36,5 +39,20 @@ public class SinglyLinkedListTest
 		assertEquals(0, list.size());
 		list.addToFront("test");
 		assertEquals(1, list.size());
+	}
+	
+	public void getTest()
+	{
+		String testString = "test";
+		list.addToFront(testString);
+		assertEquals(testString,list.isEmpty());
+	}
+	
+	@Test
+	public void iteratorTest() 
+	{
+		Iterator<String> testit = list.iterator();
+		assertFalse(testit.hasNext());
+
 	}
 }
