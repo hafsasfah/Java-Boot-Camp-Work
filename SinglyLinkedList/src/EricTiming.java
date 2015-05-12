@@ -28,7 +28,6 @@ public class EricTiming {
 		}
 		
 		finishTime = System.nanoTime();
-		
 		elapsedTime = finishTime - startTime;
 		
 		System.out.printf( "Adding %d to %s took %f millseconds\n\n", numbersToAdd, name, elapsedTime / 1000000.0 );
