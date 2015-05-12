@@ -11,6 +11,10 @@ public class KodyTiming {
 		addRandomNumbersToList( "linkedList", linkedList, 1000 );
 		addRandomNumbersToList( "singlyLinkedList", singlyLinkedList, 1000 );
 		
+		checkRandomNumbers( "ArrayList", arrayList, 100 );
+		checkRandomNumbers( "linkedList", singlyLinkedList, 100);
+		checkRandomNumbers( "singlyLinkedList", singlyLinkedList, 100);
+		
 		addRandomNumbersToList( "arrayList", arrayList, 10000000 );
 		addRandomNumbersToList( "linkedList", linkedList, 10000000 );
 		addRandomNumbersToList( "singlyLinkedList", singlyLinkedList, 10000000 );
@@ -33,9 +37,12 @@ public class KodyTiming {
 		System.out.printf( "Adding %d to %s took %f millseconds\n\n", numbersToAdd, name, elapsedTime / 1000000.0 );
 	}
 	
-	public static void checkRandomNumbers(String name, List<Integer> list)
+	public static void checkRandomNumbers(String name, List<Integer> list, int numcheck)
 	{
-		
+		if(list.size()>=numcheck)
+		{
+			System.out.println(name + " contains at least " + numcheck + " elements." +"\n");
+		}
 		
 		
 		
