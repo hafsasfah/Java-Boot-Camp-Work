@@ -1,4 +1,7 @@
 import static org.junit.Assert.*;
+
+import java.util.Iterator;
+
 import org.junit.*;
 
 public class SinglyLinkedListTest 
@@ -45,6 +48,18 @@ public class SinglyLinkedListTest
 		String testString = "Test";
 		list.addToFront( testString );
 		assertEquals( testString, list.get(0) );
+	}
+	
+	@Test
+	public void testIterator()
+	{
+		String firstTestString = "firstString";
+		String secondTestString ="secondString";
+		list.addToFront( firstTestString );
+		list.addToFront( secondTestString );
+		Iterator<String> it = list.iterator();
+		assertEquals( secondTestString, it.next() );	
+		assertEquals( firstTestString, it.next() );	
 	}
 	
 	@Test(expected=IndexOutOfBoundsException.class)
