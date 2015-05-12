@@ -48,8 +48,14 @@ public class SinglyLinkedListTest
 	}
 	
 	@Test(expected=IndexOutOfBoundsException.class)
-	public void testIndexOutOfBoundsException()
+	public void testEmptyIndexOutOfBoundsException()
 	{
 		list.get(0);
+	}
+	
+	@Test(expected=IndexOutOfBoundsException.class)
+	public void testNegativeIndexOutOfBoundsException()
+	{
+		list.get(-1);
 	}
 }
