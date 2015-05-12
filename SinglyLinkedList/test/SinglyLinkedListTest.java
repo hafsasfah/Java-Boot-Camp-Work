@@ -15,6 +15,7 @@ public class SinglyLinkedListTest
 	public void testSinglyLinkedList() 
 	{
 		assertNotNull(list);
+		assertEquals(0, list.size() );
 	}
 
 	@Test
@@ -36,5 +37,13 @@ public class SinglyLinkedListTest
 		assertEquals(0, list.size());
 		list.addToFront("test");
 		assertEquals(1, list.size());
+	}
+	
+	@Test
+	public void testGet()
+	{
+		String testString = "Test";
+		list.addToFront( testString );
+		assertEquals( testString, list.get(0) );
 	}
 }
