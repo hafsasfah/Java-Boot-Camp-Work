@@ -121,8 +121,17 @@ public class SinglyLinkedList<E> implements List<E>
 	}
 
 	@Override
-	public boolean contains(Object o) {
-		throw new UnsupportedOperationException();
+	public boolean contains(Object obj) {
+		if (obj == null) {
+			for (Entry<E> current = head; current != null; current = current.next)
+				if (obj == current.element)
+					return true;
+		} // if obj == null
+		else
+			for (Entry<E> current = head; current != null; current = current.next)
+				if (obj.equals(current.element))
+					return true;
+		return false;
 	}
 
 	@Override
