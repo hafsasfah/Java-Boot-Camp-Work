@@ -73,4 +73,17 @@ public class SinglyLinkedListTest
 	{
 		list.get(-1);
 	}
+	
+	@Test
+	public void testContains()
+	{
+		String firstTestString = "firstString";
+		String secondTestString ="secondString";
+		list.addToFront( firstTestString );
+		assertTrue( list.contains( firstTestString ));
+		assertFalse( list.contains( secondTestString ));
+		assertFalse( list.contains ( null ) );
+		list.add(null);
+		assertTrue( list.contains( null ) );
+	}
 }
