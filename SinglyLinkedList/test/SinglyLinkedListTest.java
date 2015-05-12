@@ -1,4 +1,8 @@
 import static org.junit.Assert.*;
+
+
+import java.util.Iterator;
+
 import org.junit.*;
 
 public class SinglyLinkedListTest 
@@ -23,7 +27,16 @@ public class SinglyLinkedListTest
 	{
 		assertTrue(list.isEmpty());
 	}
-
+	@Test
+	public void testIterator(){
+	String testString = "test";
+	list.addToFront(testString);
+	list.addToFront("Hola");
+	Iterator<String> it = list.iterator();
+	assertEquals(testString,it.next());
+	assertEquals("Hola",it.next());
+	
+	}
 	@Test
 	public void testAddToFront() 
 	{
