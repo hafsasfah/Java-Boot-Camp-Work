@@ -33,4 +33,11 @@ public class KodyTiming {
 		System.out.printf( "Adding %d to %s took %f millseconds\n\n", numbersToAdd, name, elapsedTime / 1000000.0 );
 	}
 	
+	public static void checkRandomNumbers(String name, List<Integer> list)
+	{
+		
+		
+		
+		
+	}
 }
