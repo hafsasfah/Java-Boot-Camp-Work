@@ -46,4 +46,10 @@ public class SinglyLinkedListTest
 		list.addToFront( testString );
 		assertEquals( testString, list.get(0) );
 	}
+	
+	@Test(expected=IndexOutOfBoundsException.class)
+	public void testIndexOutOfBoundsException()
+	{
+		list.get(0);
+	}
 }
