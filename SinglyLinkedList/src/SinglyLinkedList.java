@@ -17,6 +17,12 @@ public class SinglyLinkedList<E> implements List<E>
 		return head == null;
 	}
 	
+	public boolean add( E element)
+	{
+		addToFront(element);
+		return true;
+	}
+	
 	public void addToFront(E element)
 	{
 		Entry<E> newEntry = new Entry<E>();
@@ -36,30 +42,31 @@ public class SinglyLinkedList<E> implements List<E>
 		return count;
 	}
 	
-	public E get(int index)
+	public E get( int index )
 	{
-		if(index < 0 || index> this.size() - 1)
+		if ( index < 0 || index > size() - 1 )
 		{
 			throw new IndexOutOfBoundsException();
 		}
+		
 		int count = 0;
-		E returner = null;
-		for(Entry<E> current = head; current != null; current = current.next)
+		E elementToReturn = null;
+		for (Entry<E> current = head; current != null; current = current.next)
 		{
-			if(count == index)
+			if ( count == index )
 			{
-				returner = current.element;
+				elementToReturn = current.element;
 			}
-			count++;
+			count ++;
 		}
-		return returner;
+		return elementToReturn;
 	}
 	
 	public Iterator<E> iterator()
 	{
 		return new SinglyLinkedListIterator();
-	}
-	
+	} 
+
 	protected class SinglyLinkedListIterator implements Iterator<E> 
 	{
 	    protected Entry<E> next;
@@ -94,116 +101,101 @@ public class SinglyLinkedList<E> implements List<E>
 	}
 
 	@Override
-	public boolean add(E arg0) {
-		// TODO Auto-generated method stub
-		return false;
+	public void add(int index, E element) {
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public void add(int arg0, E arg1) {
-		// TODO Auto-generated method stub
-		
+	public boolean addAll(Collection<? extends E> c) {
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public boolean addAll(Collection<? extends E> arg0) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean addAll(int arg0, Collection<? extends E> arg1) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean addAll(int index, Collection<? extends E> c) {
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
 	public void clear() {
-		// TODO Auto-generated method stub
-		
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public boolean contains(Object arg0) {
-		// TODO Auto-generated method stub
+	public boolean contains(Object obj) {
+		if (obj == null) {
+			for (Entry<E> current = head; current != null; current = current.next)
+				if (obj == current.element)
+					return true;
+		} // if obj == null
+		else
+			for (Entry<E> current = head; current != null; current = current.next)
+				if (obj.equals(current.element))
+					return true;
 		return false;
 	}
 
 	@Override
-	public boolean containsAll(Collection<?> arg0) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean containsAll(Collection<?> c) {
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public int indexOf(Object arg0) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int indexOf(Object o) {
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public int lastIndexOf(Object arg0) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int lastIndexOf(Object o) {
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
 	public ListIterator<E> listIterator() {
-		// TODO Auto-generated method stub
-		return null;
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public ListIterator<E> listIterator(int arg0) {
-		// TODO Auto-generated method stub
-		return null;
+	public ListIterator<E> listIterator(int index) {
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public boolean remove(Object arg0) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean remove(Object o) {
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public E remove(int arg0) {
-		// TODO Auto-generated method stub
-		return null;
+	public E remove(int index) {
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public boolean removeAll(Collection<?> arg0) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean removeAll(Collection<?> c) {
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public boolean retainAll(Collection<?> arg0) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean retainAll(Collection<?> c) {
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public E set(int arg0, E arg1) {
-		// TODO Auto-generated method stub
-		return null;
+	public E set(int index, E element) {
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public List<E> subList(int arg0, int arg1) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<E> subList(int fromIndex, int toIndex) {
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
 	public Object[] toArray() {
-		// TODO Auto-generated method stub
-		return null;
+		throw new UnsupportedOperationException();
 	}
 
 	@Override
-	public <T> T[] toArray(T[] arg0) {
-		// TODO Auto-generated method stub
-		return null;
+	public <T> T[] toArray(T[] a) {
+		throw new UnsupportedOperationException();
 	}
 }

@@ -1,5 +1,5 @@
 import java.util.*;
-public class EricTiming {
+public class KodyTiming {
 
 	public static void main(String[] args)
 	{
