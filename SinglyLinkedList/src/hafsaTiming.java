@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class hafsaTiming<E> extends SinglyLinkedList<E> {
-	static int highestnumber = 10000;
+	static int highestNumber = 10000;
 	public static void main(String [] args) {
 		
 		ArrayList<Integer> arrayList = new ArrayList<Integer>();
@@ -38,19 +38,18 @@ public class hafsaTiming<E> extends SinglyLinkedList<E> {
 		Random rand = new Random(50);
 		 
 		for (int i = 0; i < n; i++) {
-			int r = rand.nextInt(highestnumber);
+			int r = rand.nextInt(highestNumber);
 			list.add(r);
 		}		
 		
 		rand = new Random(40);
 		for (int i = 0; i < check; i++) {
-			int r = rand.nextInt(highestnumber);
+			int r = rand.nextInt(highestNumber);
 			if (list.contains(r)) {
 				counter++;
 			}
 			
 		}
-		
 		
 		finishTime = System.nanoTime();
 		elapsedTime = finishTime - startTime;
