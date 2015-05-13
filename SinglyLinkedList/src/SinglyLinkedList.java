@@ -61,7 +61,7 @@ public class SinglyLinkedList<E> implements List<E>
 		}
 		return elementToReturn;
 	}
-	
+
 	public Iterator<E> iterator()
 	{
 		return new SinglyLinkedListIterator();
