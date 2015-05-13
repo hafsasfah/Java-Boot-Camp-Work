@@ -12,7 +12,13 @@ public class KodyTiming {
 		addRandomNumbersToList( "singlyLinkedList", singlyLinkedList, 1000 );
 		
 <<<<<<< HEAD
+<<<<<<< HEAD
 		//checkRandomNumbers( "ArrayList", arrayList);
+=======
+		checkRandomNumbers( "ArrayList", arrayList, 100 );
+		checkRandomNumbers( "linkedList", singlyLinkedList, 100);
+		checkRandomNumbers( "singlyLinkedList", singlyLinkedList, 100);
+>>>>>>> parent of c4581f8... Checking numbers sofar2
 =======
 		checkRandomNumbers( "ArrayList", arrayList, 100 );
 		checkRandomNumbers( "linkedList", singlyLinkedList, 100);
@@ -23,7 +29,10 @@ public class KodyTiming {
 		addRandomNumbersToList( "linkedList", linkedList, 10000000 );
 		addRandomNumbersToList( "singlyLinkedList", singlyLinkedList, 10000000 );
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> parent of c4581f8... Checking numbers sofar2
 =======
 >>>>>>> parent of c4581f8... Checking numbers sofar2
 	}
@@ -31,9 +40,13 @@ public class KodyTiming {
 	public static void addRandomNumbersToList( String name, List<Integer> list, int numbersToAdd )
 	{
 <<<<<<< HEAD
+<<<<<<< HEAD
 		int total = 0;
 		Random rand = new Random();
 		int permrandomnum =  rand.nextInt((50 - 0) + 1);
+=======
+		Random random = new Random(50);
+>>>>>>> parent of c4581f8... Checking numbers sofar2
 =======
 		Random random = new Random(50);
 >>>>>>> parent of c4581f8... Checking numbers sofar2
@@ -43,17 +56,22 @@ public class KodyTiming {
 		for ( int count = 0; count < numbersToAdd; count++ )
 		{
 <<<<<<< HEAD
+<<<<<<< HEAD
 			int randomnum = rand.nextInt((50 - 0) + 1);
 			list.add( randomnum );
 			if(permrandomnum == randomnum)
 			{
 				total++;
 			}
+=======
+			list.add( random.nextInt() );
+>>>>>>> parent of c4581f8... Checking numbers sofar2
 		}
 		
 		finishTime = System.nanoTime();
 		elapsedTime = finishTime - startTime;
 		
+<<<<<<< HEAD
 		System.out.printf( "Adding %d to %s took %f millseconds\n", numbersToAdd, name, elapsedTime / 1000000.0 );
 		System.out.println(permrandomnum + " appeared " + total + " times in " + name + ".");
 
@@ -64,6 +82,8 @@ public class KodyTiming {
 		finishTime = System.nanoTime();
 		elapsedTime = finishTime - startTime;
 		
+=======
+>>>>>>> parent of c4581f8... Checking numbers sofar2
 		System.out.printf( "Adding %d to %s took %f millseconds\n\n", numbersToAdd, name, elapsedTime / 1000000.0 );
 	}
 	
