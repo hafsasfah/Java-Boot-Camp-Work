@@ -2,6 +2,15 @@ package RacingGame;
 
 public interface Player {
 	
-	//test code
-
+	//private Static String name;
+	
+	
+	public String getName();
+	public int getCash();
+	public int addCash(int cash);
+	public void setVehicle();
+	public Car getVehicle();
+	
+	
+	
 }
