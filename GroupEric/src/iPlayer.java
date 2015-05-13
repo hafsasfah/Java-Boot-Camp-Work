@@ -1,7 +1,7 @@
 
 public interface iPlayer {
 	String getName();
-	String getCash();
+	int getCash();
 	void addCash ( int cas );
 	void setVehicle( iVehicle vehicle );
 	iVehicle getVehicle();
