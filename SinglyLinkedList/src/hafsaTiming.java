@@ -8,8 +8,8 @@ public class hafsaTiming<E> extends SinglyLinkedList<E> {
 		LinkedList<Integer> linkedList = new LinkedList<Integer>();
 		SinglyLinkedList<Integer> singlyLinkedList = new SinglyLinkedList<Integer>();
 		
-		// add to list
 		/*
+		// add to list
 		addToList("Array: ", arrayList, 1000);
 		addToList("Linked: ", linkedList, 1000);
 		addToList("Singly-linked: ", singlyLinkedList, 1000);
