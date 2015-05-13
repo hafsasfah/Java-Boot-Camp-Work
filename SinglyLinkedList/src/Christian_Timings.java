@@ -11,6 +11,20 @@ public class Christian_Timings {
 	System.out.println(arrayListTimer(entries)+"\t"+linkedListTimer(entries)+"\t"+SinglyLinkedListTimer(entries) +"\tat "+entries+" Entries");
 	
 	}
+	public static long ListTimer(List list, int numberToInsert){	
+		ArrayList<Integer> arrayList = new ArrayList<Integer>();
+		long startTime,finishTime;
+		Random random = new Random(1000);
+		startTime = System.nanoTime();
+			for (int i = 0;i< numberToInsert;i++){
+			arrayList.add(random.nextInt());
+			
+		}
+			finishTime = System.nanoTime();
+			return finishTime-startTime;	
+		
+		}
+	
 public static long arrayListTimer(int numberToInsert){	
 	ArrayList<Integer> arrayList = new ArrayList<Integer>();
 	long startTime,finishTime;
@@ -43,7 +57,7 @@ public static long SinglyLinkedListTimer(int numberToInsert){
 	Random random = new Random(1000);
 	startTime = System.nanoTime();
 		for (int i = 0;i< numberToInsert;i++){
-			singleListList.addToFront(random.nextInt());
+			singleListList.add(random.nextInt());
 		
 	}
 		finishTime = System.nanoTime();
