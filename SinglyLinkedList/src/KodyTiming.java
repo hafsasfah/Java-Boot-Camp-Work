@@ -11,92 +11,60 @@ public class KodyTiming {
 		addRandomNumbersToList( "linkedList", linkedList, 1000 );
 		addRandomNumbersToList( "singlyLinkedList", singlyLinkedList, 1000 );
 		
-<<<<<<< HEAD
-<<<<<<< HEAD
-		//checkRandomNumbers( "ArrayList", arrayList);
-=======
-		checkRandomNumbers( "ArrayList", arrayList, 100 );
-		checkRandomNumbers( "linkedList", singlyLinkedList, 100);
+		checkRandomNumbers( "ArrayList", arrayList, 100);
+		checkRandomNumbers( "linkedList", linkedList, 100);
 		checkRandomNumbers( "singlyLinkedList", singlyLinkedList, 100);
->>>>>>> parent of c4581f8... Checking numbers sofar2
-=======
-		checkRandomNumbers( "ArrayList", arrayList, 100 );
-		checkRandomNumbers( "linkedList", singlyLinkedList, 100);
-		checkRandomNumbers( "singlyLinkedList", singlyLinkedList, 100);
->>>>>>> parent of c4581f8... Checking numbers sofar2
 		
-		addRandomNumbersToList( "arrayList", arrayList, 10000000 );
-		addRandomNumbersToList( "linkedList", linkedList, 10000000 );
-		addRandomNumbersToList( "singlyLinkedList", singlyLinkedList, 10000000 );
-<<<<<<< HEAD
-<<<<<<< HEAD
+		//addRandomNumbersToList( "arrayList", arrayList, 10000000 );
+		//addRandomNumbersToList( "linkedList", linkedList, 10000000 );
+		//addRandomNumbersToList( "singlyLinkedList", singlyLinkedList, 10000000 );
 
-=======
->>>>>>> parent of c4581f8... Checking numbers sofar2
-=======
->>>>>>> parent of c4581f8... Checking numbers sofar2
 	}
 	
 	public static void addRandomNumbersToList( String name, List<Integer> list, int numbersToAdd )
 	{
-<<<<<<< HEAD
-<<<<<<< HEAD
-		int total = 0;
 		Random rand = new Random();
-		int permrandomnum =  rand.nextInt((50 - 0) + 1);
-=======
-		Random random = new Random(50);
->>>>>>> parent of c4581f8... Checking numbers sofar2
-=======
-		Random random = new Random(50);
->>>>>>> parent of c4581f8... Checking numbers sofar2
 		long startTime, finishTime, elapsedTime;
 		startTime = System.nanoTime();
 		
 		for ( int count = 0; count < numbersToAdd; count++ )
 		{
-<<<<<<< HEAD
-<<<<<<< HEAD
 			int randomnum = rand.nextInt((50 - 0) + 1);
 			list.add( randomnum );
-			if(permrandomnum == randomnum)
-			{
-				total++;
-			}
-=======
-			list.add( random.nextInt() );
->>>>>>> parent of c4581f8... Checking numbers sofar2
 		}
 		
 		finishTime = System.nanoTime();
 		elapsedTime = finishTime - startTime;
 		
-<<<<<<< HEAD
+		System.out.println(list);
 		System.out.printf( "Adding %d to %s took %f millseconds\n", numbersToAdd, name, elapsedTime / 1000000.0 );
-		System.out.println(permrandomnum + " appeared " + total + " times in " + name + ".");
+		//System.out.println(permrandomnum + " appeared " + total + " times in " + name + ".");
 
-=======
-			list.add( random.nextInt() );
-		}
-		
-		finishTime = System.nanoTime();
-		elapsedTime = finishTime - startTime;
-		
-=======
->>>>>>> parent of c4581f8... Checking numbers sofar2
-		System.out.printf( "Adding %d to %s took %f millseconds\n\n", numbersToAdd, name, elapsedTime / 1000000.0 );
 	}
 	
-	public static void checkRandomNumbers(String name, List<Integer> list, int numcheck)
+	public static void checkRandomNumbers(String name, List<Integer> list, int searchnumber)
 	{
-		if(list.size()>=numcheck)
+		
+		//check if the list contains a specific randomly generated number at least 100 times
+		Random rand = new Random();
+		int totalcounter = 0;
+		long startTime, finishTime, elapsedTime;
+		startTime = System.nanoTime();		
+		for ( int count = 0; count < searchnumber; count++ )
 		{
-			System.out.println(name + " contains at least " + numcheck + " elements." +"\n");
+			int tempnum = rand.nextInt((50 - 0) + 1);
+			if(list.contains(tempnum))
+			{
+				totalcounter++;
+			}
 		}
+		finishTime = System.nanoTime();
+		elapsedTime = finishTime - startTime;
 		
+		System.out.println("There were " + totalcounter + " matches.");
+		System.out.printf(name + "check took %f millseconds to run.\n", elapsedTime / 1000000.0 );
 		
-		
->>>>>>> parent of c4581f8... Checking numbers sofar2
+
 	}
 	
 }
