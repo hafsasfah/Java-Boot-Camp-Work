@@ -43,6 +43,12 @@ public class SinglyLinkedListTest
 	}
 	
 	@Test
+	public void test0Size()
+	{
+		assertEquals(0, list.size());
+	}
+	
+	@Test
 	public void testGet()
 	{
 		String testString = "Test";
