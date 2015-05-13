@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class hafsaTiming<E> extends SinglyLinkedList<E> {
+public class hafsaTiming {
 	static int highestNumber = 10000;
 	public static void main(String [] args) {
 		
@@ -48,26 +48,11 @@ public class hafsaTiming<E> extends SinglyLinkedList<E> {
 			if (list.contains(r)) {
 				counter++;
 			}
-			
 		}
 		
 		finishTime = System.nanoTime();
 		elapsedTime = finishTime - startTime;
 		System.out.println(s + " for " + n + " has " + counter + " match(es) and took " + 
 				(elapsedTime/1000000) + " ms");
-	}
-	
-	public static void addToList(String s, List<Integer> list, int n) {
-		double startTime, finishTime, elapsedTime;
-		Random rand = new Random(n);
-		startTime = System.nanoTime();
-		
-		for (int i = 0; i < n; i++) {
-			list.add(rand.nextInt());
-		}
-		
-		finishTime = System.nanoTime();
-		elapsedTime = finishTime - startTime;
-		System.out.println(s + (elapsedTime/1000000) + " ms");
 	}
 }
