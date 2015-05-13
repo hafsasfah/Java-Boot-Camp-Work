@@ -99,7 +99,7 @@ public class SinglyLinkedList<E> implements List<E>
 		protected E element;
 		protected Entry<E> next;
 	}
-
+	
 	@Override
 	public void add(int index, E element) {
 		throw new UnsupportedOperationException();
@@ -121,6 +121,7 @@ public class SinglyLinkedList<E> implements List<E>
 	}
 
 	@Override
+
 	public boolean contains(Object obj) {
 		if (obj == null) {
 			for (Entry<E> current = head; current != null; current = current.next)
@@ -135,6 +136,7 @@ public class SinglyLinkedList<E> implements List<E>
 	}
 
 	@Override
+
 	public boolean containsAll(Collection<?> c) {
 		throw new UnsupportedOperationException();
 	}
@@ -198,4 +200,11 @@ public class SinglyLinkedList<E> implements List<E>
 	public <T> T[] toArray(T[] a) {
 		throw new UnsupportedOperationException();
 	}
+
+
+	public boolean add1b(E arg0) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	
 }

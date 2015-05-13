@@ -1,7 +1,7 @@
 import java.util.*;
 
 public class hafsaTiming {
-	static int highestNumber = 10000;
+	static int highestNumber = 100;
 	public static void main(String [] args) {
 		
 		ArrayList<Integer> arrayList = new ArrayList<Integer>();
@@ -38,7 +38,7 @@ public class hafsaTiming {
 		Random rand = new Random(50);
 		 
 		for (int i = 0; i < n; i++) {
-			int r = rand.nextInt(highestNumber);
+			int r = rand.nextInt(highestNumber*n);
 			list.add(r);
 		}		
 		
