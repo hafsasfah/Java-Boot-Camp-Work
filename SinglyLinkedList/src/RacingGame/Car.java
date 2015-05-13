@@ -1,6 +1,6 @@
 package RacingGame;
 import java.util.*;
-public class Car {
+public class Car implements VehicleI {
 /*
 +getQuarterMileTime() : double
 - make this random < 10 seconds
