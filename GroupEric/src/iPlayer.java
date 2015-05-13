@@ -4,4 +4,5 @@ public interface iPlayer {
 	String getCash();
 	void addCash ( int cas );
 	void setVehicle( iVehicle vehicle );
+	iVehicle getVehicle();
 }
