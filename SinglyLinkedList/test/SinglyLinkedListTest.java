@@ -68,6 +68,7 @@ public class SinglyLinkedListTest
 		assertEquals( firstTestString, it.next() );	
 	}
 	
+	
 	@Test(expected=IndexOutOfBoundsException.class)
 	public void testEmptyIndexOutOfBoundsException()
 	{
