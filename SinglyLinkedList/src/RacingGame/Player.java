@@ -31,16 +31,12 @@ public class Player implements  PlayerI {
 		this.vehicle= vehicle;
 	}
 
-	@Override
-	public Car getVehicle() {
-		
-		return vehicle;
-	}
+	
 
 	@Override
 	public Car getVehicle() {
 		// TODO Auto-generated method stub
-		return null;
+		return vehicle;
 	}
 
 	
