@@ -1,5 +1,7 @@
 import java.util.*;
 
+
+
 public class SinglyLinkedList<E> implements List<E>
 {
 	protected Entry<E> head;
@@ -13,18 +15,7 @@ public class SinglyLinkedList<E> implements List<E>
 	{
 		return head == null;
 	}
-	public boolean contains(Object obj) {
-		if (obj == null) {
-			for (Entry<E> current = head; current != null; current = current.next)
-				if (obj == current.element)
-					return true;
-		} // if obj == null
-		else
-			for (Entry<E> current = head; current != null; current = current.next)
-				if (obj.equals(current.element))
-					return true;
-		return false;
-	}
+	
 	public boolean add(E element)
 	{
 		try{ Entry<E> newEntry = new Entry<E>();
@@ -37,6 +28,20 @@ public class SinglyLinkedList<E> implements List<E>
 			return false;
 		}
 	}
+	public boolean contains(Object obj) {
+		if (obj == null) {
+			for (Entry<E> current = head; current != null; current = current.next)
+				if (obj == current.element)
+					return true;
+		} // if obj == null
+		else
+			for (Entry<E> current = head; current != null; current = current.next)
+				if (obj.equals(current.element))
+					return true;
+		return false;
+	}
+
+	
 	
 	public int size() 
 	{
@@ -106,6 +111,7 @@ public class SinglyLinkedList<E> implements List<E>
 		protected E element;
 		protected Entry<E> next;
 	}
+
 
 	
 
@@ -209,5 +215,6 @@ public class SinglyLinkedList<E> implements List<E>
 	public <T> T[] toArray(T[] arg0) {
 		// TODO Auto-generated method stub
 		return null;
+
 	}
 }
