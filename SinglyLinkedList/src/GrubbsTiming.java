@@ -35,11 +35,12 @@ public class GrubbsTiming {
 		long startTime, finishTime, elapsedTime;
 		
 		startTime = System.nanoTime();
-		
+		/*
 		for( int count = 0;)
 		{
 			
 			add(random.nextInt());
 		}
+		*/
 	}
 }

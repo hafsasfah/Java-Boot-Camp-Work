@@ -16,12 +16,13 @@ public class EricTiming {
 		addRandomNumbersToList( "singlyLinkedList", singlyLinkedList, 1000 );
 		checkListsForContainsRandomNumber( "singlyLinkedList", singlyLinkedList, 100 );
 		
-		addRandomNumbersToList( "arrayList", arrayList, 10000000 );
-		checkListsForContainsRandomNumber( "arrayList", arrayList, 1000 );
-		addRandomNumbersToList( "linkedList", linkedList, 10000000 );
-		checkListsForContainsRandomNumber( "linkedList", linkedList, 1000 );
-		addRandomNumbersToList( "singlyLinkedList", singlyLinkedList, 10000000 );
-		checkListsForContainsRandomNumber( "singlyLinkedList", singlyLinkedList, 1000 );
+		addRandomNumbersToList( "arrayList", arrayList, 1000000 );
+		checkListsForContainsRandomNumber( "arrayList", arrayList, 10000 );
+		addRandomNumbersToList( "linkedList", linkedList, 1000000 );
+		checkListsForContainsRandomNumber( "linkedList", linkedList, 10000 );
+		addRandomNumbersToList( "singlyLinkedList", singlyLinkedList, 1000000 );
+		checkListsForContainsRandomNumber( "singlyLinkedList", singlyLinkedList, 10000 );
+		
 	}
 	
 	public static void addRandomNumbersToList( String name, List<Integer> list, int numbersToAdd )
