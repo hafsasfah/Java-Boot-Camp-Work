@@ -29,7 +29,7 @@ public class KodyTiming {
 		
 		for ( int count = 0; count < numbersToAdd; count++ )
 		{
-			int randomnum = rand.nextInt((50 - 0) + 1);
+			int randomnum = rand.nextInt((1000 - 0) + 1);
 			list.add( randomnum );
 		}
 		
@@ -52,7 +52,7 @@ public class KodyTiming {
 		startTime = System.nanoTime();		
 		for ( int count = 0; count < searchnumber; count++ )
 		{
-			int tempnum = rand.nextInt((50 - 0) + 1);
+			int tempnum = rand.nextInt((1000 - 0) + 1);
 			if(list.contains(tempnum))
 			{
 				totalcounter++;
