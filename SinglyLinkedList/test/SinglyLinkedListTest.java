@@ -1,5 +1,9 @@
 import static org.junit.Assert.*;
 
+//import java.util.Iterator;
+
+
+
 
 import java.util.Iterator;
 
@@ -27,16 +31,7 @@ public class SinglyLinkedListTest
 	{
 		assertTrue(list.isEmpty());
 	}
-	@Test
-	public void testIterator(){
-	String testString = "test";
-	list.addToFront(testString);
-	list.addToFront("Hola");
-	Iterator<String> it = list.iterator();
-	assertEquals(testString,it.next());
-	assertEquals("Hola",it.next());
-	
-	}
+
 	@Test
 	public void testAddToFront() 
 	{
@@ -60,6 +55,18 @@ public class SinglyLinkedListTest
 		assertEquals( testString, list.get(0) );
 	}
 	
+	@Test
+	public void testIterator()
+	{
+		String firstTestString = "firstString";
+		String secondTestString ="secondString";
+		list.addToFront( firstTestString );
+		list.addToFront( secondTestString );
+		Iterator<String> it = list.iterator();
+		assertEquals( secondTestString, it.next() );	
+		assertEquals( firstTestString, it.next() );	
+	}
+	
 	@Test(expected=IndexOutOfBoundsException.class)
 	public void testEmptyIndexOutOfBoundsException()
 	{
@@ -70,5 +77,18 @@ public class SinglyLinkedListTest
 	public void testNegativeIndexOutOfBoundsException()
 	{
 		list.get(-1);
+	}
+	
+	@Test
+	public void testContains()
+	{
+		String firstTestString = "firstString";
+		String secondTestString ="secondString";
+		list.addToFront( firstTestString );
+		assertTrue( list.contains( firstTestString ));
+		assertFalse( list.contains( secondTestString ));
+		assertFalse( list.contains ( null ) );
+		list.add(null);
+		assertTrue( list.contains( null ) );
 	}
 }
