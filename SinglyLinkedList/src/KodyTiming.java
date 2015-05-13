@@ -23,13 +23,13 @@ public class KodyTiming {
 	{
 		int total = 0;
 		Random rand = new Random();
-		int permrandomnum =  rand.nextInt((100 - 0) + 1);
+		int permrandomnum =  rand.nextInt((50 - 0) + 1);
 		long startTime, finishTime, elapsedTime;
 		startTime = System.nanoTime();
 		
 		for ( int count = 0; count < numbersToAdd; count++ )
 		{
-			int randomnum = rand.nextInt((100 - 0) + 1);
+			int randomnum = rand.nextInt((50 - 0) + 1);
 			list.add( randomnum );
 			if(permrandomnum == randomnum)
 			{
