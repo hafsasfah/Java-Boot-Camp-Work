@@ -57,6 +57,14 @@ public class SinglyLinkedListTest
 	}
 	
 	@Test
+	public void testAnotherGet()
+	{
+		String testString = "Test123";
+		list.addToFront( testString );
+		assertEquals( testString, list.get(0) );
+	}
+	
+	@Test
 	public void testIterator()
 	{
 		String firstTestString = "firstString";
