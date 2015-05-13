@@ -4,6 +4,14 @@ public class Player implements iPlayer {
 	private int cash;
 	private iVehicle car;
 	
+	Player(String name, int cash, iVehicle car){
+		this.name = name;
+		this.cash = cash;
+		this.car = car;
+	}
+	
+	Player() {}
+	
 	@Override
 	public String getName() {
 		return name;
