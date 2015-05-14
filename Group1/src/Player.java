@@ -39,6 +39,12 @@ public class Player implements  PlayerI {
 		this.cash = cash;
 		this.vehicle = vehicle;
 	}
+	public Player(String name, int cash) {
+		super();
+		this.name = name;
+		this.cash = cash;
+		this.vehicle = null;
+	}
 
 	@Override
 	public void setVehicle(VehicleI vehicle) {
