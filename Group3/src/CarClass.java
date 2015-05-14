@@ -13,7 +13,7 @@ public class CarClass {
 	{
 		
 	Random rand = new Random();
-	return rand.nextInt((5 - 1) +1);
+	return rand.nextInt((5 - 1) +1) + 1;
 	
 	}
 		Random random = new Random (10);
