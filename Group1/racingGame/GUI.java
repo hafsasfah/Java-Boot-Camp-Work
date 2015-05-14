@@ -1,4 +1,4 @@
-package RacingGame;
+
 import javax.swing.*;
 import javax.swing.event.*;
 
@@ -11,6 +11,7 @@ public class GUI extends JFrame {
 	private JPanel carPanel2; // to hold components for player 2
 	private JPanel selectedCarPanel; // to hold components 
 	private JList carList; // the cars
+	private JList carList2; // the cars
 	private JTextField selectedCar; // the selected car
 	private JLabel label; // a message
 	
@@ -35,8 +36,10 @@ public class GUI extends JFrame {
 		buildSelectedCarPanel();
 		
 		//Add the panels to the content pane
-		add(carPanel1,BorderLayout.EAST);
-		add(carPanel2,BorderLayout.WEST);
+		
+		 
+		add(carPanel1,BorderLayout.WEST);
+		add(carPanel2,BorderLayout.EAST);
 		add(selectedCar, BorderLayout.SOUTH);
 		
 		//Add the panels to the content
@@ -57,6 +60,8 @@ public class GUI extends JFrame {
 		
 		//Create the list
 		carList = new JList(cars);
+		carList2 = new JList(cars);
+		
 		
 		//Set the selection mode to single selection
 		carList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
@@ -66,7 +71,7 @@ public class GUI extends JFrame {
 		
 		//Add the list to the panel
 		carPanel1.add(carList);
-		carPanel2.add(carList);		
+		carPanel2.add(carList2);		
 		
 	}
 
@@ -98,11 +103,19 @@ public class GUI extends JFrame {
 		@Override
 		public void valueChanged(ListSelectionEvent e) {
 			
-			//Get Selected Car
-			String selection = (String) carList.getSelectedValue();
+			//Get Selected Car for player 1
+			String selection1 = (String) carList.getSelectedValue();
 			
 			//Put the selected month in the text field
-			selectedCar.setText(selection);
+			selectedCar.setText("Player 1 Selected :" + selection1);
+			
+			//Get Selected Car for player 2
+			String selection2 = (String) carList.getSelectedValue();
+			
+			//Put the selected month in the text field
+			selectedCar.setText("Player 2 Selected :" + selection2);
+			
+			
 			
 		}
 		
