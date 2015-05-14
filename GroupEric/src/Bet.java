@@ -33,4 +33,7 @@ public class Bet implements iBet {
 	{
 		return "";
 	}
+	public boolean isValid() {
+		return false;
+	}
 }
