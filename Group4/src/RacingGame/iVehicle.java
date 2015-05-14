@@ -3,7 +3,7 @@ package RacingGame;
 public interface iVehicle 
 {
 
-	double getOuaterMileTime();
+	double getOuarterMileTime();
 	String getMake();
 	String getModel();
 	String toString();
