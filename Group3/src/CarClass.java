@@ -1,6 +1,7 @@
 import java.util.Random;
 import java.awt.*;
 import java.awt.event.*;
+
 import javax.swing.*;
 
 public class CarClass {
@@ -62,7 +63,7 @@ public class CarClass {
 				
 				//Panel Building
 				buildCarPanel();
-				buildSelectedCarPanel();
+				SelectedCarPanel();
 				
 				//Add the panels to the content Pane
 				add(CarSelection, BorderLayout.CENTER);
@@ -76,10 +77,55 @@ public class CarClass {
 		{
 			//build a Panel to hold the combo box
 			CarSelection = new JPanel();
-		}
+			
+			//Create the combo box
+			CarBox = new JComboBox(Model);
+			
+			//Register action listener
+			CarBox.addActionListener(new ComboBoxListener());
+			
+			//add the combo box to the panel
+			SelectedCarPanel.add(CarBox);
+			
 		}
 		
-	}
+		private void SelectedCarPanel()
+		{
+			//Build Panels to hold the components
+			SelectedCarPanel = new JPanel();
+			
+			//Create Label.
+			Label = new JLabel("You Selected: ");
+			
+			//Create the uneditable text field
+			selectedCar = new JTextField(10);
+			selectedCar .setEditable(false);
+			
+			//Add Label and text field to the panel
+			SelectedCarPanel.add(Label);
+			SelectedCarPanel.add(selectedCar);
+		}
+		
+		private class ComboBoxListener
+							implements ActionListener
+		{
+
+			public void actionPerformed(ActionEvent e) 
+			{
+				//Get the selected Car
+				String selection =
+						(String) CarBox.getSelectedItem();
+				selectedCar.setText(selection);
+				
+				
+			}
+			
+		}
+		
+}
+}
+		
+	
 		
 		
 	
