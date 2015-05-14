@@ -1,3 +1,4 @@
+import javax.swing.JPanel;
 
 public interface iVehicle {
 	String getMake();
@@ -5,4 +6,5 @@ public interface iVehicle {
 	String getColor();
 	String toString();
 	double getQuarterMileTime();
+	JPanel getPanel();
 }

@@ -1,3 +1,4 @@
+import javax.swing.JPanel;
 
 public interface iPlayer {
 	String getName();
@@ -5,4 +6,5 @@ public interface iPlayer {
 	void addCash ( int cas );
 	void setVehicle( iVehicle vehicle );
 	iVehicle getVehicle();
+	JPanel getPanel();
 }
