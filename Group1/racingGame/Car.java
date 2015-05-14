@@ -9,10 +9,33 @@ public class Car implements VehicleI {
 	
 	private String make;
 	private String model;
-	public Car(String make, String model){
-		this.make=make;
-		this.model=model;
-	}
+	public Car(String car){
+		switch (car){
+		
+		case "Lamborghini":
+			this.make = "Lamborghini";
+			this.model= "Murcielago";
+			break;
+		case "Ferrari":
+			this.make = "Ferrari";
+			this.model= "599 GTO";
+			break;
+				
+		case "Pagani":
+			this.make = "Pagani";
+			this.model= "Zonda F";
+			break;
+		case "McLaren":
+			this.make = "McLaren";
+			this.model= "650S Spider";
+			break;
+		case "Porche":
+				this.make = "Porche";
+				this.model= "Boxster Spyder";
+				break;
+			
+		
+		}
 
 	public String getMake() {
 		return make;
