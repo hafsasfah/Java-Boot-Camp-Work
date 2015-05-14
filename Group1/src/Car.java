@@ -24,7 +24,7 @@ public class Car implements VehicleI {
 		return "Make: "+ make+" Model "+ model; 
 		
 	}
-	public double getQuaterMile(){
+	public double getQuarterMile(){
 		Random random= new Random();
 		
 		return random.nextDouble()*10;
