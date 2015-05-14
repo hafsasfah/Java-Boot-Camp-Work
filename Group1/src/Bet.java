@@ -15,13 +15,13 @@ public class Bet {
 	public String Race()
 	{	
 		
-		if (player1.getQuaterMile() < player2.getQuaterMile()) //TODO: these should be player1.getVehicle().getQuaterMile() ;
+		if (player1.getVehicle().getQuarterMile()); //TODO: these should be player1.getVehicle().getQuaterMile() ;
 		{
 			player1.addCash(wager);
 			player2.addCash(-(wager));
 			System.out.print("Player 1 Wins");
 		}
-		else if (player1.getQuaterMile() > player2.getQuaterMile()) 
+		else if (player1.getQuarterMile() > player2.getQuarterMile()) 
 		{
 			player1.addCash(-(wager));
 			player2.addCash(wager);
