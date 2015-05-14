@@ -10,7 +10,11 @@ public class Bet implements iBet{
 		this.player2 = player2;
 		this.wager = wager;
 	}
-
+	
+	public boolean isValid() {
+		return false;
+	}
+	
 	@Override
 	public String Race() {
 		if (player1.getVehicle().getQuarterMileTime() > player2.getVehicle().getQuarterMileTime()){
