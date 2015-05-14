@@ -12,7 +12,8 @@ public class GUI extends JFrame {
 	private JPanel selectedCarPanel; // to hold components 
 	private JList carList; // the cars
 	private JList carList2; // the cars
-	private JTextField selectedCar; // the selected car
+	private JTextField selectedCar1; // the selected car for player 1
+	private JTextField selectedCar2; // the selected car for player 1
 	private JLabel label; // a message
 	
 	// The following array holds the values that will be displayed in the 
@@ -40,7 +41,8 @@ public class GUI extends JFrame {
 		 
 		add(carPanel1,BorderLayout.WEST);
 		add(carPanel2,BorderLayout.EAST);
-		add(selectedCar, BorderLayout.SOUTH);
+		add(selectedCar1, BorderLayout.SOUTH);
+		add(selectedCar2, BorderLayout.NORTH);
 		
 		//Add the panels to the content
 		pack();
@@ -86,14 +88,17 @@ public class GUI extends JFrame {
 		label = new JLabel("You selected: ");
 		
 		//Create the text field
-		selectedCar = new JTextField(4);
+		selectedCar1 = new JTextField(10);
+		selectedCar2 = new JTextField(10);
 		
 		//Make the text field uneditable
-		selectedCar.setEditable(false);
+		selectedCar1.setEditable(false);
+		selectedCar2.setEditable(false);
 		
 		//Add the label and text field to the panel
 		selectedCarPanel.add(label);
-		selectedCarPanel.add(selectedCar);
+		selectedCarPanel.add(selectedCar1);
+		selectedCarPanel.add(selectedCar2);
 		
 	}
 	
@@ -107,13 +112,13 @@ public class GUI extends JFrame {
 			String selection1 = (String) carList.getSelectedValue();
 			
 			//Put the selected month in the text field
-			selectedCar.setText("Player 1 Selected :" + selection1);
+			selectedCar1.setText("Player 1 Selected :" + selection1);
 			
 			//Get Selected Car for player 2
 			String selection2 = (String) carList.getSelectedValue();
 			
 			//Put the selected month in the text field
-			selectedCar.setText("Player 2 Selected :" + selection2);
+			selectedCar2.setText("Player 2 Selected :" + selection2);
 			
 			
 			
