@@ -15,7 +15,7 @@ public class Bet {
 	public String Race()
 	{	
 		
-		if (player1.getQuaterMile() < player2.getQuaterMile()) 
+		if (player1.getQuaterMile() < player2.getQuaterMile()) //TODO: these should be player1.getVehicle().getQuaterMile() ;
 		{
 			player1.addCash(wager);
 			player2.addCash(-(wager));
