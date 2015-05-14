@@ -31,6 +31,7 @@ public class GUI extends JFrame {
 		
 		//Add a BorderLayout manager
 		setLayout(new BorderLayout());
+		setLayout(new FlowLayout());
 		
 		//Build the car and selectedcar panels
 		buildCarPanel();
@@ -41,8 +42,8 @@ public class GUI extends JFrame {
 		 
 		add(carPanel1,BorderLayout.WEST);
 		add(carPanel2,BorderLayout.EAST);
-		add(selectedCar1, BorderLayout.SOUTH);
-		add(selectedCar2, BorderLayout.NORTH);
+		add(selectedCar1);
+		add(selectedCar2);
 		
 		//Add the panels to the content
 		pack();
@@ -90,8 +91,8 @@ public class GUI extends JFrame {
 		label = new JLabel("You selected: ");
 		
 		//Create the text field
-		selectedCar1 = new JTextField(10);
-		selectedCar2 = new JTextField(10);
+		selectedCar1 = new JTextField(15);
+		selectedCar2 = new JTextField(15);
 		
 		//Make the text field uneditable
 		selectedCar1.setEditable(false);
