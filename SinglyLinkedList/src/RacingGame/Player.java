@@ -6,7 +6,7 @@ public class Player implements  PlayerI {
 	
 	String name;
 	int cash;
-	Car vehicle;
+	VehicleI vehicle;
 	
 	@Override
 	public String getName() {
@@ -26,15 +26,22 @@ public class Player implements  PlayerI {
 		return this.cash;
 	}
 
+	public Player(String name, int cash, VehicleI vehicle) {
+		super();
+		this.name = name;
+		this.cash = cash;
+		this.vehicle = vehicle;
+	}
+
 	@Override
-	public void setVehicle(Car vehicle) {
+	public void setVehicle(VehicleI vehicle) {
 		this.vehicle= vehicle;
 	}
 
 	
 
 	@Override
-	public Car getVehicle() {
+	public VehicleI getVehicle() {
 		// TODO Auto-generated method stub
 		return vehicle;
 	}
