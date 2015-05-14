@@ -1,8 +1,10 @@
 public class Vehicle {
 	private String make;
+	private String color;
 	
-	Vehicle(String make, String model){
+	Vehicle(String make, String color){
 		this.make = make;
+		this.color = color;
 	}
 	
 	Vehicle() {}
@@ -13,6 +15,10 @@ public class Vehicle {
 	
 	public String getMake() {
 		return make;
+	}
+	
+	public String getColor() {
+		return color;
 	}
 	
 	public String toString() {
