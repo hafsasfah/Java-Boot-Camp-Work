@@ -67,9 +67,11 @@ public class GUI extends JFrame {
 		
 		//Set the selection mode to single selection
 		carList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		carList2.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
 		//Register the list selection listener
 		carList.addListSelectionListener(new ListListener());
+		carList2.addListSelectionListener(new ListListener());
 		
 		//Add the list to the panel
 		carPanel1.add(carList);
@@ -115,7 +117,7 @@ public class GUI extends JFrame {
 			selectedCar1.setText("Player 1 Selected :" + selection1);
 			
 			//Get Selected Car for player 2
-			String selection2 = (String) carList.getSelectedValue();
+			String selection2 = (String) carList2.getSelectedValue();
 			
 			//Put the selected month in the text field
 			selectedCar2.setText("Player 2 Selected :" + selection2);
