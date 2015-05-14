@@ -17,7 +17,7 @@ public class GUI extends JFrame {
 	// The following array holds the values that will be displayed in the 
 	// carList list component.
 	
-	private String[] cars = {"Lamborghini", "Ferrari", "Pagani", "McLaren"};
+	private String[] cars = {"Lamborghini", "Ferrari", "Pagani", "McLaren", "Porche"};
 	
 	public GUI()
 	{
