@@ -11,6 +11,15 @@ public class Bet implements iBet{
 		this.wager = wager;
 	}
 	
+	public void setWager(int wager) {
+		this.wager = wager;
+	}
+	
+	@Override
+	public int getWager() {
+		return this.wager;
+	}
+	
 	public boolean isValid() {
 		return false;
 	}
@@ -21,13 +30,15 @@ public class Bet implements iBet{
 			player1.addCash(wager);
 			player2.addCash(wager * -1);
 			return player1.getName() + " in a " + player1.getVehicle().toString() + 
-					" lost to " + player2.getName() + " in a " + player2.getVehicle();
+					" defeated " + player2.getName() + " in a " + player2.getVehicle();
 		}
 		else {
 			player2.addCash(wager);
 			player1.addCash(wager * -1);
 			return player2.getName() + " in a " + player2.getVehicle().toString() + 
-					" lost to " + player1.getName() + " in a " + player1.getVehicle();
+					" defeated " + player1.getName() + " in a " + player1.getVehicle();
 		}
-	}	
+	}
+	
+	
 }
