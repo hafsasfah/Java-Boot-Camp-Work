@@ -6,6 +6,18 @@ public class Player implements PlayerInterface
 	int cash;
 	CarInterface car;
 	
+	public Player() 
+	{
+	this.cash = 100;	
+	}
+	
+	public Player(String name, int cash , CarInterface car)
+	{
+		this.name = name;
+		this.cash = cash;
+		this.car = car;
+	}
+	
 	public String getName() {
 		return name;
 	}

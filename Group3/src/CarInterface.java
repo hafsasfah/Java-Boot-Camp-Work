@@ -6,5 +6,4 @@ public interface CarInterface
 	String getmodel();
 	String toString();
 	double getQuarterMileTime();
-
 	}
