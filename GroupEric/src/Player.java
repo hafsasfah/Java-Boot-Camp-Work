@@ -1,3 +1,6 @@
+import java.awt.GridLayout;
+
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 
@@ -35,7 +38,13 @@ public class Player implements iPlayer {
 
 	public JPanel getPanel() {
 		JPanel panel = new JPanel();
-		
+		panel.setLayout(new GridLayout(3,1));
+		JLabel nameLabel = new JLabel(name);
+		JLabel cashLabel = new JLabel("Cash: " + cash);
+		panel.add(nameLabel);
+		panel.add(cashLabel);
+		panel.add(vehicle.getPanel());
+		return panel;
 	}
 
 }
