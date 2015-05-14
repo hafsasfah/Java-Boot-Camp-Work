@@ -1,5 +1,6 @@
-public class Vehicle {
+public class Vehicle implements iVehicle {
 	private String make;
+	private String color;
 	
 	Vehicle(String make, String model){
 		this.make = make;
@@ -17,7 +18,15 @@ public class Vehicle {
 	
 	public String toString() {
 		return ("This car is " + make);
+	}
+
+	@Override
+	public String getColor() {
+		return color;
+	}
+
+	@Override
+	public void setColor(String color) {
+		this.color = color;
 	}	
-	
-	
 }

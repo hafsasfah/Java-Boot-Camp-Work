@@ -1,14 +1,13 @@
-import java.awt.GridLayout;
 import javax.swing.*;
 
 public class Player implements iPlayer{
 	private String name;
-	private int cash;
+	private int cash = 100;
 	private iVehicle car;
 	
-	Player(String name, int cash, iVehicle car){
+	Player(String name, iVehicle car){
 		this.name = name;
-		this.cash = cash;
+		this.cash = 100;
 		this.car = car;
 	}
 	
@@ -18,6 +17,7 @@ public class Player implements iPlayer{
 	public String getName() {
 		return name;
 	}
+	
 	@Override
 	public int getCash() {
 		return cash;
@@ -26,8 +26,8 @@ public class Player implements iPlayer{
 	@Override
 	public void addCash(int cash) {
 		this.cash += cash;
-		
 	}
+	
 	@Override
 	public void setVehicle(iVehicle car) {
 		this.car = car;
@@ -36,8 +36,9 @@ public class Player implements iPlayer{
 	public iVehicle getVehicle() {
 		return car;
 	}
-	
-		
-		
-	}
 
+	@Override
+	public void setName(String name) {
+		this.name = name;		
+	}
+}

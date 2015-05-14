@@ -25,18 +25,24 @@ public class Bet implements iBet{
 	}
 	
 	@Override
-	public String Race() {
-		if (player1.getVehicle().getQuarterMileTime() > player2.getVehicle().getQuarterMileTime()){
+	public String race() {
+		if (player1.getVehicle().getQuarterMileTime() < player2.getVehicle().getQuarterMileTime()){
 			player1.addCash(wager);
 			player2.addCash(wager * -1);
-			return player1.getName() + " in a " + player1.getVehicle().toString() + 
-					" defeated " + player2.getName() + " in a " + player2.getVehicle();
+			return player1.getName() + " drove a " + player1.getVehicle().getColor() + " " + 
+				player1.getVehicle().toString() + " for " + player1.getVehicle().getQuarterMileTime() 
+				+ " seconds and defeated " + player2.getName() + " who drove a " + 
+				player2.getVehicle().getColor() + " " + player2.getVehicle().toString() + " for " + 
+				player2.getVehicle().getQuarterMileTime() + " seconds";
 		}
 		else {
 			player2.addCash(wager);
 			player1.addCash(wager * -1);
-			return player2.getName() + " in a " + player2.getVehicle().toString() + 
-					" defeated " + player1.getName() + " in a " + player1.getVehicle();
+			return player2.getName() + " drove a " + player2.getVehicle().getColor() + " " + 
+				player2.getVehicle().toString() + " for " + player2.getVehicle().getQuarterMileTime() 
+				+ " seconds and defeated " + player1.getName() + " who drove a " + 
+				player1.getVehicle().getColor() + " " + player1.getVehicle().toString() + " for " + 
+				player1.getVehicle().getQuarterMileTime() + " seconds";
 		}
 	}
 	
