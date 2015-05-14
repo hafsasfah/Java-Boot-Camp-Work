@@ -1,4 +1,4 @@
-package RacingGame;
+
 
 public interface PlayerI {
 	

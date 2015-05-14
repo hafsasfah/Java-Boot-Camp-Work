@@ -1,4 +1,3 @@
-package RacingGame;
 
 public class Bet {
 	

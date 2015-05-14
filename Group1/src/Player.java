@@ -1,4 +1,4 @@
-package RacingGame;
+
 
 public class Player implements  PlayerI {
 
@@ -25,7 +25,7 @@ public class Player implements  PlayerI {
 		this.cash+=cash;
 		return this.cash;
 	}
-	@Override
+	
 	public int subtractCash(int cash) {
 		this.cash-=cash;
 		return this.cash;
