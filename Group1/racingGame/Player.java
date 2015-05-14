@@ -25,7 +25,14 @@ public class Player implements  PlayerI {
 		this.cash+=cash;
 		return this.cash;
 	}
-
+	@Override
+	public int subtractCash(int cash) {
+		this.cash-=cash;
+		return this.cash;
+	}
+	
+	
+	
 	public Player(String name, int cash, VehicleI vehicle) {
 		super();
 		this.name = name;
@@ -42,7 +49,6 @@ public class Player implements  PlayerI {
 
 	@Override
 	public VehicleI getVehicle() {
-		// TODO Auto-generated method stub
 		return vehicle;
 	}
 
