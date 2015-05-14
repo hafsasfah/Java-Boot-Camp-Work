@@ -1,6 +1,5 @@
 package RacingGame;
 
-
 public class Bet {
 	
 	private Player player1;
