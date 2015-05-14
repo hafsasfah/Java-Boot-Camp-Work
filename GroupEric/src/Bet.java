@@ -28,4 +28,9 @@ public class Bet implements iBet {
 					+ " loses to " + player2.getName() + " in a " + player2.getVehicle().toString();
 		}
 	}
+	
+	public String toString()
+	{
+		return "";
+	}
 }
