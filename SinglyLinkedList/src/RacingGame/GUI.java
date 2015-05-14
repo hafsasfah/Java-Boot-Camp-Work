@@ -102,7 +102,7 @@ public class GUI extends JFrame {
 			String selection = (String) carList.getSelectedValue();
 			
 			//Put the selected month in the text field
-			selectedCar.setText(selection);
+			selectedCar.setText("Player Selected" + selection);
 			
 		}
 		
