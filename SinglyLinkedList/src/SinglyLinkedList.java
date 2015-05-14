@@ -33,13 +33,20 @@ public class SinglyLinkedList<E>
 		return count;
 	}
 	
+<<<<<<< Updated upstream
 	public E get( int index )
 	{
 		if ( index < 0 || index > size() - 1 )
+=======
+	public E get(int index)
+	{
+		if (index <0 || index> size() -1)
+>>>>>>> Stashed changes
 		{
 			throw new IndexOutOfBoundsException();
 		}
 		
+<<<<<<< Updated upstream
 		int count = 0;
 		E elementToReturn = null;
 		for (Entry<E> current = head; current != null; current = current.next)
@@ -49,15 +56,33 @@ public class SinglyLinkedList<E>
 				elementToReturn = current.element;
 			}
 			count ++;
+=======
+		int count =0;
+		E elementToReturn = null;
+		
+		for (Entry<E> current = head; current !=null
+		{
+			count++;
+>>>>>>> Stashed changes
 		}
 		return elementToReturn;
 	}
 	
+<<<<<<< Updated upstream
 	public Iterator<E> iterator()
 	{
 		return new SinglyLinkedListIterator();
 	} 
 
+=======
+	
+	public Iterator<E> iterator()
+	{
+		return new SinglyLinkedListIterator();
+	}
+	
+	
+>>>>>>> Stashed changes
 	protected class SinglyLinkedListIterator implements Iterator<E> 
 	{
 	    protected Entry<E> next;

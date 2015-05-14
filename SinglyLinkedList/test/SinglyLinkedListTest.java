@@ -41,10 +41,15 @@ public class SinglyLinkedListTest
 		list.addToFront("test");
 		assertEquals(1, list.size());
 	}
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 	
 	@Test
 	public void testGet()
 	{
+<<<<<<< Updated upstream
 		String testString = "Test";
 		list.addToFront( testString );
 		assertEquals( testString, list.get(0) );
@@ -72,5 +77,16 @@ public class SinglyLinkedListTest
 	public void testNegativeIndexOutOfBoundsException()
 	{
 		list.get(-1);
+=======
+		list.addToFront("test");
+		assertEquals("test", list.get(0));
+	}
+
+	
+	@Test
+	public void iterator()
+	{
+		
+>>>>>>> Stashed changes
 	}
 }
