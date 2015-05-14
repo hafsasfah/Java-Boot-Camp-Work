@@ -12,6 +12,8 @@ public class Bet implements BetInterface
 		this.player2 = player2;
 		this.wager = wager;
 	}
+	
+	
 	@Override
 	public String Race()
 	{
@@ -30,7 +32,10 @@ public class Bet implements BetInterface
 			+ player2.getName() + " in a " + player2.getVehicle().toString();
 
 		}
-
+		
+		
+		
+		
 	}
 
 }
