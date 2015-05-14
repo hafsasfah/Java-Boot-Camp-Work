@@ -15,14 +15,14 @@ public class VehicleGui extends JPanel{
 	private JRadioButton FerrariSelection;
 	private ButtonGroup Button;
 	
-	public VehicleGui(){
+	public void VehicleGui(){
 		setLayout(new GridLayout(4,1));
 		
 		//Creating Radio buttons
-		FordSelection= new JRadioButton("Ford");
-		ToyotaSelection= new JRadioButton("Toyota");
-		LamborghiniSelection=new JRadioButton("Lamborghini");
-		FerrariSelection=new JRadioButton("Ferrari");
+		FordSelection= new JRadioButton(ford);
+		ToyotaSelection= new JRadioButton(toyota);
+		LamborghiniSelection=new JRadioButton(lamborghini);
+		FerrariSelection=new JRadioButton(ferrari);
 		
 		// Group the radio buttons
 		Button=new ButtonGroup();
@@ -30,14 +30,16 @@ public class VehicleGui extends JPanel{
 		Button.add(ToyotaSelection);
 		Button.add(LamborghiniSelection);
 		Button.add(FerrariSelection);
-	}
-public static void main(String args[]){
-	VehicleGui();
-}
-private static void VehicleGui() {
-	// TODO Auto-generated method stub
+		
+		setBorder(BorderFactory.createTitledBorder("Choose a Car"));
+		
+		//A buttons to panel
+		add(FordSelection);
+		add(ToyotaSelection);
+		add(LamborghiniSelection);
+		add(FerrariSelection);
 	
-}
-
-
+	}
+	
+	
 }

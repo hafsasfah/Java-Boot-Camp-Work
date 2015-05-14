@@ -6,8 +6,7 @@ public class Vehicle implements iVehicle {
 		this.make = make;
 	}
 	
-	Vehicle() {}
-	
+
 	public double getQuarterMileTime(){
 		return Math.random()*10.0; // less than 10s
 	}
@@ -22,6 +21,7 @@ public class Vehicle implements iVehicle {
 
 	@Override
 	public String getColor() {
+		
 		return color;
 	}
 
