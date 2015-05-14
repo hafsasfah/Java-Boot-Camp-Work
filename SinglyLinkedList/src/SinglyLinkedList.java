@@ -99,7 +99,8 @@ public class SinglyLinkedList<E> implements List<E>
 		protected E element;
 		protected Entry<E> next;
 	}
-
+	
+	
 	@Override
 	public void add(int index, E element) {
 		throw new UnsupportedOperationException();
