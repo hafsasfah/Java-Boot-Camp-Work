@@ -6,7 +6,7 @@ import java.awt.*;
 
 
 public class GUI extends JFrame {
-	
+
 	private JPanel carPanel1; // to hold components for player 1
 	private JPanel carPanel2; // to hold components for player 2
 	private JPanel selectedCarPanel; // to hold components 
@@ -19,7 +19,7 @@ public class GUI extends JFrame {
 	
 	private String[] cars = {"Lamborghini", "Ferrari", "Pagani", "McLaren"};
 	
-	public ListWindow()
+	public GUI()
 	{
 		// Set the title
 		setTitle("Select Car");
@@ -29,6 +29,19 @@ public class GUI extends JFrame {
 		
 		//Add a BorderLayout manager
 		setLayout(new BorderLayout());
+		
+		//Build the car and selectedcar panels
+		buildCarPanel();
+		buildSelectedCarPanel();
+		
+		//Add the panels to the content pane
+		add(carPanel1,BorderLayout.EAST);
+		add(carPanel2,BorderLayout.WEST);
+		add(selectedCar, BorderLayout.SOUTH);
+		
+		//Add the panels to the content
+		pack();
+		setVisible(true);
 				
 		
 	}
@@ -64,8 +77,18 @@ public class GUI extends JFrame {
 		//Create a panel to hold the text field
 		selectedCarPanel = new JPanel();
 		
-		//Create the text field
+		//Create the label
+		label = new JLabel("You selected: ");
 		
+		//Create the text field
+		selectedCar = new JTextField(4);
+		
+		//Make the text field uneditable
+		selectedCar.setEditable(false);
+		
+		//Add the label and text field to the panel
+		selectedCarPanel.add(label);
+		selectedCarPanel.add(selectedCar);
 		
 	}
 	
@@ -83,5 +106,10 @@ public class GUI extends JFrame {
 			
 		}
 		
+	}
+	
+	public static void main(String[] args)
+	{
+		new GUI();
 	}
 }
