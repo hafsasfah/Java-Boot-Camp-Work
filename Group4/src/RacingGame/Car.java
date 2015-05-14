@@ -10,7 +10,7 @@ public class Car implements iVehicle
 	Random random = new Random();
 	
 	@Override
-	public double getOuarterMileTime() 
+	public double getQuarterMileTime() 
 	{
 		return random.nextDouble();
 	}

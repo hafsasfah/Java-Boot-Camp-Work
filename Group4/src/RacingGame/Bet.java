@@ -14,7 +14,7 @@ public class Bet implements iBet{
 	}
 	public String Race()
 	{
-		if( player1.getVehicle().getOuarterMileTime() > player2.getVehicle().getOuarterMileTime() )
+		if( player1.getVehicle().getQuarterMileTime() > player2.getVehicle().getQuarterMileTime() )
 		{
 			player1.addCash(wager);
 			player2.addCash(wager = -1);
