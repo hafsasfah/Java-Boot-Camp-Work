@@ -5,15 +5,17 @@ import javax.swing.JFrame;
 
 public class FlowGUI extends JFrame
 {
-   private final int WINDOW_WIDTH = 600;  // Window width
-   private final int WINDOW_HEIGHT = 1000; // Window height
-
+   private final int WINDOW_WIDTH = 300;  // Window width
+   private final int WINDOW_HEIGHT = 200; // Window height
+   
    /**
       Constructor
    */
 
    public FlowGUI()
-   {
+      {
+	   Player p1=new Player();
+	   Player p2=new Player();
       // Set the title bar text.
       setTitle("Flow Layout");
 
@@ -27,15 +29,16 @@ public class FlowGUI extends JFrame
       setLayout(new FlowLayout());
 
       // Create three buttons.
-      JButton button1 = new JButton("Button 1");
-      JButton button2 = new JButton("Button 2");
-      JButton button3 = new JButton("Button 3");
+      JButton button1 = new JButton("Player1");
+      JButton button2 = new JButton("Player2");
+      JButton button3 = new JButton();
 
       // Add the three buttons to the content pane.
       add(button1);
       add(button2);
       add(button3);
-
+      
+      
       // Display the window.
       setVisible(true);
    }

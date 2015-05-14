@@ -1,5 +1,7 @@
+import java.awt.GridLayout;
+import javax.swing.*;
 
-public class Player implements iPlayer {
+public class Player implements iPlayer{
 	private String name;
 	private int cash;
 	private iVehicle car;
@@ -34,4 +36,8 @@ public class Player implements iPlayer {
 	public iVehicle getVehicle() {
 		return car;
 	}
-}
+	
+		
+		
+	}
+
