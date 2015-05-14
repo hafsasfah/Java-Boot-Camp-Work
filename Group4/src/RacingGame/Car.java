@@ -7,28 +7,35 @@ public class Car implements iVehicle
 
 	private String make;
 	private String model;
+	private String color;
 	Random random = new Random();
 	
-	@Override
+	
 	public double getOuaterMileTime() 
 	{
 		return random.nextDouble();
 	}
 	
-	@Override
+	
 	public String getMake() 
 	{
-		return null;
+		return make;
 	}
 	
-	@Override
+	
 	public String getModel() 
 	{
-		return null;
+		return model;
 	}
 	
 	public String toString()
 	{
 		return null ;
 	}
+	
+	public String getColor()
+	{
+		return color;
+	}
+	
 }
