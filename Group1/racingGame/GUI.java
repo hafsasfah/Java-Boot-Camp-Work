@@ -15,6 +15,23 @@ public class GUI extends JFrame {
 	private JTextField selectedCar1; // the selected car for player 1
 	private JTextField selectedCar2; // the selected car for player 1
 	private JLabel label; // a message
+	/*	Adding neccisary fields
+	 *  PlayerI player1 = new Player("Player 1",100);
+	 *  PlayerI player2 = new Player("Player 2",100);
+	 *   
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 * 
+	 */
+	
+	
+	
+	
+	
+	
 	
 	// The following array holds the values that will be displayed in the 
 	// carList list component.
@@ -111,13 +128,18 @@ public class GUI extends JFrame {
 		public void valueChanged(ListSelectionEvent e) {
 			
 			//Get Selected Car for player 1
-			String selection1 = (String) carList.getSelectedValue();
+			String selection1 = (String) carList.getSelectedValue(); 
+			//TODO: player1.vehicle = new Car(selection1);
+			
+			
 			
 			//Put the selected month in the text field
 			selectedCar1.setText("Player 1 Selected :" + selection1);
 			
 			//Get Selected Car for player 2
 			String selection2 = (String) carList2.getSelectedValue();
+			
+			//TODO: player2.vehicle.setCar(selection2);
 			
 			//Put the selected month in the text field
 			selectedCar2.setText("Player 2 Selected :" + selection2);
