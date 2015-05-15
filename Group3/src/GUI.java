@@ -8,7 +8,6 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
 
-
 public class GUI extends JFrame
 {
 	Player player1;
@@ -17,6 +16,16 @@ public class GUI extends JFrame
 	CarClass car2;
 	
 	private JLabel label;					//displays the message 
+	
+
+	private JPanel CarSelection;  
+	private JComboBox CarBox; 
+	String[] cars = { "Jaguar XJS" , "Nissan GT-R",
+			"Lamborghini Diablo","Lotus Elise",
+			"Ferrari F50" , "Luxas LFA","Koenigsegg Agera"};
+	private JTextField selectedCar; 
+	
+	
 	
 	private JPanel panel1;
 	private JTextField selectedWager; 		//select the wager 
@@ -34,7 +43,7 @@ public class GUI extends JFrame
 		player2 = new Player("Player 2", 100, car2);
 		
 		//set the title
-		String[] cars = {"Explorer", "Corvet", "Mustang", "Impala"};
+		
 		JComboBox carBox = new JComboBox(cars);
 		JComboBox carBox2 = new JComboBox(cars);
 		
@@ -46,7 +55,8 @@ public class GUI extends JFrame
 		setSize(300, 400);
 
 		setLayout(new GridLayout(3,2));
-
+		buildnewCarPanel();
+		this.add(CarSelection);
 		
 		buildCarPanel();
 		this.add(panel1);
@@ -71,11 +81,34 @@ public class GUI extends JFrame
 	
 	}
 	
-	public void buildChoicePanel()
+	private void buildnewCarPanel()
 	{
+		//build a Panel to hold the combo box
+		CarSelection = new JPanel();
 		
+		//Create the combo box
+		CarBox = new JComboBox(cars);
 		
+		//Register action listener
+		CarBox.addActionListener(new ComboBoxListener());
+		
+		//add the combo box to the panel
+		CarSelection.add(CarBox);
 	}
+	
+	private class ComboBoxListener implements ActionListener
+	{
+
+		public void actionPerformed(ActionEvent e) 
+		{
+		//Get the selected Car
+		String selection = (String) CarBox.getSelectedItem();
+		selectedCar = new JTextField();
+		selectedCar.setText(selection);
+		}
+
+	}
+	
 	
 	private class StartMatchButtonListener implements ActionListener
 	{
