@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 
 public class BetGUI extends JFrame 
 {
+	protected static final int wager = 0;
 	JPanel panel=new JPanel();
 	JLabel label=new JLabel();
 	JTextField wagerField=new JTextField(10);
@@ -24,10 +25,11 @@ public class BetGUI extends JFrame
 		 wagerField.addActionListener(new ActionListener()
 		 {
 			 public void actionPerfromed(ActionEvent e)
-			 { 
-				 Bet b=new Bet(null, null, getDefaultCloseOperation());
-				 int input = Integer.parseInt(enter.getText());
-				 input=b.setWager(wager);
+			 { Bet b1=new Bet(null, null, wager);
+				 String input = wagerField.getText();
+				 int Wager = Integer.parseInt(input);
+				 b1.setWager(Wager);
+				 
 			 }
 
 			@Override
