@@ -1,4 +1,5 @@
 
+
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.event.ActionEvent;
@@ -25,18 +26,24 @@ public class GUI extends JFrame implements ActionListener{
 	// carList list component.
 	
 	private String[] cars = {"Lamborghini", "Ferrari", "Pagani", "McLaren", "Porche"};
-	private static final long serialVersionUID = 1L;
+	
 	public GUI()
 	{
+		
+		final int windowLength = 300;
+		final int windowWidth = 300;
+		
 		// Set the title
-		setTitle("Select Car");
+		setTitle("Select Cars to Race");
+		
+		setSize(windowLength, windowWidth);
 		
 		//Specify an action for the close button
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		//Add a BorderLayout manager
 		setLayout(new BorderLayout());
-		setLayout(new FlowLayout());
+		//setLayout(new FlowLayout());
 		
 		//Build the car and selected car panels
 		buildCarPanel();
@@ -47,8 +54,8 @@ public class GUI extends JFrame implements ActionListener{
 		 
 		add(carPanel1,BorderLayout.WEST);
 		add(carPanel2,BorderLayout.EAST);
-		add(selectedCar1);
-		add(selectedCar2);
+	//	add(selectedCar1,BorderLayout.NORTH);
+	//	add(selectedCar2,BorderLayout.SOUTH);
 		
 		//Add the panels to the content
 		pack();
@@ -128,7 +135,7 @@ public class GUI extends JFrame implements ActionListener{
 			
 			//Get Selected Car for player 1
 			String selection1 = (String) carList.getSelectedValue();
-			System.out.println("Gui "+selection1);
+			//System.out.println("Gui "+selection1);
 			player1.vehicle = new Car(selection1);
 			
 			//Put the selected month in the text field
