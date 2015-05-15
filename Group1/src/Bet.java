@@ -5,6 +5,17 @@ public class Bet {
 		
 	public static void race(PlayerI player1, PlayerI player2)
 	{	//TODO: what are these if statements doing!?!? Im assuming you want to compare between the two speeds
+		if (player1.getCash() == 0 || player2.getCash()==0){
+			if(player1.getCash() ==0){
+				JOptionPane.showMessageDialog(null, "Player 2 has won the game!!!!!!" );
+				
+			}
+			if(player2.getCash() ==0){
+				JOptionPane.showMessageDialog(null, "Player 1 has won the game!!!!!!" );
+				
+			}
+		}
+		else{
 		boolean flag = false;
 		int wager = Integer.parseInt(JOptionPane.showInputDialog("Enter amout to wager"));
 		if (wager>player1.getCash() || wager > player2.getCash() ){ flag = true;}
@@ -17,17 +28,7 @@ public class Bet {
 			}
 		}
 		
-		if (player1.getCash() == 0 || player2.getCash()==0){
-			if(player1.getCash() ==0){
-				JOptionPane.showMessageDialog(null, "Player 2 has won the game!!!!!!" );
-				
-			}
-			if(player2.getCash() ==0){
-				JOptionPane.showMessageDialog(null, "Player 1 has won the game!!!!!!" );
-				
-			}
-		}
-		else{
+	
 		double player1Speed=player1.getVehicle().getQuarterMile(); ;
 		double player2Speed=player2.getVehicle().getQuarterMile();
 		
