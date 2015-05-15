@@ -36,13 +36,13 @@ public class Bet {
 		{
 			player1.addCash(wager);
 			player2.addCash(-1*wager);
-			JOptionPane.showMessageDialog(null, "Player 1 wins the race\nPlayer 1 now has $" + player1.getCash()+ " \nPlayer 2 now has $" + player2.getCash() );
+			JOptionPane.showMessageDialog(null, "Player 1 driving a "+player1.getVehicle().getMake()+" wins the race\nPlayer 1 now has $" + player1.getCash()+ " \nPlayer 2 now has $" + player2.getCash() );
 		}
 		else if (player2Speed<player1Speed)
 		{
 			player1.addCash(-1*wager);
 			player2.addCash(wager);
-			JOptionPane.showMessageDialog(null, "Player 2 wins the race\nPlayer 1 now has $" + player1.getCash()+ " \nPlayer 2 now has $" + player2.getCash() );
+			JOptionPane.showMessageDialog(null, "Player 2 driving a "+player2.getVehicle().getMake()+" wins the race\nPlayer 1 now has $" + player1.getCash()+ " \nPlayer 2 now has $" + player2.getCash() );
 		}
 		else
 		{
