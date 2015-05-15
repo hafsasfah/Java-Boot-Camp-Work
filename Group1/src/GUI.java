@@ -94,7 +94,7 @@ public class GUI extends JFrame implements ActionListener{
 		
 		//Register the list selection listener
 		carList.addListSelectionListener((ListSelectionListener) new ListListener());
-		carList2.addListSelectionListener((ListSelectionListener)new ListListener());
+		carList2.addListSelectionListener((ListSelectionListener)new ListListener1());
 		
 		//Add the list to the panel
 		carPanel1.add(carList);
@@ -141,23 +141,33 @@ public class GUI extends JFrame implements ActionListener{
 			//Put the selected month in the text field
 			selectedCar1.setText("Player 1 Selected :" + selection1);
 			
-		
+		}
+	}
+		private class ListListener1 implements ListSelectionListener
+		{
+			@Override
+			public void valueChanged(ListSelectionEvent e) {
+				// TODO Auto-generated method stub
 			
 			//Get Selected Car for player 2
 			String selection2 = (String) carList2.getSelectedValue();
+
+		
+				
+			
 			
 			player2.vehicle = new Car(selection2);
 			
 			//Put the selected month in the text field
 			selectedCar2.setText("Player 2 Selected :" + selection2);
-			
+			}
 			
 			
 		}
 
 		
 		
-	}
+	
 	
 	public static void main(String[] args)
 	{
