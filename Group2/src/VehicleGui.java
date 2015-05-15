@@ -9,23 +9,23 @@ public class VehicleGui extends JPanel{
 	public final String ferrari="Ferrari";
 	
 	// Making selection Buttons
-	private JCheckBox FordSelection; 
-	private JCheckBox ToyotaSelection;
-	private JCheckBox LamborghiniSelection;
-	private JCheckBox FerrariSelection;
-	private JCheckBox Button;
+	private JRadioButton FordSelection; 
+	private JRadioButton ToyotaSelection;
+	private JRadioButton LamborghiniSelection;
+	private JRadioButton FerrariSelection;
+	private JRadioButton Button;
 	
 	public VehicleGui(){
 		setLayout(new GridLayout(4,1));
 		
 		//Creating Radio buttons
-		FordSelection= new JCheckBox(ford);
-		ToyotaSelection= new JCheckBox(toyota);
-		LamborghiniSelection=new JCheckBox(lamborghini);
-		FerrariSelection=new JCheckBox(ferrari);
+		FordSelection = new JRadioButton(ford);
+		ToyotaSelection= new JRadioButton(toyota);
+		LamborghiniSelection=new JRadioButton(lamborghini);
+		FerrariSelection=new JRadioButton(ferrari);
 		
 		// Group the radio buttons
-		Button=new JCheckBox();
+		Button=new JRadioButton();
 		Button.add(FordSelection);
 		Button.add(ToyotaSelection);
 		Button.add(LamborghiniSelection);
