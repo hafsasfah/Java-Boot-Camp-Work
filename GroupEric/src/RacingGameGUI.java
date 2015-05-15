@@ -13,6 +13,7 @@ public class RacingGameGUI extends JFrame
 	private iPlayer player1;
 	private iPlayer player2;
 	private iBet bet;
+	private iVehicleFactory vehicleFactory;
 	
 	private JPanel northPanel;
 	
@@ -33,8 +34,10 @@ public class RacingGameGUI extends JFrame
 		setSize(WIDTH,HEIGHT);
 		setLayout(new BorderLayout());
 		
-		player1 = new Player(STARTING_CASH);
-		player2 = new Player(STARTING_CASH);
+		vehicleFactory = new CarFactory();
+		
+		player1 = new Player(vehicleFactory, STARTING_CASH);
+		player2 = new Player(vehicleFactory, STARTING_CASH);
 		add(player1.getPanel(), BorderLayout.WEST);
 		add(player2.getPanel(), BorderLayout.EAST);
 		
@@ -104,6 +107,7 @@ public class RacingGameGUI extends JFrame
 		public void actionPerformed(ActionEvent e) 
 		{
 			resultLabel.setText( bet.race() );
+			raceButton.setEnabled(false);
 			if ( player1.getCash() <= 0 || player2.getCash() <= 0 )
 			{
 				northPanel.remove(wagerField);

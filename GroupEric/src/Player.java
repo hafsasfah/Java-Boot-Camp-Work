@@ -15,7 +15,7 @@ public class Player implements iPlayer
 	private JLabel nameLabel;
 	private JLabel cashLabel;
 	
-	public Player( int cash )
+	public Player( iVehicleFactory vehicleFactory, int cash )
 	{
 		isValid = false;
 		this.cash = cash;
@@ -36,7 +36,7 @@ public class Player implements iPlayer
 		middlePanel.add(nameTextField);
 		panel.add(middlePanel);
 		
-		vehicle = new Car();
+		vehicle = vehicleFactory.getVehicle();
 		panel.add(vehicle.getPanel());
 		
 		JPanel bottomPanel = new JPanel();
