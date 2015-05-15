@@ -80,11 +80,13 @@ public class Player implements iPlayer
 	
 	private void updatePanel() 
 	{
+		panel.removeAll();
 		nameLabel.setText(name);
 		updateCashLabel();
 		panel.add(nameLabel);
 		panel.add(cashLabel);
-		panel.add(vehicle.getPanel());	
+		panel.add(vehicle.getPanel());
+		panel.revalidate();
 	}
 	
 	private void updateCashLabel()
@@ -100,9 +102,9 @@ public class Player implements iPlayer
 			if ( vehicle.isReady() )
 			{
 				name = nameTextField.getText();
-				panel.removeAll();
+				
 				updatePanel();
-				panel.revalidate();
+				
 				isValid = true;
 			}
 			else
