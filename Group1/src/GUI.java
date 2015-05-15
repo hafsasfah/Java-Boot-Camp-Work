@@ -69,7 +69,9 @@ public class GUI extends JFrame implements ActionListener{
 	}
 	public void actionPerformed(ActionEvent e) {
 		//System.out.println(
-		Bet.race(player1, player2, Integer.parseInt(JOptionPane.showInputDialog("Enter amout to wager")));
+		
+	
+		Bet.race(player1, player2);
 				
 		
 	}
