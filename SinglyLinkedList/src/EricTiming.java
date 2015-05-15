@@ -25,6 +25,7 @@ public class EricTiming {
 		
 	}
 	
+	//Random Number Insertion - JPB
 	public static void addRandomNumbersToList( String name, List<Integer> list, int numbersToAdd )
 	{
 		Random random = new Random(50);
@@ -42,6 +43,7 @@ public class EricTiming {
 		System.out.printf( "Adding %d to %s took %f millseconds\n\n", numbersToAdd, name, elapsedTime / 1000000.0 );
 	}
 	
+	//Search the list for a particular number to check
 	public static void checkListsForContainsRandomNumber( String name, List<Integer> list, int numbersToCheck )
 	{
 		Random random = new Random(42);
