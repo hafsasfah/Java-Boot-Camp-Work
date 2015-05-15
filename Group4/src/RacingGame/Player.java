@@ -33,7 +33,7 @@ public class Player implements iPlayer
 		this.cash = cash;
 	}
 
-	@Override
+	
 	public void addCash(int cash) 
 	{
 		this.cash += cash;
@@ -45,7 +45,7 @@ public class Player implements iPlayer
 		return car;
 	}
 	
-	@Override
+	
 	public void setVehicle(iVehicle car) 
 	{
 		this.car = car;

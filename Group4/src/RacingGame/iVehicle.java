@@ -7,5 +7,6 @@ public interface iVehicle
 	String getMake();
 	String getModel();
 	String toString();
+	String getColor();
 	
 }
