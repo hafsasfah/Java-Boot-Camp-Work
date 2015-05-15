@@ -26,7 +26,7 @@ public class ColorGUI extends JPanel {
 	}
 	
 	private class confirmButtonListener implements ActionListener {
-		Vehicle player = new Vehicle(null, black);
+		Vehicle player = new Vehicle();
 		public void actionPerformed(ActionEvent e) {
 			if (Red.isSelected()) {
 				player.setColor(red);
