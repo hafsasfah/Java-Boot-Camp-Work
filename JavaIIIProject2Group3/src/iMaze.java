@@ -1,4 +1,4 @@
-/*should parse a file in to a matrix of room objects, should be able to control where players can move, and store information from old rooms so that new rooms aren't generated.
+/*
 -boolean existsUp
 -boolean existsDown
 -boolean existsLeft
