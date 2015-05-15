@@ -43,7 +43,7 @@ public class GUI extends JFrame implements ActionListener{
 		
 		//Add a BorderLayout manager
 		setLayout(new BorderLayout());
-		//setLayout(new FlowLayout());
+		setLayout(new FlowLayout());
 		
 		//Build the car and selected car panels
 		buildCarPanel();
@@ -54,8 +54,8 @@ public class GUI extends JFrame implements ActionListener{
 		 
 		add(carPanel1,BorderLayout.WEST);
 		add(carPanel2,BorderLayout.EAST);
-	//	add(selectedCar1,BorderLayout.NORTH);
-	//	add(selectedCar2,BorderLayout.SOUTH);
+		add(selectedCar1,BorderLayout.NORTH);
+		add(selectedCar2,BorderLayout.SOUTH);
 		
 		//Add the panels to the content
 		pack();
