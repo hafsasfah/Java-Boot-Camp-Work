@@ -11,6 +11,8 @@ import javax.swing.*;
 public class MainFrame extends JFrame {
 
 	private DetailsPanel detailsPanel;
+	public JLabel label;
+	public ImageIcon image;
 	
 	public MainFrame(String title) 
 	{
@@ -32,7 +34,9 @@ public class MainFrame extends JFrame {
 		//c.add(button, BorderLayout.SOUTH);
 		c.add(detailsPanel, BorderLayout.WEST);
 		
-		//add a behaivor
+		//add a image
+		
+		
 		
 	}
 }

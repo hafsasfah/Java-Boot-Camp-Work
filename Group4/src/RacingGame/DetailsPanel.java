@@ -33,10 +33,7 @@ public DetailsPanel()
 	this.player1name = JOptionPane.showInputDialog("Player 1 please enter your name.");
 	this.player2name = JOptionPane.showInputDialog("Player 2 please enter your name.");
 	
-	//setLayout(new FlowLayout());
-	//image = new ImageIcon (getClass().getResource("racecargame.png"));
-	//label = new JLabel (image);
-	//add(label);
+	
 	
 	setBorder(BorderFactory.createTitledBorder("Place your bet"));
 	
@@ -98,11 +95,12 @@ public DetailsPanel()
 			
 	});
 	
-	// ADDING A PIC TEST //
-	
-	//BufferedImage myPicture = ImageIO.read(new File("C:\\Users\\F01000154.CORP-9BM7KX1\\Pictures"));
-	//JLabel picLabel = new JLabel(new ImageIcon(myPicture));
-	//add(picLabel);
+	//setLayout(new FlowLayout());
+	JButton picBtn = new JButton("");
+	//image = new ImageIcon (getClass().getResource("racecargame.png"));
+	JLabel label = new JLabel (image);
+	add(label);
+	picBtn.setIcon(new ImageIcon (getClass().getResource("racecargame.png")));
 	
 	
 	
@@ -178,7 +176,7 @@ public DetailsPanel()
 		gc.anchor = GridBagConstraints.LAST_LINE_START;
 		gc.gridx = 0;
 		gc.gridy = 7;
-		add(addBtn, gc);
+		add(picBtn, gc);
 	
 	// pick your car column //	
 		
