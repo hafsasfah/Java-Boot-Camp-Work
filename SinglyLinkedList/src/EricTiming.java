@@ -25,6 +25,8 @@ public class EricTiming {
 		
 	}
 	
+	//This method is for the purpose of adding random numbers to the list
+	// - JPB
 	public static void addRandomNumbersToList( String name, List<Integer> list, int numbersToAdd )
 	{
 		Random random = new Random(50);
