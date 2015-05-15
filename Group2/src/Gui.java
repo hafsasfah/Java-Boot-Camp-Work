@@ -11,6 +11,8 @@ public class Gui extends JFrame {
 		   private JPanel buttonPanel;
 		   private BetGUI bet;
 		   private ColorGUI color;
+		   private JButton confirm;
+		   private JButton exit;
 		//   private Vehicle make=new Vehicle();
 		//   private Player wager=new Player();
 
@@ -40,8 +42,20 @@ public class Gui extends JFrame {
 
 	private void buildButtonPanel() {
 		buttonPanel=new JPanel();
+		confirm=new JButton();
+		exit= new JButton();
+		
+		// confirm.addActionListener(new confirmButtonListener());
+	     //   exit.addActionListener(new exitButtonListener());
 			
+	        buttonPanel.add(confirm);
+	        buttonPanel.add(exit);
+					
 		}
+	
+	//private class nconfirmButtonListener implements ActionListener{
+		
+	//}
 
 	public static void main(String[] agrs){
 	

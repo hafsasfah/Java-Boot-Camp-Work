@@ -30,7 +30,7 @@ public class ColorGUI extends JPanel {
 		public void actionPerformed(ActionEvent e) {
 			if (Red.isSelected()) {
 				player.setColor(red);
-				//System.out.println("Red is selected");
+				System.out.println("Red is selected");
 			}
 			
 			else if (White.isSelected()) {
