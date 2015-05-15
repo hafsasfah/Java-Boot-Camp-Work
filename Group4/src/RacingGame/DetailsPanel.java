@@ -37,7 +37,7 @@ public DetailsPanel()
 	//image = new ImageIcon (getClass().getResource("racecargame.png"));
 	//label = new JLabel (image);
 	//add(label);
-	
+	//NEED A LIL EXTRA WORK ON BET
 	setBorder(BorderFactory.createTitledBorder("Place your bet"));
 	
 	JLabel player1Label = new JLabel(this.player1name);
