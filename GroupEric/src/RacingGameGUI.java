@@ -34,7 +34,7 @@ public class RacingGameGUI extends JFrame
 		setSize(WIDTH,HEIGHT);
 		setLayout(new BorderLayout());
 		
-		vehicleFactory = new CarFactory();
+		vehicleFactory = new TankFactory();
 		
 		player1 = new Player(vehicleFactory, STARTING_CASH);
 		player2 = new Player(vehicleFactory, STARTING_CASH);
