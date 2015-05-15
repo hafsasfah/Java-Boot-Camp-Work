@@ -7,35 +7,19 @@ import javax.swing.*;
 public class CarClass {
 
 	private String Model;
-	public CarClass()
-	{
-		
-	}
-	
+	public CarClass() {}
+	public CarClass(String x) {this.Model = x;}
+
 	public static int makeRandom()
-	{
-		
+	{	
 	Random rand = new Random();
 	return rand.nextInt((5 - 1) +1) + 1;
-	
 	}
-		Random random = new Random (10);
-		public String getModel() {
-			return Model;
-		}
-
-		public void setModel(String model) {
-			Model = model;
-		}
-
-		public Random getRandom() {
-			return random;
-		}
-
-		public void setRandom(Random random) {
-			this.random = random;
-		}
-		
+	
+	public String getModel() {return Model;}
+	public void setModel(String model) {Model = model;}
+	
+	
 	public class CarBoxWindow extends JFrame
 	{
 		private JPanel CarSelection;     //To hold Components
@@ -62,7 +46,7 @@ public class CarClass {
 				setLayout( new BorderLayout());
 				
 				//Panel Building
-				buildCarPanel();
+				buildnewCarPanel();
 				SelectedCarPanel();
 				
 				//Add the panels to the content Pane
@@ -73,7 +57,7 @@ public class CarClass {
 				pack();
 				setVisible(true);
 			}
-		private void buildCarPanel()
+		private void buildnewCarPanel()
 		{
 			//build a Panel to hold the combo box
 			CarSelection = new JPanel();

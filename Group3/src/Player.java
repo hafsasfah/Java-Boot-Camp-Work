@@ -2,16 +2,17 @@
 public class Player implements PlayerInterface
 {
 
-	String name;
+	String name = "default";
 	int cash;
-	CarInterface car;
+	CarClass car = new CarClass();
+	int numcompare;
 	
 	public Player() 
 	{
 	this.cash = 100;	
 	}
 	
-	public Player(String name, int cash , CarInterface car)
+	public Player(String name, int cash , CarClass car)
 	{
 		this.name = name;
 		this.cash = cash;
@@ -30,10 +31,10 @@ public class Player implements PlayerInterface
 	public void addCash(int cash) {
 		this.cash += cash;
 	}
-	public CarInterface getVehicle() {
+	public CarClass getVehicle() {
 		return car;
 	}
-	public void setVehicle(CarInterface car) {
+	public void setVehicle(CarClass car) {
 		this.car = car;
 	}
 	
