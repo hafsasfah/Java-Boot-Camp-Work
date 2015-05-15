@@ -1,4 +1,6 @@
 import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
@@ -15,22 +17,29 @@ public class Gui extends JFrame {
 	private JButton exit;
 //   private Vehicle make=new Vehicle();
 //   private Player wager=new Player();
-
+	
+	
+	
+	public class exitButtonListener implements ActionListener {
+	      public void actionPerformed(ActionEvent e) {
+	          System.exit(0);
+	      }
+	}
 
 	public Gui() {	  
 		setTitle("Racing Game");    
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
      	setLayout(new BorderLayout());  	
      
-     	vehicle=new VehicleGui();
-     	bet=new BetGUI();
-     	color=new ColorGUI();
+     	vehicle = new VehicleGui();
+     	bet = new BetGUI();
+     	color = new ColorGUI();
      
      	buildButtonPanel();
      
      	add(vehicle, BorderLayout.CENTER);
      	add(color,BorderLayout.EAST);
-     	// add(bet,BorderLayout.EAST);
+     	//add(bet,BorderLayout.EAST);
      	add(buttonPanel, BorderLayout.SOUTH);
     
 
@@ -44,8 +53,8 @@ public class Gui extends JFrame {
 			confirm=new JButton("Confirm");
 			exit= new JButton("Exit");
 
-// confirm.addActionListener(new confirmButtonListener());
-    //   exit.addActionListener(new exitButtonListener());
+    //confirm.addActionListener(new confirmButtonListener());
+    exit.addActionListener(new exitButtonListener());
 
        buttonPanel.add(confirm);
        buttonPanel.add(exit);

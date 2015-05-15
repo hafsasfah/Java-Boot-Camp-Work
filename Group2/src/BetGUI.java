@@ -7,20 +7,20 @@ import java.awt.event.ActionListener;
 public class BetGUI extends JFrame 
 {
 	protected static final int wager = 0;
-	JPanel panel=new JPanel();
-	JLabel label=new JLabel();
-	JTextField wagerField=new JTextField(10);
-	JButton enter=new JButton("Enter");
+	//JPanel panel=new JPanel();
+	JLabel label = new JLabel();
+	JTextField wagerField = new JTextField(10);
+	JButton enter = new JButton("Enter");
 	
 	public BetGUI() 
 	{
- 
+		setLayout(new GridLayout(1,1));
 		 setTitle("Wager");
 		 setVisible(true);
 		 setSize(200,200);
 		 
 		 	 
-		 panel.add(wagerField);
+		 add(wagerField);
 		 
 		 wagerField.addActionListener(new ActionListener()
 		 {
@@ -43,7 +43,7 @@ public class BetGUI extends JFrame
 		 });
 		 
 		  add(label);
-		 add(panel);
+		 //add(panel);
 	}
 }
 	

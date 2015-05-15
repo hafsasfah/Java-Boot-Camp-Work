@@ -19,13 +19,13 @@ public class ColorGUI extends JPanel {
 	private JRadioButton Green;
 	private JRadioButton button;
 
-	private class exitButtonListener implements ActionListener {
+	public class exitButtonListener implements ActionListener {
 	      public void actionPerformed(ActionEvent e) {
 	          System.exit(0);
 	      }
 	}
 	
-	private class confirmButtonListener implements ActionListener {
+	public class confirmButtonListener implements ActionListener {
 		Vehicle player = new Vehicle();
 		public void actionPerformed(ActionEvent e) {
 			if (Red.isSelected()) {
