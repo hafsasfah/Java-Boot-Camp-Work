@@ -10,11 +10,13 @@ public class Car implements VehicleI {
 	private String make;
 	private String model;
 	public Car(String car){
+		//System.out.println("Car initialize ");
 		switch (car){
 		
 		case "Lamborghini":
 			this.make = "Lamborghini";
 			this.model= "Murcielago";
+			//System.out.println("Car initialize to lambo ");
 			break;
 		case "Ferrari":
 			this.make = "Ferrari";

@@ -1,11 +1,14 @@
 
-import javax.swing.*;
-import javax.swing.event.*;
-
 import java.awt.*;
+import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
+import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
-public class GUI extends JFrame {
+public class GUI extends JFrame implements ActionListener{
 
 	private JPanel carPanel1; // to hold components for player 1
 	private JPanel carPanel2; // to hold components for player 2
@@ -15,12 +18,14 @@ public class GUI extends JFrame {
 	private JTextField selectedCar1; // the selected car for player 1
 	private JTextField selectedCar2; // the selected car for player 1
 	private JLabel label; // a message
+	Player player1 = new Player("Player 1", 100);
+	Player player2 = new Player("Player 2", 100);
 	
 	// The following array holds the values that will be displayed in the 
 	// carList list component.
 	
 	private String[] cars = {"Lamborghini", "Ferrari", "Pagani", "McLaren", "Porche"};
-	
+	private static final long serialVersionUID = 1L;
 	public GUI()
 	{
 		// Set the title
@@ -33,7 +38,7 @@ public class GUI extends JFrame {
 		setLayout(new BorderLayout());
 		setLayout(new FlowLayout());
 		
-		//Build the car and selectedcar panels
+		//Build the car and selected car panels
 		buildCarPanel();
 		buildSelectedCarPanel();
 		
@@ -47,7 +52,17 @@ public class GUI extends JFrame {
 		
 		//Add the panels to the content
 		pack();
-		setVisible(true);
+		setSize(600,600);//Size of JFrame
+		setDefaultCloseOperation(EXIT_ON_CLOSE);
+		setVisible(true);//Sets if its visible.
+		
+		JButton startButton = new JButton("Race");//The JButton name.
+		add(startButton);//Add the button to the JFrame.
+		startButton.addActionListener(this);//Reads the action.
+	}
+	public void actionPerformed(ActionEvent e) {
+		//System.out.println(
+		Bet.race(player1, player2, Integer.parseInt(JOptionPane.showInputDialog("Enter amout to wager")));
 				
 		
 	}
@@ -71,8 +86,8 @@ public class GUI extends JFrame {
 		carList2.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		
 		//Register the list selection listener
-		carList.addListSelectionListener(new ListListener());
-		carList2.addListSelectionListener(new ListListener());
+		carList.addListSelectionListener((ListSelectionListener) new ListListener());
+		carList2.addListSelectionListener((ListSelectionListener)new ListListener());
 		
 		//Add the list to the panel
 		carPanel1.add(carList);
@@ -109,16 +124,22 @@ public class GUI extends JFrame {
 	{
 
 		@Override
-		public void valueChanged(ListSelectionEvent e) {
+		public void valueChanged(ListSelectionEvent arg0) {
 			
 			//Get Selected Car for player 1
 			String selection1 = (String) carList.getSelectedValue();
+			System.out.println("Gui "+selection1);
+			player1.vehicle = new Car(selection1);
 			
 			//Put the selected month in the text field
 			selectedCar1.setText("Player 1 Selected :" + selection1);
 			
+		
+			
 			//Get Selected Car for player 2
 			String selection2 = (String) carList2.getSelectedValue();
+			
+			player2.vehicle = new Car(selection2);
 			
 			//Put the selected month in the text field
 			selectedCar2.setText("Player 2 Selected :" + selection2);
@@ -126,6 +147,8 @@ public class GUI extends JFrame {
 			
 			
 		}
+
+		
 		
 	}
 	

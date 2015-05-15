@@ -33,11 +33,12 @@ public class Player implements  PlayerI {
 	
 	
 	
-	public Player(String name, int cash, VehicleI vehicle) {
+	public Player(String name, int cash ) {
 		super();
 		this.name = name;
 		this.cash = cash;
-		this.vehicle = vehicle;
+		this.vehicle = null ; //vehicle;
+		System.out.println("player initialize ");
 	}
 
 	@Override
