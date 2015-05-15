@@ -2,7 +2,7 @@ public class Vehicle implements iVehicle {
 	private String make;
 	private String color;
 	
-	Vehicle(String make, String model){
+	Vehicle(String make, String color){
 		this.make = make;
 	}
 	
