@@ -7,4 +7,5 @@ public interface iPlayer {
 	void setVehicle( iVehicle vehicle );
 	iVehicle getVehicle();
 	JPanel getPanel();
+	boolean isReady();
 }

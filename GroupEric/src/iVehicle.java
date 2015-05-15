@@ -7,4 +7,5 @@ public interface iVehicle {
 	String toString();
 	double getQuarterMileTime();
 	JPanel getPanel();
+	boolean isReady();
 }
