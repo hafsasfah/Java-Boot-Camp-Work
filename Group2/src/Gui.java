@@ -9,28 +9,32 @@ public class Gui extends JFrame {
 		   private Player player1;
 		   private Player player2;
 		   private JPanel buttonPanel;
+		   private BetGUI bet;
+		   private ColorGUI color;
 		//   private Vehicle make=new Vehicle();
 		//   private Player wager=new Player();
 
 		 
 		   public Gui()
-		   { 
+		   {		   
 			   setTitle("Racing Game");    
 		      setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		      setLayout(new BorderLayout());   
-		     
+		      setLayout(new BorderLayout());  	
+		      
 		      vehicle=new VehicleGui();
+		      bet=new BetGUI();
+		      color=new ColorGUI();
 		      
-		   
-		     buildButtonPanel();
-		     	      
+		      buildButtonPanel();
 		      
-		      add(vehicle, BorderLayout.NORTH);
+		      add(vehicle, BorderLayout.CENTER);
+		      add(color,BorderLayout.EAST);
+		     // add(bet,BorderLayout.EAST);
 		      add(buttonPanel, BorderLayout.SOUTH);
 		     
 
 		     
-
+		      pack();
 		      setVisible(true);
 		   }
 
