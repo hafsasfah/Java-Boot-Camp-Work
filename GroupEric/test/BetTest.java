@@ -46,7 +46,8 @@ public class BetTest {
 		when(player2.getVehicle()).thenReturn(vehicle2);
 		
 		assertEquals( bet.race(), String.format("%s in a %s beats %s in a %s", player1Name, vehicle1Name, player2Name, vehicle2Name ));
-		
+		when(vehicle1.getQuarterMileTime()).thenReturn(3.0);
+		assertEquals( bet.race(), String.format("%s in a %s loses to %s in a %s", player1Name, vehicle1Name, player2Name, vehicle2Name ));
 		/*
 	 	if ( player1.getVehicle().getQuarterMileTime() < player2.getVehicle().getQuarterMileTime() )
 		{
