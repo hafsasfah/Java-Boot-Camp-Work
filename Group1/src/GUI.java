@@ -23,15 +23,21 @@ public class GUI extends JFrame {
 	
 	public GUI()
 	{
+		
+		final int windowLength = 300;
+		final int windowWidth = 300;
+		
 		// Set the title
-		setTitle("Select Car");
+		setTitle("Select Cars to Race");
+		
+		setSize(windowLength, windowWidth);
 		
 		//Specify an action for the close button
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		//Add a BorderLayout manager
 		setLayout(new BorderLayout());
-		setLayout(new FlowLayout());
+		//setLayout(new FlowLayout());
 		
 		//Build the car and selectedcar panels
 		buildCarPanel();
@@ -42,11 +48,11 @@ public class GUI extends JFrame {
 		 
 		add(carPanel1,BorderLayout.WEST);
 		add(carPanel2,BorderLayout.EAST);
-		add(selectedCar1);
-		add(selectedCar2);
+		add(selectedCar1,BorderLayout.NORTH);
+		add(selectedCar2,BorderLayout.SOUTH);
 		
 		//Add the panels to the content
-		pack();
+		//pack();
 		setVisible(true);
 				
 		
@@ -88,7 +94,7 @@ public class GUI extends JFrame {
 		selectedCarPanel = new JPanel();
 		
 		//Create the label
-		label = new JLabel("You selected: ");
+		//label = new JLabel("You selected: ");
 		
 		//Create the text field
 		selectedCar1 = new JTextField(15);
@@ -99,7 +105,7 @@ public class GUI extends JFrame {
 		selectedCar2.setEditable(false);
 		
 		//Add the label and text field to the panel
-		selectedCarPanel.add(label);
+		//selectedCarPanel.add(label);
 		selectedCarPanel.add(selectedCar1);
 		selectedCarPanel.add(selectedCar2);
 		
