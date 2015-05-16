@@ -42,7 +42,11 @@ public class Maze implements iMaze {
 		}
 		else return false;
 	}
-
+	public  iRoom getRoom(int[] playerLocation){
+		return maze[playerLocation[0]][playerLocation[1]];
+		
+	}
+	/*                              Eric suggests this functionality should be moved to another class
 	@Override
 	public int[] moveUp(int[] playerLocation) {
 		int[] newLocation = {playerLocation[0],playerLocation[1]-1};
@@ -72,4 +76,5 @@ public class Maze implements iMaze {
 		// to build maze from local config file. feature in backlog.
 		
 	}
+	*/
 }
