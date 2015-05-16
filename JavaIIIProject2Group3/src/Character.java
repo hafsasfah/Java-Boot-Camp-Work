@@ -1,4 +1,4 @@
-import org.mockito.internal.util.collections.ArrayUtils;
+import java.util.ArrayList;
 
 
 public class Character implements iCharacter {
@@ -9,7 +9,7 @@ public class Character implements iCharacter {
 	private double hitPoints; // all
 	private double intelligence; // wizard
 	private int[] charLocation = new int[2]; // character location
-	private String[] items;
+	private ArrayList<String> inventory = new ArrayList<String>(); // dynamic array for items
 	private String charType; // TEMP until specified classes are made
 	private String charName; // player's name
 	
@@ -21,12 +21,16 @@ public class Character implements iCharacter {
 		this.dexterity = 2.0;
 		this.hitPoints = 20.0;
 		this.intelligence = 6.0;
-		this.charLocation[0]=0;
-		this.charLocation[1]=0;
+		this.charLocation[0] = 0;
+		this.charLocation[1] = 0;
 	}
 	
 	public void addArmor(double armor) {
-		this.hitPoints += armor;
+		this.hitPoints += armor; // TEMP definition
+	}
+	
+	public void addItem(String item) {
+		inventory.add(item);
 	}
 	
 	/**
@@ -36,16 +40,12 @@ public class Character implements iCharacter {
 		return strength;
 	}
 
-
-
 	/**
 	 * @param strength the strength to set
 	 */
 	public void setStrength(double strength) {
 		this.strength = strength;
 	}
-
-
 
 	/**
 	 * @return the dexterity
@@ -54,16 +54,12 @@ public class Character implements iCharacter {
 		return dexterity;
 	}
 
-
-
 	/**
 	 * @param dexterity the dexterity to set
 	 */
 	public void setDexterity(double dexterity) {
 		this.dexterity = dexterity;
 	}
-
-
 
 	/**
 	 * @return the hitPoints
@@ -72,16 +68,12 @@ public class Character implements iCharacter {
 		return hitPoints;
 	}
 
-
-
 	/**
 	 * @param hitPoints the hitPoints to set
 	 */
 	public void setHitPoints(double hitPoints) {
 		this.hitPoints = hitPoints;
 	}
-
-
 
 	/**
 	 * @return the intelligence
@@ -90,16 +82,12 @@ public class Character implements iCharacter {
 		return intelligence;
 	}
 
-
-
 	/**
 	 * @param intelligence the intelligence to set
 	 */
 	public void setIntelligence(double intelligence) {
 		this.intelligence = intelligence;
 	}
-
-
 
 	/**
 	 * @return the charLocation
@@ -108,16 +96,12 @@ public class Character implements iCharacter {
 		return charLocation;
 	}
 
-
-
 	/**
 	 * @param charLocation the charLocation to set
 	 */
 	public void setCharLocation(int[] charLocation) {
 		this.charLocation = charLocation;
 	}
-
-
 
 	/**
 	 * @return the charType
@@ -126,16 +110,12 @@ public class Character implements iCharacter {
 		return charType;
 	}
 
-
-
 	/**
 	 * @param charType the charType to set
 	 */
 	public void setCharType(String charType) {
 		this.charType = charType;
 	}
-
-
 
 	/**
 	 * @return the charName
@@ -144,8 +124,6 @@ public class Character implements iCharacter {
 		return charName;
 	}
 
-
-
 	/**
 	 * @param charName the charName to set
 	 */
@@ -153,21 +131,24 @@ public class Character implements iCharacter {
 		this.charName = charName;
 	}
 
-
-
-	// methods
 	@Override
 	public void generateMvmtUp() {
-		 this.charLocation[1]-=1 ;
+		 this.charLocation[1] -= 1 ; // Column is at index 1
 	}
+	
+	@Override
 	public void generateMvmtDown() {
-		 this.charLocation[1]+=1 ;
+		 this.charLocation[1] += 1 ; 
 	}
+	
+	@Override
 	public void generateMvmtLeft() {
-		 this.charLocation[0]-=1 ;
+		 this.charLocation[0] -= 1 ; // Row is at index 0
 	}
+	
+	@Override
 	public void generateMvmtRight() {
-		 this.charLocation[0]+=1 ;
+		 this.charLocation[0] += 1 ;
 	}
 
 	@Override
@@ -181,5 +162,5 @@ public class Character implements iCharacter {
 		// TODO Auto-generated method stub
 		
 	}
-
+	
 }
