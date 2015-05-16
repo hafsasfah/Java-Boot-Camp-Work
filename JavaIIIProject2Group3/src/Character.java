@@ -1,3 +1,5 @@
+import org.mockito.internal.util.collections.ArrayUtils;
+
 
 public class Character implements iCharacter {
 
@@ -6,7 +8,7 @@ public class Character implements iCharacter {
 	private double dexterity; // thief
 	private double hitPoints; // all
 	private double intelligence; // wizard
-	private int charLocation; // character location
+	private int[][] charLocation = new int[0][0]; // character location
 	private String[] items;
 	private String charType; // TEMP until specified classes are made
 	private String charName; // player's name
@@ -19,7 +21,7 @@ public class Character implements iCharacter {
 		this.dexterity = 2.0;
 		this.hitPoints = 20.0;
 		this.intelligence = 6.0;
-		this.charLocation = 1;
+		this.charLocation = {[0],[0]};
 	}
 	
 	public void addArmor(double armor) {
@@ -101,7 +103,7 @@ public class Character implements iCharacter {
 	/**
 	 * @return the charLocation
 	 */
-	public int getCharLocation() {
+	public int[][] getCharLocation() {
 		return charLocation;
 	}
 
@@ -110,7 +112,7 @@ public class Character implements iCharacter {
 	/**
 	 * @param charLocation the charLocation to set
 	 */
-	public void setCharLocation(int charLocation) {
+	public void setCharLocation(int[][] charLocation) {
 		this.charLocation = charLocation;
 	}
 
@@ -154,8 +156,8 @@ public class Character implements iCharacter {
 
 	// methods
 	@Override
-	public int generateMvmt() {
-		return 0;
+	public int[][] generateMvmt(int[][] i) {
+		return this.charLocation = i;
 	}
 
 	@Override
