@@ -1,38 +1,62 @@
 import static org.junit.Assert.*;
 
-import org.junit.Test;
+import java.util.Iterator;
+
+
+import org.junit.*;
 
 
 public class MazeTest {
-
-	@Test
-	public void testMaze() {
-		fail("Not yet implemented");
+	protected Maze maze ;
+	@Before
+	public void before()
+	{
+		 maze = new Maze();
 	}
-
+	
+	
 	@Test
 	public void testExistsUp() {
-		fail("Not yet implemented");
+		 
+		int[] location = {5,5};
+		assertEquals(true,maze.existsUp(location));
+		location[1] = 0;
+		assertEquals(false,maze.existsUp(location));
 	}
 
 	@Test
 	public void testExistsDown() {
-		fail("Not yet implemented");
+		
+		
+		 int[] location = {5,5};
+		assertEquals(true,maze.existsDown(location));
+		location[1] = 9;
+		assertEquals(false,maze.existsDown(location));
 	}
 
 	@Test
 	public void testExistsLeft() {
-		fail("Not yet implemented");
+		
+		int[] location = {5,5};
+		assertEquals(true,maze.existsLeft(location));
+		location[0] = 0;
+		assertEquals(false,maze.existsLeft(location));
 	}
 
 	@Test
 	public void testExistsRight() {
-		fail("Not yet implemented");
+		
+		int[] location = {5,5};
+		assertEquals(true,maze.existsRight(location));
+		location[0] = 9;;
+		assertEquals(false,maze.existsRight(location));
 	}
 
 	@Test
 	public void testGetRoom() {
-		fail("Not yet implemented");
+		
+		int[] location = {5,5};
+		assertNotNull(maze.getRoom(location));
 	}
 
 }

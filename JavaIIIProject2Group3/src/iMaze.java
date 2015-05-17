@@ -14,5 +14,6 @@ public interface iMaze {
 	public boolean existsDown(int[] playerLocation);
 	public boolean existsLeft(int[] playerLocation);
 	public boolean existsRight(int[] playerLocation);
-	public void buildMaze();
+	public  Room getRoom(int[] playerLocation);
+	public void buildMaze(String filename);
 	}
