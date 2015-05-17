@@ -12,35 +12,43 @@ public class Maze implements iMaze {
 
 	@Override
 	public boolean existsUp(int[] playerLocation) {
-		
-		if(!(this.maze[playerLocation[0]][playerLocation[1]-1]==null)){
-			return true;
+		if ((playerLocation[1]-1 )>= 0){
+			if(!(this.maze[playerLocation[0]][playerLocation[1]-1]==null)){
+				return true;
+			}
 		}
-		else return false;
+	
+		return false;
 	}
 
 	@Override
 	public boolean existsDown(int[] playerLocation) {
+		if ((playerLocation[1]+11 )<= maze[0].length){
 		if(!(this.maze[playerLocation[0]][playerLocation[1]+1]==null)){
 			return true;
 		}
-		else return false;
+		}
+		 return false;
 	}
 
 	@Override
 	public boolean existsLeft(int[] playerLocation) {
+		if ((playerLocation[1]-1 )>= 0){
 		if(!(this.maze[playerLocation[0]-1][playerLocation[1]]==null)){
 			return true;
 		}
-		else return false;
+		}
+		return false;
 	}
 
 	@Override
 	public boolean existsRight(int[] playerLocation) {
+		if ((playerLocation[1]+11 )<= maze.length){
 		if(!(this.maze[playerLocation[0]+1][playerLocation[1]]==null)){
 			return true;
 		}
-		else return false;
+		}
+		return false;
 	}
 	public  iRoom getRoom(int[] playerLocation){
 		return maze[playerLocation[0]][playerLocation[1]];
