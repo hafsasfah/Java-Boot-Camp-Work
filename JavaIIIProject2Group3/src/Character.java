@@ -8,7 +8,8 @@ public class Character implements iCharacter {
 	private double dexterity; // thief
 	private double hitPoints; // all
 	private double intelligence; // wizard
-	private int[] charLocation = new int[2]; // character location
+	//private int[] charLocation = new int[2]; // character location
+	private Location location = new Location();
 	private ArrayList<String> inventory = new ArrayList<String>(); // dynamic array for items
 	private String charType; // TEMP until specified classes are made
 	private String charName; // player's name
@@ -21,8 +22,8 @@ public class Character implements iCharacter {
 		this.dexterity = 2.0;
 		this.hitPoints = 20.0;
 		this.intelligence = 6.0;
-		this.charLocation[0] = 0;
-		this.charLocation[1] = 0;
+		//this.charLocation[0] = 0;
+		//this.charLocation[1] = 0;
 	}
 	
 	public void addArmor(double armor) {
@@ -93,15 +94,13 @@ public class Character implements iCharacter {
 	 * @return the charLocation
 	 */
 	public int[] getCharLocation() {
-		return charLocation;
+		return location.getLocation();
 	}
 
 	/**
 	 * @param charLocation the charLocation to set
 	 */
-	public void setCharLocation(int[] charLocation) {
-		this.charLocation = charLocation;
-	}
+	
 
 	/**
 	 * @return the charType
@@ -133,23 +132,24 @@ public class Character implements iCharacter {
 
 	@Override
 	public void generateMvmtUp() {
-		 this.charLocation[1] -= 1 ; // Column is at index 1
+		 this.location.moveUp();
 	}
 	
 	@Override
 	public void generateMvmtDown() {
-		 this.charLocation[1] += 1 ; 
+		 this.location.moveDown();
 	}
 	
 	@Override
 	public void generateMvmtLeft() {
-		 this.charLocation[0] -= 1 ; // Row is at index 0
+		 this.location.moveLeft();
 	}
 	
 	@Override
 	public void generateMvmtRight() {
-		 this.charLocation[0] += 1 ;
+		 this.location.moveRight();
 	}
+	
 
 	@Override
 	public void pickUpItem(String item) {

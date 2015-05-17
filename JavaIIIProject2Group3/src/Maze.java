@@ -1,14 +1,14 @@
 
 public class Maze implements iMaze {
-	private Room[][] maze = new Room[10][10];
+	private iRoom[][] maze = new iRoom[10][10];
 	
 
 	
 	public Maze(){
 		for (int xPosition = 0;xPosition<10;xPosition++){
 			for(int yPosition = 0;yPosition<10;yPosition++){
-				maze[xPosition][yPosition] = new Room();	//randomly generates a room for ever position in maze[][]			
-				System.out.println(maze[xPosition][yPosition].x);
+				maze[xPosition][yPosition] = (iRoom) new tempRoom();	//randomly generates a room for ever position in maze[][]			
+			
 			}
 		}
 	}
@@ -16,7 +16,7 @@ public class Maze implements iMaze {
 	@Override
 	public boolean existsUp(int[] playerLocation) {
 		if ((playerLocation[1]-1 )>= 0){
-			System.out.println("in Bounds");
+			//System.out.println("in Bounds");
 			if(!(this.maze[playerLocation[0]][playerLocation[1]-1]==null)){
 				return true;
 			}
@@ -54,8 +54,8 @@ public class Maze implements iMaze {
 		}
 		return false;
 	}
-	public  Room getRoom(int[] playerLocation){
-		return maze[playerLocation[0]][playerLocation[1]];
+	public  iRoom getRoom(int[] playerLocation){
+		return (iRoom)maze[playerLocation[0]][playerLocation[1]];
 		
 	}
 
