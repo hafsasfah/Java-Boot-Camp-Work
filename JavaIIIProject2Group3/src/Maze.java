@@ -46,35 +46,10 @@ public class Maze implements iMaze {
 		return maze[playerLocation[0]][playerLocation[1]];
 		
 	}
-	/*                              Eric suggests this functionality should be moved to another class
-	@Override
-	public int[] moveUp(int[] playerLocation) {
-		int[] newLocation = {playerLocation[0],playerLocation[1]-1};
-		return newLocation;
-	}
-
-	@Override
-	public int[] moveDown(int[] playerLocation) {
-		int[] newLocation = {playerLocation[0],playerLocation[1]+1};
-		return newLocation;
-	}
-
-	@Override
-	public int[] moveLeft(int[] playerLocation) {
-		int[] newLocation = {playerLocation[0]-1,playerLocation[1]};
-		return newLocation;
-	}
-
-	@Override
-	public int[] moveRight(int[] playerLocation) {
-		int[] newLocation = {playerLocation[0]+1,playerLocation[1]};
-		return newLocation;
-	}
 
 	@Override
 	public void buildMaze() {
-		// to build maze from local config file. feature in backlog.
+		// TODO Auto-generated method stub
 		
 	}
-	*/
 }

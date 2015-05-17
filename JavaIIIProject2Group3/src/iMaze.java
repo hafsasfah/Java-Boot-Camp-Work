@@ -14,9 +14,5 @@ public interface iMaze {
 	public boolean existsDown(int[] playerLocation);
 	public boolean existsLeft(int[] playerLocation);
 	public boolean existsRight(int[] playerLocation);
-	public int[] moveUp(int[] playerLocation);
-	public int[] moveDown(int[] playerLocation);
-	public int[] moveLeft(int[] playerLocation);
-	public int[] moveRight(int[] playerLocation);
 	public void buildMaze();
 	}
