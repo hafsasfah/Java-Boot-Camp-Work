@@ -96,6 +96,9 @@ public class Character implements iCharacter {
 	public int[] getCharLocation() {
 		return location.getLocation();
 	}
+	public String getCharLocationString() {
+		return location.toString();
+	}
 
 	/**
 	 * @param charLocation the charLocation to set

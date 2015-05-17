@@ -29,5 +29,8 @@ public class Location {
 	public void moveRight() {
 		this.xCoordinate += 1 ;
 	}
+	public String toString(){
+		return  this.xCoordinate +","+this.yCoordinate;
+	}
 
 }

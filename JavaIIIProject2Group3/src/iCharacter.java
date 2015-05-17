@@ -12,6 +12,7 @@ public interface iCharacter {
 	public void generateMvmtDown();
 	public void generateMvmtLeft();
 	public void generateMvmtRight();
+	public String getCharLocationString();
 	
 }
 

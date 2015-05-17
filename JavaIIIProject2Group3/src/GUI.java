@@ -3,20 +3,18 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-import javax.swing.JPasswordField;
-import javax.swing.JButton;
+import javax.swing.*;
 
 
 
 public class GUI extends JFrame{
+	
+	private static final long serialVersionUID = -7961136662816131164L;
 	private JButton upButton;
 	private JButton downButton;
 	private JButton leftButton;
 	private JButton rightButton;
-	private JTextField console;
+	private JTextArea console;
 	private iMaze maze;
 	private iCharacter player;
 	
@@ -28,14 +26,15 @@ public class GUI extends JFrame{
 		player = new Character();
 		
 		
-		
-		upButton = new JButton("UP");
+		console = new JTextArea("Current Location: "+ player.getCharLocationString() +"\n",20,30); 
+		add(console);
+		upButton = new JButton("North");
 		add(upButton);
-		downButton = new JButton("Down");
+		downButton = new JButton("South");
 		add(downButton);
-		leftButton = new JButton("Left");
+		leftButton = new JButton("West");
 		add(leftButton);
-		rightButton = new JButton("Right");
+		rightButton = new JButton("East");
 		add(rightButton);
 		
 		Listener handler = new Listener();
@@ -43,10 +42,14 @@ public class GUI extends JFrame{
 		downButton.addActionListener(handler);
 		leftButton.addActionListener(handler);
 		rightButton.addActionListener(handler);
+		screenUpdate();
+		
+		
+		
+	}
+	private void screenUpdate(){
 		buttonCheck();
-		
-		
-		
+		//add any other screen updates here as needed
 	}
 	private void buttonCheck(){
 		int[] playerLocation = player.getCharLocation();
@@ -70,28 +73,36 @@ public class GUI extends JFrame{
 		@Override
 		public void actionPerformed(ActionEvent event) {
 			
-			String string ="";
+			
 			
 			if(event.getSource() == upButton){
-				System.out.println("Up");
+				//System.out.println("Up");
+				
 				player.generateMvmtUp();
 				buttonCheck();
+				console.append("North Current Location: "+ player.getCharLocationString() +"\n");
 				
 			}	
 			else if(event.getSource() == downButton){
-				System.out.println("Down");
+				//System.out.println("Down");
+				
 				player.generateMvmtDown();
 				buttonCheck();
+				console.append("South Current Location: "+ player.getCharLocationString() +"\n");
 			}
 			else if(event.getSource() == leftButton){
-				System.out.println("Left");
+				//System.out.println("Left");
+			
 				player.generateMvmtLeft();
 				buttonCheck();
+				console.append("West Current Location: "+ player.getCharLocationString() +"\n");
 			}
 			else if(event.getSource() == rightButton){
-				System.out.println("Right");
+				//System.out.println("Right");
+			
 				player.generateMvmtRight();
 				buttonCheck();
+				console.append("East Current Location: "+ player.getCharLocationString() +"\n");
 			}
 		}
 		
