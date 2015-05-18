@@ -76,11 +76,6 @@ public class Room implements iRoom
 		return false;
 	}
 
-	@Override
-	public Iterator<Coordinates> iterator(Coordinates cord) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 
 }
