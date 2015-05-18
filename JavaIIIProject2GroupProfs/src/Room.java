@@ -1,4 +1,4 @@
-import javax.swing.JPanel;
+import javax.swing.*;
 
 
 public class Room implements iRoom {
@@ -12,6 +12,7 @@ public class Room implements iRoom {
 		this.name = name;
 		this.npcParty = npcParty;
 		panel = new JPanel();
+		panel.add( new JLabel("Room"));
 	}
 	
 	@Override
