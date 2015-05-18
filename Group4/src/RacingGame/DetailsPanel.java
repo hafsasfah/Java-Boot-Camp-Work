@@ -33,8 +33,16 @@ public DetailsPanel()
 	this.player1name = JOptionPane.showInputDialog("Player 1 please enter your name.");
 	this.player2name = JOptionPane.showInputDialog("Player 2 please enter your name.");
 	
+
 	
 	
+
+	//setLayout(new FlowLayout());
+	//image = new ImageIcon (getClass().getResource("racecargame.png"));
+	//label = new JLabel (image);
+	//add(label);
+	//NEED A LIL EXTRA WORK ON BET
+
 	setBorder(BorderFactory.createTitledBorder("Place your bet"));
 	
 	JLabel player1Label = new JLabel(this.player1name);
@@ -66,26 +74,27 @@ public DetailsPanel()
 	JLabel player1wagesField = new JLabel(""+testPlay1bank); // later add int wages
 	JLabel player2wagesField = new JLabel(""+testPlay2bank); // same
 	
-	JButton addBtn = new JButton("RACE");
-	addBtn.addActionListener(new ActionListener()
+	JButton picBtn = new JButton("");
+	picBtn.setIcon(new ImageIcon (getClass().getResource("racecargame.png")));
+	picBtn.addActionListener(new ActionListener()
 	{
 		public void actionPerformed(ActionEvent e) 
 		{
 			Random r = new Random();
 			
-			int ply1RandomNumber = r.nextInt(10); 
-			int ply2RandomNumber = r.nextInt(10);
+			int ply1RandomNumber = r.nextInt(10)+1; 
+			int ply2RandomNumber = r.nextInt(10)+1;
 			
-			if (ply1RandomNumber > ply2RandomNumber)
+			if (ply1RandomNumber < ply2RandomNumber)
 			{
 				
-				JOptionPane.showMessageDialog(null, "Player 1: " + ply1RandomNumber + "\nPlayer 2: "
-					+ ply2RandomNumber + "\nPlayer 1 is the WINNER!"	, "Title", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Player 1: " + ply1RandomNumber+" seconds per 1/4 mile!" + "\nPlayer 2: "
+					+ ply2RandomNumber+" seconds per 1/4 mile!" + "\nPlayer 1 is the WINNER!"	, "Title", JOptionPane.INFORMATION_MESSAGE);
 			}
-			if (ply1RandomNumber < ply2RandomNumber){
+			if (ply1RandomNumber > ply2RandomNumber){
 				
-				JOptionPane.showMessageDialog(null, "Player 1: " + ply1RandomNumber + "\nPlayer 2: "
-						+ ply2RandomNumber + "\nPlayer 2 is the WINNER!"	, "Title", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null, "Player 1: " + ply1RandomNumber+" seconds per 1/4 mile!" + "\nPlayer 2: "
+						+ ply2RandomNumber+" seconds per 1/4 mile!" + "\nPlayer 2 is the WINNER!"	, "Title", JOptionPane.INFORMATION_MESSAGE);
 				
 			}
 			
@@ -95,12 +104,8 @@ public DetailsPanel()
 			
 	});
 	
-	//setLayout(new FlowLayout());
-	JButton picBtn = new JButton("");
-	//image = new ImageIcon (getClass().getResource("racecargame.png"));
-	JLabel label = new JLabel (image);
-	add(label);
-	picBtn.setIcon(new ImageIcon (getClass().getResource("racecargame.png")));
+	
+	
 	
 	
 	
