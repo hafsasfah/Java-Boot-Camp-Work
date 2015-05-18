@@ -3,6 +3,8 @@
 public interface iDice 
 {
 
-	int sixSideRollDie();
+	int sixSideRollDieTimesThree();
 	int twentySideRollDie();
+	int fifteenSideRollDie();
+	int monsterDie();
 }

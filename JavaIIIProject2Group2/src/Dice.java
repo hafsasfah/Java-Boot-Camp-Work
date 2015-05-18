@@ -7,7 +7,7 @@ public class Dice implements iDice {
     int dice;
     
 	@Override
-	public int sixSideRollDie() 
+	public int sixSideRollDieTimesThree() 
 	
 	{
 		int roll1 = rand.nextInt(6) +1;
@@ -22,6 +22,22 @@ public class Dice implements iDice {
 	{
 		int roll1 = rand.nextInt(20) +1;
 		return roll1;
+	}
+
+	@Override
+	public int fifteenSideRollDie() 
+	{
+		int roll1 = rand.nextInt(15) +1;
+		return roll1;
+	}
+
+	@Override
+	public int monsterDie() {
+		
+		int roll = rand.nextInt(3) +1;
+		int rollpoint = rand.nextInt(6) +1;
+		int monsterStat = roll * rollpoint;
+		return monsterStat;
 	}
 	
 	
