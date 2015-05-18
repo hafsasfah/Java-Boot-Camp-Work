@@ -1,11 +1,11 @@
-package Tests;
+
 import static org.junit.Assert.*;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 
-public class RoomTest {
+public class CharacterTest {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
