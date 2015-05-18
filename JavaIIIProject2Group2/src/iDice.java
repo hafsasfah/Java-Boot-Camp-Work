@@ -3,6 +3,6 @@
 public interface iDice 
 {
 
-	int rolldie();
-	
+	int sixSideRollDie();
+	int twentySideRollDie();
 }
