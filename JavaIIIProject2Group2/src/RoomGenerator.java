@@ -1,15 +1,8 @@
 
-
 public class RoomGenerator 
 {
 
-    static byte gridLayout[][]  =  {{1,0,0}, 
-    						  		{1,0,0}, 
-    						  		{1,1,1}};
-    
-	static Room dungeon[][] = new Room [3][3];
-	
-	public static void populateDungeon(byte maze[][], Room dungeon[][])
+	public void populateDungeon(byte maze[][], Room dungeon[][])
 	{
 		for(int i = 0; i < maze.length; i++)
 		{
@@ -17,7 +10,7 @@ public class RoomGenerator
 			{
 				if(maze[i][k] == 1)
 				{
-					dungeon[i][k] = new Room();
+					dungeon[i][k] = new Room(i,k);
 					System.out.print(dungeon[i][k]);
 				}
 				else
@@ -27,10 +20,67 @@ public class RoomGenerator
 		}
 		
 	}
-		
-	public static void main(String[] args)
+	
+	public boolean lookNorth(Player player, Room maze[][])
 	{
-		populateDungeon(gridLayout,dungeon);	
+		if(player.location.row - 1 >= 0)
+		{
+			if(maze[player.location.row - 1][player.location.column] == null)
+			{
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+		}
+		return false;
 	}
 	
+	public boolean lookWest(Player player, Room maze[][])
+	{
+		if(player.location.column - 1 >= 0)
+		{
+			if(maze[player.location.row ][player.location.column - 1] == null)
+			{
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+	public boolean lookSouth(Player player, Room maze[][])
+	{
+		if(player.location.row + 1 < maze[0].length)
+		{
+			if(maze[player.location.row + 1][player.location.column] == null)
+			{
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+	public boolean lookEast(Player player, Room maze[][])
+	{
+		if(player.location.column + 1 < maze.length)
+		{
+			if(maze[player.location.row ][player.location.column + 1] == null)
+			{
+				return false;
+			}
+			else
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
 }

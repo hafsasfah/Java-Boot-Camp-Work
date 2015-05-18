@@ -1,17 +1,15 @@
 
-import java.util.Iterator;
-
 public class Room implements iRoom
 {
+	String story = "A plain dungeon room.";
+	Coordinates cord = new Coordinates();
+	
 
-	int x;
-	int y;
-	Coordinates cord;
 	
-	
-	public Room()
+	public Room(int i, int k)
 	{
-		
+		this.cord.row = i;
+		this.cord.column = k;
 	}
 	public void enterRoom()
 	{
@@ -32,11 +30,16 @@ public class Room implements iRoom
 		
 	}
 
-	@Override
-	public void roomDescription() 
+	public void describeRoom(String story)
 	{
-		// TODO Auto-generated method stub
-		
+		this.story = story;
+
+	}
+	
+	@Override
+	public String roomDescription() 
+	{
+		return this.story;
 	}
 	
 	@Override
@@ -44,37 +47,5 @@ public class Room implements iRoom
 	{
 		return "9";
 	}
-
-	
-	
-	
-	
-	
-	
-	@Override
-	public boolean isOK() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean markOK() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean isGoal() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean markDeadEnd() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-
 
 }

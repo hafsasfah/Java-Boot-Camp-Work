@@ -25,7 +25,7 @@ public class Monster {
 		this.enemy = enemy;
 		
 	}	
-	
+	/*
 	@Override
 	public int getHealth() {
 		return rollDie();
@@ -65,6 +65,6 @@ public class Monster {
 		// TODO Auto-generated method stub
 		
 	}
-
+*/
 	
 }

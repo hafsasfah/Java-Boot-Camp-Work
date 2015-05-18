@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 
 public class Player implements iCharacter{
 
@@ -7,9 +9,13 @@ public class Player implements iCharacter{
 	private int hitPoints;
 	private String[] players = {"Mage","Warrior", "Thief"};
 	private String[] monsters = {"Shadow Lord","Pale Witch","Werewolf", "Darth Vader","Voldemort"};
+	ArrayList<iItems> Inventory = new ArrayList<iItems>();
+	Coordinates location = new Coordinates();
 
-	public Player(){
-		
+	public Player()
+	{
+		this.location.row = 0;
+		this.location.column= 0;
 	}
 	
 	public Player(int strength, int dexterity, int intellignce, String monsters)
