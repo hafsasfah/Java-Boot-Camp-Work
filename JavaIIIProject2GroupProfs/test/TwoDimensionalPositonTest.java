@@ -5,14 +5,20 @@ import static org.mockito.Mockito.*;
 
 public class TwoDimensionalPositonTest {
 
-	private TwoDimensionalPositon position;
+	private TwoDimensionalPosition position;
 	private iRoom mockIRoom;
 	
 	@Before
 	public void setUp() throws Exception {
 		
 		mockIRoom = mock(iRoom.class);
-		position = new TwoDimensionalPositon(mockIRoom, 1, 1 );
+		position = new TwoDimensionalPosition(mockIRoom, 1, 1 );
+	}
+	
+	@Test
+	public void testTwoDimensionalPositionNullRoomConstructor()
+	{
+		assertNull( new TwoDimensionalPosition(1,1).getRoom() );
 	}
 
 	@Test
@@ -33,6 +39,11 @@ public class TwoDimensionalPositonTest {
 	@Test
 	public void testGetY() {
 		assertEquals( 1, position.getY() );
+	}
+	
+	@Test
+	public void testEquals() {
+		assertEquals( new TwoDimensionalPosition(1,1), position);
 	}
 
 }
