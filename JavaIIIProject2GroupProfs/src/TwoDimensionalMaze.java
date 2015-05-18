@@ -37,22 +37,19 @@ public class TwoDimensionalMaze implements iMaze {
 			for (String word : lineSplit) {
 				switch (word.charAt(0)) {
 				case START:
-					start = new TwoDimensionalPosition(roomFactory.createRoom(),
-							xPosition, yPosition);
+					start = new TwoDimensionalPosition(roomFactory.createRoom(), xPosition, yPosition);
 					maze.add(start);
 					break;
 				case WALL:
-					maze.add(new TwoDimensionalPosition(null, xPosition,
-							yPosition));
+					maze.add(new TwoDimensionalPosition(null, xPosition, yPosition));
 					break;
 				case ROOM:
-					maze.add(new TwoDimensionalPosition(
-							roomFactory.createRoom(), xPosition, yPosition));
+					maze.add(new TwoDimensionalPosition(roomFactory.createRoom(), xPosition, yPosition));
 					break;
 				case END:
-					end = new TwoDimensionalPosition(roomFactory.createRoom(),
-							xPosition, yPosition);
+					end = new TwoDimensionalPosition(roomFactory.createRoom(), xPosition, yPosition);
 					maze.add(end);
+					break;
 				}
 				xPosition++;
 			}
