@@ -1,11 +1,11 @@
 import javax.swing.*;
 
-public class Party implements iParty {
+public class Party implements IParty {
 
-	private iCharacter[] characters;
+	private ICharacter[] characters;
 	private JPanel panel;
 	
-	public Party( iCharacter[] characters )
+	public Party( ICharacter[] characters )
 	{
 		this.characters = characters;
 		panel = new JPanel();
@@ -13,13 +13,13 @@ public class Party implements iParty {
 	}
 	
 	@Override
-	public iCharacter[] getCharacters() {
+	public ICharacter[] getCharacters() {
 		return characters;
 	}
 
 	@Override
 	public boolean isAnyCharacterInPartyAlive() {
-		for ( iCharacter character : characters )
+		for ( ICharacter character : characters )
 		{
 			if ( character.isAlive() )
 			{
@@ -30,9 +30,9 @@ public class Party implements iParty {
 	}
 
 	@Override
-	public String attack(iCharacter target) {
+	public String attack(ICharacter target) {
 		String result = "";
-		for ( iCharacter character : characters )
+		for ( ICharacter character : characters )
 		{
 			if ( character.isAlive() && target.isAlive() )
 			{

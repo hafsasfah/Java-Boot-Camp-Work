@@ -2,10 +2,10 @@ import java.util.Iterator;
 
 import javax.swing.JPanel;
 
-public interface iMaze {
-	iPosition getStartingPosition();
-	Iterator<iPosition> iterator( iPosition position );
-	boolean isEndPosition( iPosition position );
-	boolean isValidPosition( iPosition position );
+public interface IMaze {
+	IPosition getStartingPosition();
+	Iterator<IPosition> iterator( IPosition position );
+	boolean isEndPosition( IPosition position );
+	boolean isValidPosition( IPosition position );
 	JPanel getPanel();
 }

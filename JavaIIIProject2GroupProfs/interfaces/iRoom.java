@@ -1,8 +1,8 @@
 import javax.swing.JPanel;
 
 
-public interface iRoom {
+public interface IRoom {
 	String getName();
-	iParty getNPCParty();
+	IParty getNPCParty();
 	JPanel getPanel();
 }

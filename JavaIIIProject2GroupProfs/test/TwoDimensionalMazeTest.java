@@ -11,14 +11,14 @@ import org.junit.Test;
 public class TwoDimensionalMazeTest {
 
 	private TwoDimensionalMaze maze;
-	private iRoomFactory mockRoomFactory;
-	private iRoom mockRoom;
+	private IRoomFactory mockRoomFactory;
+	private IRoom mockRoom;
 	
 	@Before
 	public void setUp() throws Exception {
 		File mazeFile = new File("test/maze.txt");
-		mockRoomFactory = mock(iRoomFactory.class);
-		mockRoom = mock(iRoom.class);
+		mockRoomFactory = mock(IRoomFactory.class);
+		mockRoom = mock(IRoom.class);
 		when(mockRoomFactory.createRoom()).thenReturn(mockRoom);
 		maze = new TwoDimensionalMaze(mazeFile, mockRoomFactory);
 	}
@@ -35,7 +35,7 @@ public class TwoDimensionalMazeTest {
 
 	@Test
 	public void testIterator() {
-		Iterator<iPosition> iterator = maze.iterator(maze.getStartingPosition());
+		Iterator<IPosition> iterator = maze.iterator(maze.getStartingPosition());
 		assertFalse( maze.isValidPosition( iterator.next() ) );
 		assertTrue( maze.isValidPosition( iterator.next() ) );
 		assertTrue( maze.isValidPosition( iterator.next() ) );
@@ -50,7 +50,7 @@ public class TwoDimensionalMazeTest {
 
 	@Test
 	public void testIsValidPosition() {
-		iPosition mockPosition = mock(iPosition.class);
+		IPosition mockPosition = mock(IPosition.class);
 		assertFalse(maze.isValidPosition( mockPosition) );
 	}
 

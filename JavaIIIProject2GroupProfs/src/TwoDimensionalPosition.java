@@ -1,8 +1,8 @@
 
-public class TwoDimensionalPosition implements iPosition 
+public class TwoDimensionalPosition implements IPosition 
 {
 
-	private iRoom room;
+	private IRoom room;
 	private int x;
 	private int y;
 	
@@ -11,14 +11,14 @@ public class TwoDimensionalPosition implements iPosition
 		this( null, x, y );
 	}
 	
-	public TwoDimensionalPosition( iRoom room, int x, int y )
+	public TwoDimensionalPosition( IRoom room, int x, int y )
 	{
 		this.room = room;
 		this.x = x;
 		this.y = y;
 	}
 	
-	public iRoom getRoom() 
+	public IRoom getRoom() 
 	{
 		return room;
 	}

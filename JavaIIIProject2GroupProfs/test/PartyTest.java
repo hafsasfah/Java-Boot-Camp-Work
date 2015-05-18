@@ -7,14 +7,14 @@ import static org.mockito.Mockito.*;
 public class PartyTest {
 
 	private Party party;
-	private iCharacter[] mockCharacters;
+	private ICharacter[] mockCharacters;
 	
 	@Before
 	public void setUp() throws Exception {
-		mockCharacters = new iCharacter[3];
-		mockCharacters[0] = mock(iCharacter.class);
-		mockCharacters[1] = mock(iCharacter.class);
-		mockCharacters[2] = mock(iCharacter.class);
+		mockCharacters = new ICharacter[3];
+		mockCharacters[0] = mock(ICharacter.class);
+		mockCharacters[1] = mock(ICharacter.class);
+		mockCharacters[2] = mock(ICharacter.class);
 		
 		party = new Party(mockCharacters);
 	}
@@ -39,8 +39,8 @@ public class PartyTest {
 		when(mockCharacters[2].isAlive()).thenReturn(true);
 		
 		assertTrue( party.isAnyCharacterInPartyAlive() );
-		iCharacter[] deadPlayer = new iCharacter[1];
-		deadPlayer[0] = mock(iCharacter.class);
+		ICharacter[] deadPlayer = new ICharacter[1];
+		deadPlayer[0] = mock(ICharacter.class);
 		when(deadPlayer[0].isAlive()).thenReturn(false);
 		Party deadParty = new Party(deadPlayer);
 		assertFalse( deadParty.isAnyCharacterInPartyAlive() );
@@ -48,7 +48,7 @@ public class PartyTest {
 
 	@Test
 	public void testAttack() {
-		iCharacter mockTarget = mock(iCharacter.class);
+		ICharacter mockTarget = mock(ICharacter.class);
 		when(mockTarget.isAlive()).thenReturn(true);
 		when(mockCharacters[0].isAlive()).thenReturn(true);
 		when(mockCharacters[1].isAlive()).thenReturn(true);

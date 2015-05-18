@@ -7,12 +7,12 @@ import static org.mockito.Mockito.*;
 public class RoomTest {
 
 	private Room room;
-	private iParty mockIParty;
+	private IParty mockIParty;
 	private String name = "TestRoomName";
 	
 	@Before
 	public void setUp() throws Exception {
-		mockIParty = mock(iParty.class);
+		mockIParty = mock(IParty.class);
 		room = new Room(name, mockIParty);
 	}
 

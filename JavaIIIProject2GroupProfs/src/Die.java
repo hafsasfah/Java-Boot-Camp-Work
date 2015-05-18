@@ -1,7 +1,7 @@
 import java.util.Random;
 
 
-public class Die implements iDie {
+public class Die implements IDie {
 	
 	private int sides;
 	private int value;

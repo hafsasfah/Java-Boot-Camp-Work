@@ -6,12 +6,12 @@ import static org.mockito.Mockito.*;
 public class TwoDimensionalPositionTest {
 
 	private TwoDimensionalPosition position;
-	private iRoom mockIRoom;
+	private IRoom mockIRoom;
 	
 	@Before
 	public void setUp() throws Exception {
 		
-		mockIRoom = mock(iRoom.class);
+		mockIRoom = mock(IRoom.class);
 		position = new TwoDimensionalPosition(mockIRoom, 1, 1 );
 	}
 	

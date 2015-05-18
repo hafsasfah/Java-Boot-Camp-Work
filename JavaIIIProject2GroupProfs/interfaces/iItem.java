@@ -1,7 +1,7 @@
 import javax.swing.JPanel;
 
 
-public interface iItem {
+public interface IItem {
 	String getName();
 	int getDurability();
 	boolean isBroken();

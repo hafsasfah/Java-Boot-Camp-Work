@@ -1,5 +1,5 @@
 
-public interface iDie {
+public interface IDie {
 	int roll();
 	int getValue();
 }

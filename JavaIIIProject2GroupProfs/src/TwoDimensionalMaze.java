@@ -4,7 +4,7 @@ import java.util.Iterator;
 import java.util.Scanner;
 import javax.swing.JPanel;
 
-public class TwoDimensionalMaze implements iMaze {
+public class TwoDimensionalMaze implements IMaze {
 	public static final int NORTH = 0;
 	public static final int EAST = 1;
 	public static final int SOUTH = 2;
@@ -23,7 +23,7 @@ public class TwoDimensionalMaze implements iMaze {
 
 	private JPanel panel;
 
-	public TwoDimensionalMaze(File mazeFile, iRoomFactory roomFactory)
+	public TwoDimensionalMaze(File mazeFile, IRoomFactory roomFactory)
 			throws IOException {
 		maze = new ArrayList<TwoDimensionalPosition>();
 
@@ -68,22 +68,22 @@ public class TwoDimensionalMaze implements iMaze {
 	}
 
 	@Override
-	public iPosition getStartingPosition() {
+	public IPosition getStartingPosition() {
 		return start;
 	}
 
 	@Override
-	public Iterator<iPosition> iterator(iPosition position) {
+	public Iterator<IPosition> iterator(IPosition position) {
 		return new TwoDimensionalMazeIterator((TwoDimensionalPosition) position);
 	}
 
 	@Override
-	public boolean isEndPosition(iPosition position) {
+	public boolean isEndPosition(IPosition position) {
 		return position.equals(end);
 	}
 
 	@Override
-	public boolean isValidPosition(iPosition position) {
+	public boolean isValidPosition(IPosition position) {
 		if ( ! ( position instanceof TwoDimensionalPosition) )
 		{
 			return false;
@@ -102,7 +102,7 @@ public class TwoDimensionalMaze implements iMaze {
 		return x >= 0 && y >= 0 && x < maxX && y < maxY;
 	}
 
-	protected class TwoDimensionalMazeIterator implements Iterator<iPosition> {
+	protected class TwoDimensionalMazeIterator implements Iterator<IPosition> {
 		private int x;
 		private int y;
 		private int iterations;

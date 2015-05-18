@@ -1,9 +1,9 @@
 import javax.swing.JPanel;
 
 
-public interface iParty {
-	iCharacter[] getCharacters();
+public interface IParty {
+	ICharacter[] getCharacters();
 	boolean isAnyCharacterInPartyAlive();
-	String attack( iCharacter target );
+	String attack( ICharacter target );
 	JPanel getPanel();
 }

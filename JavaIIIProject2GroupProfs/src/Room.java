@@ -1,13 +1,13 @@
 import javax.swing.*;
 
 
-public class Room implements iRoom {
+public class Room implements IRoom {
 
 	private String name;
-	private iParty npcParty;
+	private IParty npcParty;
 	private JPanel panel;
 	
-	public Room( String name, iParty npcParty )
+	public Room( String name, IParty npcParty )
 	{
 		this.name = name;
 		this.npcParty = npcParty;
@@ -21,7 +21,7 @@ public class Room implements iRoom {
 	}
 
 	@Override
-	public iParty getNPCParty() {
+	public IParty getNPCParty() {
 		return npcParty;
 	}
 

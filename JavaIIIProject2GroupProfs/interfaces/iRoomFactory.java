@@ -1,4 +1,4 @@
 
-public interface iRoomFactory {
-	iRoom createRoom();
+public interface IRoomFactory {
+	IRoom createRoom();
 }
