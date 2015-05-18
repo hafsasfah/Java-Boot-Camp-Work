@@ -27,6 +27,8 @@ public class GUI extends JFrame{
 	private JPanel locationPanel;
 	private JPanel buttonsPanel;
 	private JPanel actionsButtonsPanel;
+	private JPanel actionstopButtonsPanel;
+	private JPanel actionsbottomButtonsPanel;
 	private JPanel movementButtonsPanel;
 	private iMaze maze;
 	private iCharacter player;
@@ -34,8 +36,8 @@ public class GUI extends JFrame{
 
 	public GUI(){
 		super ("Group 3's awesome adventure game");
-		//"10x10.maze"
-		maze = new Maze();
+		maze = new Maze("10x10.maze");
+		//maze = new Maze();
 		player = new Character();
 		
 		//Create and place Panels
@@ -50,9 +52,17 @@ public class GUI extends JFrame{
 		
 		//adds buttons to buttons panel   // working on better positioning
 		this.movementButtonsPanel = new JPanel();
+		this.movementButtonsPanel.setLayout(new BorderLayout());
 		this.buttonsPanel.add(this.movementButtonsPanel,BorderLayout.WEST);
 		this.actionsButtonsPanel = new JPanel();
+		this.actionsButtonsPanel.setLayout(new BorderLayout());
 		this.buttonsPanel.add(this.actionsButtonsPanel,BorderLayout.EAST);
+		actionstopButtonsPanel = new JPanel();
+		actionstopButtonsPanel.setLayout(new BorderLayout());
+		this.actionsButtonsPanel.add(actionstopButtonsPanel,BorderLayout.NORTH);
+		actionsbottomButtonsPanel = new JPanel();
+		actionsbottomButtonsPanel.setLayout(new BorderLayout());
+		this.actionsButtonsPanel.add(actionsbottomButtonsPanel,BorderLayout.SOUTH);
 		
 		
 		
@@ -78,14 +88,14 @@ public class GUI extends JFrame{
 		this.movementButtonsPanel.add(rightButton,BorderLayout.LINE_END);
 		
 		//Action buttons added to button panel
-		searchButton = new JButton("Search");
-		this.actionsButtonsPanel.add(searchButton,BorderLayout.WEST);
-		sleepButton = new JButton("Sleep");
-		this.actionsButtonsPanel.add(sleepButton,BorderLayout.WEST);
+		searchButton = new JButton("Search ");
+		this.actionstopButtonsPanel.add(searchButton,BorderLayout.WEST);
+		sleepButton = new JButton(" Sleep");
+		this.actionstopButtonsPanel.add(sleepButton,BorderLayout.EAST);
 		attackButton = new JButton("Attack");
-		this.actionsButtonsPanel.add(attackButton,BorderLayout.EAST);
-		runButton = new JButton("Run");
-		this.actionsButtonsPanel.add(runButton,BorderLayout.EAST);	
+		this.actionsbottomButtonsPanel.add(attackButton,BorderLayout.EAST);
+		runButton = new JButton("    Run   ");
+		this.actionsbottomButtonsPanel.add(runButton,BorderLayout.WEST);	
 		
 		//Event handling for all buttons
 		Listener handler = new Listener();
