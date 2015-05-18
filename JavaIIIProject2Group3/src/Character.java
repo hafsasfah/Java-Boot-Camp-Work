@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 
-
 public class Character implements iCharacter {
 
 	// fields
@@ -24,6 +23,11 @@ public class Character implements iCharacter {
 		this.intelligence = 6.0;
 		//this.charLocation[0] = 0;
 		//this.charLocation[1] = 0;
+		
+		/*
+		 * Need to generate random stats
+		 */
+		
 	}
 	
 	public void addArmor(double armor) {
