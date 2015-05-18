@@ -3,7 +3,7 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.mockito.Mockito.*;
 
-public class TwoDimensionalPositonTest {
+public class TwoDimensionalPositionTest {
 
 	private TwoDimensionalPosition position;
 	private iRoom mockIRoom;
