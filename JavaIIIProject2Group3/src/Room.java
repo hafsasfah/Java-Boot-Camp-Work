@@ -7,13 +7,15 @@ public class Room {
 	
 	private String roomTitle;
 	private String roomDescription;
+	private int gold;
 	
-	public Room()
+	public Room(String rTitle, String rDescription)
 	{
-		
+		this.roomTitle = rTitle;
+		this.roomDescription = rDescription;
 	}
 	
-	public Room(int npc)
+	public Room(int npc, int goldAmount)
 	{
 		numberOfNPC();
 	}
@@ -21,9 +23,15 @@ public class Room {
 	public int numberOfNPC()
 	{
 		Random randomGenerator = new Random(7);		
-		numberOfNonPlayers = randomGenerator.nextInt(100);
+		int numberOfNonPlayers = randomGenerator.nextInt(100);
 		
 		return numberOfNonPlayers;
 		
+	}
+	
+	public int amountOfGold()
+	{
+		Random randomGenerator = new Random(20);
+		return gold;
 	}
 }
