@@ -1,5 +1,6 @@
 
-import java.awt.FlowLayout;
+import java.awt.BorderLayout;
+//import java.awt.FlowLayout;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
@@ -15,27 +16,33 @@ public class GUI extends JFrame{
 	private JButton leftButton;
 	private JButton rightButton;
 	private JTextArea console;
+	private JPanel textAreaPanel;
+	private JPanel buttonsPanel;
 	private iMaze maze;
 	private iCharacter player;
 	
-	
+
 	public GUI(){
 		super ("Group 3's awesome adventure game");
-		setLayout(new FlowLayout());
+		
 		maze = new Maze();
 		player = new Character();
 		
+		this.textAreaPanel = new JPanel();
+		add(this.textAreaPanel,BorderLayout.NORTH);
+		this.buttonsPanel = new JPanel();
+		add(this.buttonsPanel,BorderLayout.SOUTH);
 		
 		console = new JTextArea("Current Location: "+ player.getCharLocationString() +"\n",20,30); 
-		add(console);
+		this.textAreaPanel.add(console);
 		upButton = new JButton("North");
-		add(upButton);
+		this.buttonsPanel.add(upButton);
 		downButton = new JButton("South");
-		add(downButton);
+		this.buttonsPanel.add(downButton);
 		leftButton = new JButton("West");
-		add(leftButton);
+		this.buttonsPanel.add(leftButton);
 		rightButton = new JButton("East");
-		add(rightButton);
+		this.buttonsPanel.add(rightButton);
 		
 		Listener handler = new Listener();
 		upButton.addActionListener(handler);
