@@ -34,7 +34,7 @@ public class GUI extends JFrame{
 
 	public GUI(){
 		super ("Group 3's awesome adventure game");
-		
+		//"10x10.maze"
 		maze = new Maze();
 		player = new Character();
 		
@@ -112,6 +112,7 @@ public class GUI extends JFrame{
 	//clears game dialog
 	private void clearConsole(){
 		console.setText("");
+		this.location.setText("Current Location: "+ player.getCharLocationString());
 	}
 	
 	//checks button availability
