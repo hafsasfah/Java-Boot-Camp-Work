@@ -25,6 +25,7 @@ public class Player implements iCharacter
 	
 	public Player()
 	{
+		Dice dice = new Dice();
 		this.location.row = 0;
 		this.location.column= 0;
 		this.strength = dice.rolldie(3);

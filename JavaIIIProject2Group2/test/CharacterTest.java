@@ -40,7 +40,6 @@ public class CharacterTest {
 		 int startingvalue = testchar.getHitPoints();
 		 testchar.attack(mockPlayer);
 		 assertTrue(testchar.getHitPoints() < startingvalue);
-		 //assertTrue(mockPlayer.getHitPoints() < startingvalue); 
 		 
 		 
 	
