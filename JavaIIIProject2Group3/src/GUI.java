@@ -36,7 +36,7 @@ public class GUI extends JFrame{
 
 	public GUI(){
 		super ("Group 3's awesome adventure game");
-		maze = new Maze("10x10.maze");
+		//maze = new Maze("10x10.maze");
 		//maze = new Maze();
 		player = new Character();
 		
