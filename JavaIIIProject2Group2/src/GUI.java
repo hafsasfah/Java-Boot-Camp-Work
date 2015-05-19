@@ -7,8 +7,12 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.text.DefaultCaret;
+
 
 
 public class GUI extends JFrame
@@ -21,6 +25,8 @@ public class GUI extends JFrame
 	RoomGenerator createDungeon = new RoomGenerator();
 	
 	private JTextArea outputMUD; 
+	private JPanel textMap;
+	private JScrollPane scroller;
 	private JPanel buttonMap;
 	private JButton buttonNorth;
 	private JButton buttonWest;
@@ -48,7 +54,8 @@ public class GUI extends JFrame
 		createDungeon.populateDungeon(gridLayout, dungeon);
 		buildTextPanel();
 		buildButtonMap();
-		this.add(outputMUD);
+		this.add(textMap);
+		
 		this.add(buttonMap);
 		
 		dungeon[0][0].describeRoom("You are in a slimy, dimly lit stone room. There are no furnishings or trinkets to be found that suggest comfort.");
@@ -61,8 +68,19 @@ public class GUI extends JFrame
 	}
 	public void buildTextPanel()
 	{
+		textMap = new JPanel();
+		textMap.setLayout(new GridLayout(1,2));
 		outputMUD = new JTextArea();
+		DefaultCaret caret = (DefaultCaret)outputMUD.getCaret();
+		caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
 		outputMUD.setText("Welcome to the Dungeon.");
+		outputMUD.setEditable(false);
+		outputMUD.setSize(new Dimension(800,300));
+		outputMUD.setLineWrap(true);
+		scroller = new JScrollPane(outputMUD);
+		scroller.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+
+		textMap.add(scroller);
 	}
 	
 	public void buildButtonMap()
