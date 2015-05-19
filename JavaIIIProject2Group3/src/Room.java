@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.List;
+
 import java.util.Random;
 
 
@@ -8,6 +7,7 @@ public class Room {
 	private String roomTitle;
 	private String roomDescription;
 	private int npc;
+	private int gold;
 	
 	public Room(String rTitle, String rDescription)
 	{
@@ -17,7 +17,8 @@ public class Room {
 	
 	public Room(int npc, int goldAmount)
 	{
-		npc = numberOfNPC();		
+		npc = numberOfNPC();	
+		goldAmount = amountOfGold();
 	}
 	
 	public int numberOfNPC()
