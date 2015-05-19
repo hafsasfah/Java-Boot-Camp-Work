@@ -29,11 +29,13 @@ public class GUI extends JFrame
 	private JScrollPane scroller;
 	private JPanel buttonMap;
 	private JPanel attackMap;
+	private JPanel runMap;
 	private JButton buttonNorth;
 	private JButton buttonWest;
 	private JButton buttonSouth;
 	private JButton buttonEast;
 	private JButton buttonAttack;
+	private JButton buttonRun;
 	
     //static byte gridLayout[][]  =  {{1,0,0}, 
   	//								{1,0,0}, 
@@ -68,6 +70,9 @@ public class GUI extends JFrame
 		
 		buildAttackMap();
 		this.add(attackMap);
+		
+		buildRunMap();
+		this.add(runMap);
 		
 		dungeon[0][0].describeRoom("You are in a slimy, dimly lit stone room. There are no furnishings or trinkets to be found that suggest comfort.");
 		dungeon[1][0].describeRoom("You squeeze through a narrow crack in the wall to find what was once most certainly a home for goblins. "
@@ -124,10 +129,19 @@ public class GUI extends JFrame
 	public void buildAttackMap()
 	{
 		attackMap = new JPanel();
-		attackMap.setLayout(new BorderLayout(2,2));
+		attackMap.setLayout(new FlowLayout());
 		buttonAttack = new JButton("Attack");
 		buttonAttack.addActionListener(new MovementButtonListener());
-		buttonMap.add(buttonAttack);
+		attackMap.add(buttonAttack);
+	}
+	
+	public void buildRunMap()
+	{
+		runMap = new JPanel();
+		runMap.setLayout(new FlowLayout());
+		buttonRun = new JButton("Run");
+		buttonRun.addActionListener(new MovementButtonListener());
+		runMap.add(buttonRun);
 	}
 	
 	private void checkButtons()
