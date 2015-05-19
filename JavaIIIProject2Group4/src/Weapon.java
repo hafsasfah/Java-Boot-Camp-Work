@@ -1,4 +1,4 @@
-package AdventureGame;
+
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,8 +33,7 @@ public class Weapon extends JFrame implements ActionListener // WEAPONS CLASS?
 					
 					setTitle("PICK YOUR WEAPON MAGE");
 					setSize(330,170);
-					//
-					setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+					//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 					button1 = new JButton("SCEPTOR");
 					button1.setIcon(new ImageIcon (getClass().getResource("16.jpg")));
 					button2 = new JButton("MAGE SWORD");

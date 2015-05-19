@@ -1,4 +1,4 @@
-package AdventureGame;
+
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,9 +14,9 @@ public class Stats implements ActionListener {
 	Random r3 = new Random();
 	AdventureGame ag;
 	
-	int dice3t1 = r.nextInt(6)+1;
-	int dice3t2 = r2.nextInt(6)+1; 
-	int dice3t3 = r3.nextInt(6)+1; 
+	int dice3t1 = r.nextInt(6);
+	int dice3t2 = r2.nextInt(6); 
+	int dice3t3 = r3.nextInt(6); 
 	int statNumber1 = dice3t1 * 3;
 	int statNumber2 = dice3t2 * 3;
 	int statNumber3 = dice3t3 * 3;
@@ -38,7 +38,7 @@ public class Stats implements ActionListener {
 					JLabel statsLabel = new JLabel("<html> DEX: "+dex+"<br/> STRG: "+
 							strg+"<br/> INTEL: "+intel+"<br/> HEALTH: "+hp);
 					statsLabel.setBounds(195, 125, 80, 92);
-					contentPane.add(statsLabel);
+					//contentPane.add(statsLabel);
 				}
 				else if (actionCommand.equals("MAGE SWORD"))
 				{

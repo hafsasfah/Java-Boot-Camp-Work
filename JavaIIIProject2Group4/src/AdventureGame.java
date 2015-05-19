@@ -1,4 +1,4 @@
-package AdventureGame;
+
 
 import java.awt.*;
 import java.awt.event.*;
@@ -60,22 +60,22 @@ public AdventureGame()
 		contentPane.add(btnNewButton_3);
 		
 		//Directional Buttons
-		JButton btnNewButton_4 = new JButton("↑");
+		JButton btnNewButton_4 = new JButton("â†‘");
 		btnNewButton_4.setBackground(Color.ORANGE);
 		btnNewButton_4.setBounds(680, 228, 50, 23);
 		contentPane.add(btnNewButton_4);
 		
-		JButton btnNewButton_5 = new JButton("←");
+		JButton btnNewButton_5 = new JButton("â†�");
 		btnNewButton_5.setBackground(Color.ORANGE);
 		btnNewButton_5.setBounds(640, 262, 50, 23);
 		contentPane.add(btnNewButton_5);
 		
-		JButton btnNewButton_6 = new JButton("→");
+		JButton btnNewButton_6 = new JButton("â†’");
 		btnNewButton_6.setBackground(Color.ORANGE);
 		btnNewButton_6.setBounds(718, 262, 50, 23);
 		contentPane.add(btnNewButton_6);
 		
-		JButton btnNewButton_7 = new JButton("↓");
+		JButton btnNewButton_7 = new JButton("â†“");
 		btnNewButton_7.setBackground(Color.ORANGE);
 		btnNewButton_7.setBounds(680, 296, 50, 23);
 		contentPane.add(btnNewButton_7);
