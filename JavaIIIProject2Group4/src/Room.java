@@ -17,16 +17,16 @@ public class Room extends DiceRoll{
 
 
 	public static int getNorth() {
-		return dice3t1;
+		return roll1*3;
 	}
-	public static Room getEast() {
-		return EAST;
+	public static int getEast() {
+		return roll2*3;
 	}
-	public static Room getSouth() {
-		return SOUTH;
+	public static int getSouth() {
+		return roll3*3;
 	}
-	public static Room getWest() {
-		return WEST;
+	public static int getWest() {
+		return roll4*3;
 	}
 	
 	
