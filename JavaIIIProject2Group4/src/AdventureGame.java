@@ -43,6 +43,7 @@ public AdventureGame()
 	frame.setLocationRelativeTo(null);
 	setContentPane(contentPane);
 		
+	//Action Buttons
 		JButton btnNewButton = new JButton("Fight!!!");
 		btnNewButton.setBounds(10, 194, 89, 23);
 		contentPane.add(btnNewButton);
@@ -85,6 +86,8 @@ public AdventureGame()
 		this.player3name = JOptionPane.showInputDialog("Player 3 please enter your name.");
 		this.player4name = JOptionPane.showInputDialog("Player 4 please enter your name.");*/
 		
+		
+		//PLAYER LABELS
 		JLabel lblPlayer = new JLabel("Player 1"); //Input code here to call player name
 		lblPlayer.setBounds(222, 11, 46, 14);
 		contentPane.add(lblPlayer);
@@ -101,6 +104,8 @@ public AdventureGame()
 		lblPlayer_3.setBounds(491, 11, 46, 14);
 		contentPane.add(lblPlayer_3);
 		
+		
+		//Player ICON BUTTONS
 		JButton ply1 = new JButton();
 		ply1.setIcon(new ImageIcon (getClass().getResource("142.jpg")));
 		ply1.addActionListener(new ActionListener()

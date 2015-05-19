@@ -12,7 +12,7 @@ public class Stats implements ActionListener {
 	Random r = new Random();
 	Random r2 = new Random();
 	Random r3 = new Random();
-	AdventureGame ag;
+	AdventureGame AdvGame;
 	
 	int dice3t1 = r.nextInt(6);
 	int dice3t2 = r2.nextInt(6); 
@@ -25,9 +25,9 @@ public class Stats implements ActionListener {
 	int intel = statNumber3;
 	int hp = 100;
 	
-	public Stats(AdventureGame ag)
+	public Stats(AdventureGame AdvGame)
 	{
-		this.ag = ag;
+		this.AdvGame = AdvGame;
 	}
 	public void actionPerformed(ActionEvent e)
 	{
@@ -45,40 +45,40 @@ public class Stats implements ActionListener {
 					JLabel statsLabel = new JLabel("<html> DEX: "+dex+"<br/> STRG: "+
 							strg+"<br/> INTEL: "+intel+"<br/> HEALTH: "+hp);
 					
-					ag.add(statsLabel);
-					ag.setSize(1000,1000);
+					AdvGame.add(statsLabel);
+					AdvGame.setSize(1000,1000);
 				}
 				else if (actionCommand.equals("BOW AND ARROW"))
 				{
 					JLabel statsLabel = new JLabel("<html> DEX: "+dex+"<br/> STRG: "+
 							strg+"<br/> INTEL: "+intel+"<br/> HEALTH: "+hp);
 					
-					ag.add(statsLabel);
-					ag.setSize(1000,1000);
+					AdvGame.add(statsLabel);
+					AdvGame.setSize(1000,1000);
 				}	
 				else if (actionCommand.equals("LONG SWORD"))
 				{
 					JLabel statsLabel = new JLabel("<html> DEX: "+dex+"<br/> STRG: "+
 							strg+"<br/> INTEL: "+intel+"<br/> HEALTH: "+hp);
 					
-					ag.add(statsLabel);
-					ag.setSize(1000,1000);
+					AdvGame.add(statsLabel);
+					AdvGame.setSize(1000,1000);
 				}	
 				else if (actionCommand.equals("PISTOL"))
 				{
 					JLabel statsLabel = new JLabel("<html> DEX: "+dex+"<br/> STRG: "+
 							strg+"<br/> INTEL: "+intel+"<br/> HEALTH: "+hp);
 					
-					ag.add(statsLabel);
-					ag.setSize(1000,1000);
+					AdvGame.add(statsLabel);
+					AdvGame.setSize(1000,1000);
 				}	
 				else if (actionCommand.equals("DAGGERS"))
 				{
 					JLabel statsLabel = new JLabel("<html> DEX: "+dex+"<br/> STRG: "+
 							strg+"<br/> INTEL: "+intel+"<br/> HEALTH: "+hp);
 					
-					ag.add(statsLabel);
-					ag.setSize(1000,1000);
+					AdvGame.add(statsLabel);
+					AdvGame.setSize(1000,1000);
 				}	
 					
 	}
