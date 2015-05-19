@@ -38,28 +38,25 @@ public class Player implements iCharacter{
 	}	
 	
 	@Override
-	public int getHealth() {
+	public int getHitPoints() {
 	
-		return dice.sixSideRollDieTimesThree();
+		return dice.rolldie(3);
 	}
 
 	@Override
 	public int getStrength() {
 		
-		return dice.sixSideRollDieTimesThree();
+		return dice.rolldie(3);
 	}
-
 	@Override
 	public int getDexterity() {
 		
-		return dice.sixSideRollDieTimesThree();
+		return dice.rolldie(3);
 	}
 
 	@Override
-	public int getMana() {
-		
-		
-		return 0;
+	public int getIntelligence() {		
+		return 20;
 	}
 
 	@Override
@@ -71,67 +68,112 @@ public class Player implements iCharacter{
 	@Override
 	public void deathCheck() 
 	{
-		if( hitPoints < 1){
+		if( hitPoints < 1)
+		{
 			
 			System.out.println("\t You have taken to much damage and too weak to go any further");
 			
 		}
-		
-		
-		
 	}
 
-	@Override
-	public void attack() 
+	
+	public void attack(Player player, Player monster) 
 	{	
-		Player playerAttack = new Player();
-		Player enemyAttack = new Player();
 		
-		Scanner keyboard = new Scanner(System.in);
-		
-		
-		//While loop to make sure the enemy is dead before you move on
-		while(hitPoints > 0)
+		if(player.getDexterity() > monster.getDexterity())
 		{
 			
-			//Creating options for user...
-			
-			System.out.println("\t HP: " + hitPoints);
-			System.out.println("\t" + enemy + "'s HP: " + hitPoints);
-			System.out.println("What do you want to do?");
-			System.out.println("\t1. Attack");
-			System.out.println("\t2. drink potion");				//<------Not worked on yet
-			System.out.println("\t3. Run");								//<------Not worked on yet
-			
-			String input = keyboard.nextLine();
-			
-			//input the attack damage dealt and taken by enemy and player
-			
-			if(input.equals("1"))
-			{
-				int damageDealt = playerAttack.getStrength();		//damage made by the player 
-				int damageTaken = enemyAttack.getStrength();		//damage made by the monster/enemy
-				
-				this.hitPoints -= damageDealt;
-				this.hitPoints -= damageTaken;
-				
-				
-				System.out.println("\t You strike the " + enemy + "for " + damageDealt + " damage!");
-				System.out.println("\t You have received " + damageTaken + "by the" + enemy + " !" );
-				
-				
-			} else if(input.equals("2"))
-			{
-				
-				
+			 monster.hitPoints -= player.getStrength();
+			 
+			 if(player.hitPoints < 1)
+			 {
+				 System.out.println("Player is dead! ");
+				 
+			 }else if(monster.hitPoints < 1)
+			 {
+				 
+				 System.out.println("Monster is dead"); 
+			 }
+			 	 
+		}
 		
-			}
+		else if (player.getDexterity() < monster.getDexterity())
+		{
 			
-			
-			
-		}//end of while
+			 player.hitPoints -= monster.getStrength();
+			 
+			 if(monster.hitPoints < 1)
+			 {
+				 System.out.println("Monster is dead! ");
+				 
+			 }else if(player.hitPoints < 1)
+			 {
+				 
+				 System.out.println("Player is dead"); 
+			 }
+			 	 
+		}
+		
+		
+		
+		
 		
 	}
 
 	
 }
+
+
+
+/*
+
+Player playerAttack = new Player();
+Player enemyAttack = new Player();
+
+Scanner keyboard = new Scanner(System.in);
+
+
+//While loop to make sure the enemy is dead before you move on
+while(hitPoints > 0)
+{
+	
+	//Creating options for user...
+	
+	System.out.println("\t HP: " + hitPoints);
+	System.out.println("\t" + enemy + "'s HP: " + hitPoints);
+	System.out.println("What do you want to do?");
+	System.out.println("\t1. Attack");
+	System.out.println("\t2. drink potion");				//<------Not worked on yet
+	System.out.println("\t3. Run");								//<------Not worked on yet
+	
+	String input = keyboard.nextLine();
+	
+	//input the attack damage dealt and taken by enemy and player
+	
+	if(input.equals("1"))
+	{
+		int damageDealt = playerAttack.getStrength();		//damage made by the player 
+		int damageTaken = enemyAttack.getStrength();		//damage made by the monster/enemy
+		
+		this.hitPoints -= damageDealt;
+		this.hitPoints -= damageTaken;
+		
+		
+		System.out.println("\t You strike the " + enemy + "for " + damageDealt + " damage!");
+		System.out.println("\t You have received " + damageTaken + "by the" + enemy + " !" );
+		
+		
+	} else if(input.equals("2"))
+	{
+		
+		
+
+	}
+	
+	
+	
+}//end of while
+**/
+
+
+

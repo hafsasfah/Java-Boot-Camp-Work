@@ -9,6 +9,7 @@ public class PlayerCharacterFactory implements iCharacterFactory {
 		
 		
 		
+		
 		return new Player();
 	}
 
