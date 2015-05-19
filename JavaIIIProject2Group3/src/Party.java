@@ -32,54 +32,7 @@ public class Party {
 	public Party(){
 		location= new Location();
 		generateGUI();
-		//Creating main button panel
-		
-		// Create MovementButtons  Panel
-		this.movementButtonsPanel = new JPanel();							
-		this.movementButtonsPanel.setLayout(new BorderLayout());
-		
-		//Create Action panels and sub panels
-		this.actionsButtonsPanel = new JPanel();
-		this.actionsButtonsPanel.setLayout(new BorderLayout());
-		actionstopButtonsPanel = new JPanel();
-		actionstopButtonsPanel.setLayout(new BorderLayout());
-		this.actionsButtonsPanel.add(actionstopButtonsPanel,BorderLayout.NORTH);
-		actionsbottomButtonsPanel = new JPanel();
-		actionsbottomButtonsPanel.setLayout(new BorderLayout());
-		this.actionsButtonsPanel.add(actionsbottomButtonsPanel,BorderLayout.SOUTH);
-		
-			//Action buttons added to button panel
-			searchButton = new JButton("Search ");
-			this.actionstopButtonsPanel.add(searchButton,BorderLayout.WEST);
-			sleepButton = new JButton(" Sleep");
-			this.actionstopButtonsPanel.add(sleepButton,BorderLayout.EAST);
-			attackButton = new JButton("Attack");
-			this.actionsbottomButtonsPanel.add(attackButton,BorderLayout.EAST);
-			runButton = new JButton("    Run   ");
-			this.actionsbottomButtonsPanel.add(runButton,BorderLayout.WEST);	
-			
-			//Adds movement buttons to panel
-			northButton = new JButton("North");
-			this.movementButtonsPanel.add(northButton,BorderLayout.PAGE_START);
-			downButton = new JButton("South");
-			this.movementButtonsPanel.add(downButton,BorderLayout.PAGE_END);
-			leftButton = new JButton("West");
-			this.movementButtonsPanel.add(leftButton,BorderLayout.LINE_START);
-			rightButton = new JButton("East");
-			this.movementButtonsPanel.add(rightButton,BorderLayout.LINE_END);
-			
-		//Event handling for buttons
-		Listener handler = new Listener();
-		northButton.addActionListener(handler);
-		downButton.addActionListener(handler);
-		leftButton.addActionListener(handler);
-		rightButton.addActionListener(handler);
-		sleepButton.addActionListener(handler);
-		searchButton.addActionListener(handler);
-		attackButton.addActionListener(handler);
-		runButton.addActionListener(handler);		
-		screenUpdate();
-		
+
 		
 		
 		
