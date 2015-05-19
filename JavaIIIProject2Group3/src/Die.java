@@ -1,7 +1,7 @@
 
-public class Dice {
+public class Die {
 	
-	public static int dice3D6(){ // For Player Stats: Str, Dex, Int
+	public static int roll3D6(){ // For Player Stats: Str, Dex, Int
 		int sides;
 		int total = 0;
 		int rolls = (int) Math.floor(Math.random()*3) + 1;
@@ -12,7 +12,7 @@ public class Dice {
 		return total;
 	}
 	
-	public static int dice1To6D3() { // For NPC Stats: Str, Dex, Int, HP
+	public static int roll1To6D3() { // For NPC Stats: Str, Dex, Int, HP
 		int sides; 
 		int total = 0;
 		int rolls = (int) Math.floor(Math.random()*6) + 1;
@@ -23,11 +23,11 @@ public class Dice {
 		return total;
 	}
 	
-	public static int dice1D15() { // Some attacks.
+	public static int roll1D15() { // Some attacks.
 		return (int) Math.floor(Math.random()*15) + 1;
 	}
 	
-	public static int dice1D20() { // Find gold. Some attacks.
+	public static int roll1D20() { // Find gold. Some attacks.
 		return (int) Math.floor(Math.random()*20) + 1;
 	}
 
