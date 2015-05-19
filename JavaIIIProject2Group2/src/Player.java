@@ -15,6 +15,8 @@ public class Player implements iCharacter{
 	ArrayList<iItems> Inventory = new ArrayList<iItems>();
 	Coordinates location = new Coordinates();
 	Dice dice;
+	
+	
 	Random rand = new Random();
 	private String enemy = monsters[rand.nextInt(monsters.length)];
 	
@@ -31,6 +33,7 @@ public class Player implements iCharacter{
 		this.dexterity = dexterity;
 		this.intelligence = intelligence;
 		this.enemy = enemy; 
+		
 		
 		
 	}	
