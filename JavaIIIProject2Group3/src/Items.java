@@ -8,7 +8,8 @@ private double potionHitPoints;
 Random r=new Random();
 
 
-public  void Items(){
+public  Items(){
+	int addvaule=2;
 	potionStrength=0;
 	potionIntelligence=0;
 	potionDexterity=0;
@@ -16,21 +17,36 @@ public  void Items(){
 		int random = r.nextInt(4);
 	switch (random){
 	case 0:{
-		this.potionStrength=+2;
 	}
 	case 1:{
-		this.potionIntelligence=+2;
+		this.potionIntelligence=+addvaule;
 	}
 	case 2:{
-		this.potionDexterity=+2;
+		this.potionDexterity=+addvaule;
 	}
 	case 3:{
-		this.potionHitPoints=+2;
+		this.potionHitPoints=+addvaule;
 	}
 
 	}
 }
 	
+	public double getPotionStrength() {
+	return potionStrength;
+}
+
+public double getPotionIntelligence() {
+	return potionIntelligence;
+}
+
+public double getPotionDexterity() {
+	return potionDexterity;
+}
+
+public double getPotionHitPoints() {
+	return potionHitPoints;
+}
+
 	@Override
 	public String getName() {
 		// TODO Auto-generated method stub
