@@ -13,10 +13,7 @@ public class Character implements iCharacter {
 	private String charType; // TEMP until specified classes are made
 	private String charName; // player's name
 	JPanel panel;
-	
-	public Character() {}
-	
-	// 
+
 	public Character(String charName, String charType, int strength, int dexterity, int hitPoints, int intelligence) {
 		this.charName = charName;
 		this.charType = charType;
@@ -25,7 +22,7 @@ public class Character implements iCharacter {
 		this.hitPoints = hitPoints;
 		this.intelligence = intelligence;	
 	}
-		
+	
 	/**
 	 * @return the strength
 	 */
