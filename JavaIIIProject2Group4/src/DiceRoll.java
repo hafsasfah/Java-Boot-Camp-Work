@@ -1,11 +1,7 @@
 import java.util.Random;
-import java.util.Scanner;  
-import java.util.*;
 
 public class DiceRoll {
 
-		
-	
 	static Random r =  new Random();
 	static Random r2 = new Random();
 	static Random r3 = new Random();
@@ -19,12 +15,9 @@ public class DiceRoll {
 	public static void main(String args[])
 	  //test 
 	{
-	      String one = "";
-	      Scanner in = new Scanner(System.in);
-	 
-	      System.out.println("Dice rolled!!! \n"
+		System.out.println("Dice rolled!!! \n"
 	      		+ "\nFirst Roll  "+roll1+"\n"+"Second Roll "+roll2+"\n"+"Third Roll  "+roll3+"\n"+"Fourth Roll "+roll4+"\n");
-	   
+	  
 	     //end test 
 	      switch (roll1) {
 		     case 1: 
@@ -47,7 +40,6 @@ public class DiceRoll {
 		    	 System.out.println("3 Orcs, A wolf, and 3 Dragons are in this room!");
 			 				break;
 			}
-	      
 	      
 	      switch (roll2) {
 		     case 1: 
@@ -72,7 +64,6 @@ public class DiceRoll {
 			 }
 	      
 	      
-	      
 	      switch (roll3) {
 		     case 1: 
 		    	 System.out.println("2 Orcs and a Dragon are in this room!");
@@ -94,7 +85,6 @@ public class DiceRoll {
 		    	 System.out.println("3 Orcs, 2 wolves and 3 Dragons are in this room!");
 			 				break;
 			 }
-	      
 	      
 	      
 	      
