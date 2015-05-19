@@ -28,18 +28,20 @@ public class GUI extends JFrame
 	private JPanel textMap;
 	private JScrollPane scroller;
 	private JPanel buttonMap;
+	private JPanel attackMap;
 	private JButton buttonNorth;
 	private JButton buttonWest;
 	private JButton buttonSouth;
 	private JButton buttonEast;
+	private JButton buttonAttack;
 	
     //static byte gridLayout[][]  =  {{1,0,0}, 
   	//								{1,0,0}, 
   	//								{1,1,1}};
     
     static byte gridLayout[][]  =  {{1,0,0,1,1}, 
-									{1,0,0,0,1}, 
-									{1,1,1,0,0},
+									{1,0,1,0,1}, 
+									{1,1,1,1,1},
 									{1,1,0,0,1},
 									{1,1,0,1,1}};
 
@@ -51,7 +53,7 @@ public class GUI extends JFrame
 	{
 		
 		testPlayer = new Player();
-		setLayout(new GridLayout(2,2));
+		setLayout(new GridLayout(4,2));
 		setTitle("MUD");
 		setSize(800, 600);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -64,12 +66,16 @@ public class GUI extends JFrame
 		
 		this.add(buttonMap);
 		
+		buildAttackMap();
+		this.add(attackMap);
+		
 		dungeon[0][0].describeRoom("You are in a slimy, dimly lit stone room. There are no furnishings or trinkets to be found that suggest comfort.");
 		dungeon[1][0].describeRoom("You squeeze through a narrow crack in the wall to find what was once most certainly a home for goblins. "
 								+ "\nBones litter the ground around a smoking campfire.");
 		dungeon[2][1].describeRoom("You walk down a dark corridor dimly lit by fading torches, the stench in the air is overwhelming with dead corpses.");
-		
 		dungeon[2][2].describeRoom("You enter a huge stone room with a giant statue of a goblin and a skulking figure standing in pure darkness in the corner.");
+		dungeon[2][3].describeRoom("You make a hasty exit into another hallway leading up to a winding stairway.");
+		dungeon[2][4].describeRoom("You look up and down the massive staircase.");
 		
 		checkButtons();
 		setVisible(true);
@@ -100,17 +106,30 @@ public class GUI extends JFrame
 		buttonSouth = new JButton("South");
 		buttonEast = new JButton("East  ");
 		
+		
 		buttonNorth.addActionListener(new MovementButtonListener());
 		buttonWest.addActionListener(new MovementButtonListener());
 		buttonSouth.addActionListener(new MovementButtonListener());
 		buttonEast.addActionListener(new MovementButtonListener());
 		
+		
 		buttonMap.add(buttonNorth);
 		buttonMap.add(buttonWest);
 		buttonMap.add(buttonSouth);
 		buttonMap.add(buttonEast);
-		 
+		
+		
 	}
+	
+	public void buildAttackMap()
+	{
+		attackMap = new JPanel();
+		attackMap.setLayout(new BorderLayout(2,2));
+		buttonAttack = new JButton("Attack");
+		buttonAttack.addActionListener(new MovementButtonListener());
+		buttonMap.add(buttonAttack);
+	}
+	
 	private void checkButtons()
 	{
 		if(!(createDungeon.lookNorth(testPlayer, dungeon)))
