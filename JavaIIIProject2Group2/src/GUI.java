@@ -67,7 +67,9 @@ public class GUI extends JFrame
 		dungeon[0][0].describeRoom("You are in a slimy, dimly lit stone room. There are no furnishings or trinkets to be found that suggest comfort.");
 		dungeon[1][0].describeRoom("You squeeze through a narrow crack in the wall to find what was once most certainly a home for goblins. "
 								+ "\nBones litter the ground around a smoking campfire.");
-		//dungeon[1][1].describeRoom("You walk down a dark corridor dimly lit by fading torches, the stench in the air is overwhelming with dead corpses.");
+		dungeon[2][1].describeRoom("You walk down a dark corridor dimly lit by fading torches, the stench in the air is overwhelming with dead corpses.");
+		
+		dungeon[2][2].describeRoom("You enter a huge stone room with a giant statue of a goblin and a skulking figure standing in pure darkness in the corner.");
 		
 		checkButtons();
 		setVisible(true);
