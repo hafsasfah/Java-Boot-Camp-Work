@@ -33,12 +33,18 @@ public class GUI extends JFrame
 	private JButton buttonSouth;
 	private JButton buttonEast;
 	
-    static byte gridLayout[][]  =  {{1,0,0}, 
-  									{1,0,0}, 
-  									{1,1,1}};
+    //static byte gridLayout[][]  =  {{1,0,0}, 
+  	//								{1,0,0}, 
+  	//								{1,1,1}};
+    
+    static byte gridLayout[][]  =  {{1,0,0,1,1}, 
+									{1,0,0,0,1}, 
+									{1,1,1,0,0},
+									{1,1,0,0,1},
+									{1,1,0,1,1}};
 
-    Room dungeon[][] = new Room [3][3];
-
+    //Room dungeon[][] = new Room [3][3];
+    Room dungeon[][] = new Room [10][10];
 
 	
 	public GUI()
@@ -61,6 +67,7 @@ public class GUI extends JFrame
 		dungeon[0][0].describeRoom("You are in a slimy, dimly lit stone room. There are no furnishings or trinkets to be found that suggest comfort.");
 		dungeon[1][0].describeRoom("You squeeze through a narrow crack in the wall to find what was once most certainly a home for goblins. "
 								+ "\nBones litter the ground around a smoking campfire.");
+		//dungeon[1][1].describeRoom("You walk down a dark corridor dimly lit by fading torches, the stench in the air is overwhelming with dead corpses.");
 		
 		checkButtons();
 		setVisible(true);
