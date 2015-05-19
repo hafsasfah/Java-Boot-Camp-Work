@@ -1,3 +1,5 @@
+import java.util.Random;
+
 import javax.swing.*;
 
 public class Party implements IParty {
@@ -45,6 +47,24 @@ public class Party implements IParty {
 	@Override
 	public JPanel getPanel() {
 		return panel;
+	}
+
+	@Override
+	public ICharacter getRandomAliveCharacter() {
+		if ( !isAnyCharacterInPartyAlive() )
+		{
+			return null;
+		}
+		
+		Random random = new Random();
+		ICharacter randomAlivePlayer;
+		
+		do
+		{
+			randomAlivePlayer = characters[ random.nextInt( characters.length ) ];
+		} while (!randomAlivePlayer.isAlive());
+		
+		return randomAlivePlayer;	
 	}
 
 }

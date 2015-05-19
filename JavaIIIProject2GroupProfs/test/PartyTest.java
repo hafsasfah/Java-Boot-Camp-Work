@@ -65,5 +65,25 @@ public class PartyTest {
 	public void testGetPanel() {
 		assertNotNull(party.getPanel());
 	}
-
+	
+	@Test
+	public void testGetRandomAlivePlayer()
+	{
+		when(mockCharacters[0].isAlive()).thenReturn(true);
+		when(mockCharacters[1].isAlive()).thenReturn(true);
+		when(mockCharacters[2].isAlive()).thenReturn(true);
+		assertTrue( party.getRandomAliveCharacter().isAlive() );
+	}
+	
+	@Test
+	public void testGetRandomAlivePlayerReturnsNullWhenNoPlayerIsAlive()
+	{
+		ICharacter[] deadPlayer = new ICharacter[1];
+		deadPlayer[0] = mock(ICharacter.class);
+		when(deadPlayer[0].isAlive()).thenReturn(false);
+		Party deadParty = new Party(deadPlayer);
+		assertNull( deadParty.getRandomAliveCharacter() );
+	}
+	
+	
 }
