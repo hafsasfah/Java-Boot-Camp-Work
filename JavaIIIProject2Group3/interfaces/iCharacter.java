@@ -1,3 +1,5 @@
+import javax.swing.JPanel;
+
 
 public interface iCharacter {
 	
@@ -13,6 +15,7 @@ public interface iCharacter {
 	public void generateMvmtLeft();
 	public void generateMvmtRight();
 	public String getCharLocationString();
+	public JPanel getPanel();
 	
 }
 

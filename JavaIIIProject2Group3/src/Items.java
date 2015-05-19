@@ -17,6 +17,7 @@ public  Items(){
 		int random = r.nextInt(4);
 	switch (random){
 	case 0:{
+		this.potionStrength=+addvaule;
 	}
 	case 1:{
 		this.potionIntelligence=+addvaule;
