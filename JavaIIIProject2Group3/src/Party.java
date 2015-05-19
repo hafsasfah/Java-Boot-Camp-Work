@@ -37,6 +37,12 @@ public class Party {
 		
 		
 	}
+	public Character[] getCharacter(){
+		return characters;
+	}
+	public void setCharacter(Character[] update){
+		characters = update;
+	}
 	
 	
 	
