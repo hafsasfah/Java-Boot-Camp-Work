@@ -38,30 +38,31 @@ public class Player implements iCharacter{
 	@Override
 	public int getHealth() {
 	
-		return 0;
+		return dice.sixSideRollDieTimesThree();
 	}
 
 	@Override
 	public int getStrength() {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return dice.sixSideRollDieTimesThree();
 	}
 
 	@Override
 	public int getDexterity() {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return dice.sixSideRollDieTimesThree();
 	}
 
 	@Override
 	public int getMana() {
-		// TODO Auto-generated method stub
+		
+		
 		return 0;
 	}
 
 	@Override
 	public String getInventory() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
