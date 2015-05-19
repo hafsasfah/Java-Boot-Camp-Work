@@ -71,8 +71,6 @@ public class GUI extends JFrame
 		buildAttackMap();
 		this.add(attackMap);
 		
-		buildRunMap();
-		this.add(runMap);
 		
 		dungeon[0][0].describeRoom("You are in a slimy, dimly lit stone room. There are no furnishings or trinkets to be found that suggest comfort.");
 		dungeon[1][0].describeRoom("You squeeze through a narrow crack in the wall to find what was once most certainly a home for goblins. "
@@ -133,15 +131,10 @@ public class GUI extends JFrame
 		buttonAttack = new JButton("Attack");
 		buttonAttack.addActionListener(new MovementButtonListener());
 		attackMap.add(buttonAttack);
-	}
-	
-	public void buildRunMap()
-	{
-		runMap = new JPanel();
-		runMap.setLayout(new FlowLayout());
+		
 		buttonRun = new JButton("Run");
 		buttonRun.addActionListener(new MovementButtonListener());
-		runMap.add(buttonRun);
+		attackMap.add(buttonRun);
 	}
 	
 	private void checkButtons()
