@@ -13,32 +13,32 @@ import javax.swing.*;
 public class GUI extends JFrame{
 	
 	private static final long serialVersionUID = -7961136662816131164L;
+	
 	private JButton searchButton;
 	private JButton sleepButton;
 	private JButton attackButton;
 	private JButton runButton;
-	private JButton northButton;
-	private JButton downButton;
-	private JButton leftButton;
-	private JButton rightButton;
-	private JTextArea console;
+	static public JTextArea console;
 	private JTextArea location; // may remove this display later
 	private JPanel textAreaPanel;
 	private JPanel locationPanel;
 	private JPanel buttonsPanel;
-	private JPanel actionsButtonsPanel;
+	private JPanel actionsButtonsPanel; 
 	private JPanel actionstopButtonsPanel;
 	private JPanel actionsbottomButtonsPanel;
-	private JPanel movementButtonsPanel;
-	private iMaze maze;
-	private iCharacter player;
+	
+	private static iMaze maze = new Maze();
+	//private static maze = new Maze("10x10.maze");
+	private Party party;
+	
+	
+			
 	
 
 	public GUI(){
 		super ("Group 3's awesome adventure game");
-		//maze = new Maze("10x10.maze");
-		//maze = new Maze();
-		player = new Character();
+		
+		party = new Party();
 		
 		//Create and place Panels
 		locationPanel = new JPanel();
@@ -50,10 +50,9 @@ public class GUI extends JFrame{
 		
 		
 		
-		//adds buttons to buttons panel   // working on better positioning
-		this.movementButtonsPanel = new JPanel();
-		this.movementButtonsPanel.setLayout(new BorderLayout());
-		this.buttonsPanel.add(this.movementButtonsPanel,BorderLayout.WEST);
+		
+		//adds buttons to buttons panel   // working on better positioning	
+		this.buttonsPanel.add(party.getPanel(),BorderLayout.WEST); /////////
 		this.actionsButtonsPanel = new JPanel();
 		this.actionsButtonsPanel.setLayout(new BorderLayout());
 		this.buttonsPanel.add(this.actionsButtonsPanel,BorderLayout.EAST);
@@ -67,26 +66,17 @@ public class GUI extends JFrame{
 		
 		
 		//adds location text field to its panel   // may remove this panel before release
-		this.location = new JTextArea("Current Location: "+ player.getCharLocationString(),1,30);
+		this.location = new JTextArea("Current Location: "+ party.getCharLocationString(),1,30);
 		//location.setBackground(Color.lightGray);//trying to remove background color
 		this.locationPanel.add(location,BorderLayout.NORTH);
 		
 		//adds game dialog box to its panel
-		console = new JTextArea("Current Location: "+ player.getCharLocationString() +"\n",20,30); 
+		console = new JTextArea("Current Location: "+ party.getCharLocationString() +"\n",20,30); 
 		this.textAreaPanel.add(console,BorderLayout.SOUTH);
 		
 	
 		
-		//Movement buttons added to button panel
-		northButton = new JButton("North");
-		this.movementButtonsPanel.add(northButton,BorderLayout.PAGE_START);
-		downButton = new JButton("South");
-		this.movementButtonsPanel.add(downButton,BorderLayout.PAGE_END);
-		leftButton = new JButton("West");
-		this.movementButtonsPanel.add(leftButton,BorderLayout.LINE_START);
-		rightButton = new JButton("East");
-		this.movementButtonsPanel.add(rightButton,BorderLayout.LINE_END);
-		
+	
 		//Action buttons added to button panel
 		searchButton = new JButton("Search ");
 		this.actionstopButtonsPanel.add(searchButton,BorderLayout.WEST);
@@ -99,10 +89,6 @@ public class GUI extends JFrame{
 		
 		//Event handling for all buttons
 		Listener handler = new Listener();
-		northButton.addActionListener(handler);
-		downButton.addActionListener(handler);
-		leftButton.addActionListener(handler);
-		rightButton.addActionListener(handler);
 		sleepButton.addActionListener(handler);
 		searchButton.addActionListener(handler);
 		attackButton.addActionListener(handler);
@@ -114,6 +100,8 @@ public class GUI extends JFrame{
 	}
 	
 	private void screenUpdate(){
+		party.screenUpdate();
+		
 		buttonCheck();
 		clearConsole();
 		//add any other screen updates here as needed
@@ -122,25 +110,12 @@ public class GUI extends JFrame{
 	//clears game dialog
 	private void clearConsole(){
 		console.setText("");
-		this.location.setText("Current Location: "+ player.getCharLocationString());
+		this.location.setText("Current Location: "+ party.getCharLocationString());
 	}
 	
 	//checks button availability
 	private void buttonCheck(){
-		int[] playerLocation = player.getCharLocation();
-		if(!(maze.existsUp(playerLocation))){
-			northButton.setEnabled(false);
-		}
-		else northButton.setEnabled(true);
-		if(!(maze.existsDown(playerLocation))){
-			downButton.setEnabled(false);
-		}else downButton.setEnabled(true);
-		if(!(maze.existsLeft(playerLocation))){
-			leftButton.setEnabled(false);
-		}else leftButton.setEnabled(true);
-		if(!(maze.existsRight(playerLocation))){
-			rightButton.setEnabled(false);
-		}else rightButton.setEnabled(true);
+		
 		
 		
 		//if statements needed for action buttons
@@ -153,38 +128,17 @@ public class GUI extends JFrame{
 		runButton.setEnabled(true);
 		
 	}
-	
+	public static iMaze getMaze(){
+		return maze;
+	}	
 	private class Listener implements ActionListener
 	{
 
 		@Override
 		public void actionPerformed(ActionEvent event) {
+		
 			
-			
-			
-			if(event.getSource() == northButton){
-				player.generateMvmtUp();
-				screenUpdate();
-				console.append("North \n");
-				
-			}	
-			else if(event.getSource() == downButton){
-				player.generateMvmtDown();
-				screenUpdate();
-				console.append("South \n");
-			}
-			else if(event.getSource() == leftButton){
-				player.generateMvmtLeft();
-				screenUpdate();
-				console.append("West \n");
-			}
-			else if(event.getSource() == rightButton){
-				player.generateMvmtRight();
-				screenUpdate();
-				console.append("East\n");
-			}
-			
-			else if(event.getSource() == searchButton){
+			if(event.getSource() == searchButton){
 			buttonCheck();
 				console.append("The Room is empty.....oh so very Empty\n");
 								

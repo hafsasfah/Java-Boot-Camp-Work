@@ -1,11 +1,28 @@
+import java.awt.BorderLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
+
+
 
 public class Location {
 	int xCoordinate;
 	int yCoordinate;
+	
+
+	
 	public Location(){
 		this.xCoordinate=0;
 		this.yCoordinate=0;
-				
+		
+
+		
+		
+		
+	
 	}
 	public int[] getLocation(){
 		int[] result =  {this.xCoordinate,this.yCoordinate};
@@ -32,5 +49,9 @@ public class Location {
 	public String toString(){
 		return  this.xCoordinate +","+this.yCoordinate;
 	}
+	
+	
 
 }
+
+

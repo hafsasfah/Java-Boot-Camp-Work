@@ -5,7 +5,7 @@
 	<classpathentry kind="src" path="interfaces"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
-	<classpathentry kind="lib" path="../external/mockito-all-2.0.2-beta.jar"/>
+	<classpathentry kind="lib" path="C:/Users/F01000154.CORP-G5HX3X1/Documents/GitHub/gecjdss/GroupEric/external/mockito-all-2.0.2-beta.jar"/>
 	<classpathentry kind="lib" path="lib/mockito-all-2.0.2-beta.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

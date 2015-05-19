@@ -1,11 +1,16 @@
+import java.awt.BorderLayout;
 import java.io.File;
 import java.util.*;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
 
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
 
 public class Maze implements iMaze {
 	private iRoom[][] maze = new iRoom[10][10];
+	
 	
 /*
 	public Maze(String filename){//this constructor is not functional yet 
@@ -49,6 +54,8 @@ public class Maze implements iMaze {
 			for(int yPosition = 0;yPosition<10;yPosition++){
 				maze[xPosition][yPosition] = (iRoom) new tempRoom();	//randomly generates a room for ever position in maze[][]			
 				//TODO: update to new Room after rob commits Room class;
+				
+		
 			}
 		}
 	}
