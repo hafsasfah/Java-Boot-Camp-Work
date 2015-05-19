@@ -1,7 +1,7 @@
+import java.util.Random;
 import java.util.Scanner;
-public class Room {
+public class Room extends DiceRoll{
 
-	//contstructor
 	public Room(String string) {
 	
 	}
@@ -15,6 +15,20 @@ public class Room {
 	public static final Room SOUTH = new Room("South");
 	public static final Room WEST  = new Room("West");
 
+
+	public static int getNorth() {
+		return dice3t1;
+	}
+	public static Room getEast() {
+		return EAST;
+	}
+	public static Room getSouth() {
+		return SOUTH;
+	}
+	public static Room getWest() {
+		return WEST;
+	}
+	
 	
 
 	}
