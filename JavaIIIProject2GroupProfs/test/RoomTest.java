@@ -9,11 +9,12 @@ public class RoomTest {
 	private Room room;
 	private IParty mockIParty;
 	private String name = "TestRoomName";
+	int gold = 10;
 	
 	@Before
 	public void setUp() throws Exception {
 		mockIParty = mock(IParty.class);
-		room = new Room(name, mockIParty);
+		room = new Room(name, mockIParty, gold);
 	}
 
 	@Test
@@ -35,5 +36,10 @@ public class RoomTest {
 	public void testGetPanel() {
 		assertNotNull( room.getPanel() );
 	}
-
+	
+	@Test
+	public void testGetGold()
+	{
+		assertEquals(gold, room.getGold());
+	}
 }
