@@ -8,17 +8,18 @@ public class Player implements iCharacter{
 	private int strength;
 	private int dexterity;
 	private int intelligence;
-	private int playerHitPoints;
-	private int enemyHitPoints;
-	private String[] players = {"Mage","Warrior", "Thief"};
-	private String[] monsters = {"Shadow Lord","Pale Witch","Werewolf", "Darth Vader","Voldemort"};
+	private int hitPoints;
+	PlayerCharacterFactory player;
+	NpcCharacterFactory enemy;
+	//private String[] players = {"Mage","Warrior", "Thief"};
+	//private String[] monsters = {"Shadow Lord","Pale Witch","Werewolf", "Darth Vader","Voldemort"};
 	ArrayList<iItems> Inventory = new ArrayList<iItems>();
 	Coordinates location = new Coordinates();
 	Dice dice;
 	
 	
 	Random rand = new Random();
-	private String enemy = monsters[rand.nextInt(monsters.length)];
+	//private String enemy = monsters[rand.nextInt(monsters.length)];
 	
 	
 	public Player()
@@ -27,14 +28,12 @@ public class Player implements iCharacter{
 		this.location.column= 0;
 	}
 	
-	public Player(int strength, int dexterity, int intellignce, String players, String enemy)
+	public Player(int strength, int dexterity, int intelligence, int hitPoints)
 	{
 		this.strength = strength;
 		this.dexterity = dexterity;
 		this.intelligence = intelligence;
-		this.enemy = enemy; 
-		
-		
+		this.hitPoints = hitPoints; 
 		
 	}	
 	
@@ -72,7 +71,7 @@ public class Player implements iCharacter{
 	@Override
 	public void deathCheck() 
 	{
-		if( playerHitPoints < 1){
+		if( hitPoints < 1){
 			
 			System.out.println("\t You have taken to much damage and too weak to go any further");
 			
@@ -85,21 +84,23 @@ public class Player implements iCharacter{
 	@Override
 	public void attack() 
 	{	
-		Player grab = new Player();
+		Player playerAttack = new Player();
+		Player enemyAttack = new Player();
+		
 		Scanner keyboard = new Scanner(System.in);
 		
 		
 		//While loop to make sure the enemy is dead before you move on
-		while(enemyHitPoints > 0)
+		while(hitPoints > 0)
 		{
 			
 			//Creating options for user...
 			
-			System.out.println("\t HP: " + playerHitPoints);
-			System.out.println("\t" + enemy + "'s HP: " + enemyHitPoints);
+			System.out.println("\t HP: " + hitPoints);
+			System.out.println("\t" + enemy + "'s HP: " + hitPoints);
 			System.out.println("What do you want to do?");
 			System.out.println("\t1. Attack");
-			System.out.println("\t2. drink health potion");				//<------Not worked on yet
+			System.out.println("\t2. drink potion");				//<------Not worked on yet
 			System.out.println("\t3. Run");								//<------Not worked on yet
 			
 			String input = keyboard.nextLine();
@@ -108,18 +109,23 @@ public class Player implements iCharacter{
 			
 			if(input.equals("1"))
 			{
-				int damageDealt = grab.getStrength();		//damage made by the player 
-				int damageTaken = grab.getStrength();		//damage made by the monster/enemy
+				int damageDealt = playerAttack.getStrength();		//damage made by the player 
+				int damageTaken = enemyAttack.getStrength();		//damage made by the monster/enemy
 				
-				this.playerHitPoints -= damageDealt;
-				this.enemyHitPoints -= damageTaken;
+				this.hitPoints -= damageDealt;
+				this.hitPoints -= damageTaken;
 				
 				
 				System.out.println("\t You strike the " + enemy + "for " + damageDealt + " damage!");
-				System.out.println("\t You have received " + damageTaken + "by the # !");
+				System.out.println("\t You have received " + damageTaken + "by the" + enemy + " !" );
 				
 				
-			} //end of if decision
+			} else if(input.equals("2"))
+			{
+				
+				
+		
+			}
 			
 			
 			
