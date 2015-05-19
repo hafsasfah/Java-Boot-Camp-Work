@@ -11,76 +11,150 @@ import javax.swing.JPanel;
 public class Party {
 	private Location location;
 	Character[] characters;
-	
-	
-	
 	// GUI fields
-	private JButton northButton;	//
-	private JButton downButton;		//
-	private JButton leftButton;		//
-	private JButton rightButton; //
-	private JPanel movementButtonsPanel; 
+		//subPanels
+		private JPanel movementButtonsPanel; 
+		private JPanel actionsButtonsPanel; 
+			//sub action button panels
+			private JPanel actionstopButtonsPanel;
+			private JPanel actionsbottomButtonsPanel;
+				//actionButtons
+				private JButton searchButton;
+				private JButton sleepButton;
+				private JButton attackButton;
+				private JButton runButton;
+			//movementButtons
+			private JButton northButton;
+			private JButton downButton;	
+			private JButton leftButton;	
+			private JButton rightButton; 
 	
 	public Party(){
 		location= new Location();
+		generateGUI();
+		//Creating main button panel
 		
 		// Create MovementButtons  Panel
 		this.movementButtonsPanel = new JPanel();							
-		this.movementButtonsPanel.setLayout(new BorderLayout());		
+		this.movementButtonsPanel.setLayout(new BorderLayout());
 		
+		//Create Action panels and sub panels
+		this.actionsButtonsPanel = new JPanel();
+		this.actionsButtonsPanel.setLayout(new BorderLayout());
+		actionstopButtonsPanel = new JPanel();
+		actionstopButtonsPanel.setLayout(new BorderLayout());
+		this.actionsButtonsPanel.add(actionstopButtonsPanel,BorderLayout.NORTH);
+		actionsbottomButtonsPanel = new JPanel();
+		actionsbottomButtonsPanel.setLayout(new BorderLayout());
+		this.actionsButtonsPanel.add(actionsbottomButtonsPanel,BorderLayout.SOUTH);
 		
-		
-		//Adds movement buttons to panel
-		northButton = new JButton("North");
-		this.movementButtonsPanel.add(northButton,BorderLayout.PAGE_START);
-		downButton = new JButton("South");
-		this.movementButtonsPanel.add(downButton,BorderLayout.PAGE_END);
-		leftButton = new JButton("West");
-		this.movementButtonsPanel.add(leftButton,BorderLayout.LINE_START);
-		rightButton = new JButton("East");
-		this.movementButtonsPanel.add(rightButton,BorderLayout.LINE_END);
-		
-		//Event handling for movement buttons
+			//Action buttons added to button panel
+			searchButton = new JButton("Search ");
+			this.actionstopButtonsPanel.add(searchButton,BorderLayout.WEST);
+			sleepButton = new JButton(" Sleep");
+			this.actionstopButtonsPanel.add(sleepButton,BorderLayout.EAST);
+			attackButton = new JButton("Attack");
+			this.actionsbottomButtonsPanel.add(attackButton,BorderLayout.EAST);
+			runButton = new JButton("    Run   ");
+			this.actionsbottomButtonsPanel.add(runButton,BorderLayout.WEST);	
+			
+			//Adds movement buttons to panel
+			northButton = new JButton("North");
+			this.movementButtonsPanel.add(northButton,BorderLayout.PAGE_START);
+			downButton = new JButton("South");
+			this.movementButtonsPanel.add(downButton,BorderLayout.PAGE_END);
+			leftButton = new JButton("West");
+			this.movementButtonsPanel.add(leftButton,BorderLayout.LINE_START);
+			rightButton = new JButton("East");
+			this.movementButtonsPanel.add(rightButton,BorderLayout.LINE_END);
+			
+		//Event handling for buttons
 		Listener handler = new Listener();
 		northButton.addActionListener(handler);
 		downButton.addActionListener(handler);
 		leftButton.addActionListener(handler);
 		rightButton.addActionListener(handler);
+		sleepButton.addActionListener(handler);
+		searchButton.addActionListener(handler);
+		attackButton.addActionListener(handler);
+		runButton.addActionListener(handler);		
+		screenUpdate();
+		
+		
 		
 		
 	}
 	
 	
+	
+	private void generateGUI() {
+		//Creating main button panel
+		
+				// Create MovementButtons  Panel
+				this.movementButtonsPanel = new JPanel();							
+				this.movementButtonsPanel.setLayout(new BorderLayout());
+				
+				//Create Action panels and sub panels
+				this.actionsButtonsPanel = new JPanel();
+				this.actionsButtonsPanel.setLayout(new BorderLayout());
+				actionstopButtonsPanel = new JPanel();
+				actionstopButtonsPanel.setLayout(new BorderLayout());
+				this.actionsButtonsPanel.add(actionstopButtonsPanel,BorderLayout.NORTH);
+				actionsbottomButtonsPanel = new JPanel();
+				actionsbottomButtonsPanel.setLayout(new BorderLayout());
+				this.actionsButtonsPanel.add(actionsbottomButtonsPanel,BorderLayout.SOUTH);
+				
+					//Action buttons added to button panel
+					searchButton = new JButton("Search ");
+					this.actionstopButtonsPanel.add(searchButton,BorderLayout.WEST);
+					sleepButton = new JButton(" Sleep");
+					this.actionstopButtonsPanel.add(sleepButton,BorderLayout.EAST);
+					attackButton = new JButton("Attack");
+					this.actionsbottomButtonsPanel.add(attackButton,BorderLayout.EAST);
+					runButton = new JButton("    Run   ");
+					this.actionsbottomButtonsPanel.add(runButton,BorderLayout.WEST);	
+					
+					//Adds movement buttons to panel
+					northButton = new JButton("North");
+					this.movementButtonsPanel.add(northButton,BorderLayout.PAGE_START);
+					downButton = new JButton("South");
+					this.movementButtonsPanel.add(downButton,BorderLayout.PAGE_END);
+					leftButton = new JButton("West");
+					this.movementButtonsPanel.add(leftButton,BorderLayout.LINE_START);
+					rightButton = new JButton("East");
+					this.movementButtonsPanel.add(rightButton,BorderLayout.LINE_END);
+					
+				//Event handling for buttons
+				Listener handler = new Listener();
+				northButton.addActionListener(handler);
+				downButton.addActionListener(handler);
+				leftButton.addActionListener(handler);
+				rightButton.addActionListener(handler);
+				sleepButton.addActionListener(handler);
+				searchButton.addActionListener(handler);
+				attackButton.addActionListener(handler);
+				runButton.addActionListener(handler);		
+				screenUpdate();
+				
+		
+	}
+
+
+
 	public String getCharLocationString() {
 		return location.toString();
 	}
-	
-	
-	public void generateMvmtUp() {
-		 this.location.moveUp();
-	}
-	
-	
-	public void generateMvmtDown() {
-		 this.location.moveDown();
-	}
-	
-	
-	public void generateMvmtLeft() {
-		 this.location.moveLeft();
-	}
-	
-	
-	public void generateMvmtRight() {
-		 this.location.moveRight();
-	}
+
 	public void screenUpdate(){
 		buttonCheck();
 		//clearConsole();
-	
-	
 	}
-	public JPanel getPanel(){
+	
+	public JPanel getActionPanel(){
+		return this.actionsButtonsPanel;
+	}
+	
+	public JPanel getMovementPanel(){
 		return movementButtonsPanel;
 	}
 	
@@ -100,6 +174,16 @@ public class Party {
 			rightButton.setEnabled(false);
 		}else rightButton.setEnabled(true);
 		
+
+		//if statements needed for action buttons
+		searchButton.setEnabled(true);
+		
+		sleepButton.setEnabled(true);
+		
+		attackButton.setEnabled(true);
+		
+		runButton.setEnabled(true);
+		
 	
 		
 	}
@@ -112,25 +196,45 @@ public class Party {
 		
 		
 			if(event.getSource() == northButton){
-				generateMvmtUp();
+				location.moveUp();
 				screenUpdate();
-				GUI.console.append("North \n");
+				GUI.appendConsole("North \n");
 				
 			}	
 			else if(event.getSource() == downButton){
-				generateMvmtDown();
+				location.moveDown();
 				screenUpdate();
-				GUI.console.append("South \n");
+				GUI.appendConsole("South \n");
 			}
 			else if(event.getSource() == leftButton){
-				generateMvmtLeft();
+				location.moveLeft();
 				screenUpdate();
-				GUI.console.append("West \n");
+				GUI.appendConsole("West \n");
 			}
 			else if(event.getSource() == rightButton){
-				generateMvmtRight();
+				location.moveRight();
 				screenUpdate();
-				GUI.console.append("East\n");
+				GUI.appendConsole("East\n");
+			}
+			
+			else if(event.getSource() == searchButton){
+				buttonCheck();
+				GUI.appendConsole("The Room is empty.....oh so very Empty\n");
+									
+				}	
+			else if(event.getSource() == sleepButton){
+				buttonCheck();
+				GUI.appendConsole("You had a siesta, feel better?\n");
+			}
+			else if(event.getSource() == attackButton){
+				buttonCheck();
+				GUI.appendConsole("You attacked.........................a wall. "
+						+ "\nIf you had a weapon you probably just dented it\n"
+						+ "Good job ace. Real smooth\n");
+			}
+			else if(event.getSource() == runButton){
+				buttonCheck();
+				GUI.appendConsole("Running from shadows? Some adventurer you are.\n");
 			}
 		}
 	}
