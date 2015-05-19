@@ -13,18 +13,19 @@ public  void Items(){
 	potionIntelligence=0;
 	potionDexterity=0;
 	potionHitPoints=0;
+		int random = r.nextInt(4);
 	switch (random){
 	case 0:{
-		potionStrength=+2;
+		this.potionStrength=+2;
 	}
 	case 1:{
-		potionIntelligence=+2;
+		this.potionIntelligence=+2;
 	}
 	case 2:{
-		potionDexterity=+2;
+		this.potionDexterity=+2;
 	}
 	case 3:{
-		potionHitPoints=+2;
+		this.potionHitPoints=+2;
 	}
 
 	}
@@ -50,4 +51,3 @@ public  void Items(){
 	
 
 }
-
