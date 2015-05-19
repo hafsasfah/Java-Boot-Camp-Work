@@ -19,7 +19,7 @@ public interface iCharacter
 	void deathCheck();
 	
 	//**Combat Procedure**\\
-	void attack(Player player, Player monster);
+	void attack(Player monster);
 	
 	void runAway(Player player);
 	

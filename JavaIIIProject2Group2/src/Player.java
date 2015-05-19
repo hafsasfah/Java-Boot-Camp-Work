@@ -27,10 +27,17 @@ public class Player implements iCharacter
 	{
 		this.location.row = 0;
 		this.location.column= 0;
+		this.strength = dice.rolldie(3);
+		this.dexterity = dice.rolldie(3);
+		this.intelligence = dice.rolldie(3);
+		this.hitPoints = dice.rolldie(3);
+		
 	}
 	
 	public Player(int strength, int dexterity, int intelligence, int hitPoints)
 	{
+		this.location.row = 0;
+		this.location.column= 0;
 		this.strength = strength;
 		this.dexterity = dexterity;
 		this.intelligence = intelligence;
@@ -41,23 +48,23 @@ public class Player implements iCharacter
 	@Override
 	public int getHitPoints() {
 	
-		return dice.rolldie(3);
+		return hitPoints;
 	}
 
 	@Override
 	public int getStrength() {
 		
-		return dice.rolldie(3);
+		return this.strength;
 	}
 	@Override
 	public int getDexterity() {
 		
-		return dice.rolldie(3);
+		return this.dexterity;
 	}
 
 	@Override
 	public int getIntelligence() {		
-		return 20;
+		return this.intelligence;
 	}
 
 	@Override
@@ -78,40 +85,28 @@ public class Player implements iCharacter
 	}
 
 	
-	public void attack(Player player, Player monster) 
+	public void attack(Player monster) 
 	{	
 		
-		if(player.getDexterity() > monster.getDexterity())
+		if(this.getDexterity() > monster.getDexterity())
 		{
 			
-			 monster.hitPoints -= player.getStrength();
-			 
-			 if(player.hitPoints < 1)
-			 {
-				 System.out.println("Player is dead! ");
-				 
-			 }else if(monster.hitPoints < 1)
-			 {
-				 
-				 System.out.println("Monster is dead"); 
-			 }
-			 	 
+			monster.hitPoints -= this.getStrength();
+			monster.deathCheck(); 
+			this.hitPoints -= monster.getStrength();
+			this.deathCheck();
+			System.out.println("Monster is dead"); 
+
 		}
 		
-		else if (player.getDexterity() < monster.getDexterity())
+		else if (this.getDexterity() < monster.getDexterity())
 		{
 			
-			 player.hitPoints -= monster.getStrength();
-			 
-			 if(monster.hitPoints < 1)
-			 {
-				 System.out.println("Monster is dead! ");
-				 
-			 }else if(player.hitPoints < 1)
-			 {
-				 
-				 System.out.println("Player is dead"); 
-			 }
+			this.hitPoints -= this.getStrength();
+			this.deathCheck(); 
+			monster.hitPoints -= monster.getStrength();
+			monster.deathCheck();
+			System.out.println("Player is dead"); 
 			 	 
 		}
 		
