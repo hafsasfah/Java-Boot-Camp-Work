@@ -24,8 +24,11 @@ public Room(String string) {
 		return roll4*3;
 	}
 	
-	
+	 
+     
+    
 
-	}
+  }
+
 
 
