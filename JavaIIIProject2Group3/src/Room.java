@@ -1,5 +1,6 @@
 
 import java.util.Random;
+import javax.swing.JPanel;
 
 
 public class Room {
@@ -8,6 +9,7 @@ public class Room {
 	private String roomDescription;
 	private int npc;
 	private int gold;
+	private JPanel panel;
 	
 	public Room(String rTitle, String rDescription)
 	{
@@ -19,6 +21,12 @@ public class Room {
 	{
 		npc = numberOfNPC();	
 		goldAmount = amountOfGold();
+	}
+	
+	public String getName()
+	{
+		String name = "";
+		return name;
 	}
 	
 	public int numberOfNPC()
