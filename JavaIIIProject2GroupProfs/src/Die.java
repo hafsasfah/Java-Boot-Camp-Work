@@ -22,5 +22,14 @@ public class Die implements IDie {
 	public int getValue() {
 		return value;
 	}
+	@Override
+	public int sumOfXRolls(int numberOfRollsToSum ) {
+		int sumOfRolls = 0;
+		for ( int rollCount = 0; rollCount < numberOfRollsToSum; rollCount++ )
+		{
+			sumOfRolls += roll();
+		}
+		return sumOfRolls;
+	}
 
 }
