@@ -143,8 +143,7 @@ public class Character implements iCharacter {
 
 	@Override
 	public boolean isAlive() {
-		// TODO Auto-generated method stub
-		return false;
+		return hitPoints > 0 ? true:false; //if hit points is larger than 0, char is alive.
 	}
 
 	@Override
