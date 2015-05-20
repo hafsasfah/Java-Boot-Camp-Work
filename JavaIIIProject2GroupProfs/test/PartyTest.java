@@ -1,13 +1,17 @@
 import static org.junit.Assert.*;
 
+import javax.swing.JPanel;
+
 import org.junit.Before;
 import org.junit.Test;
+
 import static org.mockito.Mockito.*;
 
 public class PartyTest {
 
 	private Party party;
 	private ICharacter[] mockCharacters;
+	private JPanel emptyPanel;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -15,6 +19,12 @@ public class PartyTest {
 		mockCharacters[0] = mock(ICharacter.class);
 		mockCharacters[1] = mock(ICharacter.class);
 		mockCharacters[2] = mock(ICharacter.class);
+		
+		emptyPanel = new JPanel();
+		
+		when(mockCharacters[0].getPanel()).thenReturn(emptyPanel);
+		when(mockCharacters[1].getPanel()).thenReturn(emptyPanel);
+		when(mockCharacters[2].getPanel()).thenReturn(emptyPanel);
 		
 		party = new Party(mockCharacters);
 	}
@@ -42,6 +52,7 @@ public class PartyTest {
 		ICharacter[] deadPlayer = new ICharacter[1];
 		deadPlayer[0] = mock(ICharacter.class);
 		when(deadPlayer[0].isAlive()).thenReturn(false);
+		when(deadPlayer[0].getPanel()).thenReturn(emptyPanel);
 		Party deadParty = new Party(deadPlayer);
 		assertFalse( deadParty.isAnyCharacterInPartyAlive() );
 	}
@@ -81,6 +92,7 @@ public class PartyTest {
 		ICharacter[] deadPlayer = new ICharacter[1];
 		deadPlayer[0] = mock(ICharacter.class);
 		when(deadPlayer[0].isAlive()).thenReturn(false);
+		when(deadPlayer[0].getPanel()).thenReturn(emptyPanel);
 		Party deadParty = new Party(deadPlayer);
 		assertNull( deadParty.getRandomAliveCharacter() );
 	}
