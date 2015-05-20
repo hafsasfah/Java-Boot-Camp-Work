@@ -16,7 +16,7 @@ public interface iCharacter
 	
 	
 	//****Procedure on Death****
-	void deathCheck();
+	boolean deathCheck();
 	
 	//**Combat Procedure**\\
 	void attack(Player monster);

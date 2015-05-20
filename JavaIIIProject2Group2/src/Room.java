@@ -1,25 +1,52 @@
+import java.util.ArrayList;
+
 
 public class Room implements iRoom
 {
-	String story = "A plain dungeon room.";
+	String story = ("A plain dungeon room.");
+	String monsters = "";
 	Coordinates cord = new Coordinates();
-	
+	ArrayList<Player> container;
+	ArrayList<Player> Monstercontainer;
 
 	
 	public Room(int i, int k)
 	{
 		this.cord.row = i;
 		this.cord.column = k;
+		container = new ArrayList<Player>();
+		Monstercontainer = new ArrayList<Player>();
+		generateMonsters();
 	}
 	public void enterRoom()
 	{
-		
+		String MonsterHolder = "";
+		if(!(this.Monstercontainer.isEmpty()))
+		{
+			for(int i = 0; i <= this.Monstercontainer.size() - 1; i++)
+			{
+				MonsterHolder += this.Monstercontainer.get(i).name + " ";
+			}
+			this.monsters = "\nThe monsters in this room are: " + MonsterHolder + ".";
+		}
+		else
+			this.monsters = "";
 	}
 	
 	@Override
 	public void generateMonsters() 
 	{
-		// TODO Auto-generated method stub
+		Dice dice = new Dice();
+		int genMon = dice.rolldie(1);
+		int pickname = dice.rolldie(1);
+		if(genMon > 4)
+		{
+			String nameholder = "";
+			Player critter = new Player();
+			nameholder = critter.monsters[pickname - 1];
+			critter.setName(nameholder); 
+			this.Monstercontainer.add(critter);
+		}
 		
 	}
 
@@ -32,14 +59,13 @@ public class Room implements iRoom
 
 	public void describeRoom(String story)
 	{
-		this.story = story;
-
+			this.story = story;
 	}
 	
 	@Override
 	public String roomDescription() 
 	{
-		return this.story;
+		return this.story + monsters;
 	}
 	
 	@Override

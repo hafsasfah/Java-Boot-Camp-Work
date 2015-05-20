@@ -11,12 +11,10 @@ public class RoomGenerator
 				if(maze[i][k] == 1)
 				{
 					dungeon[i][k] = new Room(i,k);
-					System.out.print(dungeon[i][k]);
 				}
-				else
-					System.out.print("0");
+				
 			}
-			System.out.print("\n");
+			
 		}
 		
 	}

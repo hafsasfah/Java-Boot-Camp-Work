@@ -11,13 +11,12 @@ public class Dice implements iDice {
     //**Rolls six sided die.**\\
     public int rolldie(int roller)
     {
-    	int ranNum = rand.nextInt((6)+1);
+    	int ranNum = rand.nextInt((6));
     	if(roller == 0)
-    		return 0;
+    		return 1;
     	else
     		return ranNum + rolldie(roller - 1);		
     }
-    
     
 	@Override
 	public int sixSideRollDieTimesThree() 
