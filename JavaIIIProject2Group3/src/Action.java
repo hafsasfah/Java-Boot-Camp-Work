@@ -6,24 +6,28 @@ public class Action {
 		
 		int pcTotalAttack = 0; 
 		int npcTotalAttack = 0;
-		int pcSize = pc.length;
-		int npcSize = npc.length;
+		int pcSize = 0;
+		int npcSize = 0;
 		
 		for (Character c : pc) {
-			pcTotalAttack += c.getStrength();
+			if (c.isAlive()){
+				pcSize += 1;
+				pcTotalAttack += c.getStrength();
+			}
+		}
+		
+		for (Character nc : npc) {
+			if (nc.isAlive()){
+				npcSize += 1;
+				npcTotalAttack+= nc.getStrength();
+			}
 		}
 		
 		pcTotalAttack /= npcSize;
-		
-		for (Character nc : npc) {
-			npcTotalAttack+= nc.getStrength();
-		}
-		
 		npcTotalAttack /= pcSize;
 		
 		players.setCharacter(pc);
 		NPC.setCharacter(npc);
-		
 	}
 	
 	public static int sleep(int playerHitPoints) {
