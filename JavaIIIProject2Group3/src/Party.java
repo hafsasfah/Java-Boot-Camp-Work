@@ -9,8 +9,9 @@ import javax.swing.JPanel;
 
 
 public class Party {
+	private PlayerCharacterFactory playerFactory ;
 	private Location location;
-	Character[] characters;
+	iCharacter[] characters = new Character[6] ;
 	// GUI fields
 	private JPanel partyPanel;
 		//subPanels
@@ -30,15 +31,13 @@ public class Party {
 			private JButton leftButton;	
 			private JButton rightButton; 
 	
-	public Party(){
+	public Party(iCharacter[] characters){
 		location= new Location();
 		generateGUI();
+		this.characters = characters;
 
-		
-		
-		
 	}
-	public Character[] getCharacter(){
+	public iCharacter[] getCharacter(){
 		return characters;
 	}
 	public void setCharacter(Character[] update){
@@ -49,7 +48,7 @@ public class Party {
 	
 	private void generateGUI() {
 		//Creating main button panel
-		for(Character c: characters){
+		for(iCharacter c: characters){
 			partyPanel.add(c.getPanel());
 			
 		}
