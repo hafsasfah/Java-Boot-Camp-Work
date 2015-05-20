@@ -1,3 +1,4 @@
+import java.awt.GridLayout;
 import java.util.Random;
 
 import javax.swing.*;
@@ -11,7 +12,11 @@ public class Party implements IParty {
 	{
 		this.characters = characters;
 		panel = new JPanel();
-		panel.add ( new JLabel("Party"));
+		panel.setLayout( new GridLayout( characters.length, 1) );
+		for ( ICharacter character : characters )
+		{
+			panel.add( character.getPanel() );
+		}
 	}
 	
 	@Override
