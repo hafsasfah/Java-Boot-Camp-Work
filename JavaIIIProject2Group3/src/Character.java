@@ -138,7 +138,7 @@ public class Character implements iCharacter {
 
 	@Override
 	public boolean isAlive() {
-		return hitPoints > 0 ? true:false; //if hit points is larger than 0, char is alive.
+		return hitPoints > 0; //if hit points is larger than 0, char is alive.
 	}
 
 	@Override
