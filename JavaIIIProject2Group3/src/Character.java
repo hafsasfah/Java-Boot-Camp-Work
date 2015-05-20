@@ -10,6 +10,8 @@ public class Character implements iCharacter {
 	private Location location = new Location();
 	private String charType; // TEMP until specified classes are made
 	private String charName; // player's name
+	Items weapon;
+	Items armor;
 	JPanel panel;
 
 	public Character(String charName, String charType, int strength, int dexterity, int hitPoints, int intelligence) {
@@ -140,32 +142,32 @@ public class Character implements iCharacter {
 	}
 
 	@Override
-	public String attack(iCharacter target) {
+	public iItems getWeapon() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public iItem getWeapon() {
+	public iItems getArmor() {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
-	@Override
-	public iItem getArmor() {
-		// TODO Auto-generated method stub
-		return null;
+	
+	public void setWeapon(Items weapon) {
+		this.weapon = weapon;
 	}
-
+	
+	public void setArmor(Items armor) {
+		this.armor = armor;
+	}
+	
 	@Override
 	public JPanel getPanel() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.panel;
 	}
 
 	@Override
 	public Character createCharacter() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 }
