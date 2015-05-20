@@ -22,7 +22,7 @@ public class DieTest {
 	@Test
 	public void testGetValue() {
 		int roll = die.roll();
-		assertTrue( roll > 0 && roll < sides );
+		assertTrue( roll > 0 && roll <= sides );
 	}
 
 }
