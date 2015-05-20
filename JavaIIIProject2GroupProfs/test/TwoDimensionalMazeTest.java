@@ -18,9 +18,10 @@ public class TwoDimensionalMazeTest {
 	public void setUp() throws Exception {
 		File mazeFile = new File("test/maze.txt");
 		mockRoomFactory = mock(IRoomFactory.class);
+		AdventureGameGUI mockGui = mock(AdventureGameGUI.class);
 		mockRoom = mock(IRoom.class);
 		when(mockRoomFactory.createRoom()).thenReturn(mockRoom);
-		maze = new TwoDimensionalMaze(mazeFile, mockRoomFactory);
+		maze = new TwoDimensionalMaze(mockGui, mazeFile, mockRoomFactory);
 	}
 	
 	@Test

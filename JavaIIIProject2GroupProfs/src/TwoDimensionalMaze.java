@@ -1,8 +1,10 @@
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Scanner;
-import javax.swing.JPanel;
+import java.util.*;
+
+import javax.swing.*;
 
 public class TwoDimensionalMaze implements IMaze {
 	public static final int NORTH = 0;
@@ -15,17 +17,34 @@ public class TwoDimensionalMaze implements IMaze {
 	private final char ROOM = 'r';
 	private final char END = 'e';
 
+	private AdventureGameGUI gui;
+	
 	private TwoDimensionalPosition start;
 	private TwoDimensionalPosition end;
-	private ArrayList<TwoDimensionalPosition> maze;
+	private TwoDimensionalPosition currentPosition;
+	private ArrayList<IPosition> maze;
 	private int maxX;
 	private int maxY;
 
+	private TwoDimensionalPosition north;
+	private TwoDimensionalPosition east;
+	private TwoDimensionalPosition south;
+	private TwoDimensionalPosition west;
+	
 	private JPanel panel;
+	private JButton northButton;
+	private JButton eastButton;
+	private JButton southButton;
+	private JButton westButton;
+	private JPanel centerPanel;
+	private JLabel centerLabel;
 
-	public TwoDimensionalMaze(File mazeFile, IRoomFactory roomFactory)
+	public TwoDimensionalMaze( AdventureGameGUI gui, File mazeFile, IRoomFactory roomFactory)
 			throws IOException {
-		maze = new ArrayList<TwoDimensionalPosition>();
+		
+		this.gui = gui;
+		
+		maze = new ArrayList<IPosition>();
 
 		Scanner fileScanner = new Scanner(mazeFile);
 
@@ -65,6 +84,36 @@ public class TwoDimensionalMaze implements IMaze {
 		maxY = yPosition;
 
 		panel = new JPanel();
+		northButton = new JButton("North");
+		westButton = new JButton("West");
+		eastButton = new JButton("East");
+		southButton = new JButton("South");
+		
+		northButton.addActionListener( new DirectionButtonListener() );
+		westButton.addActionListener( new DirectionButtonListener() );
+		eastButton.addActionListener( new DirectionButtonListener() );
+		southButton.addActionListener( new DirectionButtonListener() );
+		
+		centerPanel = new JPanel();
+		centerLabel = new JLabel();
+		centerPanel.add( centerLabel );
+		
+		panel.setLayout( new GridLayout(3,3));
+		panel.add( new JLabel());
+		panel.add( northButton );
+		panel.add( new JLabel());
+		
+		panel.add( westButton );
+		panel.add( centerPanel );
+		panel.add( eastButton );
+		
+		panel.add( new JLabel());
+		panel.add( southButton );
+		panel.add( new JLabel());
+		
+		currentPosition = start;
+		
+		updateDirectionButtons();
 	}
 
 	@Override
@@ -80,6 +129,11 @@ public class TwoDimensionalMaze implements IMaze {
 	@Override
 	public boolean isEndPosition(IPosition position) {
 		return position.equals(end);
+	}
+	
+	@Override
+	public IPosition getCurrentPosition() {
+		return currentPosition;
 	}
 
 	@Override
@@ -118,7 +172,7 @@ public class TwoDimensionalMaze implements IMaze {
 			return iterations < MAX_ITERATIONS;
 		}
 
-		public TwoDimensionalPosition next() {
+		public IPosition next() {
 			TwoDimensionalPosition emptyPosition = new TwoDimensionalPosition(-1,-1);
 			int currentIndex = x + y * maxY;
 			switch (iterations++) {
@@ -138,5 +192,47 @@ public class TwoDimensionalMaze implements IMaze {
 		public void remove() {
 			throw new UnsupportedOperationException();
 		}
+	}
+	
+	private void updateDirectionButtons()
+	{
+		Iterator<IPosition> iterator = iterator( currentPosition );
+		north = (TwoDimensionalPosition)iterator.next();
+		east = (TwoDimensionalPosition)iterator.next();
+		south = (TwoDimensionalPosition)iterator.next();
+		west = (TwoDimensionalPosition)iterator.next();
+		
+		centerLabel.setText( currentPosition.getX() + ", " + currentPosition.getY() );
+		
+		northButton.setEnabled( isValidPosition(north) );
+		eastButton.setEnabled( isValidPosition(east) );
+		southButton.setEnabled( isValidPosition(south) );
+		westButton.setEnabled( isValidPosition(west) );
+	}
+	
+	private class DirectionButtonListener implements ActionListener
+	{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if ( e.getSource() == northButton )
+			{
+				currentPosition = north;
+			}
+			else if ( e.getSource() == eastButton )
+			{
+				currentPosition = east;
+			}
+			else if ( e.getSource() == southButton )
+			{
+				currentPosition = south;
+			}
+			else if ( e.getSource() == westButton )
+			{
+				currentPosition = west;
+			}
+			updateDirectionButtons();
+			gui.updateDisplay();
+		}
+		
 	}
 }
