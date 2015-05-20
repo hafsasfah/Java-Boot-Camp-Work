@@ -101,8 +101,8 @@ public class Maze implements iMaze {
 		}
 		return false;
 	}
-	public  iRoom getRoom(int[] playerLocation){
-		return (iRoom)maze[playerLocation[0]][playerLocation[1]];
+	public  iRoom getRoom(int[] partylocation){
+		return (iRoom)maze[partylocation[0]][partylocation[1]];
 		
 	}
 	@Override

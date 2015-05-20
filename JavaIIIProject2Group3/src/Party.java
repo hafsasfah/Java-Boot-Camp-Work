@@ -12,6 +12,7 @@ public class Party {
 	private Location location;
 	Character[] characters;
 	// GUI fields
+	private JPanel partyPanel;
 		//subPanels
 		private JPanel movementButtonsPanel; 
 		private JPanel actionsButtonsPanel; 
@@ -48,6 +49,11 @@ public class Party {
 	
 	private void generateGUI() {
 		//Creating main button panel
+		for(Character c: characters){
+			partyPanel.add(c.getPanel());
+			
+		}
+		
 		
 				// Create MovementButtons  Panel
 				this.movementButtonsPanel = new JPanel();							
@@ -95,6 +101,10 @@ public class Party {
 				runButton.addActionListener(handler);		
 				screenUpdate();
 				
+				
+				
+				
+				
 		
 	}
 
@@ -107,6 +117,10 @@ public class Party {
 	public void screenUpdate(){
 		buttonCheck();
 		//clearConsole();
+	}
+	
+	public JPanel getPartyPanel(){
+		return partyPanel;
 	}
 	
 	public JPanel getActionPanel(){
@@ -197,6 +211,12 @@ public class Party {
 			}
 		}
 	}
+
+
+	public Location getLocation() {
+		return location;
+	}
+	
 	
 	
 	

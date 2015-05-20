@@ -33,6 +33,12 @@ public class GUI extends JFrame{
 		
 		party = new Party();
 		
+		//adding character party panel
+		add(party.getPartyPanel(),BorderLayout.WEST);
+		
+		//adding npc party panel
+		add(maze.getRoom(party.getLocation().getLocation()).getnpcs());
+		
 		//Create and place Panels
 		locationPanel = new JPanel();
 		add(this.locationPanel,BorderLayout.PAGE_START);
