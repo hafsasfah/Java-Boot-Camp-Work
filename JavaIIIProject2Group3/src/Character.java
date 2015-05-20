@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 import javax.swing.JPanel;
 
 public class Character implements iCharacter {
@@ -85,14 +83,10 @@ public class Character implements iCharacter {
 	public int[] getCharLocation() {
 		return location.getLocation();
 	}
+	
 	public String getCharLocationString() {
 		return location.toString();
 	}
-
-	/**
-	 * @param charLocation the charLocation to set
-	 */
-	
 
 	/**
 	 * @return the charType
@@ -140,7 +134,6 @@ public class Character implements iCharacter {
 		 this.location.moveRight();
 	}
 
-
 	@Override
 	public boolean isAlive() {
 		return hitPoints > 0 ? true:false; //if hit points is larger than 0, char is alive.
@@ -175,5 +168,4 @@ public class Character implements iCharacter {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
 }
