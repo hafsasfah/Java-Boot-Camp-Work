@@ -1,5 +1,5 @@
 import java.util.*;
-public class Items implements iItem {
+public class Items implements iItems {
 private double potionStrength;
 private double potionIntelligence;
 private double potionDexterity;

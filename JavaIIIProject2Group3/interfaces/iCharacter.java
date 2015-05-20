@@ -9,10 +9,10 @@ public interface iCharacter {
 	int getDexterity();
 	int getHitPoints();
 	boolean isAlive();
-	String attack( iCharacter target );
-	iItem getWeapon();
-	iItem getArmor();
-	JPanel getPanel();
+	iItems getWeapon();
+	iItems getArmor();
+	void setWeapon(iItems weapon);
+	void setArmor(iItems armor);
 	
 	
 	//public void pickUpItem(String item);

@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 import javax.swing.JPanel;
 
 public class Character implements iCharacter {
@@ -12,6 +10,8 @@ public class Character implements iCharacter {
 	private Location location = new Location();
 	private String charType; // TEMP until specified classes are made
 	private String charName; // player's name
+	Items weapon;
+	Items armor;
 	JPanel panel;
 
 	public Character(String charName, String charType, int strength, int dexterity, int hitPoints, int intelligence) {
@@ -85,14 +85,10 @@ public class Character implements iCharacter {
 	public int[] getCharLocation() {
 		return location.getLocation();
 	}
+	
 	public String getCharLocationString() {
 		return location.toString();
 	}
-
-	/**
-	 * @param charLocation the charLocation to set
-	 */
-	
 
 	/**
 	 * @return the charType
@@ -140,41 +136,38 @@ public class Character implements iCharacter {
 		 this.location.moveRight();
 	}
 
-
 	@Override
 	public boolean isAlive() {
-		// TODO Auto-generated method stub
-		return false;
+		return hitPoints > 0; //if hit points is larger than 0, char is alive.
 	}
 
 	@Override
-	public String attack(iCharacter target) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public iItem getWeapon() {
+	public iItems getWeapon() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public iItem getArmor() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public JPanel getPanel() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Character createCharacter() {
+	public iItems getArmor() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 	
+	public void setWeapon(Items weapon) {
+		this.weapon = weapon;
+	}
+	
+	public void setArmor(Items armor) {
+		this.armor = armor;
+	}
+	
+	@Override
+	public JPanel getPanel() {
+		return this.panel;
+	}
+
+	@Override
+	public Character createCharacter() {
+		return null;
+	}
 }
