@@ -4,9 +4,9 @@ public class Die {
 	public static int roll3D6(){ // For Player Stats: Str, Dex, Int
 		int sides;
 		int total = 0;
-		int rolls = (int) Math.floor(Math.random()*3) + 1;
+		int rolls = 3;
 		for (int i = 0; i < rolls; i++){
-			sides = (int) Math.floor(Math.random()*4) + 3; //3D6
+			sides = (int) Math.floor(Math.random()*6) + 1; //3D6
 			total += sides;
 		}
 		return total;
