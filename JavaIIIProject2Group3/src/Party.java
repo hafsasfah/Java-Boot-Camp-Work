@@ -13,6 +13,7 @@ public class Party {
 	private PlayerCharacterFactory playerFactory ;
 	private Location location;
 	private iCharacter[] characters = new Character[6] ;
+
 	// GUI fields
 	private JPanel partyPanel;
 		//subPanels
@@ -107,7 +108,10 @@ public class Party {
 		attackButton.addActionListener(handler);
 		runButton.addActionListener(handler);
 		suicideButton.addActionListener(handler);
-		screenUpdate();
+		try {screenUpdate();}
+		catch(Exception e){
+			;
+		}
 				
 				
 				
@@ -122,7 +126,7 @@ public class Party {
 		return location.toString();
 	}
 
-	public void screenUpdate(){
+	public void screenUpdate() throws Exception{
 		buttonCheck();
 		//clearConsole();
 	}
@@ -139,7 +143,7 @@ public class Party {
 		return movementButtonsPanel;
 	}
 	
-	private void buttonCheck(){
+	private void buttonCheck() throws Exception{
 		int[] playerLocation = location.getLocation();
 		if (!(GUI.getMaze().existsUp(playerLocation))) {
 			northButton.setEnabled(false);
@@ -172,56 +176,83 @@ public class Party {
 		return this;
 	}
 	
-	private class Listener implements ActionListener {
+	private class Listener  implements ActionListener  {
 		
 		public void actionPerformed(ActionEvent event) {
 		
 			if (event.getSource() == northButton) {
 				location.moveUp();
-				screenUpdate();
+				try {screenUpdate();}
+				catch(Exception e){
+					;
+				}
 				GUI.setConsole("North \n");
 				
 			}	
 			else if (event.getSource() == downButton) {
 				location.moveDown();
-				screenUpdate();
+				try {screenUpdate();}
+				catch(Exception e){
+					;
+				}
 				GUI.setConsole("South \n");
 			}
 			else if (event.getSource() == leftButton) {
 				location.moveLeft();
-				screenUpdate();
+				try {screenUpdate();}
+				catch(Exception e){
+					;
+				}
 				GUI.setConsole("West \n");
 			}
 			else if (event.getSource() == rightButton) {
 				location.moveRight();
-				screenUpdate();
+				try {screenUpdate();}
+				catch(Exception e){
+					;
+				}
 				GUI.setConsole("East\n");
 			}
 			
 			else if (event.getSource() == searchButton) {
-				buttonCheck();
+				try {buttonCheck();}
+				catch(Exception e){
+					;
+				}
 				GUI.appendConsole("The Room is empty.....oh so very Empty\n");
 				// add function here					
 				}	
 			else if (event.getSource() == sleepButton) {
-				buttonCheck();
+				try {buttonCheck();}
+				catch(Exception e){
+					;
+				}
 				//Action.sleep(characters.getHitPoints());
 				GUI.appendConsole("You had a siesta, feel better?\n");
 			}
 			else if (event.getSource() == attackButton) {
-				buttonCheck();
+				try {buttonCheck();}
+				catch(Exception e){
+					;
+				}
 				Action.attack(getParty(), GUI.getMaze().getRoom(location.getLocation()).getParty());
 				GUI.appendConsole("You attacked.........................a wall. "
 						+ "\nIf you had a weapon you probably just dented it\n"
 						+ "Good job ace. Real smooth\n");
 			}
 			else if (event.getSource() == runButton) {
-				buttonCheck();
+				try {buttonCheck();}
+				catch(Exception e){
+					;
+				}
 				//Action.run(characters.getHitPoints());
 				GUI.appendConsole("Running from shadows? Some adventurer you are.\n");
 			}
 			else if (event.getSource() == suicideButton) {
-				buttonCheck();
+				try {buttonCheck();}
+				catch(Exception e){
+					;
+				}
 				Action.haraKiri();
 			}
 		}

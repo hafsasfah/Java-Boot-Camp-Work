@@ -20,7 +20,7 @@ public class GUI extends JFrame{
 	private JPanel buttonsPanel; //
 
 	
-	static private  iMaze maze = new Maze();
+	static private  iMaze maze ;
 	//private static maze = new Maze("10x10.maze");
 	private Party party;
 	
@@ -30,6 +30,7 @@ public class GUI extends JFrame{
 
 	public GUI(){
 		super ("Group 3's awesome adventure game");
+		maze  = new Maze();
 		
 		//To be removed when rob is done with start page.
 		PlayerCharacterFactory factory = new PlayerCharacterFactory();
