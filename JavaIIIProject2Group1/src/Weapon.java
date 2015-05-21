@@ -37,6 +37,13 @@ public class Weapon implements Item
 		return false;
 	}
 
+
+	public double getBaseDamage()
+	{
+		
+		return 0;
+	}
+	
 	@Override
 	public JPanel getPanel() 
 	{
