@@ -6,10 +6,10 @@ import java.util.Scanner;
 public class Player implements iCharacter
 {
 
-	private int strength;
-	private int dexterity;
-	private int intelligence;
-	private int hitPoints;
+	public int strength;
+	public int dexterity;
+	public int intelligence;
+	public int hitPoints;
 	PlayerCharacterFactory player;
 	NpcCharacterFactory enemy;
 	String name;
