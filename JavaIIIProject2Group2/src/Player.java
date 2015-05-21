@@ -6,10 +6,10 @@ import java.util.Scanner;
 public class Player implements iCharacter
 {
 
-	public int strength;
-	public int dexterity;
-	public int intelligence;
-	public int hitPoints;
+	private int strength;
+	private int dexterity;
+	private int intelligence;
+	private int hitPoints;
 	PlayerCharacterFactory player;
 	NpcCharacterFactory enemy;
 	String name;
@@ -54,20 +54,52 @@ public class Player implements iCharacter
 		return hitPoints;
 	}
 
+	public void setHitPoints(int hitPoints)
+	{
+		
+		this.hitPoints = hitPoints;
+		
+		
+	}
+	
 	@Override
 	public int getStrength() {
 		
 		return this.strength;
 	}
+	
+	public void setStrength(int strength)
+	{
+		
+		this.strength = strength;
+		
+	}
+	
+	
 	@Override
 	public int getDexterity() {
 		
 		return this.dexterity;
 	}
+	
+	
+	public void setDexterity(int dexterity)
+	{
+		
+		this.dexterity = dexterity;
+		
+	}
 
 	@Override
 	public int getIntelligence() {		
 		return this.intelligence;
+	}
+	
+	
+	public void setIntelligence(int intelligence)
+	{
+		this.intelligence = intelligence;
+		
 	}
 
 	@Override
