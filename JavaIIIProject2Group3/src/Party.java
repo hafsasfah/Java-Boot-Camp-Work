@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-<<<<<<< HEAD
+
 
 
 
@@ -26,6 +26,7 @@ public class Party {
 				private JButton sleepButton;
 				private JButton attackButton;
 				private JButton runButton;
+				private JButton suicideButton;
 			//movementButtons
 			private JButton northButton;
 			private JButton downButton;	
@@ -33,43 +34,11 @@ public class Party {
 			private JButton rightButton; 
 	
 	public Party(iCharacter[] characters){
-=======
-public class Party { 
-	private Location location;
-	private Character[] characters;
-	// GUI fields
-	//subPanels
-	private JPanel movementButtonsPanel; 
-	private JPanel actionsButtonsPanel; 
-	//sub action button panels
-	private JPanel actionstopButtonsPanel;
-	private JPanel actionsbottomButtonsPanel;
-	//actionButtons
-	private JButton searchButton;
-	private JButton sleepButton;
-	private JButton attackButton;
-	private JButton runButton;
-	private JButton suicideButton;
-	//movementButtons
-	private JButton northButton;
-	private JButton downButton;	
-	private JButton leftButton;	
-	private JButton rightButton; 
-	
-	public Party(Character[] characters){
->>>>>>> 275079b87f1dcbc3d94f43f3e6d6f5fca793faba
-		location= new Location();
-		this.characters = characters;
-		generateGUI();
-<<<<<<< HEAD
+
 		this.characters = characters;
 
 	}
-=======
-		
-	}
-	
->>>>>>> 275079b87f1dcbc3d94f43f3e6d6f5fca793faba
+
 	public iCharacter[] getCharacter(){
 		return characters;
 	}
@@ -250,7 +219,7 @@ public class Party {
 			}
 		}
 	}
-<<<<<<< HEAD
+
 
 
 	public Location getLocation() {
@@ -262,6 +231,3 @@ public class Party {
 	
 
 }
-=======
-}
->>>>>>> 275079b87f1dcbc3d94f43f3e6d6f5fca793faba
