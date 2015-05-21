@@ -1,3 +1,5 @@
+import java.awt.BorderLayout;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -165,11 +167,25 @@ public class Character implements iCharacter {
 	
 	@Override
 	public JPanel getPanel() {
-		getCharName();
-		getCharType();
-		getHitPoints();
-		getDexterity();
+		panel = new JPanel();
+	
+		JLabel  name = new JLabel();
+		name.setText("Name: "+ getCharName());
+		JLabel  type = new JLabel();
+		type.setText("Skill"+getCharType());
+		JLabel  hitpoints = new JLabel();
+		hitpoints.setText("HP"+getHitPoints());
+		JLabel  dexterity = new JLabel();
+		dexterity.setText("Dex"+getDexterity());
+		JLabel intelligence=new JLabel();
+		intelligence.setText("Int"+getIntelligence());
 		
-		return this.panel;
+		panel.add(name);
+		panel.add(type);
+		panel.add(hitpoints);
+		panel.add(dexterity);
+		panel.add(intelligence);		
+		
+		return panel;
 	}
 }

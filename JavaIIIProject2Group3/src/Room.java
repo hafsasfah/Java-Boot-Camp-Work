@@ -1,5 +1,6 @@
 
 import java.util.Random;
+
 import javax.swing.JPanel;
 
 
@@ -12,11 +13,18 @@ public class Room implements iRoom {
 	private int party;
 	private JPanel panel;
 	private Party npcs;
+	private NPCharacterFactory factory;
 	
 	public Room()
 	{
 		this.roomTitle = "Room";
 		this.roomDescription = "This is a room";
+		factory = new NPCharacterFactory();
+		iCharacter[] charac = new Character[6];
+		for(int i=0;i< charac.length ;i++){
+			charac[i]= factory.createCharacter();
+		}
+		npcs = new Party(charac);
 	}
 	
 	
@@ -63,6 +71,9 @@ public class Room implements iRoom {
 	public int numberOfItemsInRoom() {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+	public Party getParty(){
+		return npcs;
 	}
 
 

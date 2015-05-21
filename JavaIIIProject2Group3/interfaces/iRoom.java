@@ -9,5 +9,6 @@ public interface iRoom {
 	int amountOfGold();
 	int numberOfItemsInRoom();
 	JPanel getnpcs();
+	Party getParty();
 
 }

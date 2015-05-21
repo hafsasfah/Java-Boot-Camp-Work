@@ -28,12 +28,7 @@ public class OpeningGUI extends JFrame {
 	
 	public OpeningGUI()
 	{
-		// Set the window t i t l e .
-		setTitle("Kilometer Converter");
-		
-		// Set the size of the window.
-		setSize(310, 100);
-		
+		setSize(800,600);
 		// Specify what happen! when the close button i s clicked,
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -67,6 +62,19 @@ public class OpeningGUI extends JFrame {
 		panel.add(messageLabel);
 		panel.add(kiloTextField);
 		panel.add(createButton);
+	}
+	
+	public static void createCharacters()
+	{
+		PlayerCharacterFactory factory = new PlayerCharacterFactory();
+		
+		iCharacter[] charac = new Character[6];
+		
+		for(int i=0;i< charac.length ;i++){
+		
+			charac[i] = factory.createCharacter();
+		}
+		
 	}
 	
 	public static void main(String args[]) {
