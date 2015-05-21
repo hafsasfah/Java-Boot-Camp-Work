@@ -1,6 +1,6 @@
 	import java.util.Random;
 
-	public class RandomRoom implements iRoomFactory {
+	public class RandomRoom implements NewRoom{
 
 		private String[] names = { "Hallway", "Celler", "Cave", "Library", "Bedroom", "Kitchen" };
 		private iCharacterFactory npcFactory;
@@ -21,10 +21,10 @@
 			
 			for ( int index = 0; index < npcs.length; index++ )
 			{
-				npcs[index] = npcFactory.createCharacter();
+				npcs[index] = npcFactory.createcharacter();
 			}
 			
-			IRoom room = new Room( names[ random.nextInt( names.length ) ], new Party( npcs ) );
+			iRoom room = new Room( names[ random.nextInt( names.length ) ], new party( npcs ) );
 			
 			return room;
 		}

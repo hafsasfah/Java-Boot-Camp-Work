@@ -54,4 +54,36 @@ public  int getDie() {
 		return this.item;
 	}
 
+	public class Die implements DiceRoll {
+		
+		private int sides;
+		private int value;
+		private Random random;
+		
+		public Die( int sides )
+		{
+			this.sides = sides;
+			random = new Random();
+		}
+	
+		public int roll() {
+			value = random.nextInt(sides) + 1;
+			return value;
+		}
+
+		
+		public int getValue() {
+			return value;
+		}
+	
+		public int sumOfXRolls(int numberOfRollsToSum ) {
+			int sumOfRolls = 0;
+			for ( int rollCount = 0; rollCount < numberOfRollsToSum; rollCount++ )
+			{
+				sumOfRolls += roll();
+			}
+			return sumOfRolls;
+		}
+
+	}
 }

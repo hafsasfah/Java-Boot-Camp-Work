@@ -6,7 +6,7 @@ import java.util.Iterator;
 import javax.swing.JPanel;
 
 
-public class Maze<TwoDimensionalPosition> 
+public class Maze<Position> 
 {
 	  public boolean [][] verticalWall;
 	  public boolean [][] horizontalWall;
@@ -22,25 +22,25 @@ public class Maze<TwoDimensionalPosition>
 	  private final char ROOM = 'r';
 	  private final char END = 'e';
 	  
-	  private TwoDimensionalPosition start;
-	  private TwoDimensionalPosition end;
-	  private ArrayList<TwoDimensionalPosition> maze;
+	  private Position start;
+	  private Position end;
+	  private ArrayList<Position> maze;
 	  private int maxX;
 	  private int maxY;
 
 	  private JPanel panel;
 
-		public void TwoDimensionalMaze(File mazeFile, iRoomFactory roomFactory)
+		public void TwoDimensionalMaze(File mazeFile, NewRoom roomFactory)
 				throws IOException {
-			maze = new ArrayList<TwoDimensionalPosition>();
+			maze = new ArrayList<Position>();
 			
-			int[][] maze = new int[10][10];
-			maze[0] = new int[] { 1, 1, 0, 0, 0, 0 };
-			maze[1] = new int[] { 0, 1, 0, 0, 0, 0 };
+			int[][] maze = new int[20][20];
+			maze[0] = new int[] { 1, 1, 0, 1, 1, 1 };
+			maze[1] = new int[] { 0, 1, 0, 1, 0, 0 };
 			maze[2] = new int[] { 0, 1, 0, 1, 1, 1 };
 			maze[3] = new int[] { 1, 1, 1, 1, 0, 1 };
-			maze[4] = new int[] { 0, 1, 0, 0, 0, 1 };
-			maze[5] = new int[] { 0, 1, 0, 0, 0, 1 };
+			maze[4] = new int[] { 0, 1, 0, 1, 0, 1 };
+			maze[5] = new int[] { 0, 1, 0, 1, 0, 0 };
 			
 			
 			

@@ -1,7 +1,7 @@
 import javax.swing.JPanel;
 
 
-public class Room implements iRoom
+public abstract class Room implements iRoom
 {
 	
 	String name;
@@ -37,4 +37,3 @@ public class Room implements iRoom
 
 	}
 	
-}
