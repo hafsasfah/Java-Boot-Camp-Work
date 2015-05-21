@@ -123,26 +123,6 @@ public class Character implements iCharacter {
 	}
 
 	@Override
-	public void generateMvmtUp() {
-		 this.location.moveUp();
-	}
-	
-	@Override
-	public void generateMvmtDown() {
-		 this.location.moveDown();
-	}
-	
-	@Override
-	public void generateMvmtLeft() {
-		 this.location.moveLeft();
-	}
-	
-	@Override
-	public void generateMvmtRight() {
-		 this.location.moveRight();
-	}
-
-	@Override
 	public boolean isAlive() {
 		return hitPoints > 0; //if hit points is larger than 0, char is alive.
 	}
