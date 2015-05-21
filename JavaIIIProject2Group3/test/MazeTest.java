@@ -19,9 +19,9 @@ public class MazeTest {
 	public void testExistsUp() {
 		 
 		int[] location = {5,5};
-		assertEquals(true,maze.existsUp(location));
+		assertEquals(true,maze.canGoNorth(location));
 		location[1] = 0;
-		assertEquals(false,maze.existsUp(location));
+		assertEquals(false,maze.canGoNorth(location));
 	}
 
 	@Test
@@ -29,27 +29,27 @@ public class MazeTest {
 		
 		
 		 int[] location = {5,5};
-		assertEquals(true,maze.existsDown(location));
+		assertEquals(true,maze.canGoSouth(location));
 		location[1] = 9;
-		assertEquals(false,maze.existsDown(location));
+		assertEquals(false,maze.canGoSouth(location));
 	}
 
 	@Test
 	public void testExistsLeft() {
 		
 		int[] location = {5,5};
-		assertEquals(true,maze.existsLeft(location));
+		assertEquals(true,maze.canGoWest(location));
 		location[0] = 0;
-		assertEquals(false,maze.existsLeft(location));
+		assertEquals(false,maze.canGoWest(location));
 	}
 
 	@Test
 	public void testExistsRight() {
 		
 		int[] location = {5,5};
-		assertEquals(true,maze.existsRight(location));
+		assertEquals(true,maze.canGoEast(location));
 		location[0] = 9;;
-		assertEquals(false,maze.existsRight(location));
+		assertEquals(false,maze.canGoEast(location));
 	}
 
 	@Test

@@ -61,7 +61,7 @@ public class Maze implements iMaze {
 	}
 
 	@Override
-	public boolean existsUp(int[] playerLocation) {
+	public boolean canGoNorth(int[] playerLocation) {
 		if ((playerLocation[1]-1 )>= 0){
 			//System.out.println("in Bounds");
 			if((this.maze[playerLocation[0]][playerLocation[1]-1]!=null)){
@@ -73,7 +73,7 @@ public class Maze implements iMaze {
 	}
 
 	@Override
-	public boolean existsDown(int[] playerLocation) {
+	public boolean canGoSouth(int[] playerLocation) {
 		if ((playerLocation[1]+1 )< maze[0].length){
 		if(!(this.maze[playerLocation[0]][playerLocation[1]+1]==null)){
 			return true;
@@ -83,7 +83,7 @@ public class Maze implements iMaze {
 	}
 
 	@Override
-	public boolean existsLeft(int[] playerLocation) {
+	public boolean canGoWest(int[] playerLocation) {
 		if ((playerLocation[0]-1 )>= 0){
 		if(!(this.maze[playerLocation[0]-1][playerLocation[1]]==null)){
 			return true;
@@ -93,7 +93,7 @@ public class Maze implements iMaze {
 	}
 
 	@Override
-	public boolean existsRight(int[] playerLocation) {
+	public boolean canGoEast(int[] playerLocation) {
 		if ((playerLocation[0]+1 )< maze.length){
 		if(!(this.maze[playerLocation[0]+1][playerLocation[1]]==null)){
 			return true;
