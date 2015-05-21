@@ -5,10 +5,11 @@ private double potionIntelligence;
 private double potionDexterity;
 private double potionHitPoints;
 
-Random r=new Random();
+Random r;
 
 
 public  Items(){
+	r = new Random();
 	int addvaule=2;
 	potionStrength=0;
 	potionIntelligence=0;
