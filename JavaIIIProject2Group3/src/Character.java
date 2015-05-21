@@ -165,9 +165,4 @@ public class Character implements iCharacter {
 	public JPanel getPanel() {
 		return this.panel;
 	}
-
-	@Override
-	public Character createCharacter() {
-		return null;
-	}
 }
