@@ -12,17 +12,17 @@ public class Character implements iCharacter {
 	private int hitPoints; // all
 	private int intelligence; // wizard
 	private Location location = new Location();
-	private String charType; // TEMP until specified classes are made
-	private String charName; // player's name
+	private String type; // TEMP until specified classes are made
+	private String name; // player's name
 	Items weapon;
 	Items armor;
 	JPanel panel;
-	JLabel  name ;
+	JLabel nameLabel ;
 
 	public Character(String charName, String charType, int strength, int dexterity, 
 			int hitPoints, int intelligence) {
-		this.charName = charName;
-		this.charType = charType;
+		this.name = charName;
+		this.type = charType;
 		this.strength = strength;
 		this.dexterity = dexterity;
 		this.hitPoints = hitPoints;
@@ -100,26 +100,26 @@ public class Character implements iCharacter {
 	 * @return the charType
 	 */
 	public String getCharType() {
-		return charType;
+		return type;
 	}
 
 	/**
 	 * @param charType the charType to set
 	 */
 	public void setCharType(String charType) {
-		this.charType = charType;
+		this.type = charType;
 	}
 
 	@Override
 	public String getCharName() {
-		return charName;
+		return name;
 	}
 	
 	/**
 	 * @param charName the charName to set
 	 */
 	public void setCharName(String charName) {
-		this.charName = charName;
+		this.name = charName;
 	}
 
 	@Override
@@ -147,7 +147,7 @@ public class Character implements iCharacter {
 		this.armor = armor;
 	}
 	public void panelUpdate(){
-		name.setText("<html>Name: "+ getCharName()+
+		nameLabel.setText("<html>Name: "+ getCharName()+
 				"<br>Skill"+getCharType()+
 				
 				"<br>HP"+getHitPoints()+
@@ -162,9 +162,9 @@ public class Character implements iCharacter {
 	@Override
 	public JPanel getPanel() {
 		panel = new JPanel();
-		name = new JLabel();
+		nameLabel = new JLabel();
 		
-		name.setText("<html>Name: "+ getCharName()+
+		nameLabel.setText("<html>Name: "+ getCharName()+
 		"<br>Skill: "+getCharType()+
 		
 		"<br>HP: "+getHitPoints()+
@@ -176,7 +176,7 @@ public class Character implements iCharacter {
 	"<br>Str: "+getStrength()+"</html>");
 		
 		
-		panel.add(name);
+		panel.add(nameLabel);
 		return panel;
 	}
 }
