@@ -170,22 +170,19 @@ public class Character implements iCharacter {
 		panel = new JPanel();
 	
 		JLabel  name = new JLabel();
-		name.setText("Name: "+ getCharName());
-		JLabel  type = new JLabel();
-		type.setText("Skill"+getCharType());
-		JLabel  hitpoints = new JLabel();
-		hitpoints.setText("HP"+getHitPoints());
-		JLabel  dexterity = new JLabel();
-		dexterity.setText("Dex"+getDexterity());
-		JLabel intelligence=new JLabel();
-		intelligence.setText("Int"+getIntelligence());
+		name.setText("<html>Name: "+ getCharName()+
+		"<br>Skill"+getCharType()+
+		
+		"<br>HP"+getHitPoints()+
+		
+		"<br>Dex"+getDexterity()+
+		
+		"<br>Int"+getIntelligence()+
+		
+	"<br>Str"+getStrength()+"</html>");
+		
 		
 		panel.add(name);
-		panel.add(type);
-		panel.add(hitpoints);
-		panel.add(dexterity);
-		panel.add(intelligence);		
-		
 		return panel;
 	}
 }
