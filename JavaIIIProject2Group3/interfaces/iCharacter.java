@@ -11,8 +11,8 @@ public interface iCharacter {
 	boolean isAlive();
 	iItems getWeapon();
 	iItems getArmor();
-	void setWeapon(iItems weapon);
-	void setArmor(iItems armor);
+	void setWeapon(Items weapon);
+	void setArmor(Items armor);
 	
 	
 	//public void pickUpItem(String item);
