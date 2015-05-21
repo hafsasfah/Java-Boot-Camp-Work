@@ -2,10 +2,10 @@
 public class Items implements iItems 
 {
 
-	private int hitpointPotion;
-	private int dexterityPotion;
-	private int strengthPotion;
-	private int intelligencePotion;
+	private int amountOfHitPointPotion;
+	private int amountOfDexterityPotion;
+	private int amountOfStrengthPotion;
+	private int amountOfIntelligencePotion;
 	
 	private Player player;
 	
@@ -20,20 +20,20 @@ public class Items implements iItems
 	
 	public Items()
 	{
-		this.hitpointPotion = 0;
-		this.dexterityPotion = 0;
-		this.strengthPotion = 0;
-		this.intelligencePotion = 0;
+		this.amountOfHitPointPotion = 0;
+		this.amountOfDexterityPotion = 0;
+		this.amountOfStrengthPotion = 0;
+		this.amountOfIntelligencePotion = 0;
 		
 	}
 	
 	
 	public Items(int hitpointPotion, int dexterityPotion, int strengthPotion, int intelligencePotion, Player player)
 	{
-		this.hitpointPotion = hitpointPotion;
-		this.dexterityPotion = dexterityPotion;
-		this.strengthPotion = strengthPotion;
-		this.intelligencePotion = intelligencePotion;	
+		this.amountOfHitPointPotion = hitpointPotion;
+		this.amountOfDexterityPotion = dexterityPotion;
+		this.amountOfStrengthPotion = strengthPotion;
+		this.amountOfIntelligencePotion = intelligencePotion;	
 		this.player = player; 
 		
 	}
@@ -43,56 +43,56 @@ public class Items implements iItems
 	public void activateItem() 
 	{
 			
-		if(hitpointPotion > 0)
+		if(amountOfHitPointPotion > 0)
 		{
 			player.setHitPoints(player.getHitPoints() + this.IncreaseYourHitpoint) ;
-			hitpointPotion--;
+			amountOfHitPointPotion--;
 			System.out.println("You drink Hit Point potion!");
 			
-		}else if(hitpointPotion == 0)
+		}else if(amountOfHitPointPotion == 0)
 		{
 			
-			System.out.println("You have " + hitpointPotion + " Hit Point potion left.");
+			System.out.println("You have " + amountOfHitPointPotion + " Hit Point potion left.");
 			
 		}
 		
-		if(strengthPotion > 0)
+		if(amountOfStrengthPotion > 0)
 		{
 			player.setStrength(player.getStrength() + this.IncreaseYourStrength  );
-			strengthPotion--;
+			amountOfStrengthPotion--;
 			System.out.println("You drink Strength potion!");
 			
-		}else if( strengthPotion == 0)
+		}else if( amountOfStrengthPotion == 0)
 		{
 			
-			System.out.println("You have " + strengthPotion + " Strength potion left.");
+			System.out.println("You have " + amountOfStrengthPotion + " Strength potion left.");
 			
 		}
 		
-		if(dexterityPotion > 0)
+		if(amountOfDexterityPotion > 0)
 		{
 			player.setDexterity(player.getDexterity() + this.IncreaseYourDexterity);
-			dexterityPotion--;
+			amountOfDexterityPotion--;
 			System.out.println("You drink dexterity potion!");
 			
-		}else if( dexterityPotion == 0)
+		}else if( amountOfDexterityPotion == 0)
 		{
 			
-			System.out.println("You have " + dexterityPotion + " dexterity potion left.");
+			System.out.println("You have " + amountOfDexterityPotion + " dexterity potion left.");
 			
 		}
 		
 		
-		if(intelligencePotion > 0)
+		if(amountOfIntelligencePotion > 0)
 		{
 			player.setIntelligence(player.getIntelligence() + this.IncreaseYourIntelligence);
-			intelligencePotion--;
+			amountOfIntelligencePotion--;
 			System.out.println("You drink intelligence potion!");
 			
-		}else if( dexterityPotion == 0)
+		}else if( amountOfDexterityPotion == 0)
 		{
 			
-			System.out.println("You have " + dexterityPotion + " dexterity potion left.");
+			System.out.println("You have " + amountOfDexterityPotion + " dexterity potion left.");
 			
 		}
 		
