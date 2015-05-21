@@ -53,22 +53,45 @@ public AdventureGame()
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
-				
+				jt.setText("Player 1 got burned by Dragon Fire,\nPlayer 2 Ran for their life, "
+		    	 		+ "\nPlayer 3 Slayed an Orc, \nPlayer 4 Ran for their life ");	
 			}
 		});
 		contentPane.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("Search");
+		btnNewButton_1.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				jt.setText("You searched the room! ");	
+			}
+		});
 		contentPane.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("Run!!!");
+		btnNewButton_2.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				jt.setText("YOU RAN LIKE A LILLTE GIRL! and fell on your face.. ");	
+			}
+		});
 		contentPane.add(btnNewButton_2);
 		
 		JButton btnNewButton_3 = new JButton("Rest");
+		btnNewButton_3.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent e) 
+			{
+				jt.setText("Your party took a nap! ");
+				Stats.hp++;
+			}
+		});
 		contentPane.add(btnNewButton_3);
 		
 		//Directional Buttons
-		JButton btnNewButton_4 = new JButton("Left");
+		JButton btnNewButton_4 = new JButton("WEST");
 		contentPane.add(btnNewButton_4);
 		
 		JButton btnNewButton_5 = new JButton("NORTH");
@@ -150,10 +173,10 @@ public AdventureGame()
 		});
 		contentPane.add(btnNewButton_5);
 		
-		JButton btnNewButton_6 = new JButton("Down");
+		JButton btnNewButton_6 = new JButton("SOUTH");
 		contentPane.add(btnNewButton_6);
 		
-		JButton btnNewButton_7 = new JButton("Right");
+		JButton btnNewButton_7 = new JButton("EAST");
 		contentPane.add(btnNewButton_7);
 		
 		add(contentPane, BorderLayout.SOUTH);
