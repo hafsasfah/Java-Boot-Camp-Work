@@ -9,11 +9,11 @@ public class Items implements iItems
 	
 	private Player player;
 	
-	//Set amount of potion effects
-	private int hitpointPotionAmount = 5;
-	private int strengthPotionAmount = 5;
-	private int dexterityPotionAmount = 5;
-	private int intelligencePotionAmount = 5;
+	//Set amount of Increase effects of each potion
+	private int IncreaseYourHitpoint = 5;
+	private int IncreaseYourStrength = 5;
+	private int IncreaseYourDexterity = 5;
+	private int IncreaseYourIntelligence = 5;
 	
 	
 	
@@ -42,11 +42,10 @@ public class Items implements iItems
 	@Override
 	public void activateItem() 
 	{
-		Player player = new Player();
-		
+			
 		if(hitpointPotion > 0)
 		{
-			player.setHitPoints(player.getHitPoints() + this.hitpointPotionAmount) ;
+			player.setHitPoints(player.getHitPoints() + this.IncreaseYourHitpoint) ;
 			hitpointPotion--;
 			System.out.println("You drink Hit Point potion!");
 			
@@ -59,7 +58,7 @@ public class Items implements iItems
 		
 		if(strengthPotion > 0)
 		{
-			player.setStrength(player.getStrength() + this.strengthPotionAmount);
+			player.setStrength(player.getStrength() + this.IncreaseYourStrength  );
 			strengthPotion--;
 			System.out.println("You drink Strength potion!");
 			
@@ -72,7 +71,7 @@ public class Items implements iItems
 		
 		if(dexterityPotion > 0)
 		{
-			player.setDexterity(player.getDexterity() + this.dexterityPotionAmount);
+			player.setDexterity(player.getDexterity() + this.IncreaseYourDexterity);
 			dexterityPotion--;
 			System.out.println("You drink dexterity potion!");
 			
@@ -86,7 +85,7 @@ public class Items implements iItems
 		
 		if(intelligencePotion > 0)
 		{
-			player.setIntelligence(player.getIntelligence() + this.intelligencePotionAmount);
+			player.setIntelligence(player.getIntelligence() + this.IncreaseYourIntelligence);
 			intelligencePotion--;
 			System.out.println("You drink intelligence potion!");
 			
