@@ -178,7 +178,7 @@ public class Party {
 		
 		
 	}
-	public void UpdateallPanels(){
+	public void updateAllPanels(){
 		for(iCharacter c : characters){
 			c.panelUpdate();
 		}
@@ -243,7 +243,7 @@ public class Party {
 			}
 			else if (event.getSource() == attackButton) {
 				try {buttonCheck();
-				UpdateallPanels();}
+				updateAllPanels();}
 				catch(Exception e){
 					;
 				}
