@@ -1,6 +1,7 @@
 import java.awt.BorderLayout;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class Character implements iCharacter {
@@ -16,6 +17,7 @@ public class Character implements iCharacter {
 	Items weapon;
 	Items armor;
 	JPanel panel;
+	JLabel  name ;
 
 	public Character(String charName, String charType, int strength, int dexterity, 
 			int hitPoints, int intelligence) {
@@ -164,12 +166,24 @@ public class Character implements iCharacter {
 	public void setArmor(Items armor) {
 		this.armor = armor;
 	}
-	
+	public void panelUpdate(){
+		name.setText("<html>Name: "+ getCharName()+
+				"<br>Skill"+getCharType()+
+				
+				"<br>HP"+getHitPoints()+
+				
+				"<br>Dex"+getDexterity()+
+				
+				"<br>Int"+getIntelligence()+
+				
+			"<br>Str"+getStrength()+"</html>");
+		
+	}
 	@Override
 	public JPanel getPanel() {
 		panel = new JPanel();
-	
-		JLabel  name = new JLabel();
+		name = new JLabel();
+		
 		name.setText("<html>Name: "+ getCharName()+
 		"<br>Skill"+getCharType()+
 		

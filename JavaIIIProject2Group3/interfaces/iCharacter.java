@@ -27,6 +27,7 @@ public interface iCharacter {
 	public void generateMvmtRight();
 	public String getCharLocationString();
 	public JPanel getPanel();
+	void panelUpdate();
 	
 }
 

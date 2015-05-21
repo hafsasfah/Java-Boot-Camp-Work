@@ -171,6 +171,13 @@ public class Party {
 		
 		suicideButton.setEnabled(true);
 		
+		
+		
+	}
+	public void UpdateallPanels(){
+		for(iCharacter c : characters){
+			c.panelUpdate();
+		}
 	}
 	public Party getParty(){
 		return this;
@@ -231,14 +238,15 @@ public class Party {
 				GUI.appendConsole("You had a siesta, feel better?\n");
 			}
 			else if (event.getSource() == attackButton) {
-				try {buttonCheck();}
+				try {buttonCheck();
+				UpdateallPanels();}
 				catch(Exception e){
 					;
 				}
 				Action.attack(getParty(), GUI.getMaze().getRoom(location.getLocation()).getParty());
-				GUI.appendConsole("You attacked.........................a wall. "
-						+ "\nIf you had a weapon you probably just dented it\n"
-						+ "Good job ace. Real smooth\n");
+			//	GUI.appendConsole("You attacked.........................a wall. "
+					//	+ "\nIf you had a weapon you probably just dented it\n"
+				//		+ "Good job ace. Real smooth\n");
 			}
 			else if (event.getSource() == runButton) {
 				try {buttonCheck();}

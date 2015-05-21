@@ -26,7 +26,7 @@ public class Action {
 		pcTotalAttack /= npcSize;
 		npcTotalAttack /= pcSize;
 		
-	//	players.setCharacter(pc);
+		//players.setCharacter(pc);
 		//NPC.setCharacter(npc);
 	}
 	
