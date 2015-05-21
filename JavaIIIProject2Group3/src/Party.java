@@ -149,17 +149,17 @@ public class Party {
 	
 	private void buttonCheck() throws Exception{
 		int[] playerLocation = location.getLocation();
-		if (!(GUI.getMaze().canGoNorth(playerLocation))) {
+		if (!(GUI.getMaze().existsUp(playerLocation))) {
 			northButton.setEnabled(false);
 		}
 		else northButton.setEnabled(true);
-		if (!(GUI.getMaze().canGoSouth(playerLocation))) {
+		if (!(GUI.getMaze().existsDown(playerLocation))) {
 			downButton.setEnabled(false);
 		} else downButton.setEnabled(true);
-		if (!(GUI.getMaze().canGoLeft(playerLocation))) {
+		if (!(GUI.getMaze().existsLeft(playerLocation))) {
 			leftButton.setEnabled(false);
 		} else leftButton.setEnabled(true);
-		if (!(GUI.getMaze().canGoRight(playerLocation))) {
+		if (!(GUI.getMaze().existsRight(playerLocation))) {
 			rightButton.setEnabled(false);
 		} else rightButton.setEnabled(true);
 		
