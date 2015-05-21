@@ -17,14 +17,16 @@ public class Room implements iRoom {
 	
 	public Room()
 	{
+		Random random = new Random();
+		int numOfNPCs = random.nextInt(6);
 		this.roomTitle = "Room";
 		this.roomDescription = "This is a room";
 		factory = new NPCharacterFactory();
-		iCharacter[] charac = new Character[6];
-		for(int i=0;i< charac.length ;i++){
-			charac[i]= factory.createCharacter();
+		iCharacter[] nPCs = new Character[numOfNPCs];
+		for(int i=0;i< nPCs.length ;i++){
+			nPCs[i]= factory.createCharacter();
 		}
-		npcs = new Party(charac);
+		npcs = new Party(nPCs);
 	}
 	
 	
