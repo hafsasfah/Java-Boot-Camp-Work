@@ -169,14 +169,23 @@ public class Character implements iCharacter {
 	@Override
 	public JPanel getPanel() {
 		panel = new JPanel();
-		panel.setLayout(new BorderLayout());
-		JLabel label= new JLabel();
-		label.setText("Character: "+ this.charName );
-		panel.add(label);
-		//getCharName();
-		//getCharType();
-		//getHitPoints();
-		//getDexterity();
+	
+		JLabel  name = new JLabel();
+		name.setText("Name: "+ getCharName());
+		JLabel  type = new JLabel();
+		type.setText("Skill"+getCharType());
+		JLabel  hitpoints = new JLabel();
+		hitpoints.setText("HP"+getHitPoints());
+		JLabel  dexterity = new JLabel();
+		dexterity.setText("Dex"+getDexterity());
+		JLabel intelligence=new JLabel();
+		intelligence.setText("Int"+getIntelligence());
+		
+		panel.add(name);
+		panel.add(type);
+		panel.add(hitpoints);
+		panel.add(dexterity);
+		panel.add(intelligence);		
 		
 		return panel;
 	}
