@@ -32,7 +32,12 @@ public class AdventureGame  extends JFrame  // RENAME CLASS TO THE PLAYER CLASS?
 	private String player3name;
 	private String player4name;
 	
+	private Stats player1Stats;
+	private Stats player2Stats;
+	private Stats player3Stats;
+	private Stats player4Stats;	
 	
+	private Character player1;
 	
 	
 public AdventureGame()
@@ -43,6 +48,11 @@ public AdventureGame()
 	setSize(1000, 700);
 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	setLayout(new BorderLayout());
+	
+	 player1Stats = new Stats(this);
+	 player2Stats = new Stats(this);
+	 player3Stats = new Stats(this);
+	 player4Stats = new Stats(this);
 	
 		
 		JPanel contentPane = new JPanel();
@@ -118,10 +128,10 @@ public AdventureGame()
 				 switch (north) {
 			     case 1: 
 			    	 jt.setText("2 Orcs and a Dragon are in this room!");
-			    	 
-			    	 JLabel statsLabel = new JLabel("<html>Dragon: <br/> DEX: "+Stats.dex+"<br/> STRG: "+
-								Stats.strg+"<br/> INTEL: "+Stats.intel+"<br/> HEALTH: "+Stats.hp);
-			    	 JLabel statsLabel2 = new JLabel("<html>Orc 1: <br/> DEX: "+Stats.dex+"<br/> STRG: "+
+			    	
+			    	 JLabel statsLabel = new JLabel("<html>Dragon: <br/> DEX: "+player1Stats.dex+"<br/> STRG: "+
+			    			 player1Stats.getStrg() +"<br/> INTEL: "+player1Stats.getIntel()+"<br/> HEALTH: "+Stats.hp);
+			    	 JLabel player2Stats = new JLabel("<html>Orc 1: <br/> DEX: "+player1Stats.dex+"<br/> STRG: "+
 								Stats.strg+"<br/> INTEL: "+Stats.intel+"<br/> HEALTH: "+Stats.hp);
 			    	 JLabel statsLabel3 = new JLabel("<html>Orc 2: <br/> DEX: "+Stats.dex+"<br/> STRG: "+
 								Stats.strg+"<br/> INTEL: "+Stats.intel+"<br/> HEALTH: "+Stats.hp);

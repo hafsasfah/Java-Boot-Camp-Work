@@ -9,26 +9,41 @@ import javax.swing.*;
 public class Stats implements ActionListener {
 	
 	private JPanel panel;
-	static Random r = new Random();
-	static Random r2 = new Random();
-	static Random r3 = new Random();
-	AdventureGame ag;
+	private Random r;
+	private Random r2;
+	private Random r3;
+	private AdventureGame ag;
 	
-	static int dice3t1 = r.nextInt(6);
-	static int dice3t2 = r2.nextInt(6); 
-	static int dice3t3 = r3.nextInt(6); 
-	static int statNumber1 = dice3t1 * 3;
-	static int statNumber2 = dice3t2 * 3;
-	static int statNumber3 = dice3t3 * 3;
-	static int dex = statNumber1;
-	static int strg = statNumber2;
-	static int intel = statNumber3;
-	static int hp = 100;
+	private int dice3t1;
+	private int dice3t2; 
+	private int dice3t3; 
+	private int statNumber1;
+	private int statNumber2;
+	private int statNumber3;
+	private int dex;
+	private int strg;
+	private int intel;
+	private int hp;
 	
 	public Stats(AdventureGame ag)
 	{
 		this.ag = ag;
 		panel = new JPanel();
+		
+		r = new Random();
+		r2 = new Random();
+		r3 = new Random();
+		
+		dice3t1 = r.nextInt(6);
+		dice3t2 = r2.nextInt(6); 
+		dice3t3 = r3.nextInt(6); 
+		statNumber1 = dice3t1 * 3;
+		statNumber2 = dice3t2 * 3;
+		statNumber3 = dice3t3 * 3;
+		dex = statNumber1;
+		strg = statNumber2;
+		intel = statNumber3;
+		hp = 100;
 	}
 
 	public void actionPerformed(ActionEvent e)
@@ -59,6 +74,38 @@ public class Stats implements ActionListener {
 //{
 //new Stats();	
 //}
+
+	public int getDex() {
+		return dex;
+	}
+
+	public void setDex(int dex) {
+		this.dex = dex;
+	}
+
+	public int getStrg() {
+		return strg;
+	}
+
+	public void setStrg(int strg) {
+		this.strg = strg;
+	}
+
+	public int getIntel() {
+		return intel;
+	}
+
+	public void setIntel(int intel) {
+		this.intel = intel;
+	}
+
+	public int getHp() {
+		return hp;
+	}
+
+	public void setHp(int hp) {
+		this.hp = hp;
+	}
 
 	}
 
