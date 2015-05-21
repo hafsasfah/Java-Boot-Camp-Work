@@ -12,7 +12,7 @@ public class OpeningGUI extends JFrame {
 	
 	public OpeningGUI()
 	{
-		setFrameSize(800, 600);
+		setSize(800,600);
 		// Specify what happen! when the close button i s clicked,
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -50,11 +50,13 @@ public class OpeningGUI extends JFrame {
 	
 	public static void createCharacters()
 	{
-		iCharacter[] characters = new iCharacter[ numberOfPlayers ];
+		PlayerCharacterFactory factory = new PlayerCharacterFactory();
 		
-		for ( int index = 0; index < characters.length; index++ )
-		{
-			characters[index] = npcFactory.createCharacter();
+		iCharacter[] charac = new Character[6];
+		
+		for(int i=0;i< charac.length ;i++){
+		
+			charac[i] = factory.createCharacter();
 		}
 		
 	}
