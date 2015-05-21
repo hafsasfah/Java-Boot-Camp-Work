@@ -81,8 +81,9 @@ public class GUI extends JFrame{
 		this.textAreaPanel.add(console,BorderLayout.SOUTH);
 		
 		//add sound
-		try {music();}
-		catch (Exception e){
+		try {
+			music();
+		} catch (Exception e) {
 			;
 		}
 		
@@ -137,8 +138,7 @@ public class GUI extends JFrame{
 	            }
 	        });*/
 	}
-	
-	
+		
 	
 
 }

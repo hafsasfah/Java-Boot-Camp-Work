@@ -1,7 +1,11 @@
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -243,6 +247,12 @@ public class Party {
 				catch(Exception e){
 					;
 				}
+				try {
+					battleMusic();
+				} catch (Exception e) {
+					;
+				}
+				
 				Action.attack(getParty(), GUI.getMaze().getRoom(location.getLocation()).getParty());
 			//	GUI.appendConsole("You attacked.........................a wall. "
 					//	+ "\nIf you had a weapon you probably just dented it\n"
@@ -270,6 +280,17 @@ public class Party {
 
 	public Location getLocation() {
 		return location;
+	}
+	
+	static void battleMusic() throws Exception {
+		URL url = new URL(
+	            "http://themushroomkingdom.net/sounds/wav/mk64/mk64_announcer04-jp.wav");
+	        Clip clip = AudioSystem.getClip();
+	        // getAudioInputStream() also accepts a File or InputStream
+	        AudioInputStream ais = AudioSystem.
+	            getAudioInputStream( url );
+	        clip.open(ais);
+	        clip.loop(Clip.LOOP_CONTINUOUSLY);
 	}
 	
 	
