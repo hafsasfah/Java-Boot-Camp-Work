@@ -67,6 +67,8 @@ public class ButtonListener extends JFrame implements ActionListener // WEAPONS 
 					panel.add(button1);
 					panel.add(button2);
 					add(panel);
+					button1.addActionListener((ActionListener) new Stats(ag));
+					button2.addActionListener((ActionListener) new Stats(ag));
 					setVisible(true);
 				}
 				else if (actionCommand.equals("THIEF"))
@@ -86,7 +88,12 @@ public class ButtonListener extends JFrame implements ActionListener // WEAPONS 
 					panel.add(button1);
 					panel.add(button2);
 					add(panel);
+					button1.addActionListener((ActionListener) new Stats(ag));
+					button2.addActionListener((ActionListener) new Stats(ag));
 					setVisible(true);
+					
+					 
+					
 				}
 			
 			

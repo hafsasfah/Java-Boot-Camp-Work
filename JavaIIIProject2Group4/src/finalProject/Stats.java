@@ -24,6 +24,7 @@ public class Stats implements ActionListener {
 	private int strg;
 	private int intel;
 	private int hp;
+	private int MonsterHp;
 	
 	public Stats(AdventureGame ag)
 	{
@@ -34,16 +35,17 @@ public class Stats implements ActionListener {
 		r2 = new Random();
 		r3 = new Random();
 		
-		dice3t1 = r.nextInt(6);
-		dice3t2 = r2.nextInt(6); 
-		dice3t3 = r3.nextInt(6); 
-		statNumber1 = dice3t1 * 3;
-		statNumber2 = dice3t2 * 3;
-		statNumber3 = dice3t3 * 3;
+		dice3t1 = r.nextInt(6)+1;
+		dice3t2 = r2.nextInt(6)+1; 
+		dice3t3 = r3.nextInt(6)+1; 
+		statNumber1 = dice3t1 + dice3t2 ;
+		statNumber2 = dice3t2 + dice3t3 + dice3t1;
+		statNumber3 = dice3t3 + dice3t1;
 		dex = statNumber1;
 		strg = statNumber2;
 		intel = statNumber3;
 		hp = 100;
+		MonsterHp = 20;
 	}
 
 	public void actionPerformed(ActionEvent e)
@@ -61,8 +63,44 @@ public class Stats implements ActionListener {
 				}
 			   if (actionCommand.equals("MAGE SWORD"))	
 				{
-					JLabel statsLabel = new JLabel("<html> DEX: "+dex+"<br/> STRG: "+
-							strg+"<br/> INTEL: "+intel+"<br/> HEALTH: "+hp);
+				   JLabel statsLabel = new JLabel("<html> DEX: "+ag.player2Stats.getDex()+"<br/> STRG: "+
+							ag.player2Stats.getStrg()+"<br/> INTEL: "+ag.player2Stats.getIntel()+"<br/> HEALTH: "+ag.player2Stats.getHp());
+					ag.PlayerPaneStats.add(statsLabel);
+					
+					ag.PlayerPaneStats.revalidate();
+					
+				}	
+			   if (actionCommand.equals("BOW AND ARROW"))	
+				{
+				   JLabel statsLabel = new JLabel("<html> DEX: "+ag.player3Stats.getDex()+"<br/> STRG: "+
+							ag.player3Stats.getStrg()+"<br/> INTEL: "+ag.player3Stats.getIntel()+"<br/> HEALTH: "+ag.player4Stats.getHp());
+					ag.PlayerPaneStats.add(statsLabel);
+					
+					ag.PlayerPaneStats.revalidate();
+					
+				}	
+			   if (actionCommand.equals("LONG SWORD"))	
+				{
+				   JLabel statsLabel = new JLabel("<html> DEX: "+ag.player4Stats.getDex()+"<br/> STRG: "+
+							ag.player4Stats.getStrg()+"<br/> INTEL: "+ag.player4Stats.getIntel()+"<br/> HEALTH: "+ag.player4Stats.getHp());
+					ag.PlayerPaneStats.add(statsLabel);
+					
+					ag.PlayerPaneStats.revalidate();
+					
+				}	
+			   if (actionCommand.equals("PISTOL"))	
+				{
+				   JLabel statsLabel = new JLabel("<html> DEX: "+ag.player1Stats.getDex()+"<br/> STRG: "+
+							ag.player1Stats.getStrg()+"<br/> INTEL: "+ag.player1Stats.getIntel()+"<br/> HEALTH: "+ag.player1Stats.getHp());
+					ag.PlayerPaneStats.add(statsLabel);
+					
+					ag.PlayerPaneStats.revalidate();
+					
+				}	
+			   if (actionCommand.equals("DAGGERS"))	
+				{
+				   JLabel statsLabel = new JLabel("<html> DEX: "+ag.player2Stats.getDex()+"<br/> STRG: "+
+							ag.player2Stats.getStrg()+"<br/> INTEL: "+ag.player2Stats.getIntel()+"<br/> HEALTH: "+ag.player2Stats.getHp());
 					ag.PlayerPaneStats.add(statsLabel);
 					
 					ag.PlayerPaneStats.revalidate();
@@ -105,6 +143,13 @@ public class Stats implements ActionListener {
 
 	public void setHp(int hp) {
 		this.hp = hp;
+	}
+	public int getMonsterHp() {
+		return MonsterHp;
+	}
+
+	public void setMonsterHp(int MonsterHp) {
+		this.MonsterHp = MonsterHp;
 	}
 
 	}
