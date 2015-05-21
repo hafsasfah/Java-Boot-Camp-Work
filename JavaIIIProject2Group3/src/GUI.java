@@ -5,6 +5,11 @@ import java.awt.BorderLayout;
 //import java.awt.FlowLayout;
 
 
+import java.net.URL;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
+import javax.sound.sampled.Clip;
 import javax.swing.*;
 
 
@@ -75,6 +80,12 @@ public class GUI extends JFrame{
 		console = new JTextArea("",20,30); 
 		this.textAreaPanel.add(console,BorderLayout.SOUTH);
 		
+		//add sound
+		try {music();}
+		catch (Exception e){
+			;
+		}
+		
 	}
 	static public void appendConsole(String string){
 		console.append(string);
@@ -107,7 +118,25 @@ public class GUI extends JFrame{
 	}
 	public static iMaze getMaze(){
 		return maze;
-	}	
+	}
+	
+	static void music() throws Exception{
+		URL url = new URL(
+	            "http://cd.textfiles.com/10000soundssongs/WAV/0010101.WAV");
+	        Clip clip = AudioSystem.getClip();
+	        // getAudioInputStream() also accepts a File or InputStream
+	        AudioInputStream ais = AudioSystem.
+	            getAudioInputStream( url );
+	        clip.open(ais);
+	        clip.loop(Clip.LOOP_CONTINUOUSLY);
+	       /* SwingUtilities.invokeLater(new Runnable() {
+	            public void run() {
+	                // A GUI element to prevent the Clip's daemon Thread
+	                // from terminating at the end of the main()
+	                JOptionPane.showMessageDialog(null, "Close to exit!");
+	            }
+	        });*/
+	}
 	
 	
 	

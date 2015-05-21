@@ -185,15 +185,15 @@ public class Character implements iCharacter {
 		name = new JLabel();
 		
 		name.setText("<html>Name: "+ getCharName()+
-		"<br>Skill"+getCharType()+
+		"<br>Skill: "+getCharType()+
 		
-		"<br>HP"+getHitPoints()+
+		"<br>HP: "+getHitPoints()+
 		
-		"<br>Dex"+getDexterity()+
+		"<br>Dex: "+getDexterity()+
 		
-		"<br>Int"+getIntelligence()+
+		"<br>Int: "+getIntelligence()+
 		
-	"<br>Str"+getStrength()+"</html>");
+	"<br>Str: "+getStrength()+"</html>");
 		
 		
 		panel.add(name);
