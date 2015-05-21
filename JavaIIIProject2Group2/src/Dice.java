@@ -13,9 +13,15 @@ public class Dice implements iDice {
     {
     	int ranNum = rand.nextInt((6));
     	if(roller == 0)
-    		return 1 * roller;
+    		return 1;
     	else
     		return ranNum + rolldie(roller - 1);		
+    }
+    
+    public static void main(String[] args)
+    {
+    	Dice die = new Dice();
+    	System.out.println(die.rolldie(1));
     }
     
 	@Override

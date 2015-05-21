@@ -38,7 +38,7 @@ public class Room implements iRoom
 	{
 		Dice dice = new Dice();
 		int genMon = dice.monsterDie();
-		int pickname = dice.monsterDie();
+		int pickname = dice.rolldie(1);
 		if(genMon > 4)
 		{
 			String nameholder = "";
