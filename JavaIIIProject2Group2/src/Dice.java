@@ -18,12 +18,6 @@ public class Dice implements iDice {
     		return ranNum + rolldie(roller - 1);		
     }
     
-    public static void main(String[] args)
-    {
-    	Dice die = new Dice();
-    	System.out.println(die.rolldie(1));
-    }
-    
 	@Override
 	public int sixSideRollDieTimesThree() 
 	

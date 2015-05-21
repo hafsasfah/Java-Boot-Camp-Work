@@ -42,7 +42,7 @@ public class Room implements iRoom
 		if(genMon > 4)
 		{
 			String nameholder = "";
-			Player critter = new Player();
+			Player critter = new Player(5,5,5,5);
 			nameholder = critter.monsters[pickname - 1];
 			critter.setName(nameholder); 
 			this.Monstercontainer.add(critter);
