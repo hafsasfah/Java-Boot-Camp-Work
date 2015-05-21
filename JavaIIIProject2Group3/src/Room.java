@@ -12,10 +12,10 @@ public class Room {
 	private JPanel panel;
 	private Party npcs;
 	
-	public Room(String rTitle, String rDescription)
+	public Room()
 	{
-		this.roomTitle = rTitle;
-		this.roomDescription = rDescription;
+		this.roomTitle = "Room";
+		this.roomDescription = "This is a room";
 	}
 	
 	
