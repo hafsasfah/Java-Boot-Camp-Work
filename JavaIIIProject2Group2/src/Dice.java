@@ -6,16 +6,15 @@ public class Dice implements iDice {
 	Random rand = new Random();
     int dice;
     
-    
     //**Recursive Roll. Enter Number of rolls as argument.**\\
     //**Rolls six sided die.**\\
-    public int rolldie(int roller)
+    public int rollDieAmountOfTimes(int roller)
     {
     	int ranNum = rand.nextInt((6));
     	if(roller == 0)
     		return 1;
     	else
-    		return ranNum + rolldie(roller - 1);		
+    		return ranNum + rollDieAmountOfTimes(roller - 1);		
     }
     
 	@Override

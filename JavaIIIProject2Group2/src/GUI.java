@@ -61,7 +61,7 @@ public class GUI extends JFrame
 	{
 		playerLabel = new JPanel();
 		MainPlayer = new Player();
-		buildPlayer(MainPlayer);
+		buildPlayer();
 		setLayout(new GridLayout(2,2));
 		setTitle("MUD");
 		setSize(800, 600);
@@ -96,9 +96,9 @@ public class GUI extends JFrame
 		dungeon[2][4].describeRoom("You look up and down the massive staircase.");	
 	}
 	
-	public void buildPlayer(Player player)
+	public void buildPlayer()
 	{
-		player.name = JOptionPane.showInputDialog("Input a name.");
+		MainPlayer.setName(JOptionPane.showInputDialog("Input a name."));
 		playerStats = new JTextArea("Character Name: " + MainPlayer.getName() + "\n"
 				+ "Health: " + MainPlayer.getHitPoints() + "\n"
 				+ "Strength: " + MainPlayer.getStrength() + "\n"
@@ -171,36 +171,20 @@ public class GUI extends JFrame
 	private void checkButtons()
 	{
 
-		if(!(createDungeon.lookNorth(MainPlayer, dungeon)))
-		{
-			buttonNorth.setEnabled(false);
-		}
-		else
-			buttonNorth.setEnabled(true);
-		if(!(createDungeon.lookWest(MainPlayer, dungeon)))
-		{
-			buttonWest.setEnabled(false);
-		}
-		else
-			buttonWest.setEnabled(true);
-		if(!(createDungeon.lookSouth(MainPlayer, dungeon)))
-		{
-			buttonSouth.setEnabled(false);
-		}
-		else
-			buttonSouth.setEnabled(true);
-		if(!(createDungeon.lookEast(MainPlayer, dungeon)))
-		{
-			buttonEast.setEnabled(false);
-		}
-		else
-			buttonEast.setEnabled(true);
+		buttonNorth.setEnabled ( createDungeon.lookNorth(MainPlayer, dungeon ) );
+		buttonWest.setEnabled ( createDungeon.lookWest(MainPlayer, dungeon ) );
+		buttonSouth.setEnabled ( createDungeon.lookSouth(MainPlayer, dungeon ) );
+		buttonEast.setEnabled ( createDungeon.lookEast(MainPlayer, dungeon ) );
+		
+
 		if(dungeon[MainPlayer.location.row][MainPlayer.location.column].Monstercontainer.size() > 0)
 		{
 			buttonAttack.setEnabled(true);
 		}
 		else
 			buttonAttack.setEnabled(false);
+		
+		
 		if(MainPlayer.alive == false)
 		{
 			buttonNorth.setEnabled(false);

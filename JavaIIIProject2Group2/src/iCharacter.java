@@ -19,9 +19,11 @@ public interface iCharacter
 	boolean deathCheck();
 	
 	//**Combat Procedure**\\
-	void attack(Player monster);
+	void attack(iCharacter monster);
 	
+	void runAway(iCharacter player);
 	void runAway(Player player);
-	
+	void setHitPoints(int damageTaken);
+	boolean getAlive();
 	
 }

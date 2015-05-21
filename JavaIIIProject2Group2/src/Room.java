@@ -12,8 +12,8 @@ public class Room implements iRoom
 	
 	public Room(int i, int k)
 	{
-		this.cord.row = i;
-		this.cord.column = k;
+		this.cord.setRow(i);
+		this.cord.setColumn(k);
 		container = new ArrayList<Player>();
 		Monstercontainer = new ArrayList<Player>();
 		generateMonsters();
@@ -38,7 +38,7 @@ public class Room implements iRoom
 	{
 		Dice dice = new Dice();
 		int genMon = dice.monsterDie();
-		int pickname = dice.rolldie(1);
+		int pickname = dice.rollDieAmountOfTimes(1);
 		if(genMon > 4)
 		{
 			String nameholder = "";

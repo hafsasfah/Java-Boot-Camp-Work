@@ -30,9 +30,9 @@ public class Player implements iCharacter
 		dice = new Dice();
 		this.location.row = 0;
 		this.location.column= 0;
-		this.strength = dice.rolldie(3);
-		this.dexterity = dice.rolldie(3);
-		this.intelligence = dice.rolldie(3);
+		this.strength = dice.rollDieAmountOfTimes(3);
+		this.dexterity = dice.rollDieAmountOfTimes(3);
+		this.intelligence = dice.rollDieAmountOfTimes(3);
 		this.hitPoints = 20;
 		
 	}
@@ -116,6 +116,11 @@ public class Player implements iCharacter
 		this.name = x;
 	}
 
+	public boolean getAlive()
+	{
+		return this.alive;
+	}
+	
 	@Override
 	public boolean deathCheck() 
 	{
@@ -128,16 +133,16 @@ public class Player implements iCharacter
 	}
 
 	
-	public void attack(Player monster) 
+	public void attack(iCharacter monster) 
 	{	
-		if(this.alive == true && monster.alive == true)
+		if(this.alive == true && monster.getAlive() == true)
 		{
 			if(this.getDexterity() > monster.getDexterity())
 			{
 				
-				monster.hitPoints -= this.getStrength();
+				monster.setHitPoints(-this.getStrength());
 				monster.deathCheck();
-				if(monster.alive == true)
+				if(monster.getAlive() == true)
 				{
 				this.hitPoints -= monster.getStrength();
 				this.deathCheck();
@@ -145,14 +150,14 @@ public class Player implements iCharacter
 	
 			}
 			
-			else if (this.getDexterity() < monster.getDexterity())
+			else if (this.getDexterity() <= monster.getDexterity())
 			{
 				
-				this.hitPoints -= this.getStrength();
+				this.setHitPoints(-monster.getStrength());
 				this.deathCheck(); 
-				if(this.alive == true)
+				if(this.getAlive() == true)
 				{
-				monster.hitPoints -= monster.getStrength();
+				monster.setHitPoints(this.getHitPoints());
 				monster.deathCheck();
 				} 
 				 	 
@@ -167,6 +172,12 @@ public class Player implements iCharacter
 	public void runAway(Player player) 
 	{
 		
+		
+	}
+
+	@Override
+	public void runAway(iCharacter player) {
+		// TODO Auto-generated method stub
 		
 	}
 
