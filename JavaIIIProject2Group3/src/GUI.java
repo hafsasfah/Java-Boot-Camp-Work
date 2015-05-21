@@ -18,13 +18,13 @@ public class GUI extends JFrame{
 	
 	private static final long serialVersionUID = -7961136662816131164L;
 
-	static private JTextArea console;
+	
 	private JTextArea location; // may remove this display later
 	private JPanel textAreaPanel;
 	private JPanel locationPanel;
 	private JPanel buttonsPanel; //
 
-	
+	static private JTextArea console;
 	static private  iMaze maze ;
 	//private static maze = new Maze("10x10.maze");
 	private Party party;
