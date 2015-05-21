@@ -1,3 +1,4 @@
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 public class Character implements iCharacter {
@@ -164,6 +165,11 @@ public class Character implements iCharacter {
 	
 	@Override
 	public JPanel getPanel() {
+		getCharName();
+		getCharType();
+		getHitPoints();
+		getDexterity();
+		
 		return this.panel;
 	}
 }
