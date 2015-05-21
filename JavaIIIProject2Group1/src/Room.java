@@ -7,7 +7,6 @@ public class Room implements iRoom
 	String name;
 	iParty NPCParty;
 	JPanel Panel;
-	int gold;
 	
 	public Room( String name, iParty npcParty, int gold)
 	{
@@ -36,11 +35,6 @@ public class Room implements iRoom
 		return Panel;
 	}
 
-	@Override
-	public int getGold() {
-		
-		
-		return gold;
 	}
 	
 }

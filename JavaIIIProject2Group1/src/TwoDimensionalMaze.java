@@ -18,7 +18,7 @@ public class TwoDimensionalMaze implements iMaze {
 	private final char ROOM = 'r';
 	private final char END = 'e';
 
-	private AdventureGameGUI gui;
+	private Gui gui;
 	
 	private Position start;
 	private Position end;
@@ -40,7 +40,7 @@ public class TwoDimensionalMaze implements iMaze {
 	private JPanel centerPanel;
 	private JLabel centerLabel;
 
-	public TwoDimensionalMaze( AdventureGameGUI gui, File mazeFile, IRoomFactory roomFactory)
+	public TwoDimensionalMaze( Gui gui, File mazeFile, iRoomFactory roomFactory)
 			throws IOException {
 		
 		this.gui = gui;
@@ -132,14 +132,13 @@ public class TwoDimensionalMaze implements iMaze {
 		return position.equals(end);
 	}
 	
-	@Override
 	public iPosition getCurrentPosition() {
 		return currentPosition;
 	}
 
 	@Override
 	public boolean isValidPosition(iPosition position) {
-		if ( ! ( position instanceof TwoDimensionalPosition) )
+		if ( ! ( position instanceof Position) )
 		{
 			return false;
 		}
