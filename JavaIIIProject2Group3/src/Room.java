@@ -3,7 +3,7 @@ import java.util.Random;
 import javax.swing.JPanel;
 
 
-public class Room {
+public class Room implements iRoom {
 	
 	private String roomTitle;
 	private String roomDescription;
@@ -55,5 +55,19 @@ public class Room {
 
 	public void setNpcs(Party npcs) {
 		this.npcs = npcs;
+	}
+
+
+	@Override
+	public int numberOfItemsInRoom() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+
+	@Override
+	public JPanel getnpcs() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
