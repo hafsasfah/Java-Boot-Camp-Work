@@ -84,8 +84,9 @@ public class GUI extends JFrame{
 	}
 	
 	private void screenUpdate(){
-		party.screenUpdate();
-		
+		try {party.screenUpdate();
+		}
+		catch(Exception e){}
 		buttonCheck();
 		clearConsole();
 		//add any other screen updates here as needed
