@@ -52,7 +52,7 @@ public class Maze implements iMaze {
 	public Maze(){
 		for (int xPosition = 0;xPosition<10;xPosition++){
 			for(int yPosition = 0;yPosition<10;yPosition++){
-				maze[xPosition][yPosition] = (iRoom) new Room();	//randomly generates a room for ever position in maze[][]			
+				maze[xPosition][yPosition] = new Room();	//randomly generates a room for ever position in maze[][]			
 				//TODO: update to new Room after rob commits Room class;
 				
 		

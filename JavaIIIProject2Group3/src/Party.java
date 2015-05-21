@@ -34,8 +34,10 @@ public class Party {
 			private JButton rightButton; 
 	
 	public Party(iCharacter[] characters){
+		location = new Location();
 
 		this.characters = characters;
+		generateGUI();
 
 	}
 
@@ -49,7 +51,9 @@ public class Party {
 	
 	
 	private void generateGUI() {
-		//Creating main button panel
+		//Creating party panel
+		partyPanel = new JPanel();
+		partyPanel.setLayout(new BorderLayout());
 		for(iCharacter c: characters){
 			partyPanel.add(c.getPanel());
 			
@@ -124,7 +128,7 @@ public class Party {
 	}
 	
 	public JPanel getPartyPanel(){
-		return partyPanel;
+		return null;//partyPanel;
 	}
 	
 	public JPanel getActionPanel(){

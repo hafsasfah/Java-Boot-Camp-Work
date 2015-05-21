@@ -31,13 +31,20 @@ public class GUI extends JFrame{
 	public GUI(){
 		super ("Group 3's awesome adventure game");
 		
-		//party = new Party();
+		//To be removed when rob is done with start page.
+		PlayerCharacterFactory factory = new PlayerCharacterFactory();
+		iCharacter[] charac = new Character[6];
+		for(int i=0;i< charac.length ;i++){
+			charac[i]= factory.createCharacter(" New PLayer "+ i," Demo");
+		}
+		
+		party = new Party(charac);
 		
 		//adding character party panel
-		add(party.getPartyPanel(),BorderLayout.WEST);
+		this.add(party.getPartyPanel(),BorderLayout.WEST);
 		
 		//adding npc party panel
-		add(maze.getRoom(party.getLocation().getLocation()).getnpcs());
+		add(maze.getRoom(party.getLocation().getLocation()).getnpcs(),BorderLayout.WEST);
 		
 		//Create and place Panels
 		locationPanel = new JPanel();
