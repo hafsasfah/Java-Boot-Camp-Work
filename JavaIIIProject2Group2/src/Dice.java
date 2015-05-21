@@ -13,7 +13,7 @@ public class Dice implements iDice {
     {
     	int ranNum = rand.nextInt((6));
     	if(roller == 0)
-    		return 1;
+    		return 1 * roller;
     	else
     		return ranNum + rolldie(roller - 1);		
     }
