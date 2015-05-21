@@ -1,7 +1,7 @@
 public class PlayerCharacterFactory implements iCharacterFactory {
 
 	@Override
-	static public iCharacter createCharacter(String name, String type) {
+	public iCharacter createCharacter(String name, String type) {
 		
 		int strength = Die.roll3D6(); 
 		int dexterity = Die.roll3D6();

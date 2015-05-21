@@ -31,7 +31,7 @@ public class GUI extends JFrame{
 	public GUI(){
 		super ("Group 3's awesome adventure game");
 		
-		party = new Party();
+		//party = new Party();
 		
 		//adding character party panel
 		add(party.getPartyPanel(),BorderLayout.WEST);

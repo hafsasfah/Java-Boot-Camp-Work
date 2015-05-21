@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 public class Party {
 	private PlayerCharacterFactory playerFactory ;
 	private Location location;
-	iCharacter[] characters = new Character[6] ;
+	private iCharacter[] characters = new Character[6] ;
 	// GUI fields
 	private JPanel partyPanel;
 		//subPanels
@@ -42,7 +42,7 @@ public class Party {
 	public iCharacter[] getCharacter(){
 		return characters;
 	}
-	public void setCharacter(Character[] update){
+	public void setCharacter(iCharacter[] update){
 		characters = update;
 	}
 	
@@ -80,7 +80,7 @@ public class Party {
 		runButton = new JButton("    Run   ");
 		this.actionsbottomButtonsPanel.add(runButton,BorderLayout.WEST);
 		suicideButton = new JButton(" Hara Kiri ");
-		this.actionstopButtonsPanel.add(suicideButton,BorderLayout.NORTH);
+		this.actionstopButtonsPanel.add(suicideButton,BorderLayout.SOUTH);
 		
 		//Adds movement buttons to panel
 		northButton = new JButton("North");
