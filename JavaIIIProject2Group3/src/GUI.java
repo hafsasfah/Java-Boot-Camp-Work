@@ -39,12 +39,12 @@ public class GUI extends JFrame{
 		
 		//To be removed when rob is done with start page.
 		PlayerCharacterFactory factory = new PlayerCharacterFactory();
-		iCharacter[] charac = new Character[6];
-		for(int i=0;i< charac.length ;i++){
-			charac[i]= factory.createCharacter(" New PLayer "+ i," Demo");
+		iCharacter[] character = new Character[6];
+		for(int i=0;i< character.length ;i++){
+			character[i]= factory.createCharacter(" New PLayer "+ i," Demo");
 		}
 		
-		party = new Party(charac);
+		party = new Party(character);
 		
 		//adding character party panel
 		add(party.getPartyPanel(),BorderLayout.WEST);
