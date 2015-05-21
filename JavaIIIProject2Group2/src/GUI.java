@@ -41,7 +41,19 @@ public class GUI extends JFrame
 	private JButton buttonEast;
 	private JButton buttonAttack;
 	private JButton buttonRun;
+<<<<<<< HEAD
 
+    static byte gridLayout[][]  =  {{1,0,0,1,1}, 
+									{1,0,1,0,1}, 
+									{1,1,1,1,1},
+									{1,1,0,0,1},
+									{1,1,0,1,1}};
+=======
+	
+    //static byte gridLayout[][]  =  {{1,0,0}, 
+  	//								{1,0,0}, 
+  	//								{1,1,1}};
+    
     static byte gridLayout[][]  =  {{1,0,1,1,1,1,0,0,0,1}, 
 									{1,0,1,0,1,0,0,1,1,1}, 
 									{1,1,1,1,1,0,0,1,0,1},
@@ -52,9 +64,9 @@ public class GUI extends JFrame
 									{1,1,1,1,1,0,0,1,0,1},
 									{1,1,0,0,1,1,1,1,0,1},
 									{1,0,0,1,1,0,0,0,0,1}};
+>>>>>>> origin/JavaIIIProject2Group2
 
-
-    Room dungeon[][] = new Room [10][10];
+    Room dungeon[][] = new Room [5][5];
 
 	
 	public GUI()
