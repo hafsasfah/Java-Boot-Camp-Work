@@ -1,4 +1,7 @@
+import java.awt.BorderLayout;
+
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class Character implements iCharacter {
@@ -165,11 +168,16 @@ public class Character implements iCharacter {
 	
 	@Override
 	public JPanel getPanel() {
-		getCharName();
-		getCharType();
-		getHitPoints();
-		getDexterity();
+		panel = new JPanel();
+		panel.setLayout(new BorderLayout());
+		JLabel label= new JLabel();
+		label.setText("Character: "+ this.charName );
+		panel.add(label);
+		//getCharName();
+		//getCharType();
+		//getHitPoints();
+		//getDexterity();
 		
-		return this.panel;
+		return panel;
 	}
 }

@@ -20,7 +20,7 @@ public class GUI extends JFrame{
 	private JPanel buttonsPanel; //
 
 	
-	private static iMaze maze = new Maze();
+	static private  iMaze maze = new Maze();
 	//private static maze = new Maze("10x10.maze");
 	private Party party;
 	
@@ -41,10 +41,10 @@ public class GUI extends JFrame{
 		party = new Party(charac);
 		
 		//adding character party panel
-		this.add(party.getPartyPanel(),BorderLayout.WEST);
+	//	this.add(party.getPartyPanel(),BorderLayout.WEST);
 		
 		//adding npc party panel
-		add(maze.getRoom(party.getLocation().getLocation()).getnpcs(),BorderLayout.WEST);
+	//	add(maze.getRoom(party.getLocation().getLocation()).getnpcs(),BorderLayout.EAST);
 		
 		//Create and place Panels
 		locationPanel = new JPanel();

@@ -168,6 +168,9 @@ public class Party {
 		suicideButton.setEnabled(true);
 		
 	}
+	public Party getParty(){
+		return this;
+	}
 	
 	private class Listener implements ActionListener {
 		
@@ -176,23 +179,23 @@ public class Party {
 			if (event.getSource() == northButton) {
 				location.moveUp();
 				screenUpdate();
-				GUI.appendConsole("North \n");
+				GUI.setConsole("North \n");
 				
 			}	
 			else if (event.getSource() == downButton) {
 				location.moveDown();
 				screenUpdate();
-				GUI.appendConsole("South \n");
+				GUI.setConsole("South \n");
 			}
 			else if (event.getSource() == leftButton) {
 				location.moveLeft();
 				screenUpdate();
-				GUI.appendConsole("West \n");
+				GUI.setConsole("West \n");
 			}
 			else if (event.getSource() == rightButton) {
 				location.moveRight();
 				screenUpdate();
-				GUI.appendConsole("East\n");
+				GUI.setConsole("East\n");
 			}
 			
 			else if (event.getSource() == searchButton) {
@@ -207,7 +210,7 @@ public class Party {
 			}
 			else if (event.getSource() == attackButton) {
 				buttonCheck();
-				//Action.attack(players, NPC);
+				Action.attack(getParty(), GUI.getMaze().getRoom(location.getLocation()).getParty());
 				GUI.appendConsole("You attacked.........................a wall. "
 						+ "\nIf you had a weapon you probably just dented it\n"
 						+ "Good job ace. Real smooth\n");
