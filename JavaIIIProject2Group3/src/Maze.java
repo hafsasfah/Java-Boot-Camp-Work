@@ -64,7 +64,7 @@ public class Maze implements iMaze {
 	public boolean existsUp(int[] playerLocation) {
 		if ((playerLocation[1]-1 )>= 0){
 			//System.out.println("in Bounds");
-			if(!(this.maze[playerLocation[0]][playerLocation[1]-1]==null)){
+			if((this.maze[playerLocation[0]][playerLocation[1]-1]!=null)){
 				return true;
 			}
 		}
