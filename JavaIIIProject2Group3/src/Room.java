@@ -9,6 +9,7 @@ public class Room {
 	private String roomDescription;
 	private int npc;
 	private int gold;
+	private int party;
 	private JPanel panel;
 	private Party npcs;
 	
