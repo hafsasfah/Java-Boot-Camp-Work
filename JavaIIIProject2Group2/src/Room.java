@@ -37,8 +37,8 @@ public class Room implements iRoom
 	public void generateMonsters() 
 	{
 		Dice dice = new Dice();
-		int genMon = dice.rolldie(1);
-		int pickname = dice.rolldie(1);
+		int genMon = dice.monsterDie();
+		int pickname = dice.monsterDie();
 		if(genMon > 4)
 		{
 			String nameholder = "";
