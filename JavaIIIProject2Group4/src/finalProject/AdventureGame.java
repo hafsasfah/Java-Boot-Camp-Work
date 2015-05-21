@@ -32,10 +32,10 @@ public class AdventureGame  extends JFrame  // RENAME CLASS TO THE PLAYER CLASS?
 	private String player3name;
 	private String player4name;
 	
-	private Stats player1Stats;
-	private Stats player2Stats;
-	private Stats player3Stats;
-	private Stats player4Stats;	
+	private Stats monster1Stats;
+	private Stats monster2Stats;
+	Stats player1Stats;
+	private Stats player2Stats;	
 	
 	private Character player1;
 	
@@ -49,10 +49,10 @@ public AdventureGame()
 	setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	setLayout(new BorderLayout());
 	
+	 monster1Stats = new Stats(this);
+	 monster2Stats = new Stats(this);
 	 player1Stats = new Stats(this);
 	 player2Stats = new Stats(this);
-	 player3Stats = new Stats(this);
-	 player4Stats = new Stats(this);
 	
 		
 		JPanel contentPane = new JPanel();
@@ -63,8 +63,11 @@ public AdventureGame()
 		{
 			public void actionPerformed(ActionEvent e) 
 			{
-				jt.setText("Player 1 got burned by Dragon Fire,\nPlayer 2 Ran for their life, "
-		    	 		+ "\nPlayer 3 Slayed an Orc, \nPlayer 4 Ran for their life ");	
+				int attack = player1Stats.getStrg() - monster1Stats.getHp();
+				
+				jt.setText("The monster took "+player1Stats.getStrg()+" damage!");	
+				
+			 
 			}
 		});
 		contentPane.add(btnNewButton);
@@ -95,7 +98,7 @@ public AdventureGame()
 			public void actionPerformed(ActionEvent e) 
 			{
 				jt.setText("Your party took a nap! ");
-				Stats.hp++;
+				
 			}
 		});
 		contentPane.add(btnNewButton_3);
@@ -129,12 +132,14 @@ public AdventureGame()
 			     case 1: 
 			    	 jt.setText("2 Orcs and a Dragon are in this room!");
 			    	
-			    	 JLabel statsLabel = new JLabel("<html>Dragon: <br/> DEX: "+player1Stats.dex+"<br/> STRG: "+
-			    			 player1Stats.getStrg() +"<br/> INTEL: "+player1Stats.getIntel()+"<br/> HEALTH: "+Stats.hp);
-			    	 JLabel player2Stats = new JLabel("<html>Orc 1: <br/> DEX: "+player1Stats.dex+"<br/> STRG: "+
-								Stats.strg+"<br/> INTEL: "+Stats.intel+"<br/> HEALTH: "+Stats.hp);
-			    	 JLabel statsLabel3 = new JLabel("<html>Orc 2: <br/> DEX: "+Stats.dex+"<br/> STRG: "+
-								Stats.strg+"<br/> INTEL: "+Stats.intel+"<br/> HEALTH: "+Stats.hp);
+			    	 JLabel statsLabel = new JLabel("<html>Dragon: <br/> DEX: "+monster1Stats.getDex()+"<br/> STRG: "+
+			    			 monster1Stats.getStrg() +"<br/> INTEL: "+monster1Stats.getIntel()+"<br/> HEALTH: "+monster1Stats.getHp());
+			    	 
+			    	 JLabel statsLabel2 = new JLabel("<html>Dragon: <br/> DEX: "+monster2Stats.getDex()+"<br/> STRG: "+
+			    			 monster2Stats.getStrg() +"<br/> INTEL: "+monster2Stats.getIntel()+"<br/> HEALTH: "+monster2Stats.getHp());
+			    	 
+			    	 JLabel statsLabel3 = new JLabel("<html>Dragon: <br/> DEX: "+player1Stats.getDex()+"<br/> STRG: "+
+			    			 player1Stats.getStrg() +"<br/> INTEL: "+player1Stats.getIntel()+"<br/> HEALTH: "+player1Stats.getHp());
 			    	 
 			    	MonsterPaneStats.add(statsLabel);
 			    	MonsterPaneStats.add(statsLabel2);
@@ -145,22 +150,7 @@ public AdventureGame()
 			    	 			break;
 			     case 2:   
 			    	 jt.setText("An Orc,2 Dragons and 5 wolves are in this room!");
-			    	 
-
-			    	 JLabel statsLabel4 = new JLabel("<html> DEX: "+Stats.dex+"<br/> STRG: "+
-								Stats.strg+"<br/> INTEL: "+Stats.intel+"<br/> HEALTH: "+Stats.hp);
-			    	 JLabel statsLabel5 = new JLabel("<html> DEX: "+Stats.dex+"<br/> STRG: "+
-								Stats.strg+"<br/> INTEL: "+Stats.intel+"<br/> HEALTH: "+Stats.hp);
-			    	 JLabel statsLabel6 = new JLabel("<html> DEX: "+Stats.dex+"<br/> STRG: "+
-								Stats.strg+"<br/> INTEL: "+Stats.intel+"<br/> HEALTH: "+Stats.hp);
-			    	 
-			    	MonsterPaneStats.add(statsLabel4);
-			    	MonsterPaneStats.add(statsLabel5);
-			    	MonsterPaneStats.add(statsLabel6);
-						
-					MonsterPaneStats.revalidate();
-			    	 
-			    	 			break;
+			    	 break;
 			    	 
 			    	 
 				 				

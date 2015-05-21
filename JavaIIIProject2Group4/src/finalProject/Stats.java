@@ -52,8 +52,8 @@ public class Stats implements ActionListener {
 				
 				if (actionCommand.equals("SCEPTOR"))
 				{
-					JLabel statsLabel = new JLabel("<html> DEX: "+dex+"<br/> STRG: "+
-							strg+"<br/> INTEL: "+intel+"<br/> HEALTH: "+hp);
+					JLabel statsLabel = new JLabel("<html> DEX: "+ag.player1Stats.getDex()+"<br/> STRG: "+
+							ag.player1Stats.getStrg()+"<br/> INTEL: "+ag.player1Stats.getIntel()+"<br/> HEALTH: "+ag.player1Stats.getHp());
 					ag.PlayerPaneStats.add(statsLabel);
 					
 					ag.PlayerPaneStats.revalidate();
