@@ -1,4 +1,4 @@
-package AdventureGame;
+package finalProject;
 
 import javax.swing.JPanel;
 
