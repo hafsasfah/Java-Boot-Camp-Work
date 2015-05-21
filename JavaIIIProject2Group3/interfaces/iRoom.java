@@ -10,5 +10,6 @@ public interface iRoom {
 	int numberOfItemsInRoom();
 	JPanel getnpcs();
 	Party getParty();
+	Party getNpcs();
 
 }
