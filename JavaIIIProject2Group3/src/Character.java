@@ -15,7 +15,8 @@ public class Character implements iCharacter {
 	Items armor;
 	JPanel panel;
 
-	public Character(String charName, String charType, int strength, int dexterity, int hitPoints, int intelligence) {
+	public Character(String charName, String charType, int strength, int dexterity, 
+			int hitPoints, int intelligence) {
 		this.charName = charName;
 		this.charType = charType;
 		this.strength = strength;
@@ -170,10 +171,5 @@ public class Character implements iCharacter {
 		getDexterity();
 		
 		return this.panel;
-	}
-
-	@Override
-	public Character createCharacter() {
-		return null;
 	}
 }

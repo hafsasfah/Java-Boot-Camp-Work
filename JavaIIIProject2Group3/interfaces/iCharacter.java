@@ -11,14 +11,13 @@ public interface iCharacter {
 	boolean isAlive();
 	iItems getWeapon();
 	iItems getArmor();
-	void setWeapon(iItems weapon);
-	void setArmor(iItems armor);
+	void setWeapon(Items weapon);
+	void setArmor(Items armor);
 	
 	
 	//public void pickUpItem(String item);
 	//public void drinkPotion(double potion);
 	//public void addArmor(double armor);
-	public Character createCharacter();
 	public int[] getCharLocation();
 	
 	// Movement methods

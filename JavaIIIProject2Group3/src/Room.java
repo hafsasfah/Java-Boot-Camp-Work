@@ -9,13 +9,16 @@ public class Room {
 	private String roomDescription;
 	private int npc;
 	private int gold;
+	private int party;
 	private JPanel panel;
+	private Party npcs;
 	
-	public Room(String rTitle, String rDescription)
+	public Room()
 	{
-		this.roomTitle = rTitle;
-		this.roomDescription = rDescription;
+		this.roomTitle = "Room";
+		this.roomDescription = "This is a room";
 	}
+	
 	
 	public Room(int npc, int goldAmount)
 	{
@@ -43,5 +46,15 @@ public class Room {
 		Random randomGenerator = new Random(20);
 		int gold = randomGenerator.nextInt();
 		return gold;
+	}
+
+
+	public Party getNpcs() {
+		return npcs;
+	}
+
+
+	public void setNpcs(Party npcs) {
+		this.npcs = npcs;
 	}
 }
