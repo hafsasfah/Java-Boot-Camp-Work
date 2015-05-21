@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 
 
 public class Party {
-	private PlayerCharacterFactory playerFactory ;
+	//private PlayerCharacterFactory playerFactory ;
 	private Location location;
 	private iCharacter[] characters = new Character[6] ;
 
@@ -132,7 +132,7 @@ public class Party {
 	}
 	
 	public JPanel getPartyPanel(){
-		return null;//partyPanel;
+		return partyPanel;
 	}
 	
 	public JPanel getActionPanel(){
