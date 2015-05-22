@@ -24,6 +24,7 @@ public interface iCharacter {
 	public String getCharLocationString();
 	public JPanel getPanel();
 	void panelUpdate();
+	void setHitPoints(int i);
 	
 }
 

@@ -23,11 +23,21 @@ public class Action {
 			}
 		}
 		
-		pcTotalAttack /= npcSize;
+		pcTotalAttack = npcSize>0 ? pcTotalAttack/npcSize:1;
 		npcTotalAttack /= pcSize;
 		
-		//players.setCharacter(pc);
-		//NPC.setCharacter(npc);
+		
+		
+		for (iCharacter c : pc) {
+			c.setHitPoints(c.getHitPoints()-npcTotalAttack);
+		}
+		
+		for (iCharacter nc : npc) {
+			nc.setHitPoints(nc.getHitPoints()-pcTotalAttack);
+		}
+		
+		players.setCharacter(pc);
+		NPC.setCharacter(npc);
 	}
 	
 	public static int sleep(int playerHitPoints) {

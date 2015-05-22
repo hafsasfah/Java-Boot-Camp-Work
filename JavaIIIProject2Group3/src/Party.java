@@ -118,9 +118,10 @@ public class Party {
 		return location.toString();
 	}
 
-	public void screenUpdate() throws Exception {
+	public void screenUpdate()  {
 		buttonCheck();
-		// clearConsole();
+		GUI.location.setText("Current Location: "+ getCharLocationString());
+		//clearConsole();
 	}
 
 	public JPanel getPartyPanel() {
@@ -135,7 +136,7 @@ public class Party {
 		return movementButtonsPanel;
 	}
 
-	private void buttonCheck() throws Exception {
+	private void buttonCheck() {
 		int[] playerLocation = location.getLocation();
 		if (!(GUI.getMaze().canGoNorth(playerLocation))) {
 			northButton.setEnabled(false);
@@ -164,11 +165,18 @@ public class Party {
 		runButton.setEnabled(true);
 
 		suicideButton.setEnabled(true);
+		
+		
+		updateAllPanels();
 
 	}
 
 	public void updateAllPanels() {
 		for (iCharacter c : characters) {
+			c.panelUpdate();
+		}
+		for (iCharacter c : GUI.getMaze().getRoom(location.getLocation())
+				.getParty().getCharacter()) {
 			c.panelUpdate();
 		}
 	}
@@ -183,28 +191,29 @@ public class Party {
 
 			if (event.getSource() == northButton) {
 				location.moveUp();
-				try {
+				
 					screenUpdate();
-				} catch (Exception e) {}
+		
 				GUI.setConsole("North \n");
 
 			} else if (event.getSource() == downButton) {
 				location.moveDown();
-				try {
+				
 					screenUpdate();
-				} catch (Exception e) {}
+				
 				GUI.setConsole("South \n");
 			} else if (event.getSource() == leftButton) {
 				location.moveLeft();
-				try {
+				
 					screenUpdate();
-				} catch (Exception e) {}
+				
 				GUI.setConsole("West \n");
 			} else if (event.getSource() == rightButton) {
 				location.moveRight();
-				try {
+				updateAllPanels();
+				
 					screenUpdate();
-				} catch (Exception e) {}
+				
 				GUI.setConsole("East\n");
 			}
 
@@ -221,17 +230,18 @@ public class Party {
 				// Action.sleep(characters.getHitPoints());
 				GUI.appendConsole("You had a siesta, feel better?\n");
 			} else if (event.getSource() == attackButton) {
-				try {
+				
+					Action.attack(getParty(),
+							GUI.getMaze().getRoom(location.getLocation())
+									.getParty());
 					buttonCheck();
 					updateAllPanels();
-				} catch (Exception e) {}
+			
 				try {
 					battleMusic();
 				} catch (Exception e) {}
 
-				Action.attack(getParty(),
-						GUI.getMaze().getRoom(location.getLocation())
-								.getParty());
+				
 				// GUI.appendConsole("You attacked.........................a wall. "
 				// + "\nIf you had a weapon you probably just dented it\n"
 				// + "Good job ace. Real smooth\n");

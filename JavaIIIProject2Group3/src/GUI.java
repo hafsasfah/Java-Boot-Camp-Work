@@ -19,7 +19,7 @@ public class GUI extends JFrame{
 	private static final long serialVersionUID = -7961136662816131164L;
 
 	
-	private JTextArea location; // may remove this display later
+	static JTextArea location; // may remove this display later
 	private JPanel textAreaPanel;
 	private JPanel locationPanel;
 	private JPanel buttonsPanel; //
