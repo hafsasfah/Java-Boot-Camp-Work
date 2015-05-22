@@ -12,7 +12,7 @@ public class Maze implements iMaze {
 	private iRoom[][] maze = new iRoom[10][10];
 	
 	
-/*
+
 	public Maze(String filename){//this constructor is not functional yet 
 		File file = new File(filename);
 		Scanner infile;
@@ -22,9 +22,9 @@ public class Maze implements iMaze {
 			String[] splitArray = infile.nextLine().split("");
 			for (int xPosition = 0;xPosition<10;xPosition++){
 				for(int yPosition = 0;yPosition<10;yPosition++){
-					System.out.print(splitArray[counter]);
+				//	System.out.print(splitArray[counter]);
 					if(splitArray[counter].equals("0")){
-						maze[xPosition][yPosition] = (iRoom) new tempRoom();	
+						maze[xPosition][yPosition] = (iRoom) new Room();	
 						
 						//TODO: update to new Room after rob commits Room class;
 					}
@@ -48,7 +48,7 @@ public class Maze implements iMaze {
 		
 		
 		
-	}*/
+	}
 	public Maze(){
 		for (int xPosition = 0;xPosition<10;xPosition++){
 			for(int yPosition = 0;yPosition<10;yPosition++){

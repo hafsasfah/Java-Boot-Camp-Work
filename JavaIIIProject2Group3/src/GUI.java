@@ -35,13 +35,13 @@ public class GUI extends JFrame{
 
 	public GUI(){
 		super ("Group 3's awesome adventure game");
-		maze  = new Maze();
+		maze  = new Maze("10x10.maze");
 		
 		//To be removed when rob is done with start page.
 		PlayerCharacterFactory factory = new PlayerCharacterFactory();
 		iCharacter[] character = new Character[6];
 		for(int i=0;i< character.length ;i++){
-			character[i]= factory.createCharacter(" New PLayer "+ i," Demo");
+			character[i]= factory.createCharacter(" New Player "+ i," Demo");
 		}
 		
 		party = new Party(character);
