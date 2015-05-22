@@ -17,7 +17,7 @@ public class Items implements iItems
 	private int IncreaseYourDexterity = 5;
 	private int IncreaseYourIntelligence = 5;
 	
-	private int allPotionDropChance = 70;			//70 percent chance it will drop 
+	private int percentOfPotionDropChance = 70;			//70 percent chance it will drop 
 	
 	
 	public Items()
@@ -26,7 +26,7 @@ public class Items implements iItems
 		this.amountOfDexterityPotion = 0;
 		this.amountOfStrengthPotion = 0;
 		this.amountOfIntelligencePotion = 0;
-		this.allPotionDropChance = 0;
+		this.percentOfPotionDropChance = 0;
 		
 	}
 	
@@ -37,7 +37,7 @@ public class Items implements iItems
 		this.amountOfDexterityPotion = dexterityPotion;
 		this.amountOfStrengthPotion = strengthPotion;
 		this.amountOfIntelligencePotion = intelligencePotion;	
-		this.allPotionDropChance = allPotionDropChance;
+		this.percentOfPotionDropChance = allPotionDropChance;
 		this.player = player; 
 		
 	}
@@ -110,33 +110,33 @@ public class Items implements iItems
 	{
 		Random rand = new Random();
 		
-		if(rand.nextInt(100) < allPotionDropChance)
+		if(rand.nextInt(100) < percentOfPotionDropChance)
 		{
 			return amountOfHitPointPotion++;
 		}
 		
-		if(rand.nextInt(100) < allPotionDropChance)
+		if(rand.nextInt(100) < percentOfPotionDropChance)
 		{
 			return amountOfDexterityPotion++;
 		}
 		
-		if(rand.nextInt(100) < allPotionDropChance)
+		if(rand.nextInt(100) < percentOfPotionDropChance)
 		{
 			return amountOfStrengthPotion++;
 		}
 		
-		if(rand.nextInt(100) < allPotionDropChance)
+		if(rand.nextInt(100) < percentOfPotionDropChance)
 		{
 			return amountOfIntelligencePotion++;
 		}
 		
-		return allPotionDropChance;
+		return percentOfPotionDropChance;
 		
 	}
 
 	public void setAllPotionDropChance(int allPotionDropChance) 
 	{
-		this.allPotionDropChance = allPotionDropChance;
+		this.percentOfPotionDropChance = allPotionDropChance;
 		
 	}
 	
