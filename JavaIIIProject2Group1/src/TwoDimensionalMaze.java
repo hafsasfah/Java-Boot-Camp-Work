@@ -7,7 +7,8 @@ import java.util.*;
 
 import javax.swing.*;
 
-public class TwoDimensionalMaze implements iMaze {
+public class TwoDimensionalMaze implements iMaze
+{
 	public static final int NORTH = 0;
 	public static final int EAST = 1;
 	public static final int SOUTH = 2;
@@ -230,8 +231,7 @@ public class TwoDimensionalMaze implements iMaze {
 			{
 				currentPosition = west;
 			}
-			updateDirectionButtons();
-			gui.updateDisplay();
+			
 		}
 		
 	}
