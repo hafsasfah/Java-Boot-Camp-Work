@@ -25,6 +25,7 @@ public class Stats implements ActionListener {
 	private int intel;
 	private int hp;
 	private int MonsterHp;
+	private int MonsterStrg;
 	
 	public Stats(AdventureGame ag)
 	{
@@ -46,6 +47,7 @@ public class Stats implements ActionListener {
 		intel = statNumber3;
 		hp = 100;
 		MonsterHp = 20;
+		MonsterStrg = dice3t1 + dice3t2;
 	}
 
 	public void actionPerformed(ActionEvent e)
@@ -150,6 +152,13 @@ public class Stats implements ActionListener {
 
 	public void setMonsterHp(int MonsterHp) {
 		this.MonsterHp = MonsterHp;
+	}
+	public int getMonsterStrg() {
+		return MonsterStrg;
+	}
+
+	public void setMonsterStrg(int MonsterHp) {
+		this.MonsterStrg = MonsterStrg;
 	}
 
 	}
