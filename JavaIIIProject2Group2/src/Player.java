@@ -57,7 +57,7 @@ public class Player implements iCharacter
 	public void setHitPoints(int hitPoints)
 	{
 		
-		this.hitPoints = hitPoints;
+		this.hitPoints += hitPoints;
 		
 		
 	}
