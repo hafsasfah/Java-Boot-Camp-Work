@@ -54,9 +54,9 @@ public class Party {
 		// Creating party panel
 		partyPanel = new JPanel();
 		partyPanel.setLayout(new BorderLayout());
+		
 		for (iCharacter c : characters) {
 			partyPanel.add(c.getPanel());
-
 		}
 
 		// Create MovementButtons Panel
@@ -110,9 +110,7 @@ public class Party {
 		suicideButton.addActionListener(handler);
 		try {
 			screenUpdate();
-		} catch (Exception e) {
-			;
-		}
+		} catch (Exception e) {}
 
 	}
 
@@ -187,65 +185,49 @@ public class Party {
 				location.moveUp();
 				try {
 					screenUpdate();
-				} catch (Exception e) {
-					;
-				}
+				} catch (Exception e) {}
 				GUI.setConsole("North \n");
 
 			} else if (event.getSource() == downButton) {
 				location.moveDown();
 				try {
 					screenUpdate();
-				} catch (Exception e) {
-					;
-				}
+				} catch (Exception e) {}
 				GUI.setConsole("South \n");
 			} else if (event.getSource() == leftButton) {
 				location.moveLeft();
 				try {
 					screenUpdate();
-				} catch (Exception e) {
-					;
-				}
+				} catch (Exception e) {}
 				GUI.setConsole("West \n");
 			} else if (event.getSource() == rightButton) {
 				location.moveRight();
 				try {
 					screenUpdate();
-				} catch (Exception e) {
-					;
-				}
+				} catch (Exception e) {}
 				GUI.setConsole("East\n");
 			}
 
 			else if (event.getSource() == searchButton) {
 				try {
 					buttonCheck();
-				} catch (Exception e) {
-					;
-				}
+				} catch (Exception e) {}
 				GUI.appendConsole("The Room is empty.....oh so very Empty\n");
 				// add function here
 			} else if (event.getSource() == sleepButton) {
 				try {
 					buttonCheck();
-				} catch (Exception e) {
-					;
-				}
+				} catch (Exception e) {}
 				// Action.sleep(characters.getHitPoints());
 				GUI.appendConsole("You had a siesta, feel better?\n");
 			} else if (event.getSource() == attackButton) {
 				try {
 					buttonCheck();
 					updateAllPanels();
-				} catch (Exception e) {
-					;
-				}
+				} catch (Exception e) {}
 				try {
 					battleMusic();
-				} catch (Exception e) {
-					;
-				}
+				} catch (Exception e) {}
 
 				Action.attack(getParty(),
 						GUI.getMaze().getRoom(location.getLocation())
@@ -256,18 +238,15 @@ public class Party {
 			} else if (event.getSource() == runButton) {
 				try {
 					buttonCheck();
-				} catch (Exception e) {
-					;
-				}
+				} catch (Exception e) {}
 				// Action.run(characters.getHitPoints());
 				GUI.appendConsole("Running from shadows? Some adventurer you are.\n");
 			} else if (event.getSource() == suicideButton) {
 				try {
 					buttonCheck();
-				} catch (Exception e) {
-					;
-				}
+				} catch (Exception e) {}
 				Action.haraKiri();
+				System.exit(0);
 			}
 		}
 	}
@@ -280,10 +259,9 @@ public class Party {
 		URL url = new URL(
 				"http://themushroomkingdom.net/sounds/wav/mk64/mk64_announcer04-jp.wav");
 		Clip clip = AudioSystem.getClip();
-		// getAudioInputStream() also accepts a File or InputStream
 		AudioInputStream ais = AudioSystem.getAudioInputStream(url);
 		clip.open(ais);
-		clip.loop(Clip.LOOP_CONTINUOUSLY);
+		clip.start();
 	}
 
 }

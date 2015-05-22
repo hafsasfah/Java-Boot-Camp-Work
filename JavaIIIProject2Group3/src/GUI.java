@@ -129,7 +129,8 @@ public class GUI extends JFrame{
 	        AudioInputStream ais = AudioSystem.
 	            getAudioInputStream( url );
 	        clip.open(ais);
-	        clip.loop(Clip.LOOP_CONTINUOUSLY);
+	        clip.start();
+	        //clip.loop(Clip.LOOP_CONTINUOUSLY);
 	       /* SwingUtilities.invokeLater(new Runnable() {
 	            public void run() {
 	                // A GUI element to prevent the Clip's daemon Thread
