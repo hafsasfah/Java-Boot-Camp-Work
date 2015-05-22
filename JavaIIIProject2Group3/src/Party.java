@@ -262,7 +262,14 @@ public class Party {
 					buttonCheck();
 					suicideMusic();
 				} catch (Exception e) {}
+				
 				Action.haraKiri();
+				
+				try {
+				   Thread.sleep(1500);
+				} catch (InterruptedException e) {
+				   e.printStackTrace();
+				}
 				System.exit(0);
 			}
 		}
