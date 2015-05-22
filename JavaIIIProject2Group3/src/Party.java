@@ -223,7 +223,7 @@ public class Party {
 				try {
 					buttonCheck();
 				} catch (Exception e) {}
-				GUI.appendConsole("The Room is empty.....oh so very Empty\n");
+				GUI.appendConsole("The Room is empty...much like your heart.\n");
 				// add function here
 			} else if (event.getSource() == sleepButton) {
 				for (int i = 0; i < 6; i++) {
@@ -260,7 +260,13 @@ public class Party {
 					int temp = Action.run(characters[i].getHitPoints());
 					characters[i].setHitPoints(temp);
 				}
-				GUI.appendConsole("Running from shadows? Some adventurer you are.\n");
+				try {
+					buttonCheck();
+					runMusic();
+				} catch (Exception e) {}
+				
+				GUI.appendConsole("Running from the shadows? Some adventurer you are!\n");
+			
 			} else if (event.getSource() == suicideButton) {
 				try {
 					buttonCheck();

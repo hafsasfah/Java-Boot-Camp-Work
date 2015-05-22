@@ -1,3 +1,5 @@
+import java.util.Random;
+
 public class Action {
 
 	public static void attack(Party players, Party NPC) {	
@@ -41,7 +43,7 @@ public class Action {
 	}
 	
 	public static int sleep(int playerHitPoints) {
-		playerHitPoints += 1;
+		playerHitPoints += Die.rollForSleeping();
 		return playerHitPoints;
 	}
 	

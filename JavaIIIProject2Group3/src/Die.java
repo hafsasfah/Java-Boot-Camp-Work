@@ -4,6 +4,11 @@ import java.util.Random;
 public class Die {
 	private static Random random;
 	
+	public static int rollForSleeping() {
+		random = new Random();
+		return random.nextInt(2) + 1;
+	}
+	
 	public static int roll3D6(){ // For Player Stats: Str, Dex, Int
 		random = new Random();
 		int sides;
