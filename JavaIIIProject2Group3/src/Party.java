@@ -226,7 +226,7 @@ public class Party {
 				GUI.appendConsole("The Room is empty...much like your heart.\n");
 				// add function here
 			} else if (event.getSource() == sleepButton) {
-				for (int i = 0; i < 6; i++) {
+				/*for (int i = 0; i < 6; i++) {
 					int temp = Action.sleep(characters[i].getHitPoints());
 					characters[i].setHitPoints(temp);
 				}
@@ -234,7 +234,7 @@ public class Party {
 				try {
 					buttonCheck();
 					sleepMusic();
-				} catch (Exception e) {}
+				} catch (Exception e) {}*/
 				
 				GUI.appendConsole("You had a siesta, feel better?\n");
 			} else if (event.getSource() == attackButton) {

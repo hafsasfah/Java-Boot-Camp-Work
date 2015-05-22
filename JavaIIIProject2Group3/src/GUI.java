@@ -39,7 +39,7 @@ public class GUI extends JFrame{
 		
 		//To be removed when rob is done with start page.
 		PlayerCharacterFactory factory = new PlayerCharacterFactory();
-		iCharacter[] character = new Character[6];
+		iCharacter[] character = new Character[3];
 		for(int i=0;i< character.length ;i++){
 			character[i]= factory.createCharacter(" New PLayer "+ i," Demo");
 		}
