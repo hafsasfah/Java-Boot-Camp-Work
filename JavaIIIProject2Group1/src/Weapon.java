@@ -39,8 +39,7 @@ public class Weapon implements Item
 
 
 	public double getBaseDamage()
-	{
-		
+	{	
 		return 0;
 	}
 	
