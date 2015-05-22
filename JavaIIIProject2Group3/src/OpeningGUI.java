@@ -3,6 +3,7 @@ import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Scanner;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
@@ -25,6 +26,9 @@ public class OpeningGUI extends JFrame {
 	private JLabel messageLabel;
 	private JTextField kiloTextField;
 	private JButton createButton;
+	private static JTextField numberOfPlayers;
+	private JLabel numberOfPlayersLabel;
+	
 	
 	public OpeningGUI()
 	{
@@ -48,7 +52,7 @@ public class OpeningGUI extends JFrame {
 		messageLabel = new JLabel("How many players? ");
 		
 		// Create a text field 10 characters wide.
-		kiloTextField = new JTextField(10);
+		numberOfPlayers = new JTextField(10);
 		
 		// Create a button with the caption "Calculate*
 		createButton = new JButton("<html><button>Calculate</button></html>");
@@ -67,10 +71,13 @@ public class OpeningGUI extends JFrame {
 	public static void createCharacters()
 	{
 		PlayerCharacterFactory factory = new PlayerCharacterFactory();
+
+		String playerNoText = numberOfPlayers.getText();
+		int number = Integer.parseInt(playerNoText);
 		
-		iCharacter[] charac = new Character[6];
+		iCharacter[] charac = new Character[number];
 		
-		for(int i=0;i< charac.length ;i++){
+		for(int i=0;i< charac.length; i++){
 		
 			charac[i] = factory.createCharacter();
 		}
