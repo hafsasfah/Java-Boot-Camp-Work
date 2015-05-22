@@ -228,6 +228,7 @@ public class Party {
 			} else if (event.getSource() == sleepButton) {
 				try {
 					buttonCheck();
+					sleepMusic();
 				} catch (Exception e) {}
 				// Action.sleep(characters.getHitPoints());
 				GUI.appendConsole("You had a siesta, feel better?\n");
@@ -241,7 +242,9 @@ public class Party {
 			
 				try {
 					battleMusic();
+					battleMusic2();
 				} catch (Exception e) {}
+				
 
 				
 				// GUI.appendConsole("You attacked.........................a wall. "
@@ -250,12 +253,14 @@ public class Party {
 			} else if (event.getSource() == runButton) {
 				try {
 					buttonCheck();
+					runMusic();
 				} catch (Exception e) {}
 				// Action.run(characters.getHitPoints());
 				GUI.appendConsole("Running from shadows? Some adventurer you are.\n");
 			} else if (event.getSource() == suicideButton) {
 				try {
 					buttonCheck();
+					suicideMusic();
 				} catch (Exception e) {}
 				Action.haraKiri();
 				System.exit(0);
@@ -270,6 +275,42 @@ public class Party {
 	static void battleMusic() throws Exception {
 		URL url = new URL(
 				"http://themushroomkingdom.net/sounds/wav/mk64/mk64_announcer04-jp.wav");
+		Clip clip = AudioSystem.getClip();
+		AudioInputStream ais = AudioSystem.getAudioInputStream(url);
+		clip.open(ais);
+		clip.start();
+	}
+	
+	static void battleMusic2() throws Exception {
+		URL url2 = new URL(
+				"http://themushroomkingdom.net/sounds/wav/mk64/mk64_wario05-jp.wav");
+		Clip clip = AudioSystem.getClip();
+		AudioInputStream ais2 = AudioSystem.getAudioInputStream(url2);
+		clip.open(ais2);
+		clip.start();
+	}
+	
+	static void suicideMusic() throws Exception {
+		URL url = new URL(
+				"http://themushroomkingdom.net/sounds/wav/mk64/mk64_peach05.wav");
+		Clip clip = AudioSystem.getClip();
+		AudioInputStream ais = AudioSystem.getAudioInputStream(url);
+		clip.open(ais);
+		clip.start();
+	}
+
+	static void sleepMusic() throws Exception {
+		URL url = new URL(
+				"http://themushroomkingdom.net/sounds/wav/sm64/sm64_mario_tired.wav");
+		Clip clip = AudioSystem.getClip();
+		AudioInputStream ais = AudioSystem.getAudioInputStream(url);
+		clip.open(ais);
+		clip.start();
+	}
+	
+	static void runMusic() throws Exception {
+		URL url = new URL(
+				"http://themushroomkingdom.net/sounds/wav/sm64/sm64_mario_here_we_go.wav");
 		Clip clip = AudioSystem.getClip();
 		AudioInputStream ais = AudioSystem.getAudioInputStream(url);
 		clip.open(ais);
