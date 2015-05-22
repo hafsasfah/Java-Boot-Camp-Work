@@ -1,6 +1,7 @@
 	import java.util.Random;
 
-	public class RandomRoom implements NewRoom{
+	public class RandomRoom implements NewRoom
+	{
 
 		private String[] names = { "Hallway", "Celler", "Cave", "Library", "Bedroom", "Kitchen" };
 		private iCharacterFactory npcFactory;
