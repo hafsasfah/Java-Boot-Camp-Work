@@ -25,9 +25,12 @@ public class Action {
 			}
 		}
 		
-		pcTotalAttack = npcSize>0 ? pcTotalAttack/npcSize:1;
-		npcTotalAttack /= pcSize;
-		
+		for (iCharacter nc : npc) {
+			if (nc.isAlive()) {
+				pcTotalAttack = npcSize > 0 ? pcTotalAttack / npcSize : 1;
+				npcTotalAttack /= pcSize;
+			}
+		}
 		
 		
 		for (iCharacter c : pc) {
@@ -48,7 +51,6 @@ public class Action {
 	}
 	
 	public static int run(int playerHitPoints) {
-		// TEMP: update certain buttons to be disabled later
 		playerHitPoints -= 1; // damage is 1 upon being a coward
 		return playerHitPoints;
 	}
