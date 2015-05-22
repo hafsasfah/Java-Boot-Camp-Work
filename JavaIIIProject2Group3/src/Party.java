@@ -268,18 +268,18 @@ public class Party {
 				GUI.appendConsole("Running from the shadows? Some adventurer you are!\n");
 			
 			} else if (event.getSource() == suicideButton) {
+				for (int i = 0; i < 6; i++) {
+					characters[i].setHitPoints(Action.haraKiri());
+				}
+				
 				try {
 					buttonCheck();
-					suicideMusic();
 				} catch (Exception e) {}
 				
-				Action.haraKiri();
-				
 				try {
+				   suicideMusic();
 				   Thread.sleep(1500);
-				} catch (InterruptedException e) {
-				   e.printStackTrace();
-				}
+				} catch (Exception e) {}
 				System.exit(0);
 			}
 		}
