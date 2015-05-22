@@ -226,11 +226,16 @@ public class Party {
 				GUI.appendConsole("The Room is empty.....oh so very Empty\n");
 				// add function here
 			} else if (event.getSource() == sleepButton) {
+				for (int i = 0; i < 6; i++) {
+					int temp = Action.sleep(characters[i].getHitPoints());
+					characters[i].setHitPoints(temp);
+				}
+				
 				try {
 					buttonCheck();
 					sleepMusic();
 				} catch (Exception e) {}
-				// Action.sleep(characters.getHitPoints());
+				
 				GUI.appendConsole("You had a siesta, feel better?\n");
 			} else if (event.getSource() == attackButton) {
 				
@@ -251,10 +256,6 @@ public class Party {
 				// + "\nIf you had a weapon you probably just dented it\n"
 				// + "Good job ace. Real smooth\n");
 			} else if (event.getSource() == runButton) {
-				try {
-					buttonCheck();
-					runMusic();
-				} catch (Exception e) {}
 				for (int i = 0; i < 6; i++) {
 					int temp = Action.run(characters[i].getHitPoints());
 					characters[i].setHitPoints(temp);
