@@ -192,6 +192,7 @@ public class GUI extends JFrame
 			buttonSouth.setEnabled(false);
 			buttonEast.setEnabled(false);
 			buttonAttack.setEnabled(false);
+			buttonRun.setEnabled(false);
 		}
 	}
 	
