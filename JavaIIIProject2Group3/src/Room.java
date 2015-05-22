@@ -18,7 +18,7 @@ public class Room implements iRoom {
 	public Room()
 	{
 		Random random = new Random();
-		int numOfNPCs = random.nextInt(6);
+		int numOfNPCs = random.nextInt(4);
 		this.roomTitle = "Room";
 		this.roomDescription = "This is a room";
 		factory = new NPCharacterFactory();

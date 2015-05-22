@@ -6,6 +6,7 @@ import java.net.URL;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
@@ -53,10 +54,11 @@ public class Party {
 	private void generateGUI() {
 		// Creating party panel
 		partyPanel = new JPanel();
-		partyPanel.setLayout(new BorderLayout());
+		partyPanel.setLayout(new BoxLayout(partyPanel, BoxLayout.Y_AXIS));
 		
 		for (iCharacter c : characters) {
 			partyPanel.add(c.getPanel());
+			partyPanel.repaint();
 		}
 
 		// Create MovementButtons Panel
