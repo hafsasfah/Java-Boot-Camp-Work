@@ -3,9 +3,9 @@ public interface iCharacter {
 	
 	String getName();
 	int getStrength();
-	int getiQ();
+	int getintelligence();
 	int getDexterity();
-	int getItem();
-	int gethP();
+	String getItem();
+	int gethitPoints();
 	
 }

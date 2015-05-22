@@ -27,7 +27,7 @@ public class Weapon implements Item
 	public int getDurability() 
 	{
 		
-		return 0;
+		return baseDamage;
 	}
 
 	@Override

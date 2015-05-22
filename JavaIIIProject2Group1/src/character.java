@@ -5,52 +5,46 @@ public class character implements iCharacter{
 	
 	String name;
 	int strength;
-	int iQ;
+	int intelligence;
 	int dexterity;
-	int hP;
-	int item;
+	int hitPoints;
+	String item;
 	
-
-	
-public  int getDie() {
-	int totalDie= 0;
-	for(int i=0; i<=3; i++)
+	public character (String name, int strength, int intelligence, int dexterity, int hitPoints)
 	{
-		Random r = new Random();
-		int die = r.nextInt(6) +1;
-		totalDie = totalDie + die;
+		
+		this.name = name;
+		this.strength = strength;
+		this.intelligence = intelligence;
+		this.dexterity= dexterity;
+		this.hitPoints=hitPoints;
 	}
-	return totalDie;	
-}
+	
 
 	public String getName() {
 		return this.name;
 	}
 
 	public int getStrength() {
-		getDie();
 		return this.strength;
 	}
 	
-	public int getiQ() {
-		getDie();
-		return this.iQ;
+	public int getintelligence() {
+		return this.intelligence;
 	}
 	
 	
 	public int getDexterity() {
-		getDie();
 		return this.dexterity;
 	}
 	
 
-	public int gethP() {
-		getDie();
-		return this.hP;
+	public int gethitPoints() {
+		return this.hitPoints;
 	}
 	
 
-	public int getItem() {
+	public String getItem() {
 		return this.item;
 	}
 
