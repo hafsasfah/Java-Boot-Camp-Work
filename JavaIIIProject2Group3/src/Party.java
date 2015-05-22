@@ -255,7 +255,10 @@ public class Party {
 					buttonCheck();
 					runMusic();
 				} catch (Exception e) {}
-				// Action.run(characters.getHitPoints());
+				for (int i = 0; i < 6; i++) {
+					int temp = Action.run(characters[i].getHitPoints());
+					characters[i].setHitPoints(temp);
+				}
 				GUI.appendConsole("Running from shadows? Some adventurer you are.\n");
 			} else if (event.getSource() == suicideButton) {
 				try {
