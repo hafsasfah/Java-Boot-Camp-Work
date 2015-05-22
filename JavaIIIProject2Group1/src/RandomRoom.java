@@ -3,9 +3,8 @@
 	public class RandomRoom implements NewRoom
 	{
 
-		private String[] names = { "Hallway", "Celler", "Cave", "Library", "Bedroom", "Kitchen" };
+		private String[] names = {};
 		private iCharacterFactory npcFactory;
-		private final int MAX_GOLD = 20;
 		private final int MAX_NPCS_IN_ROOM = 6;
 		
 		public RandomRoom( iCharacterFactory npcFactory )
@@ -25,7 +24,7 @@
 				npcs[index] = npcFactory.createcharacter();
 			}
 			
-			iRoom room = new Room( names[ random.nextInt( names.length ) ], new party( npcs ) );
+			iRoom room = new oom( names[ random.nextInt( names.length ) ], new party( npcs ) );
 			
 			return room;
 		}

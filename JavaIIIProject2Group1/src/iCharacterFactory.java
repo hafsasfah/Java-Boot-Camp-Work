@@ -1,6 +1,6 @@
 
 public interface iCharacterFactory {
-	public iCharacter newPlayer();
+	public iCharacter createcharacter();
 
 
 }
