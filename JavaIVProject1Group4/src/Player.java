@@ -6,6 +6,12 @@ public class Player implements iPlayer {
 	int location;
 	int cash;
 	ArrayList<Integer> ownedProperties;
+	
+	
+	public Player(){
+		//TODO:
+	}
+	
 	@Override
 	public int getLocation() {
 			return location;
