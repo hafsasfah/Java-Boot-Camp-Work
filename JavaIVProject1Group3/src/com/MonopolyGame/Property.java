@@ -1,5 +1,7 @@
 package com.MonopolyGame;
 
+
+
 public class Property {
 
 	private String nameOfProperty;
@@ -43,6 +45,12 @@ public int getCostOfProperty() {
 
 public void setCostOfProperty(int costOfProperty) {
 	this.costOfProperty = costOfProperty;
+}
+
+
+public String ownerOfProperty() {
+	// TODO Auto-generated method stub
+	return null;
 }
 	
 }
