@@ -2,7 +2,6 @@ package views;
 import java.util.Observer;
 import javax.swing.JPanel;
 
-
-public interface iPropertyView extends Observer {
+public interface iPlayerView extends Observer {
 	JPanel getPlayerPanel();
 }
