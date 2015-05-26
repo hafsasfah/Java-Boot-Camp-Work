@@ -1,15 +1,21 @@
+package model;
 import java.util.ArrayList;
 
 
 public class Player implements iPlayer {
-
+	String name;
 	int location;
 	int cash;
 	ArrayList<Integer> ownedProperties;
 	
 	
-	public Player(){
-		//TODO:
+	public Player(String name){
+		this.name = name;
+		location = 0;
+		cash = 1500;
+		}
+	public String getName(){
+		return name;
 	}
 	
 	@Override

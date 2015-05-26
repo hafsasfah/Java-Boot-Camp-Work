@@ -1,3 +1,4 @@
+package model;
 
 public class Property implements iProperty {
 	String title;
@@ -6,8 +7,12 @@ public class Property implements iProperty {
 	int price;
 	
 	
-	public Property(){
-		//TODO:
+	public Property(String title){
+	 this.title = title;
+	 rent = 10;
+	 owner = -1; // owner none
+	 price = 100;
+			 
 		
 	}
 	
@@ -38,7 +43,7 @@ public class Property implements iProperty {
 
 	@Override
 	public String getTitle() {
-		return "this is a property";
+		return title;
 	}
 	
 	public String toString(){
