@@ -7,12 +7,7 @@ public class Property {
 	private int rent;
 	private int costOfProperty;
 	
-public Property()
-{
 	
-	
-}
-
 public String getNameOfProperty() {
 	return nameOfProperty;
 }
