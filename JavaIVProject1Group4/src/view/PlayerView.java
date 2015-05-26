@@ -1,11 +1,14 @@
 package view;
 
+import java.util.Observable;
+import java.util.Observer;
+
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import model.Player;
 
-public class PlayerView {
+public class PlayerView implements Observer{
 	JPanel panel ;
 	JLabel label;
 	
@@ -18,6 +21,11 @@ public class PlayerView {
 	}
 	public JPanel getPanel(){
 		return panel;
+	}
+	@Override
+	public void update(Observable arg0, Object arg1) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }
