@@ -16,26 +16,28 @@ public class GUI extends JFrame
 	
 	public JPanel Gameboard;
 	
-	public byte monopolyBoard[][] = {{1,1,1,1},
-									 {1,0,0,1},
-									 {1,0,0,1},
-									 {1,1,1,1}};
-		
-	
-	public iProperty testdatabase[];
+
+	public iProperty testdatabase[]; //serve as a substitute for table of properties from database
 	
 	public GUI()
 	{
 		Gameboard = new JPanel();
 		Gameboard.setLayout(new GridLayout(4,4));
-		buildBoard(monopolyBoard,testdatabase);
+		buildBoard(testdatabase);
 	
 		this.add(Gameboard);
 		
-		
 	}
 	
-	public void buildBoard(byte gameboard[][],iProperty database[])
+	public void buildBoard(iProperty database[]) 
+	/* read each property from database
+	 * 
+	 * create a panel for the property
+	 * 
+	 * add property to gameboard JFrame based on the coordinates from the database
+	 * 
+	 * 
+	 */
 	{
 		PanelGenerator panelgenerator = new PanelGenerator();
 		for(int x = 0; x <= database.length - 1 ; x++)
