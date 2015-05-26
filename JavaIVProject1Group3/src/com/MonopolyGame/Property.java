@@ -2,7 +2,8 @@ package com.MonopolyGame;
 
 
 
-public class Property {
+public class Property extands Observable implements IProperty
+{
 
 	private String nameOfProperty;
 	private String ownerOfProperty;

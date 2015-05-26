@@ -2,7 +2,7 @@ package com.MonopolyGame;
 
 import javafx.beans.Observable;
 
-public interface IProperty extends Observable{
+public interface IProperty {
 	
 	public String getNameOfProperty();
 	public String ownerOfProperty();
