@@ -22,11 +22,6 @@ public class GUI extends JFrame
 	
 	private static final long serialVersionUID = 1L;
 	
-	public byte monopolyBoard[][] = {{1,1,1,1},
-			 						 {1,0,0,1},
-			 						 {1,0,0,1},
-			 						 {1,1,1,1}};
-	
 	public JPanel GameScreen;
 	public JPanel Gameboard;
 	
@@ -52,7 +47,7 @@ public class GUI extends JFrame
 		Gameboard = new JPanel();
 		GameScreen.setLayout(new GridLayout(2,1));
 		Gameboard.setLayout(new GridLayout(4,4));
-		buildBoard(monopolyBoard,testdatabase);
+		buildBoard(testdatabase);
 		translateJframes(propertytiles);
 		
 		GameScreen.add(Gameboard);
@@ -60,7 +55,7 @@ public class GUI extends JFrame
 		setVisible(true);
 	}
 	
-	public void buildBoard(byte gameboard[][],ArrayList<Property> database) 
+	public void buildBoard(ArrayList<Property> database) 
 	/* read each property from database
 	 * 
 	 * create a panel for the property
