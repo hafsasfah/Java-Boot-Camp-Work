@@ -1,5 +1,9 @@
+package models;
 
-public class Players implements IPlayers 
+import interfaces.iPlayers;
+
+
+public class Players implements iPlayers 
 {
 	String move;
 	int purchase;

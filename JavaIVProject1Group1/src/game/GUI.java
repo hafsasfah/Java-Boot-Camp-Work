@@ -1,9 +1,14 @@
+package game;
 
 
+
+import interfaces.iProperty;
 
 import java.awt.GridLayout;
 
 import javax.swing.*;
+
+import data.PanelGenerator;
 
 
 

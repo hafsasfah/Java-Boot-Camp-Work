@@ -1,5 +1,6 @@
+package interfaces;
 
-public interface IPlayers 
+public interface iPlayers 
 {
 	String getMove();
 	int getCash();

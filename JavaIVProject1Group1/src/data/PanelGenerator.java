@@ -1,3 +1,6 @@
+package data;
+import interfaces.iProperty;
+
 import javax.swing.*;
 
 
