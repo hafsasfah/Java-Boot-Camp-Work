@@ -1,10 +1,10 @@
+import java.util.Observable;
 
-public interface iProperty 
-{
+public abstract class iProperty extends Observable {
 
-	void assignPlayerToProperty(iPlayer player);
-	void chargePlayerRent(int rent);
+	abstract void assignPlayerToProperty(iPlayer player);
+	abstract void chargePlayerRent(int rent);
 	Coordinates coord = new Coordinates();
-	String getName();
+	abstract String getName();
 	
 }
