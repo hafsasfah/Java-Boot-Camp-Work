@@ -1,7 +1,3 @@
-
-
-
-
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.awt.geom.Rectangle2D;
@@ -27,8 +23,6 @@ import javax.swing.ImageIcon;
 
 public class GameBoard extends JFrame 
 {
-	
-	
 	/**
 	 * 
 	 */
@@ -51,12 +45,9 @@ public class GameBoard extends JFrame
 		
 		new GameBoard().setVisible(true);
 		
-		
-		
 	}
 	
-	
-	
+
 	
 	public GameBoard()
 	{
@@ -70,11 +61,7 @@ public class GameBoard extends JFrame
 		JLabel bank = new JLabel("Bank");
 		getContentPane().add(bank, BorderLayout.NORTH);
 		createThePanels();
-		
-		
-		
-		
-	
+
 		
 	}
 	
@@ -94,46 +81,64 @@ public class GameBoard extends JFrame
 		
 		getContentPane().setLayout(accessLayout);
 		
-		JLabel jail = new JLabel("Jail");
+		JLabel jail = new JLabel("   Jail  ");
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
-		gbc_btnNewButton.gridx = 1;
-		gbc_btnNewButton.gridy = 0;
 		getContentPane().add(jail, gbc_btnNewButton);
 		
 		getContentPane().setLayout(accessLayout);
 		
-		JLabel salon = new JLabel("Salon");
+		JLabel salon = new JLabel("   Salon  ");
 		GridBagConstraints gbc_salon = new GridBagConstraints();
-		gbc_btnNewButton.gridx = 2;
-		gbc_btnNewButton.gridy = 2;
 		getContentPane().add(salon, gbc_salon);
 		
 		getContentPane().setLayout(accessLayout);
 		
 		JLabel partyStore = new JLabel("Party Store");
 		GridBagConstraints gbc_partyStore = new GridBagConstraints();
-		gbc_btnNewButton.gridx = 2;
-		gbc_btnNewButton.gridy = 2;
 		getContentPane().add(partyStore, gbc_partyStore);
 		
 		getContentPane().setLayout(accessLayout);
 		
 		JLabel playboyMansion = new JLabel("Playboy Mansion");
 		GridBagConstraints gbc_playboyMansion = new GridBagConstraints();
-		gbc_btnNewButton.gridx = 2;
-		gbc_btnNewButton.gridy = 2;
 		getContentPane().add(playboyMansion, gbc_playboyMansion);
 		
 		getContentPane().setLayout(accessLayout);
 		
-		//JButton playboyMansion = new JButton("Playboy Mansion");
-		//GridBagConstraints gbc_playboyMansion = new GridBagConstraints();
-		//gbc_btnNewButton.gridx = 2;
-		//gbc_btnNewButton.gridy = 2;
-		//getContentPane().add(playboyMansion, gbc_playboyMansion);
+		JLabel one = new JLabel("Local Bar");
+		GridBagConstraints gbc_one = new GridBagConstraints();
+		getContentPane().add(one, gbc_one);
 		
+		getContentPane().setLayout(accessLayout);
 		
+		JLabel operaHouse = new JLabel("Opera House");
+		GridBagConstraints gbc_operaHouse = new GridBagConstraints();
+		getContentPane().add(operaHouse, gbc_operaHouse);
 		
+
+		JLabel disco = new JLabel("Disco Club");
+		GridBagConstraints gbc_disco = new GridBagConstraints();
+		getContentPane().add(disco, gbc_disco);
+		
+		JLabel hospital = new JLabel("Hospital");
+		GridBagConstraints gbc_hospital = new GridBagConstraints();
+		getContentPane().add(hospital, gbc_hospital);
+		
+		JLabel halfwayHouse = new JLabel("Halfway House");
+		GridBagConstraints gbc_halfwayHouse = new GridBagConstraints();
+		getContentPane().add(halfwayHouse, gbc_halfwayHouse);
+		
+		JLabel daycare = new JLabel("Daycare");
+		GridBagConstraints gbc_daycare = new GridBagConstraints();
+		getContentPane().add(daycare, gbc_daycare);
+		
+		JLabel policeStation = new JLabel("Police Station");
+		GridBagConstraints gbc_policeStation = new GridBagConstraints();
+		getContentPane().add(policeStation, gbc_policeStation);
+		
+		JLabel burgerJoint = new JLabel("Burger Joint");
+		GridBagConstraints gbc_burgerJoint = new GridBagConstraints();
+		getContentPane().add(burgerJoint, gbc_burgerJoint);
 		
 		
 
