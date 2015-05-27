@@ -8,7 +8,17 @@ public class Property extends aProperty {
 	private int purchasePrice;
 	private int ID;
 	private String name;
-	private Coordinates coord;
+	public Coordinates coord;
+	
+	
+	public Property(int row, int column, String name)
+	{
+		coord = new Coordinates();
+		this.coord.setRow(row);
+		this.coord.setColumn(column);
+		this.name = name;
+		
+	}
 	
 	public Property(String name, int ID, int rentPrice, int purchasePrice, int row, int column) {
 		this.name = name;

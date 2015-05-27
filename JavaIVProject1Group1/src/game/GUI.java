@@ -1,7 +1,7 @@
 package game;
 
 
-import interfaces.iProperty;
+
 
 import java.awt.GridLayout;
 import java.util.ArrayList;

@@ -1,7 +1,9 @@
 package data;
-import interfaces.iProperty;
+
 
 import javax.swing.*;
+
+import models.Property;
 
 
 public class PanelGenerator 
@@ -9,7 +11,7 @@ public class PanelGenerator
 	
 	public PanelGenerator(){}
 
-	public JPanel CreateAPanel(iProperty property)
+	public JPanel CreateAPanel(Property property)
 	{
 		JPanel propertyPanel = new JPanel();
 		JLabel propertyName = new JLabel("Test");
