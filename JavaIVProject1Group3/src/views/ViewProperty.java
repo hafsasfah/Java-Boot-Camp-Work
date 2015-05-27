@@ -1,7 +1,16 @@
 package views;
 
-import javafx.beans.Observable;
+import java.util.Observable;
+import java.util.Observer;
 
-public class ViewProperty extends Observable {
+
+
+public class ViewProperty implements IViewProperty {
+
+
+public void update(Observable arg0, Object arg1) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
