@@ -20,7 +20,8 @@ public class Property extends aProperty {
 		
 	}
 	
-	public Property(String name, int ID, int rentPrice, int purchasePrice, int row, int column) {
+	public Property(String name, int ID, int rentPrice, int purchasePrice, 
+			int row, int column) {
 		this.name = name;
 		this.ID = ID;
 		this.rentPrice = rentPrice;

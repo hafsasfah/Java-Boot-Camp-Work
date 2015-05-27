@@ -10,8 +10,7 @@ import data.Coordinates;
 
 public class PropertyTest {
 	
-	Coordinates coord = new Coordinates(1,1);
-	Property property = new Property("Boardwalk", 1, 20, 600, coord);
+	Property property = new Property("Boardwalk", 1, 20, 600, 3, 2);
 	
 	@Test
 	public void getTest() {
