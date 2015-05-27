@@ -1,5 +1,6 @@
 package models;
 
+import data.Coordinates;
 import interfaces.iPlayers;
 
 
@@ -11,6 +12,7 @@ public class Players implements iPlayers
 	int location;
 	int coordinates;
 	int cash;
+	Coordinates coord = new Coordinates();
 	
 	public Players(String move, int purchase, int payRent, int location, int coordinates)
 	{
