@@ -9,9 +9,9 @@ public class PanelGenerator
 	
 	public PanelGenerator(){}
 
-	public JFrame CreateAPanel(iProperty property)
+	public JPanel CreateAPanel(iProperty property)
 	{
-		JFrame propertyPanel = new JFrame();
+		JPanel propertyPanel = new JPanel();
 		JLabel propertyName = new JLabel("Test");
 		propertyName.setText(property.getName());
 		propertyPanel.add(propertyName);

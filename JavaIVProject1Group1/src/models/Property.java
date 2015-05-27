@@ -3,30 +3,31 @@ package models;
 import data.Coordinates;
 import interfaces.iPlayers;
 
-
 public class Property extends aProperty {
 	private int rentPrice;
 	private int purchasePrice;
 	private int ID;
 	private String name;
-	private Coordinates coord = new Coordinates();
+	private Coordinates coord;
 	
-	public Property(String name, int ID, int rentPrice, int purchasePrice, Coordinates coord) {
+	public Property(String name, int ID, int rentPrice, int purchasePrice, int row, int column) {
 		this.name = name;
 		this.ID = ID;
 		this.rentPrice = rentPrice;
 		this.purchasePrice = purchasePrice;
-		this.coord = coord;
+		coord = new Coordinates();
+		this.coord.setRow(row);
+		this.coord.setColumn(column);
 	}
-	
+
 	@Override
 	public void assignPlayerToProperty(iPlayers player) {
-		//null
+		//null4now
 	}
 
 	@Override
 	public void chargePlayerRent(int rent) {
-		//null
+		//null4now
 	}
 
 	@Override
@@ -64,5 +65,4 @@ public class Property extends aProperty {
 	public void setRentalPrice(int rentPrice) {
 		this.rentPrice = rentPrice;
 	}
-
 }
