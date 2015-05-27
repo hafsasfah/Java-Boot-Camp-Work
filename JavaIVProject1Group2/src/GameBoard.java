@@ -112,7 +112,11 @@ public class GameBoard extends JFrame
 				}
 							
 				getContentPane().add(tempPanel, 
-						new GridBagConstraints(gridForX, gridForY, 1, 1,0.0, 0.0, 
+						new GridBagConstraints(gridForX, gridForY, 
+								1,//GridWidth
+								1,//GridHeight
+								0.0,//Double weightX
+								0.0, //Double weightY
 						GridBagConstraints.CENTER, GridBagConstraints.BOTH,  
 						new Insets(0, 0, 0, 0), 0, 0));
 				
