@@ -1,5 +1,6 @@
 package data;
 
+import java.sql.*;
 import models.aGame;
 
 public interface iGameRepository {

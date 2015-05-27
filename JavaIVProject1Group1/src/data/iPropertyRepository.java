@@ -1,5 +1,6 @@
 package data;
 
+import java.sql.*;
 import models.aProperty;
 
 public interface iPropertyRepository {
