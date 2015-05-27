@@ -1,5 +1,5 @@
 package data;
 
-public interface IPlayerRepository {
+public interface iPlayerRepository {
 
 }
