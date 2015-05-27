@@ -1,4 +1,5 @@
 package view;
+import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,18 +12,23 @@ public class GameboardView {
 	JButton endTurn;
 	JButton rollDice;
 	JButton buy;
+	JTextArea console;
 	
 	
 	JPanel buttonsPanel;
 	public GameboardView(){
 		
 		buttonsPanel = new JPanel();
+		//buttonsPanel.setLayout(new BorderLayout());
 		endTurn= new JButton("End Turn");
 		buttonsPanel.add(endTurn);
 		rollDice = new JButton("Roll Dice");
 		buttonsPanel.add(rollDice);
 		buy = new JButton("BUY!");
 		buttonsPanel.add(buy);
+		console = new JTextArea();
+		buttonsPanel.add(console);
+		console.setText("This is a console\n\n\n\nAnother line");
 		
 		
 		
