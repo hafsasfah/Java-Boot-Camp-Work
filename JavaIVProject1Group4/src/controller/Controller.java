@@ -3,11 +3,11 @@ package controller;
 import model.*;
 
 public class Controller {
-	public Player[] players;
-	public Property[] properties;
+	private static Player[] players;
+	private static Property[] properties;
 	
-	private int currentPlayer;
-	Property currentProp; 
+	private static int currentPlayer;
+	private static Property currentProp; 
 	private Gameboard board;
 	
 	public static void main ()
@@ -71,6 +71,15 @@ public class Controller {
 		int propertyPrice = currentProp.getPurchasePrice();
 		players[currentPlayer].setCash(-propertyPrice);
 		
+	}
+
+	public static Property getCurrentProp() {
+		return currentProp;
+	}
+
+	public static Player getCurrentPlayer() {
+		// TODO Auto-generated method stub
+		return players[currentPlayer];
 	}
 	
 	
