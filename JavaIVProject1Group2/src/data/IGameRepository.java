@@ -1,5 +1,5 @@
 package data;
 
-public interface IGameRepository {
+public interface iGameRepository {
 
 }
