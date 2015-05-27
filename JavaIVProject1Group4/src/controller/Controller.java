@@ -1,5 +1,8 @@
 package controller;
 
+import javax.swing.JFrame;
+
+import game.GUI;
 import model.*;
 
 public class Controller {
@@ -10,8 +13,14 @@ public class Controller {
 	private static Property currentProp; 
 	private Gameboard board;
 	
-	public static void main ()
+	public static void main (String args[])
 	{
+		Controller controller = new Controller();
+		GUI gui = new GUI();
+		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		gui.setSize(800,600);
+		gui.setVisible(true);
+		
 		
 	}
 	

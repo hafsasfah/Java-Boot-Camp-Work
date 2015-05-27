@@ -6,13 +6,17 @@ import java.util.Observer;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import controller.Controller;
 import model.Player;
 
 public class PlayerView implements Observer{
 	JPanel panel ;
 	JLabel label;
+	Player player;
 	
-	public PlayerView(Player player){
+	public PlayerView(){
+		player = Controller.getCurrentPlayer();
+		
 		panel = new JPanel();
 		label = new JLabel();
 		label.setText("<html>"+player.getName()+"<br>" +player.getCash() + "</html>");

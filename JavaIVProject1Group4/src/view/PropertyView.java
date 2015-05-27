@@ -11,6 +11,7 @@ public class PropertyView {
 	
 	public PropertyView()
 	{	
+		
 		Property property = Controller.getCurrentProp();
 		panel = new JPanel();
 		label = new JLabel();
@@ -23,6 +24,11 @@ public class PropertyView {
 			label.setText("<html>" + property.getTitle() + "<br>" + property.getRent() +"</html>");
 		}
 		
+		panel.add(label);
+		
+	}
+	public JPanel getPanel(){
+		return panel;
 	}
 	
 	
