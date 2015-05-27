@@ -6,7 +6,7 @@ import java.util.HashSet;
 import interfaces.iPlayers;
 
 
-public class Players extends aPlayer 
+public class Players extends aPlayers 
 {
 	private String move;
 	private int purchase;
