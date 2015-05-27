@@ -71,10 +71,10 @@ public class Controller extends Observable{
 		players[currentPlayer].move(Dice.rollDie());	
 		control.update();
 		// -1 is our un-owned sentiment value, these properties don't charge rent but instead allow you to purchase them.
-	//	if (!(currentProp.getOwner() == -1) || !(currentProp.getOwner() == currentPlayer))
-	//	{
-			//control.payRent();
-		//}
+		if (!(currentProp.getOwner() == -1) || !(currentProp.getOwner() == currentPlayer))
+		{
+			control.payRent();
+		}
 		System.out.println("Move player to"+ players[currentPlayer].getLocation() );
 		 control.setChanged();
 	     control.notifyObservers();
@@ -107,7 +107,7 @@ public class Controller extends Observable{
 		
 	}
 
-	public void buyProp()
+	public static void buyProp()
 	{
 		
 		int propertyPrice = currentProp.getPurchasePrice();
@@ -123,6 +123,8 @@ public class Controller extends Observable{
 		// TODO Auto-generated method stub
 		return players[currentPlayer];
 	}
+
+	
 	
 	
 }

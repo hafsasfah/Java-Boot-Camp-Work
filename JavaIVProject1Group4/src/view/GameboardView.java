@@ -16,15 +16,17 @@ public class GameboardView {
 	
 	
 	JPanel buttonsPanel;
+	
 	public GameboardView(){
 		
 		buttonsPanel = new JPanel();
+		buttonsPanel.setLayout(new BoxLayout(buttonsPanel, BoxLayout.Y_AXIS));
 		//buttonsPanel.setLayout(new BorderLayout());
 		endTurn= new JButton("End Turn");
 		buttonsPanel.add(endTurn);
 		rollDice = new JButton("Roll Dice");
 		buttonsPanel.add(rollDice);
-		buy = new JButton("BUY!");
+		buy = new JButton("    BUY!    ");
 		buttonsPanel.add(buy);
 		console = new JTextArea();
 		buttonsPanel.add(console);
@@ -34,6 +36,7 @@ public class GameboardView {
 		
 		Listener handler = new Listener();
 		endTurn.addActionListener(handler);
+		endTurn.setEnabled(false);
 		rollDice.addActionListener(handler);
 		buy.addActionListener(handler);
 	
@@ -45,6 +48,15 @@ public class GameboardView {
 	public JPanel getPanel(){
 		return buttonsPanel;
 	}
+	public void buttonCheck(){
+		if (Controller.getCurrentProp().getOwner()>=0) {
+			buy.setEnabled(false);
+		}
+		else
+			buy.setEnabled(true);
+		
+		
+	}
 
 	
 private class Listener implements ActionListener {
@@ -53,12 +65,18 @@ private class Listener implements ActionListener {
 
 		if (event.getSource() == endTurn) {
 			Controller.endTurn();
+			endTurn.setEnabled(false);
+			rollDice.setEnabled(true);
+			buttonCheck();
 		} 
 		else if (event.getSource() == rollDice) {
 			Controller.playerRoll();
+			endTurn.setEnabled(true);
+			rollDice.setEnabled(false);
 		} 
 		else if (event.getSource() == buy) {
 			Dice.rollDie();
+			buy.setEnabled(false);
 		}
 	
 	}
