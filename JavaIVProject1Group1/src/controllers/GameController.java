@@ -8,7 +8,7 @@ import views.*;
 
 public class GameController implements iGameController {
 	
-	private AbstractGame game;
+	private aGame game;
 	private iGameRepository gameRepository;
 	private iPlayerRepository playerRepository;
 	private iPropertyRepository propertyRepository;
@@ -30,7 +30,7 @@ public class GameController implements iGameController {
 		Queue<AbstractPlayer> players = new LinkedList<AbstractPlayer>();
 		for ( int count = 0; count < playerNames.length; count++ )
 		{
-			Player newPlayer = new Player(count, playerNames[count], 1500);
+			Players newPlayer = new Player(count, playerNames[count], 1500);
 			players.add(newPlayer );
 			playerRepository.create( newPlayer );
 		}
