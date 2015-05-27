@@ -1,13 +1,6 @@
 import java.awt.*;
-import java.awt.event.ActionListener;
-import java.awt.geom.Rectangle2D;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.TreeSet;
-
 import javax.swing.BorderFactory;
 import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.JApplet;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,20 +8,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
-import javax.swing.border.Border;
-import javax.swing.border.MatteBorder;
-import javax.swing.ImageIcon;
 
 //******Game board will build on the overall design of the game******//
 
 public class GameBoard extends JFrame 
 {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 6033684453093511700L;
-	
-	
 
 	//This represents the Default Grid Values
 	private int gridForX = 0;
@@ -37,9 +21,8 @@ public class GameBoard extends JFrame
 	
 	
 	
-	//Create the platforms for the Game board  
-	//ArrayList<PropertyManager>platform = new ArrayList<PropertyManager>();
-	
+	//Creates the platforms for the Game board  
+
 	public static void main(String[]args)
 	{
 		
@@ -51,7 +34,6 @@ public class GameBoard extends JFrame
 	
 	public GameBoard()
 	{
-		
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		pack();
 		setTitle("Monopoly");
@@ -61,8 +43,6 @@ public class GameBoard extends JFrame
 		JLabel bank = new JLabel("Bank");
 		getContentPane().add(bank, BorderLayout.NORTH);
 		createThePanels();
-
-		
 	}
 	
 	//Create the platforms for the Game board  
@@ -187,15 +167,10 @@ public class GameBoard extends JFrame
 														GridBagConstraints.CENTER,
 														GridBagConstraints.BOTH,
 														new Insets(0,0,0,0), 0, 0));
+				}
+			
 			}
-		}
 		
-		
-		
+		}	
+	
 	}
-
-
-	
-	
-
-}
