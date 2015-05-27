@@ -1,4 +1,4 @@
-package com.MonopolyGame;
+package views;
 
 import javafx.beans.Observable;
 

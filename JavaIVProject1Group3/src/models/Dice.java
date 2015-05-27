@@ -1,4 +1,4 @@
-package com.MonopolyGame;
+package models;
 
 import java.util.Random;
 

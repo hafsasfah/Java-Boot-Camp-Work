@@ -1,4 +1,4 @@
-package com.MonopolyGame;
+package models;
 
 public class Property {
 

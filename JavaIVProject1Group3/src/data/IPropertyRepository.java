@@ -1,4 +1,4 @@
-package com.MonopolyGame;
+package data;
 
 public interface IPropertyRepository {
 
