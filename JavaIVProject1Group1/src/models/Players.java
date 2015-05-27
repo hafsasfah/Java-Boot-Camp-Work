@@ -1,18 +1,22 @@
 package models;
 
+import java.util.HashSet;
+
 import interfaces.iPlayers;
 
 
-public class Players implements iPlayers 
+public class Players extends aPlayer 
 {
-	String move;
-	int purchase;
-	int payRent;
-	int location;
-	int coordinates;
+	private String move;
+	private int purchase;
+	private int payRent;
+	private int location;
+	private int coordinates;
 	int cash;
+	int id;
 	
-	public Players(String move, int purchase, int payRent, int location, int coordinates)
+	
+	public Players(String move, int purchase, int payRent, int location, int coordinates, int id)
 	{
 		this.move = move;
 		this.purchase = purchase;
@@ -56,6 +60,12 @@ public class Players implements iPlayers
 	public int getPurchase() {
 		
 		return this.purchase;
+	}
+
+	@Override
+	public int getID() {
+		
+		return id;
 	}
 
 }
