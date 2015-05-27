@@ -13,9 +13,10 @@ public class Players extends aPlayers
 	private int payRent;
 	private int location;
 	private int coordinates;
-	int cash;
+	private int cash;
+	private int id;
 	Coordinates coord = new Coordinates();
-	int id;
+	
 	
 	public Players(String move, int purchase, int payRent, int location, int coordinates, int id)
 	{
