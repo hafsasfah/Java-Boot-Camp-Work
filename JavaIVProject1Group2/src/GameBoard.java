@@ -60,6 +60,7 @@ public class GameBoard extends JFrame
 		pack();
 		setTitle("Monopoly");
 		setSize(1000,700);
+		setPreferredSize(new Dimension(1000, 700));
 		createThePanels();
 		
 		
