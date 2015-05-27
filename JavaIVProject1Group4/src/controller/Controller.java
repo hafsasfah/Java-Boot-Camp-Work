@@ -4,8 +4,12 @@ import java.util.Observable;
 
 import javax.swing.JFrame;
 
+import view.GameboardView;
+import view.PlayerView;
+import view.PropertyView;
 import game.GUI;
 import model.*;
+
 
 public class Controller extends Observable{
 	private static Player[] players; 
@@ -14,11 +18,31 @@ public class Controller extends Observable{
 	private static int currentPlayer;
 	private static Property currentProp; 
 	private static Gameboard board;
+	private static Controller control;
+	
 	
 	public static void main (String args[])
 	{
-		new Controller();
-		GUI gui = new GUI();
+		
+		
+		control = new Controller();
+	      PlayerView playerView = new PlayerView();
+	      control.addObserver(playerView);
+	      GameboardView gameboardView= new GameboardView();
+	      PropertyView propView = new PropertyView();
+	      control.addObserver(propView);
+	      
+	      
+	  //     to = new TextObserver(ov);
+	  //    TextObserver to = new TextObserver(ov);
+	     // ov.addObserver(to);
+		
+		
+	      
+	
+		
+	
+		GUI gui = new GUI(playerView, propView, gameboardView);
 		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		gui.setSize(800,600);
 		gui.setVisible(true);
@@ -32,25 +56,28 @@ public class Controller extends Observable{
 		players = board.getPlayers();
 		properties = board.getProps();
 		currentPlayer = 0;
-		updateProperty();
+		update();
+		
 	}
 	
-	private void updateProperty(){
+	private void update(){
 		this.currentProp = properties[players[currentPlayer].getLocation()];
 		 setChanged();
 	     notifyObservers();
 		
 	}
-	public void playerRoll()
-	{
-		players[currentPlayer].move(board.getDie().rollDie());	
-		updateProperty();
+	public static void playerRoll()
+	{	//die.rollDie()
+		players[currentPlayer].move(Dice.rollDie());	
+		control.update();
 		// -1 is our un-owned sentiment value, these properties don't charge rent but instead allow you to purchase them.
-		if (!(currentProp.getOwner() == -1) || !(currentProp.getOwner() == currentPlayer))
-		{
-			payRent();
-		}
-		
+	//	if (!(currentProp.getOwner() == -1) || !(currentProp.getOwner() == currentPlayer))
+	//	{
+			//control.payRent();
+		//}
+		System.out.println("Move player to"+ players[currentPlayer].getLocation() );
+		 control.setChanged();
+	     control.notifyObservers();
 			
 	}
 	
@@ -74,7 +101,9 @@ public class Controller extends Observable{
 		{
 			currentPlayer++;
 		}
-		System.out.println(players[currentPlayer].getName());
+		//System.out.println(players[currentPlayer].getName());
+		 control.setChanged();
+	     control.notifyObservers();
 		
 	}
 

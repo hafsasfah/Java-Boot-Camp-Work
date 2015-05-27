@@ -2,6 +2,6 @@ package model;
 
 public interface iDice {
 
-	public int rollDie();	
+	//public static  int rollDie();	
 	
 }

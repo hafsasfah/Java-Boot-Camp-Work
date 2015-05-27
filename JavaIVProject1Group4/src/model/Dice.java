@@ -1,32 +1,18 @@
 package model;
 
+import java.util.Random;
+
 public class Dice implements iDice {
-	
-	@Override
-	public int rollDie() {
+	private static Random random = new Random();
+			
+	public static int rollDie() {
 		
-		return 0;
-	}
-	
-
-	@Override
-	public int getNumberSides() {
 		
-		return 0;
-	}
-	
-	@Override
-	public void setNumberSides(int sides)
-	{
-	
-	}
-
-	@Override
-	public int getSideUp() {
+		int num =(random.nextInt(11)+2);
+		System.out.println(num);
+		return num;
 		
-		return 0;
 	}
-
 
 
 }

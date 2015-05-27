@@ -14,12 +14,12 @@ public class GUI extends JFrame{
 	GameboardView gameboardView;
 	
 	
-	public GUI(){
+	public GUI(	PlayerView playerView,PropertyView propView,GameboardView gameboardView){
 		super("Brandon's Slumlord Adventure");
 		
-		playerView = new PlayerView();
-		propView = new PropertyView();
-		gameboardView = new GameboardView();
+		this.playerView =  playerView;
+		this.propView = propView;
+		this.gameboardView = gameboardView;
 		
 		this.setLayout(new BorderLayout());
 		add(playerView.getPanel(),BorderLayout.EAST);
