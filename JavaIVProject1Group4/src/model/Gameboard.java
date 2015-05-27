@@ -7,7 +7,7 @@ public class Gameboard implements iGameboard{
 	Player[] players;
 	Property[] properties;
 	final int NUM_OF_PROPS = 36;
-	//Dice die;
+	iDice die;
 	public static void main(String [] args){
 		Gameboard board = new Gameboard();
 		for(Player x : board.getPlayers()){
@@ -26,6 +26,13 @@ public class Gameboard implements iGameboard{
 		buildPlayerArray(numberOfPlayers);
 		buildProperties();
 	}
+	
+	public iDice getDie()
+	{
+		return die;
+	}
+	
+	
 	private void buildProperties(){
 		for(int i=0;i<NUM_OF_PROPS ;i++){
 			properties[i]= new Property("Property "+i);

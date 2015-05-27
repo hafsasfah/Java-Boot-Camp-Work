@@ -27,6 +27,19 @@ public class Player implements iPlayer {
 		this.location = location;
 		
 	}
+	
+	public void move(int spaces)
+	{
+		if(location + spaces < 35)
+		{
+			location += spaces;
+		}
+		else 
+		{	
+			location = (location+spaces) -36;
+		}
+	}
+		
 	@Override
 	public int getCash() {
 		
