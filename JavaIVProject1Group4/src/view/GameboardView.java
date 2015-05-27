@@ -1,14 +1,14 @@
 package view;
-import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Observable;
+import java.util.Observer;
 
 import javax.swing.*;
 
-import model.Dice;
 import controller.Controller;
 
-public class GameboardView {
+public class GameboardView implements Observer{
 	JButton endTurn;
 	JButton rollDice;
 	JButton buy;
@@ -28,6 +28,7 @@ public class GameboardView {
 		buttonsPanel.add(rollDice);
 		buy = new JButton("    BUY!    ");
 		buttonsPanel.add(buy);
+		buy.setEnabled(false);
 		console = new JTextArea();
 		buttonsPanel.add(console);
 		console.setText("This is a console\n\n\n\nAnother line");
@@ -67,18 +68,27 @@ private class Listener implements ActionListener {
 			Controller.endTurn();
 			endTurn.setEnabled(false);
 			rollDice.setEnabled(true);
-			buttonCheck();
+			buy.setEnabled(false);
+			
 		} 
 		else if (event.getSource() == rollDice) {
 			Controller.playerRoll();
 			endTurn.setEnabled(true);
 			rollDice.setEnabled(false);
+			buttonCheck();
 		} 
 		else if (event.getSource() == buy) {
-			Dice.rollDie();
+			Controller.buyProp();
 			buy.setEnabled(false);
 		}
 	
 	}
+}
+
+
+@Override
+public void update(Observable arg0, Object arg1) {
+	// TODO Auto-generated method stub
+	
 }
 }

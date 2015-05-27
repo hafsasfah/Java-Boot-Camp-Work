@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 
 import controller.Controller;
 import model.Player;
+import model.Property;
 
 public class PlayerView implements Observer{
 	JPanel panel ;
@@ -15,21 +16,30 @@ public class PlayerView implements Observer{
 	Player player;
 	
 	public PlayerView(){
-		player = Controller.getCurrentPlayer();
-		
+	
 		panel = new JPanel();
 		label = new JLabel();
-		label.setText("<html>"+player.getName()+"<br>" +player.getCash() + "</html>");
+		buildLabel();
 		panel.add(label);
 				
 	}
 	public JPanel getPanel(){
 		return panel;
 	}
+	private void buildLabel(){
+		player = Controller.getCurrentPlayer();
+		String labelString = "";
+		for(Property prop:player.getPlayerOwnedProperties()){
+			labelString += "<br>" +prop.getTitle() + "<br>Rent: $"+ prop.getRent();
+			
+		}
+		label.setText("<html>"+player.getName()+"<br>" +player.getCash() +labelString +"</html>");
+		
+	}
+	
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		player = Controller.getCurrentPlayer();
-		label.setText("<html>"+player.getName()+"<br>" +player.getCash() + "</html>");
+		buildLabel();
 		
 	}
 

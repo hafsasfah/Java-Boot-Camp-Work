@@ -9,7 +9,7 @@ public interface iPlayer {
     void setLocation(int location);
 	int getCash();
     void setCash(int amountSpent);
-    ArrayList<Integer> getPlayerOwnedProperties();
+   // ArrayList<Integer> getPlayerOwnedProperties();
     void addProperty(int indexOfProperty);
 
 

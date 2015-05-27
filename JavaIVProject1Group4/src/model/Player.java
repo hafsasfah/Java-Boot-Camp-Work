@@ -6,16 +6,20 @@ public class Player implements iPlayer {
 	String name;
 	int location;
 	int cash;
-	ArrayList<Integer> ownedProperties;
+	ArrayList<Property> ownedProperties;
 	
 	
 	public Player(String name){
 		this.name = name;
 		location = 0;
 		cash = 1500;
+		ownedProperties = new ArrayList<Property>(); 
 		}
 	public String getName(){
 		return name;
+	}
+	public void addProp(Property prop){
+		ownedProperties.add(prop);
 	}
 	
 	@Override
@@ -50,14 +54,14 @@ public class Player implements iPlayer {
 		this.cash += amountSpent;
 		
 	}
-	@Override
-	public ArrayList<Integer> getPlayerOwnedProperties() {
+	
+	public ArrayList<Property> getPlayerOwnedProperties() {
 		// TODO Auto-generated method stub
 		return ownedProperties;
 	}
 	@Override
 	public void addProperty(int indexOfProperty) {
-		ownedProperties.add(indexOfProperty);
+		//ownedProperties.add(indexOfProperty);
 		
 	}
 }
