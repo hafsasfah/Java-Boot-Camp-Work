@@ -2,6 +2,10 @@ package model;
 
 public interface iDice {
 
-	public int rollDie();
+	int rollDie();
+	int getNumberSides();
+	int getSideUp();
+	void setNumberSides(int sides);
+	
 	
 }
