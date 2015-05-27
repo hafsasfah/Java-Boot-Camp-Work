@@ -1,5 +1,7 @@
 package views;
 
-public interface iGameView {
+import java.util.Observer;
+
+public interface iGameView extends Observer {
 
 }
