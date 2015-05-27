@@ -1,5 +1,7 @@
 package models;
 
+import java.util.ArrayList;
+
 import data.Coordinates;
 import interfaces.iPlayers;
 
@@ -9,6 +11,9 @@ public class Property extends aProperty {
 	private int ID;
 	private String name;
 	public Coordinates coord;
+	private Players player;
+	ArrayList<Players> parkedPlayers;
+	
 	
 	
 	public Property(int row, int column, String name)
@@ -75,5 +80,14 @@ public class Property extends aProperty {
 	
 	public void setRentalPrice(int rentPrice) {
 		this.rentPrice = rentPrice;
+	}
+
+	@Override
+	public ArrayList<Players> getPlayerParty() {
+		if (player.coord.getRow() == this.coord.getRow() && 
+				player.coord.getColumn() == this.coord.getColumn()) {
+			parkedPlayers.add(player);
+		}
+		return parkedPlayers;
 	}
 }

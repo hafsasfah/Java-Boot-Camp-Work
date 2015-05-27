@@ -5,5 +5,5 @@ import javax.swing.JPanel;
 
 public interface iPropertyView extends Observer 
 {
-	JPanel getPlayerPanel();
+	JPanel getPropertyPanel();
 }

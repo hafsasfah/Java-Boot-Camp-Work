@@ -1,18 +1,26 @@
 package views;
 
 import java.util.Observable;
+
 import javax.swing.JPanel;
 
-public class PropertyView implements iPropertyView {
+import models.Property;
 
-	@Override
-	public void update(Observable arg0, Object arg1) {
-		// TODO Auto-generated method stub
-		
+public class PropertyView implements iPropertyView {
+	
+	public PropertyView(Property property) {
+		property.addObserver(this);
 	}
 
 	@Override
-	public JPanel getPlayerPanel() {
+	public void update(Observable o, Object arg) {
+		
+		//moneyLabel.setText("Money: " + player.getMoney() );
+		//propertyLabel.setText( player.getOwnedProperties().toArray().toString() );
+	}
+
+	@Override
+	public JPanel getPropertyPanel() {
 		// TODO Auto-generated method stub
 		return null;
 	}
