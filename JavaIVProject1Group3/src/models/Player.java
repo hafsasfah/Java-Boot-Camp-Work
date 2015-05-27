@@ -1,11 +1,13 @@
-package com.MonopolyGame;
+package models;
 
-public abstract class Player implements IPlayer {
+
+public class Player implements AbstractPlayer {
 	
 
 	private int playerId;
 	private String playerName;
 	private int  playerCash;
+	
 
 
 public Player(int playerId, String playerName, int playerCash){
@@ -13,24 +15,33 @@ public Player(int playerId, String playerName, int playerCash){
 	this.playerName = playerName;
 	this.playerCash = playerCash;
 }
-
+	@Override
 	public int getplayerId()
 	{
 		return playerId;
 	}
-	
+	@Override
 	public String getplayerName()
 	{
 		return playerName;
 	}
-	
+	@Override
 	public int getplayerCash()
 	{
 		return playerCash;
 	}
 	
+	@Override
 	public void purchaseProperty( )
 	{
 	   return ;
 	}
+
+	@Override
+	public void currentLocation() {
+		// TODO Auto-generated method stub
+		
+	}
+ 
+	
 }

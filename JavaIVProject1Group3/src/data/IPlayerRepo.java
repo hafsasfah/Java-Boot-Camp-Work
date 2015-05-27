@@ -1,8 +1,10 @@
-package com.MonopolyGame;
+package data;
+
+import models.AbstractPlayer;
 
 public interface IPlayerRepo {
 	boolean create(AbstractPlayer player);
 	AbstractPlayer get( int playerId);
-	boolean update(Abstract Player player);
+	boolean update(AbstractPlayer player);
 
 }
