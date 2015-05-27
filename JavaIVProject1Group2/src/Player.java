@@ -1,3 +1,4 @@
+import java.awt.Graphics;
 import java.util.HashSet;
 
 
@@ -52,6 +53,21 @@ public class Player {
 
 	public boolean hasLostGame() {
 		return money <= 0;
+	}
+
+	
+	//Shows the image of player
+	public void render(Graphics g) {
+		
+		
+	}
+
+	
+	
+	//Updates 
+	public void tick() {
+		// TODO Auto-generated method stub
+		
 	}
 
 
