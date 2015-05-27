@@ -3,10 +3,11 @@ package controller;
 import model.*;
 
 public class Controller {
-	Player[] players;
-	Property[] properties;
+	public Player[] players;
+	public Property[] properties;
 	
 	private int currentPlayer;
+	Property currentProp; 
 	private Gameboard board;
 	
 	public static void main ()
@@ -20,25 +21,32 @@ public class Controller {
 		players = board.getPlayers();
 		properties = board.getProps();
 		currentPlayer = 0;
+		updateProperty();
 	}
 	
+	private void updateProperty(){
+		this.currentProp = properties[players[currentPlayer].getLocation()];
+		
+	}
 	public void playerRoll()
 	{
 		players[currentPlayer].move(board.getDie().rollDie());	
+		updateProperty();
 		// -1 is our un-owned sentiment value, these properties don't charge rent but instead allow you to purchase them.
-		if (!(properties[players[currentPlayer].getLocation()].getOwner() == -1) || !(properties[players[currentPlayer].getLocation()].getOwner() == currentPlayer))
+		if (!(currentProp.getOwner() == -1) || !(currentProp.getOwner() == currentPlayer))
 		{
 			payRent();
 		}
+		
 			
 	}
 	
 	private void payRent()
 	{
-		int rentFee = properties[players[currentPlayer].getLocation()].getPurchasePrice();
+		int rentFee = currentProp.getPurchasePrice();
 		players[currentPlayer].setCash(-rentFee);
 		
-		players[ properties[players[currentPlayer].getLocation()].getOwner()].setCash(rentFee);	
+		players[ currentProp.getOwner()].setCash(rentFee);	
 		
 	}
 	
@@ -60,7 +68,7 @@ public class Controller {
 	public void buyProp()
 	{
 		
-		int propertyPrice = properties[players[currentPlayer].getLocation()].getPurchasePrice();
+		int propertyPrice = currentProp.getPurchasePrice();
 		players[currentPlayer].setCash(-propertyPrice);
 		
 	}
