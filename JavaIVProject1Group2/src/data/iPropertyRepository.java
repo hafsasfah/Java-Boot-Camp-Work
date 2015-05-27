@@ -1,5 +1,5 @@
 package data;
 
-public class iPropertyRepository {
+public interface iPropertyRepository {
 
 }
