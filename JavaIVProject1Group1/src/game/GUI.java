@@ -65,6 +65,7 @@ public class GUI extends JFrame
 	 * 
 	 */
 	{
+		//add specified panels
 		PanelGenerator panelgenerator = new PanelGenerator();
 		propertytiles = new JPanel[4][4];
 		for(int x = 0; x <= database.size() - 1 ; x++)
@@ -73,7 +74,7 @@ public class GUI extends JFrame
 			propertytiles[(database.get(x).coord.getRow())][(database.get(x).coord.getColumn())] = tempframe;
 				
 		}
-		
+		//fill in the empty JPanel slots
 		for(int i = 0; i < propertytiles.length; i++)
 			{
 			for(int k = 0; k < propertytiles[0].length; k++)
@@ -90,6 +91,7 @@ public class GUI extends JFrame
 	}
 	
 	public void translateJframes(JPanel[][] propertytiles)
+	//output JPanels to the Gameboard Panel
 	{
 	for(int i = 0; i < propertytiles.length; i++)
 		{
