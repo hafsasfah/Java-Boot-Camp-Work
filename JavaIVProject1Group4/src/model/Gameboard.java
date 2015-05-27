@@ -13,7 +13,7 @@ public class Gameboard implements iGameboard{
 		for(Player x : board.getPlayers()){
 			System.out.println(x.getName());
 		}
-		for(Property prop: board.getProperties()){
+		for(Property prop: board.getProps()){
 			System.out.println(prop.getTitle());
 		}
 	}
@@ -38,6 +38,9 @@ public class Gameboard implements iGameboard{
 			properties[i]= new Property("Property "+i);
 		}
 	}
+	public Property[] getProps(){
+		return this.properties;
+	}
 	
 	private void buildPlayerArray(int numberOfPlayers){
 		
@@ -45,27 +48,21 @@ public class Gameboard implements iGameboard{
 			players[i]=new Player(JOptionPane.showInputDialog("Enter Player "+(i+1)+" name." ));
 		}
 	}
-	
-	@Override
-	public Player[] getPlayers() {
-		
-		return players;
-	}
-
-	@Override
-	public Property[] getProperties() {
-		return properties;
-	}
-
-	@Override
-	public Property getProperty(int index) {
-		return properties[index];
+	public Player[] getPlayers(){
+		return this.players;
 	}
 
 	@Override
 	public Player getPlayer(int index) {
-		
-		return players[index];
+		// TODO Auto-generated method stub
+		return null;
 	}
+
+	@Override
+	public Property getProperty(int index) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 
 }
