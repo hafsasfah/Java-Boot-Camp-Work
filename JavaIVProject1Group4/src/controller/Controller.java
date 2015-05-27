@@ -1,21 +1,23 @@
 package controller;
 
+import java.util.Observable;
+
 import javax.swing.JFrame;
 
 import game.GUI;
 import model.*;
 
-public class Controller {
-	private static Player[] players;
+public class Controller extends Observable{
+	private static Player[] players; 
 	private static Property[] properties;
 	
 	private static int currentPlayer;
 	private static Property currentProp; 
-	private Gameboard board;
+	private static Gameboard board;
 	
 	public static void main (String args[])
 	{
-		Controller controller = new Controller();
+		new Controller();
 		GUI gui = new GUI();
 		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		gui.setSize(800,600);
@@ -35,6 +37,8 @@ public class Controller {
 	
 	private void updateProperty(){
 		this.currentProp = properties[players[currentPlayer].getLocation()];
+		 setChanged();
+	     notifyObservers();
 		
 	}
 	public void playerRoll()
@@ -59,7 +63,7 @@ public class Controller {
 		
 	}
 	
-	public void endTurn()
+	public static void endTurn()
 	{
 		
 		if (currentPlayer == board.getPlayers().length - 1)
@@ -70,7 +74,7 @@ public class Controller {
 		{
 			currentPlayer++;
 		}
-		
+		System.out.println(players[currentPlayer].getName());
 		
 	}
 
