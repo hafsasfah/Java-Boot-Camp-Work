@@ -53,7 +53,7 @@ public class GUI extends JFrame
 				}
 				remove( startPanel );
 				add( gameController.startNewGame(playerNames).getGameView(), BorderLayout.CENTER );
-				revalidate();
+				validate();
 			}
 			catch ( Exception ex )
 			{

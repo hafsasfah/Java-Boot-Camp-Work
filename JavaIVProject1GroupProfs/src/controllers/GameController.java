@@ -31,7 +31,7 @@ public class GameController implements IGameController {
 		{
 			Player newPlayer = new Player(count, playerNames[count], 1500);
 			players.add(newPlayer );
-			playerRepository.create(newPlayer );
+			playerRepository.create( newPlayer );
 		}
 		game = new Game(0, "unsavedGame", propertyRepository.getAll(), players );
 		

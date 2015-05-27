@@ -51,6 +51,7 @@ public class Player extends AbstractPlayer {
 
 	@Override
 	public void purchaseProperty(AbstractProperty property) {
+		spendMoney( property.getPurchasePrice() );
 		properties.add( property );
 		setChanged();
 		notifyObservers();
