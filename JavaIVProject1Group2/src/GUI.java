@@ -1,17 +1,22 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
+import javax.swing.ImageIcon;
 import javax.swing.JApplet;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
@@ -38,6 +43,7 @@ public class GUI extends JFrame
 	{
 		new GUI().setVisible(true);
 		
+		
 			int totalPlayer = 0;
 		
 		while(totalPlayer < 2 || totalPlayer > 8)
@@ -45,11 +51,14 @@ public class GUI extends JFrame
 			Scanner keyboard = new Scanner(System.in);
 			JOptionPane.showInputDialog("Enter Total Players: ");
 			totalPlayer = keyboard.nextInt();
+			
+			 
 		}
 	}
 	
 	
 	public GUI()
+	
 	{
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		pack();
@@ -61,13 +70,16 @@ public class GUI extends JFrame
 		getContentPane().add(bank, BorderLayout.NORTH);
 		
 		createThePanels();
+		
+	
+		
 	}
 	
 	//Create the platforms for the Game board  
 	
 	public void createThePanels()
-	{
-		
+	{ 
+	
 		GridBagLayout accessLayout = new GridBagLayout();
 		
 		accessLayout.rowWeights = new double[]	{ 0.2, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1,
@@ -78,6 +90,8 @@ public class GUI extends JFrame
 		
 		
 		getContentPane().setLayout(accessLayout);
+		
+		
 		
 		JLabel jail = new JLabel("   Jail  ");
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
@@ -180,9 +194,13 @@ public class GUI extends JFrame
 						new Insets(0, 0, 0, 0), 0, 0));
 				
 				
-				tempPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));	
+				tempPanel.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+				tempPanel.setBackground(Color.CYAN);
+
 				
 				JPanel innerPanel = new JPanel();
+				innerPanel.setBackground(Color.WHITE);
+				
 				getContentPane().add(innerPanel, new GridBagConstraints(1, 1, 11, 11, 0.0, 0.0,
 														GridBagConstraints.CENTER,
 														GridBagConstraints.BOTH,
