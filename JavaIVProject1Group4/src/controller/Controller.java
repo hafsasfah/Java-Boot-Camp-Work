@@ -56,7 +56,7 @@ public class Controller extends Observable{
 		board = new Gameboard();
 		players = board.getPlayers();
 		properties = board.getProps();
-		currentPlayer = 0;
+		currentPlayer = 1;
 		update();
 		
 	}
@@ -104,7 +104,7 @@ public class Controller extends Observable{
 		
 		if (currentPlayer == board.getPlayers().length - 1)
 		{
-			currentPlayer = 0;
+			currentPlayer = 1;
 		}
 		else
 		{
