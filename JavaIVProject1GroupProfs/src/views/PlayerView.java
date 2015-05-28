@@ -3,6 +3,7 @@ package views;
 import java.awt.GridLayout;
 import java.util.Observable;
 
+import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -15,8 +16,6 @@ public class PlayerView implements IPlayerView {
 	private AbstractPlayer player;
 	
 	private JPanel panel;
-	
-	private JLabel nameLabel;
 	private JLabel moneyLabel;
 	private JLabel currentLocationLabel;
 	private JLabel propertyLabel;
@@ -24,16 +23,15 @@ public class PlayerView implements IPlayerView {
 	public PlayerView( AbstractPlayer player )
 	{
 		this.player = player;
+		player.addObserver(this);
 		
 		panel = new JPanel();
+		panel.setBorder( BorderFactory.createTitledBorder( player.getName() ));
 		panel.setLayout( new GridLayout( 3, 1 ));
-		nameLabel = new JLabel( player.getName() );
 		moneyLabel = new JLabel();
 		currentLocationLabel = new JLabel();
 		propertyLabel = new JLabel();
 		
-		
-		panel.add(nameLabel);
 		panel.add(moneyLabel);
 		panel.add(propertyLabel);
 		
