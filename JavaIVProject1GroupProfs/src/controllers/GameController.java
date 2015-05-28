@@ -45,7 +45,6 @@ public class GameController implements IGameController {
 		}		
 		game.setCurrentPlayer( players.peek() );
 		gameView = new GameView( game, this );
-		game.addObserver( gameView );
 		
 		return gameView;
 	}
