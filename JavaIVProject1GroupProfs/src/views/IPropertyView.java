@@ -1,7 +1,9 @@
 package views;
 
+import java.util.Observer;
+
 import javax.swing.JPanel;
 
-public interface IPropertyView {
+public interface IPropertyView extends Observer {
 	JPanel getPropertyView();
 }
