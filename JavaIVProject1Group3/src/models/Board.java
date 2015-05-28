@@ -8,7 +8,17 @@ public class Board {
 	
 	static JPanel boardPanel;
 	
-	public static void main(String[] args)
+	//public static void main(String[] args)
+	 static byte gridLayout[][]  =  {{1,1,1,1,1,1,1,1,1,1}, 
+									 {1,0,0,0,0,0,0,0,0,1}, 
+								     {1,0,0,0,0,0,0,0,0,1},
+									 {1,0,0,0,0,0,0,0,0,1},
+									 {1,0,0,0,0,0,0,0,0,1},
+								     {1,0,0,0,0,0,0,0,0,1}, 
+									 {1,0,0,0,0,0,0,0,0,1}, 
+									 {1,0,0,0,0,0,0,0,0,1},
+									 {1,0,0,0,0,0,0,0,0,1},
+									 {1,1,1,1,1,1,1,1,1,1}};
 	{
 		int[][] boardArray = new int [10][10];
 		
