@@ -2,62 +2,108 @@ package data;
 
 import java.sql.*;
 
+import models.Game;
 import models.aGame;
+import models.aPlayers;
 
-public class GameRepository implements iGameRepository {
-	private String url = "jdbc:postgresql://localhost/Monopoly";
-	private String username = "postgres";
-	private String password = "password";
+public class GameRepository implements iGameRepository {	
+	Connection connection;
+	iPlayerRepository playerRepository;
 	
 	public GameRepository() {
+		
+		try {
+			String url = "jdbc:postgresql://localhost/Monopoly";
+			String username = "postgres";
+			String password = "password";
+			
+			playerRepository = new PlayerRepository();
+			
+			connection = DriverManager.getConnection(url, username, password);
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	@Override
 	public boolean create(aGame game) {
 		try {
-			Connection connection = DriverManager.getConnection(url, username, password);
 			Statement statement = connection.createStatement();
-			String insertsql = "CREATE TABLE Game (\"Name\" character varying(50)) WITH (OIDS=FALSE); ALTER TABLE \"Game\" OWNER TO postgres;";
-			statement.execute(insertsql);
+			String createGameRow = String.format
+					("INSERT INTO \"Game\" (\"Name\", \"Completed\") VALUES ('%s', false);", 
+							game.getName());
+			statement.execute(createGameRow);
+			return true;
 		}
-		catch (Exception e) {
+		catch (SQLException e) {
 			e.printStackTrace();
+			return false;
 		}
-		return true;
 	}
 
 	@Override
-	public aGame get(int gameID) {
-		// TODO Auto-generated method stub
-		return null;
+	public int getGameID(String name) {
+		try {
+			Statement statement = connection.createStatement();
+			String query = String.format("SELECT \"ID\" FROM \"Game\" WHERE \"Name\" = '%s';", name);
+			ResultSet results = statement.executeQuery(query);
+			
+			while (results.next()) {
+				int gameID = results.getInt(1);
+				String gameName = results.getString(2);
+				aPlayers currentPlayer = playerRepository.get(results.getInt(3));
+				
+				Game savedGame = new Game(gameID, gameName);		
+			}
+			
+			return results.getInt(1);
+		}
+		catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return -1;
 	}
 
 	@Override
 	public boolean update(aGame game) {
 		try {
-			Connection connection = DriverManager.getConnection(url, username, password);
 			Statement statement = connection.createStatement();
-			String insertsql = "UPDATE TABLE Game";
-			statement.execute(insertsql);
+			String query = String.format("UPDATE \"Game\" SET \"Completed\" = true WHERE \"Name\" = '%s';", game.getName());
+			statement.execute(query);
+			return true;
 		}
-		catch (Exception e) {
+		catch (SQLException e) {
 			e.printStackTrace();
+			return false;
 		}
+	}
+
+	@Override
+	public boolean delete(aGame game) { // will not implement
 		return false;
 	}
 
 	@Override
-	public boolean delete(aGame game) {
+	public aGame getGame(int gameID) { // cannot do until Game class is completed
 		try {
-			Connection connection = DriverManager.getConnection(url, username, password);
 			Statement statement = connection.createStatement();
-			String insertsql = "DELETE TABLE Game";
-			statement.execute(insertsql);
-		}
-		catch (Exception e) {
+			String query = String.format("SELECT \"Name\" FROM \"Game\" WHERE \"ID\" = %d", gameID );
+			ResultSet results = statement.executeQuery(query);
+			
+			while ( results.next() )
+			{
+				String gameName = results.getString(1);
+				
+				//Game savedGame = new Game();
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
+			return null;
 		}
-		return false;
-	}
+		return null;
+	}	
 
 }
