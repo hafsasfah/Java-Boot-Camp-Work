@@ -45,8 +45,8 @@ public class PlayersView implements iPlayersView
 	
 			JPanel tempframe = new JPanel();
 			tempframe.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-			JTextArea propertyName = new JTextArea(10,5);
-			propertyName.append(listofplayers.get(i).getName());
+			JTextArea propertyName = new JTextArea(listofplayers.get(i).getName(),10,5);
+			//propertyName.append(listofplayers.get(i).getName());
 			propertyName.append(String.valueOf("\n" + "$" + listofplayers.get(i).getCash()));
 			propertyName.append(String.valueOf("\n" + "(" + listofplayers.get(i).coord.getRow())+ ","
 													+ String.valueOf(listofplayers.get(i).coord.getColumn()) + ")");
