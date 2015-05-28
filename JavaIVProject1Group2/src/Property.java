@@ -2,6 +2,7 @@
 
 import java.awt.*;
 import java.awt.geom.Rectangle2D;
+import java.util.ArrayList;
 
 public class Property 
 {
@@ -13,18 +14,30 @@ public class Property
 	private static final long serialVersionUID = 8240929997527619885L;
 	private String name;
 	private int cost;
-	private Color color;
-
+	private int ID;
+	ArrayList<Property> property = new ArrayList<Property>();	
 	
-	
-	
-	public Property(String name, int cost, Color color)
+	public Property(int id, String name, int cost)
 	{
 		
+		this.ID = id;
 		this.name = name;
 		this.cost = cost;
-		this.color = color;
+	}
+	
+	
+	
+	public int getID()
+	{
 		
+		return ID;
+	}
+	
+	
+	public void setID(int id)
+	{
+		
+		this.ID = id;
 		
 	}
 	
@@ -53,12 +66,7 @@ public class Property
 	}
 	
 
-	public Color getColor()
-	{
 		
-		return this.color;
-		
-	}
 	
 	
 	

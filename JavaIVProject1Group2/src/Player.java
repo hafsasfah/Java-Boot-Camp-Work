@@ -1,6 +1,8 @@
 import java.awt.Graphics;
 import java.util.HashSet;
 
+import logic.DiceRoll;
+
 
 
 
@@ -8,9 +10,9 @@ import java.util.HashSet;
 public class Player {
 	private int id;
 	private String name;
-	private int money;
-	private int playerLocationX;
-	private int playerLocationY;
+	private int money = 1500;
+	private static Player currentPlayer;
+	private Property location;
 	
 	
 	public Player( int id, String name, int money )
@@ -81,27 +83,46 @@ public class Player {
 	}
 	
 	
-	public int getXPositionOfPlayer()
+
+	
+	public static Player getCurrentPlayer()
 	{
 		
-		return this.playerLocationX;	
+		return currentPlayer;
 	}
 	
-	public int getYPositionOfPlayer()
+	public static void setCurrentPlayer(Player aCurrentPlayer)
 	{
 		
+		currentPlayer = aCurrentPlayer;
 		
-		return this.playerLocationY;
 	}
 	
 	
-	public void setPosition(int playerLocationX, int playerLocationY)
+	public Property getLocation()
 	{
 		
-		this.playerLocationX = playerLocationX;
-		this.playerLocationY = playerLocationY;
-	
+		return location;
 	}
+	
+	public void setLocation(Property location)
+	{
+		
+		this.location = location;
+		
+	}
+	
+	
+	public void changePlayer()
+	{
+		
+	
+		
+		
+	}
+	
+	
+	
 	
 	//Shows the image of player
 	public void render(Graphics g) {

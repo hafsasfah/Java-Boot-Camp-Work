@@ -18,6 +18,8 @@ public class GameView<Monopoly>  implements IView{
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+
 
 	
 }

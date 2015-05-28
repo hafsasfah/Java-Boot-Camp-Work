@@ -21,7 +21,11 @@ public class GameBoard extends JFrame
 	//This represents the Default Grid Values
 	private int gridForX = 0;
 	private int gridForY = 0;
-	 
+	private JButton diceRoll;
+	
+	
+	
+	
 	ArrayList<Property> property = new ArrayList<Property>();				//Not Used yet
 	
 	
@@ -194,7 +198,7 @@ public class GameBoard extends JFrame
 														GridBagConstraints.CENTER,
 														new Insets(2,5,10,0), 50, 0));
 				
-				JButton diceRoll = new JButton("Dice Roll");
+				diceRoll = new JButton("Dice Roll");
 				getContentPane().add(diceRoll, new GridBagConstraints(5, 5, 11, 11, 0.2, 0.2,
 														GridBagConstraints.CENTER,
 														GridBagConstraints.CENTER,
@@ -204,5 +208,53 @@ public class GameBoard extends JFrame
 			}
 		
 		}	
+	
+		
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	}
