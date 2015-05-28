@@ -11,6 +11,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
+import logic.DiceRoll;
+
 
 
 //******Game board will build on the overall design of the game******//
@@ -22,9 +24,8 @@ public class GameBoard extends JFrame
 	private int gridForX = 0;
 	private int gridForY = 0;
 	private JButton diceRoll;
-	
-	
-	
+	private Player player;
+	private DiceRoll dice;
 	
 	ArrayList<Property> property = new ArrayList<Property>();				//Not Used yet
 	
