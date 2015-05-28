@@ -1,27 +1,37 @@
-import java.awt.Graphics;
+import java.util.ArrayList;
 import java.util.LinkedList;
+
+import views.PropertyView;
 
 
 public class GameController
 {
-
-	
-		
-		
-		
-		
-		//<---------------------------We need to create a list of all of our game objects by making a linked list------------------------>// 
 		
 		LinkedList<Player> object = new LinkedList<Player>();
+		ArrayList<Property> property = new ArrayList<Property>();	
 		
 		
-		//<---------------------------We need to create a list of all of our game objects by making a linked list------------------------>// 
 		
 		
-		
-		public void tick()
+		public GameController(LinkedList<Player> playerObject, ArrayList<Property> propertyObject)
 		{
-			//<---------------------------this will loop through every single game object to tick/updates------------------------>//  
+			this.object = playerObject;
+			this.property = propertyObject;	
+		}
+		
+		
+		
+		
+		public Player getPlayer()
+		{
+			
+			
+		}
+		
+		
+		public void update()
+		{
+			
 			for(int i = 0; i < object.size(); i++)
 			{
 				Player tempObject = object.get(i);
@@ -29,49 +39,23 @@ public class GameController
 				tempObject.tick();
 			}
 			
-			//<---------------------------this will loop through every single game object to tick/updates------------------------>// 
+			
 		}
-		
-		
-		
-		
 		
 
-		public void render(Graphics g)
-		{
-			//<---------------------------this will loop through every single game object to render image------------------------>//
-			for(int i = 0; i < object.size(); i++)
-			{
-				Player tempObject = object.get(i);
-				
-				
-				tempObject.render(g);
-			}
-			
-			//<---------------------------this will loop through every single game object to render image------------------------>//
-		}
-		
-		
-		
-		
-		//<---------------------------This method function is to add Objects to the list------------------------>//
-		
+	
+
 		public void addObject(Player object)
 		{
 			this.object.add(object);	
 		}
 		
-		//<---------------------------This method function is to add Objects to the list------------------------>//
 		
-	
-		
-		//<---------------------------This method function is to remove Objects to the list------------------------>//
 		public void removeObject(Player object)
 		{
 			this.object.remove(object);	
 		}
-		
-		//<---------------------------This method function is to remove Objects to the list------------------------>//
+	
 		
 	}
 
