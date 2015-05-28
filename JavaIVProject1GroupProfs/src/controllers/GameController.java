@@ -2,6 +2,8 @@ package controllers;
 
 import java.util.*;
 
+import javax.swing.JOptionPane;
+
 import data.*;
 import models.*;
 import views.*;
@@ -33,7 +35,7 @@ public class GameController implements IGameController {
 			players.add(newPlayer );
 			playerRepository.create( newPlayer );
 		}
-		game = new Game(0, "unsavedGame", propertyRepository.getAll(), players );
+		game = new Game(0, JOptionPane.showInputDialog("Please enter a name for this saved game"), propertyRepository.getAll(), players );
 		
 		gameRepository.create(game);
 		

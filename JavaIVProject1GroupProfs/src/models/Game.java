@@ -23,6 +23,12 @@ public class Game extends AbstractGame {
 	public int getID() {
 		return id;
 	}
+	
+	@Override
+	public void setID( int id )
+	{
+		this.id = id;
+	}
 
 	@Override
 	public String getName() {

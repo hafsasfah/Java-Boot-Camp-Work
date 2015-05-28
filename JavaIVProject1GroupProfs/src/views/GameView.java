@@ -58,6 +58,7 @@ public class GameView implements IGameView {
 
 	@Override
 	public void update(Observable o, Object args) {
+		titleLabel.setText( game.getID() + " " + game.getName() );
 		currentPlayerLabel.setText( game.getCurrentPlayer().getName() );
 	}
 	
