@@ -10,15 +10,14 @@ public class Players extends aPlayers
 {
 	private String name;
 	private int location;
-	private int cash;
+	private int cash = 1500;
 	private int id;
-	Coordinates coord = new Coordinates();
+	public Coordinates coord = new Coordinates();
 	
 	
 	public Players(String name,int x, int y, int id)
 	{
 		this.name = name;
-		this.cash = cash;
 		this.coord.setRow(x);
 		this.coord.setColumn(y);
 		

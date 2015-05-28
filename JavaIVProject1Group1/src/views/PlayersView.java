@@ -30,7 +30,7 @@ public class PlayersView implements iPlayersView
 		int amountOfPlayers = Integer.parseInt(JOptionPane.showInputDialog(null, "Enter the number of players."));
 		for(int i = 0; i < amountOfPlayers; i++)
 		{
-			Players player = new Players(JOptionPane.showInputDialog(null, "Enter the name of player " + String.valueOf(i + 1)),0,0,i);
+			Players player = new Players(JOptionPane.showInputDialog(null, "Enter the name of player " + String.valueOf(i + 1)),10,10,i);
 			listofplayers.add(player);
 		}
 			
@@ -48,6 +48,9 @@ public class PlayersView implements iPlayersView
 			JTextArea propertyName = new JTextArea(10,5);
 			propertyName.append(listofplayers.get(i).getName());
 			propertyName.append(String.valueOf("\n" + "$" + listofplayers.get(i).getCash()));
+			propertyName.append(String.valueOf("\n" + "(" + listofplayers.get(i).coord.getRow())+ ","
+													+ String.valueOf(listofplayers.get(i).coord.getColumn()) + ")");
+			propertyName.setEditable(false);
 			tempframe.add(propertyName);
 			Playerboard.add(tempframe);	
 					
