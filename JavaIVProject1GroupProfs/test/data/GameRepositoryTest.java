@@ -40,6 +40,17 @@ public class GameRepositoryTest {
 		
 		verify(mockStatement).executeUpdate(insert);	
 	}
+	
+	@Test
+	public void testCreateStatementThrowsException() throws SQLException {
+		Statement mockStatement = mock(Statement.class);
+		when(mockConnection.createStatement()).thenReturn(mockStatement);
+		AbstractGame mockGame = mock(AbstractGame.class);
+		when(mockGame.getName()).thenReturn(gameName);
+		when(mockStatement.executeUpdate(anyString())).thenThrow( new SQLException() );
+		
+		assertFalse( gameRepository.create(mockGame) );	
+	}
 
 	@Test
 	public void testGetGameID() throws SQLException {
