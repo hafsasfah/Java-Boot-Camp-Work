@@ -26,6 +26,10 @@ public class PropertyView implements Observer{
 		{
 			label.setText("<html> " + property.getTitle() + " <br>" + property.getPurchasePrice() +"</html>");
 		}
+		if ( property.getOwner() == 0)
+		{
+			label.setText("<html> " + property.getTitle() + " <br>" + (-property.getRent())+"</html>");
+		}
 		else
 		{
 			label.setText("<html> " + property.getTitle() + " <br>" + property.getRent() +"</html>");

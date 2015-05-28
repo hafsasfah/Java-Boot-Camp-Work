@@ -3,11 +3,14 @@ package model;
 
 import javax.swing.JOptionPane;
 
+import repo.PropertyRepo;
+
 public class Gameboard implements iGameboard{
 	Player[] players;
 	Property[] properties;
 	final int NUM_OF_PROPS = 36;
 	iDice die;
+	
 	public static void main(String [] args){
 		Gameboard board = new Gameboard();
 		for(Player x : board.getPlayers()){
@@ -37,9 +40,13 @@ public class Gameboard implements iGameboard{
 		for(int i=0;i<NUM_OF_PROPS ;i++){
 			properties[i]= new Property("Property "+i);
 		}
+		
+		
 	}
 	public Property[] getProps(){
-		return this.properties;
+		PropertyRepo repo = new PropertyRepo();
+		
+		return repo.buildProps();//this.properties;
 	}
 	
 	private void buildPlayerArray(int numberOfPlayers){

@@ -15,6 +15,14 @@ public class Property implements iProperty {
 			 
 		
 	}
+	public Property(String title,int rent, int owner,int price){
+		 this.title = title;
+		 this.rent = rent;
+		 this.owner = owner; // owner none
+		 this.price = price;
+				 
+			
+		}
 	
 	
 	
