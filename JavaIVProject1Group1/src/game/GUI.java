@@ -91,7 +91,7 @@ public class GUI extends JFrame
 		public void actionPerformed(ActionEvent E)
 		{
 			playercontrol.nextTurn();
-			JOptionPane.showMessageDialog(null, "I work!");
+			//JOptionPane.showMessageDialog(null, "I work!");
 		}
 		
 	}
