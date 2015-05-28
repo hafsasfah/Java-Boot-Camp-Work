@@ -201,13 +201,23 @@ public class GameBoard extends JFrame
 														GridBagConstraints.EAST,
 														new Insets(0,0,0,0),20, 0));
 				
-				JButton play = new JButton("Play");
-				getContentPane().add(play, new GridBagConstraints(5, 5, 11, 11, 0.2, 0.2,
-														GridBagConstraints.NORTH,
-														GridBagConstraints.CENTER,
-														new Insets(2,5,10,0), 50, 0));
+				 new DiceRoll();
 				
-				diceRoll = new JButton("Dice Roll");
+				JButton play = new JButton("Dice Roll");
+				play.addActionListener(new ActionListener()
+				{
+					public void actionPerformed(ActionEvent e) 
+					{
+						javax.swing.JOptionPane.showMessageDialog (null,"you rolled "+ DiceRoll.roll1);
+					}
+				});
+				getContentPane().add(play, new GridBagConstraints(5, 5, 11, 11, 0.2, 0.2,
+						GridBagConstraints.NORTH,
+						GridBagConstraints.CENTER,
+						new Insets(2,5,10,0), 50, 0));
+				
+				
+				diceRoll = new JButton("Play");
 				getContentPane().add(diceRoll, new GridBagConstraints(5, 5, 11, 11, 0.2, 0.2,
 														GridBagConstraints.CENTER,
 														GridBagConstraints.CENTER,
