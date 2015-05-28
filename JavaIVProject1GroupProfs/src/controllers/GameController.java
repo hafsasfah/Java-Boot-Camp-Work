@@ -37,10 +37,10 @@ public class GameController implements IGameController {
 		
 		AbstractProperty start = null;
 		
-		HashSet<AbstractProperty> properties = game.getProperties();
+		ArrayList<AbstractProperty> properties = game.getProperties();
 		for ( int count = 0; count < 36; count++ )
 		{
-			AbstractProperty newProperty = new Property(count, count, "Name: " + count, 100, 25, null, new LinkedList<AbstractPlayer>(), 0);
+			AbstractProperty newProperty = new Property(count, count, "Name: " + count, 200, 50, null, new LinkedList<AbstractPlayer>(), 0);
 			if ( count == 0 )
 			{
 				start = newProperty;
@@ -56,7 +56,9 @@ public class GameController implements IGameController {
 			playerRepository.create( newPlayer );
 			newPlayer.setID( playerRepository.getPlayerID( newPlayer.getName(), newPlayer.getGameID() ) );
 			players.add( newPlayer );
+			start.addParkedPlayer( newPlayer );
 		}		
+		
 		game.setCurrentPlayer( players.peek() );
 		
 		gameView = new GameView( game, this );
@@ -77,8 +79,44 @@ public class GameController implements IGameController {
 	}
 
 	@Override
-	public void nextPlayerRolls() {
-		game.nextPlayersTurn( random.nextInt(6) + random.nextInt(6) + 2 );
+	public void currentPlayerRolls() {
+		AbstractPlayer currentPlayer = game.getCurrentPlayer();
+		int roll = random.nextInt(6) + random.nextInt(6) + 2;
+		int nextPropertySequenceID = ( currentPlayer.getCurrentLocation().getSequenceNumber() + roll ) % game.getProperties().size();
+		currentPlayer.getCurrentLocation().removeParkedPlayer( currentPlayer );
+		
+		AbstractProperty propertyLandedOn = game.getProperties().get( nextPropertySequenceID );
+		propertyLandedOn.addParkedPlayer( currentPlayer );
+		currentPlayer.setCurrentLocation( propertyLandedOn );
+		
+		AbstractPlayer owner = propertyLandedOn.getOwner();
+		
+		if ( owner == null )
+		{
+			currentPlayer.purchaseProperty( propertyLandedOn );
+			propertyLandedOn.setOwner( currentPlayer );
+		}
+		else
+		{
+			int rent = propertyLandedOn.getRentalPrice();
+			currentPlayer.spendMoney( rent );
+			if ( !currentPlayer.hasLostGame() )
+			{
+				owner.addMoney( rent );
+			}
+		}
+		
+		if ( currentPlayer.hasLostGame() )
+		{
+			for ( AbstractProperty property : currentPlayer.getOwnedProperties() )
+			{
+				property.setOwner(null);
+			}
+			
+			propertyLandedOn.removeParkedPlayer( currentPlayer );
+		}
+		
+		game.nextPlayersTurn( );
 	}
 
 }
