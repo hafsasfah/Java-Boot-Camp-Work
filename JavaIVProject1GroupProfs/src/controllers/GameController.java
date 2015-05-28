@@ -11,13 +11,13 @@ import views.*;
 
 public class GameController implements IGameController {
 	
+	private static final int GO_MONEY = 200;
+	
 	private AbstractGame game;
 	private IGameRepository gameRepository;
 	private IPlayerRepository playerRepository;
 	private IPropertyRepository propertyRepository;
 	private Random random;
-	
-	private IGameView gameView;
 	
 	public GameController()
 	{
@@ -61,9 +61,7 @@ public class GameController implements IGameController {
 		
 		game.setCurrentPlayer( players.peek() );
 		
-		gameView = new GameView( game, this );
-		
-		return gameView;
+		return new GameView( game, this );
 	}
 
 	@Override
@@ -82,7 +80,15 @@ public class GameController implements IGameController {
 	public void currentPlayerRolls() {
 		AbstractPlayer currentPlayer = game.getCurrentPlayer();
 		int roll = random.nextInt(6) + random.nextInt(6) + 2;
-		int nextPropertySequenceID = ( currentPlayer.getCurrentLocation().getSequenceNumber() + roll ) % game.getProperties().size();
+		int nextPropertySequenceID = ( currentPlayer.getCurrentLocation().getSequenceNumber() + roll ) ;
+		int totalProperties = game.getProperties().size();
+		
+		if ( nextPropertySequenceID > totalProperties )
+		{
+			currentPlayer.addMoney( GO_MONEY );
+		}
+		
+		nextPropertySequenceID %= totalProperties;
 		currentPlayer.getCurrentLocation().removeParkedPlayer( currentPlayer );
 		
 		AbstractProperty propertyLandedOn = game.getProperties().get( nextPropertySequenceID );
@@ -118,5 +124,4 @@ public class GameController implements IGameController {
 		
 		game.nextPlayersTurn( );
 	}
-
 }
