@@ -40,16 +40,19 @@ public class PropertyView implements IPropertyView {
 	
 	@Override
 	public void update(Observable o, Object arg) {
-		if ( property.getOwner() != null )
+		if ( property.getOwner() == null )
 		{
-			ownerLabel.setText( "Owner:" + property.getOwner().getName() );
+			ownerLabel.setText("");
+			rentalPriceLabel.setText("");
+			purchasePriceLabel.setText( "Purchase Price: " + property.getPurchasePrice() );
 		}
 		else
 		{
-			ownerLabel.setText( "Owner:" );
+			ownerLabel.setText( "Owner:" + property.getOwner().getName() );
+			rentalPriceLabel.setText( "Rental Price: " + property.getRentalPrice() );
+			purchasePriceLabel.setText("");
 		}
-		purchasePriceLabel.setText( "Purchase Price: " + property.getPurchasePrice() );
-		rentalPriceLabel.setText( "Rental Price: " + property.getRentalPrice() );
+		
 		parkedPlayersLabel.setText( createParkedPlayersLabelString() );
 	}
 	
@@ -60,12 +63,23 @@ public class PropertyView implements IPropertyView {
 	
 	private String createParkedPlayersLabelString()
 	{
-		String result = "";
+		int panelWidth = panel.getWidth();
+		int displayLength = 0;
 		
+		String result = "<html>";
 		for ( AbstractPlayer player : property.getParkedPlayers() )
 		{
-			result += ( player.getName() + "</br>" );
+			result += ( player.getName() + " ");
+			displayLength += player.getName().length();
+			
+			if ( displayLength > panelWidth )
+			{
+				result += "<br>";
+				displayLength = 0;
+			}
 		}
+		
+		result += "</html>";
 		
 		return result;
 	}

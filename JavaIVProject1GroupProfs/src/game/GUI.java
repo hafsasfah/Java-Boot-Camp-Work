@@ -19,7 +19,7 @@ public class GUI extends JFrame
 	public GUI()
 	{
 		setTitle("Cartel");
-		setSize( 1024, 1024 );
+		setSize( 1500, 1024 );
 		setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
 		setLayout( new BorderLayout() );
 		

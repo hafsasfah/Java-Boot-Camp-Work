@@ -6,10 +6,10 @@ public abstract class AbstractGame extends Observable {
 	public abstract int getID();
 	public abstract void setID( int id );
 	public abstract String getName();
-	public abstract HashSet<AbstractProperty> getProperties();
+	public abstract ArrayList<AbstractProperty> getProperties();
 	public abstract Queue<AbstractPlayer> getPlayers();
 	public abstract boolean hasWinner();
 	public abstract AbstractPlayer getCurrentPlayer();
 	public abstract void setCurrentPlayer( AbstractPlayer player );
-	public abstract void nextPlayersTurn(int roll);
+	public abstract void nextPlayersTurn( );
 }

@@ -36,8 +36,9 @@ public class GameView implements IGameView {
 		gamePanel.setLayout( new BorderLayout() );
 		
 		currentPlayerPanel = new JPanel();
-		titleLabel = new JLabel( game.getName() );
-		currentPlayerLabel = new JLabel( game.getCurrentPlayer().getName() );
+		titleLabel = new JLabel( );
+		currentPlayerLabel = new JLabel( );
+		update(null,null);
 		rollButton = new JButton("Roll");
 		rollButton.addActionListener( new RollButtonListener() );
 		currentPlayerPanel.add( titleLabel );
@@ -62,10 +63,7 @@ public class GameView implements IGameView {
 		int length = ( totalProperties + corners ) / sides;
 		propertyPanel.setLayout( new GridLayout( length, length ) );
 		
-		AbstractProperty[] sortedProperties = new AbstractProperty[ totalProperties ];
-		game.getProperties().toArray(sortedProperties);
-		
-		Arrays.sort( sortedProperties );
+		ArrayList<AbstractProperty> properties = game.getProperties();
 				
 		for ( int row = 0; row < length; row++ )
 		{
@@ -73,22 +71,22 @@ public class GameView implements IGameView {
 			{
 				if ( row == 0 )
 				{
-					propertyPanel.add( new PropertyView( sortedProperties[column] ).getPropertyView() );
+					propertyPanel.add( new PropertyView( properties.get(column) ).getPropertyView() );
 					continue;
 				}
 				if ( column == 0 )
 				{
-					propertyPanel.add( new PropertyView( sortedProperties[ totalProperties - row ] ).getPropertyView() );
+					propertyPanel.add( new PropertyView( properties.get( totalProperties - row ) ).getPropertyView() );
 					continue;
 				}
 				if ( row == totalProperties / sides )
 				{
-					propertyPanel.add( new PropertyView( sortedProperties[ totalProperties - row - column ] ).getPropertyView() );
+					propertyPanel.add( new PropertyView( properties.get( totalProperties - row - column ) ).getPropertyView() );
 					continue;
 				}
 				if ( column == totalProperties / sides )
 				{
-					propertyPanel.add( new PropertyView( sortedProperties[column + row] ).getPropertyView() );
+					propertyPanel.add( new PropertyView( properties.get(column + row) ).getPropertyView() );
 					continue;
 				}
 				propertyPanel.add( new JPanel() );
@@ -105,15 +103,25 @@ public class GameView implements IGameView {
 
 	@Override
 	public void update(Observable o, Object args) {
-		titleLabel.setText( game.getID() + " " + game.getName() );
-		currentPlayerLabel.setText( game.getCurrentPlayer().getName() );
+		titleLabel.setText( "Game Name: " + game.getName() );
+		if ( game.hasWinner() )
+		{
+			currentPlayerLabel.setText( "Winner: " + game.getCurrentPlayer().getName() );
+			currentPlayerLabel.setForeground( Color.GREEN );
+			rollButton.setEnabled(false);
+		}
+		else
+		{
+			currentPlayerLabel.setText( "Current Player: " + game.getCurrentPlayer().getName() );
+		}
+		
 	}
 	
 	private class RollButtonListener implements ActionListener
 	{
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			gameController.nextPlayerRolls();
+			gameController.currentPlayerRolls();
 		}
 	}
 }

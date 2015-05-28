@@ -1,15 +1,12 @@
 package views;
 
-import java.awt.GridLayout;
+import java.awt.*;
 import java.util.Observable;
 
-import javax.swing.BorderFactory;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
+import javax.swing.border.TitledBorder;
 
-import controllers.IGameController;
-import models.AbstractPlayer;
-import models.AbstractProperty;
+import models.*;
 
 public class PlayerView implements IPlayerView {
 
@@ -26,23 +23,43 @@ public class PlayerView implements IPlayerView {
 		player.addObserver(this);
 		
 		panel = new JPanel();
+		panel.setLayout( new BorderLayout() );
 		panel.setBorder( BorderFactory.createTitledBorder( player.getName() ));
-		panel.setLayout( new GridLayout( 3, 1 ));
 		moneyLabel = new JLabel();
 		currentLocationLabel = new JLabel();
 		propertyLabel = new JLabel();
 		
-		panel.add(moneyLabel);
-		panel.add(propertyLabel);
+		JPanel northPanel = new JPanel();
+		northPanel.setLayout( new GridLayout( 2, 1 ) );
+		
+		northPanel.add( moneyLabel );
+		northPanel.add( currentLocationLabel );
+		
+		JPanel centerPanel = new JPanel();
+		centerPanel.add( propertyLabel );
+		
+		panel.add(northPanel, BorderLayout.NORTH );
+		panel.add(centerPanel, BorderLayout.CENTER );
 		
 		update(null,null);
 	}
 	
 	@Override
 	public void update(Observable o, Object arg) {
+		if ( player.hasLostGame() )
+		{
+			panel.setBorder(BorderFactory.createTitledBorder(null, player.getName(), TitledBorder.LEFT, TitledBorder.TOP, BorderFactory.createTitledBorder("").getTitleFont(), Color.RED));
+			currentLocationLabel.setText("");
+			propertyLabel.setText("");
+			moneyLabel.setForeground( Color.RED );
+		}
+		else
+		{
+			currentLocationLabel.setText( "Parked: " + player.getCurrentLocation().getName() );
+			propertyLabel.setText( createPropertyLabelString() );
+		}
+		
 		moneyLabel.setText("Money: " + player.getMoney() );
-		currentLocationLabel.setText( "Parked: " + player.getCurrentLocation().getName() );
-		propertyLabel.setText( createPropertyLabelString() );
 	}
 
 	@Override
@@ -52,11 +69,14 @@ public class PlayerView implements IPlayerView {
 	
 	private String createPropertyLabelString()
 	{
-		String properties = "";
+		String properties = "<html>Owns:<br>";
 		for ( AbstractProperty property : player.getOwnedProperties() )
 		{
-			properties += property.getName() + "</br>";
+			properties += property.getName() + "<br>";
 		}
+		
+		properties += "</html>";
+		
 		return properties;
 	}
 

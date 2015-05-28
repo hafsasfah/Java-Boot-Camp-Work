@@ -9,8 +9,9 @@ public abstract class AbstractPlayer extends Observable {
 	public abstract String getName();
 	public abstract int getMoney();
 	public abstract void spendMoney(int money);
+	public abstract void addMoney( int money );
 	public abstract boolean hasLostGame();
-	public abstract HashSet<AbstractProperty> getOwnedProperties();
+	public abstract ArrayList<AbstractProperty> getOwnedProperties();
 	public abstract void purchaseProperty( AbstractProperty property );
 	public abstract AbstractProperty getCurrentLocation();
 	public abstract void setCurrentLocation( AbstractProperty newLocation );

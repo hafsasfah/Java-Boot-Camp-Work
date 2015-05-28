@@ -80,4 +80,27 @@ public class Property extends AbstractProperty {
 	public int compareTo( AbstractProperty otherProperty ) {
 		return sequenceNumber - otherProperty.getSequenceNumber();
 	}
+
+	@Override
+	public void setOwner(AbstractPlayer owner) {
+		this.owner = owner;
+		setChanged();
+		notifyObservers();
+	}
+
+	@Override
+	public boolean addParkedPlayer(AbstractPlayer player) {
+		boolean changed = parkedPlayers.add( player );
+		setChanged();
+		notifyObservers();
+		return changed;
+	}
+
+	@Override
+	public boolean removeParkedPlayer(AbstractPlayer player) {
+		boolean changed = parkedPlayers.remove( player );
+		setChanged();
+		notifyObservers();
+		return changed;
+	}
 }

@@ -6,18 +6,18 @@ public class Game extends AbstractGame {
 	
 	private int id;
 	private String name;
-	private HashSet<AbstractProperty> properties;
+	private ArrayList<AbstractProperty> properties;
 	private Queue<AbstractPlayer> players;
 	private AbstractPlayer currentPlayer;
 	
 	public Game( String name )
 	{
 		this.name = name;
-		properties = new HashSet<AbstractProperty>();
+		properties = new ArrayList<AbstractProperty>();
 		players = new LinkedList<AbstractPlayer>();
 	}
 	
-	public Game( int id, String name, HashSet<AbstractProperty> properties, Queue<AbstractPlayer> players, AbstractPlayer currentPlayer )
+	public Game( int id, String name, ArrayList<AbstractProperty> properties, Queue<AbstractPlayer> players, AbstractPlayer currentPlayer )
 	{
 		this.id = id;
 		this.name = name;
@@ -43,7 +43,7 @@ public class Game extends AbstractGame {
 	}
 
 	@Override
-	public HashSet<AbstractProperty> getProperties() {
+	public ArrayList<AbstractProperty> getProperties() {
 		return properties;
 	}
 
@@ -78,8 +78,13 @@ public class Game extends AbstractGame {
 	}
 
 	@Override
-	public void nextPlayersTurn( int roll ) {
-		players.add( players.remove() );
+	public void nextPlayersTurn( ) {
+		players.remove();
+		if ( !currentPlayer.hasLostGame() )
+		{
+			players.add( currentPlayer );
+		}
+		
 		currentPlayer = players.peek();
 		setChanged();
 		notifyObservers();

@@ -39,7 +39,7 @@ public class PropertyRepository implements IPropertyRepository {
 	}
 
 	@Override
-	public HashSet<AbstractProperty> getAll() {
+	public ArrayList<AbstractProperty> getAll() {
 		// TODO Auto-generated method stub
 		return null;
 	}

@@ -10,5 +10,5 @@ public interface IPropertyRepository {
 	boolean update( AbstractProperty property );
 	boolean delete( AbstractProperty property );
 	
-	HashSet<AbstractProperty> getAll();
+	ArrayList<AbstractProperty> getAll();
 }
