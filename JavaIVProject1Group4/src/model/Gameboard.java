@@ -20,7 +20,7 @@ public class Gameboard implements iGameboard{
 	
 	public Gameboard(){//Update to read data from repo
 		int numberOfPlayers = Integer.parseInt(JOptionPane.showInputDialog("Enter number of players"));
-		players = new Player[numberOfPlayers];
+		players = new Player[numberOfPlayers+1];
 		properties = new Property[NUM_OF_PROPS];
 		//die = new DICE();
 		buildPlayerArray(numberOfPlayers);
@@ -43,9 +43,10 @@ public class Gameboard implements iGameboard{
 	}
 	
 	private void buildPlayerArray(int numberOfPlayers){
+		players[0] = new Player("GAME");
 		
-		for (int i = 0;i<numberOfPlayers;i++){
-			players[i]=new Player(JOptionPane.showInputDialog("Enter Player "+(i+1)+" name." ));
+		for (int i = 1;i<=numberOfPlayers;i++){
+			players[i]=new Player(JOptionPane.showInputDialog("Enter Player "+i+" name." ));
 		}
 	}
 	public Player[] getPlayers(){

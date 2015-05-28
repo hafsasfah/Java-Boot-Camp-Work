@@ -1,4 +1,6 @@
 package view;
+
+import java.awt.BorderLayout;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -18,14 +20,38 @@ public class PropertyView implements Observer{
 		
 		property = Controller.getCurrentProp();
 		panel = new JPanel();
+		
 		label = new JLabel();
 		if ( property.getOwner() == -1)
 		{
-			label.setText("<html>" + property.getTitle() + "<br>" + property.getPurchasePrice() +"</html>");
+			label.setText("<html> " + property.getTitle() + " <br>" + property.getPurchasePrice() +"</html>");
 		}
 		else
 		{
-			label.setText("<html>" + property.getTitle() + "<br>" + property.getRent() +"</html>");
+			label.setText("<html> " + property.getTitle() + " <br>" + property.getRent() +"</html>");
+		}
+		
+		panel.add(label);
+		
+	}
+	public PropertyView(Property property)
+	{	
+		
+		this.property = property;
+		panel = new JPanel();
+		panel.setOpaque(false);
+		
+		
+		label = new JLabel();
+		label.setOpaque(false);
+		
+		if ( property.getOwner() == -1)
+		{
+			label.setText("<html> " + property.getTitle() + " <br>" + property.getPurchasePrice() +"</html>");
+		}
+		else
+		{
+			label.setText("<html> " + property.getTitle() + " <br>" + property.getRent() +"</html>");
 		}
 		
 		panel.add(label);
@@ -38,8 +64,14 @@ public class PropertyView implements Observer{
 	public void update(Observable arg0, Object arg1) {
 		property = Controller.getCurrentProp();
 		
-		label.setText("<html>" + property.getTitle() + "<br>" + property.getPurchasePrice() +"</html>");
-		
+		if ( property.getOwner() == -1)
+		{
+			label.setText("<html> " + property.getTitle() + " <br>" + property.getPurchasePrice() +"</html>");
+		}
+		else
+		{
+			label.setText("<html> " + property.getTitle() + " <br>" + property.getRent() +"</html>");
+		}
 	
 		
 		
