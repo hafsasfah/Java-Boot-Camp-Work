@@ -34,6 +34,7 @@ public class PlayersView implements iPlayersView
 		{
 			Players player = new Players(JOptionPane.showInputDialog(null, "Enter the name of player " + String.valueOf(i + 1)),10,10,i);
 			listofplayers.add(player);
+			player.addObserver(this);
 		}
 			
 	}

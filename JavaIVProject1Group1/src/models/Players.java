@@ -15,12 +15,10 @@ public class Players extends aPlayers
 	private int cash = 1500;
 	private int id;
 	public Coordinates coord = new Coordinates();
-	PlayersView playerview;
 	
 	
 	public Players(String name,int x, int y, int id)
 	{
-		this.addObserver(playerview);
 		this.name = name;
 		this.coord.setRow(x);
 		this.coord.setColumn(y);
