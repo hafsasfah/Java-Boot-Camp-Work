@@ -55,7 +55,6 @@ public BoardNumber2()
 	CenterSpace.setLayout(new GridLayout(0,1));
 	
 	JPanel TopProperty1 = new JPanel();
-	TopProperty1.setBackground(Color.CYAN);
 	JPanel TopProperty2 = new JPanel();
 	TopProperty2.setBackground(Color.RED);
 	JPanel TopProperty3 = new JPanel();
@@ -74,8 +73,7 @@ public BoardNumber2()
 	JPanel TopProperty10 = new JPanel();
 	TopProperty10.setBackground(Color.YELLOW);
 	JPanel TopProperty11 = new JPanel();
-	TopProperty11.setBackground(Color.CYAN);
-	
+
 	TopTenSpace.add(TopProperty1);
 	TopTenSpace.add(TopProperty2);
 	TopTenSpace.add(TopProperty3);
@@ -88,7 +86,8 @@ public BoardNumber2()
 	TopTenSpace.add(TopProperty10);
 	TopTenSpace.add(TopProperty11);
 	
-	JLabel TopProperty1Label = new JLabel("FREE PARKING");
+	JLabel TopProperty1Label = new JLabel("");
+	TopProperty1Label.setIcon(new ImageIcon (getClass().getResource("free park.jpg")));
 	JLabel TopProperty2Label = new JLabel("RED");
 	JLabel TopProperty3Label = new JLabel("CHANCE");
 	JLabel TopProperty4Label = new JLabel("RED");
@@ -98,7 +97,8 @@ public BoardNumber2()
 	JLabel TopProperty8Label = new JLabel("YELLOW");
 	JLabel TopProperty9Label = new JLabel("UTILIY");
 	JLabel TopProperty10Label = new JLabel("YELLOW");
-	JLabel TopProperty11Label = new JLabel("GO TO JAIL");
+	JLabel TopProperty11Label = new JLabel("");
+	TopProperty11Label.setIcon(new ImageIcon (getClass().getResource("go to jail.jpg")));
 	
 	TopProperty1.add(TopProperty1Label);
 	TopProperty2.add(TopProperty2Label);
@@ -113,7 +113,6 @@ public BoardNumber2()
 	TopProperty11.add(TopProperty11Label);
 	
 	JPanel BottomProperty1 = new JPanel();
-	BottomProperty1.setBackground(Color.CYAN);
 	JPanel BottomProperty2 = new JPanel();
 	BottomProperty2.setBackground(Color.LIGHT_GRAY);
 	JPanel BottomProperty3 = new JPanel();
@@ -130,7 +129,7 @@ public BoardNumber2()
 	JPanel BottomProperty10 = new JPanel();
 	BottomProperty10.setBackground(Color.MAGENTA);
 	JPanel BottomProperty11 = new JPanel();
-	BottomProperty11.setBackground(Color.CYAN);
+	
 	
 	BottomTenSpace.add(BottomProperty1);
 	BottomTenSpace.add(BottomProperty2);
@@ -144,7 +143,8 @@ public BoardNumber2()
 	BottomTenSpace.add(BottomProperty10);
 	BottomTenSpace.add(BottomProperty11);
 	
-	JLabel BottomProperty1Label = new JLabel("JUST VISITING");
+	JLabel BottomProperty1Label = new JLabel("");
+	BottomProperty1Label.setIcon(new ImageIcon (getClass().getResource("in jail.jpg")));
 	JLabel BottomProperty2Label = new JLabel("LIGHT BLUE");
 	JLabel BottomProperty3Label = new JLabel("LIGHT BLUE");
 	JLabel BottomProperty4Label = new JLabel("CHANCE");
@@ -154,7 +154,8 @@ public BoardNumber2()
 	JLabel BottomProperty8Label = new JLabel("PURPLE");
 	JLabel BottomProperty9Label = new JLabel("COMMUNITY CHESS");
 	JLabel BottomProperty10Label = new JLabel("PURPLE");
-	JLabel BottomProperty11Label = new JLabel("GO");
+	JLabel BottomProperty11Label = new JLabel("");
+	BottomProperty11Label.setIcon(new ImageIcon (getClass().getResource("download.png")));
 
 	
 	BottomProperty1.add(BottomProperty1Label);
@@ -276,17 +277,15 @@ public BoardNumber2()
 	JPanel CenterPanel = new JPanel();
 	CenterSpace.add(CenterPanel);
 	
-	JButton roll = new JButton("ROLL");
-	CenterPanel.add(roll);
-	
-	JTextArea textArea = new JTextArea(20,20);
-	CenterPanel.add(textArea);
-	CenterPanel.setLayout(new GridLayout(2,3));
 	
 	JPanel player1panel = new JPanel();
 	CenterPanel.add(player1panel);
 	JLabel ply1Label = new JLabel("Player 1 Label");
 	player1panel.add(ply1Label);
+	
+	JButton roll = new JButton("");
+	roll.setIcon(new ImageIcon (getClass().getResource("dice.jpg")));
+	CenterPanel.add(roll);
 	
 	JPanel player2panel = new JPanel();
 	CenterPanel.add(player2panel);
@@ -297,6 +296,12 @@ public BoardNumber2()
 	CenterPanel.add(player3panel);
 	JLabel ply3Label = new JLabel("Player 3 Label");
 	player3panel.add(ply3Label);
+	
+	JTextArea textArea = new JTextArea(20,20);
+	CenterPanel.add(textArea);
+	CenterPanel.setLayout(new GridLayout(2,3));
+	
+	
 	
 	JPanel player4panel = new JPanel();
 	CenterPanel.add(player4panel);
