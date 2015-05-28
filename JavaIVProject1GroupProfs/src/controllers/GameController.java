@@ -1,5 +1,6 @@
 package controllers;
 
+import java.sql.Connection;
 import java.util.*;
 
 import javax.swing.JOptionPane;
@@ -21,24 +22,28 @@ public class GameController implements IGameController {
 	public GameController()
 	{
 		random = new Random();
-		gameRepository = new GameRepository();
-		playerRepository = new PlayerRepository();
-		propertyRepository = new PropertyRepository();
+		Connection connection = MonopolyConnectionProvider.createConnection();
+		gameRepository = new GameRepository( connection );
+		playerRepository = new PlayerRepository( connection );
+		propertyRepository = new PropertyRepository( connection );
 	}
 	
 	@Override
 	public IGameView startNewGame( String[] playerNames ) {
-		Queue<AbstractPlayer> players = new LinkedList<AbstractPlayer>();
+		String gameName = JOptionPane.showInputDialog("Please enter a name for this saved game");
+		game = new Game( gameName );
+		gameRepository.create(game);
+		game.setID( gameRepository.getGameID(gameName) );
+		
+		Queue<AbstractPlayer> players = game.getPlayers();
 		for ( int count = 0; count < playerNames.length; count++ )
 		{
-			Player newPlayer = new Player(count, playerNames[count], 1500);
-			players.add(newPlayer );
+			Player newPlayer = new Player( playerNames[count], 1500, game.getID() );
 			playerRepository.create( newPlayer );
-		}
-		game = new Game(0, JOptionPane.showInputDialog("Please enter a name for this saved game"), propertyRepository.getAll(), players );
-		
-		gameRepository.create(game);
-		
+			newPlayer.setID( playerRepository.getPlayerID( newPlayer.getName(), newPlayer.getGameID() ) );
+			players.add( newPlayer );
+		}		
+		game.setCurrentPlayer( players.peek() );
 		gameView = new GameView( game, this );
 		game.addObserver( gameView );
 		

@@ -1,11 +1,19 @@
 package data;
 
+import java.sql.Connection;
 import java.util.*;
 
 import models.AbstractProperty;
 
 public class PropertyRepository implements IPropertyRepository {
 
+	private Connection connection;
+
+	public PropertyRepository(Connection connection)
+	{
+		this.connection = connection;
+	}
+	
 	@Override
 	public boolean create(AbstractProperty property) {
 		// TODO Auto-generated method stub

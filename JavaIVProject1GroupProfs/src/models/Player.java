@@ -8,18 +8,40 @@ public class Player extends AbstractPlayer {
 	private String name;
 	private int money;
 	private HashSet<AbstractProperty> properties;
+	private int gameID;
+	private AbstractProperty currentLocation;
 	
-	public Player( int id, String name, int money )
+	public Player( String name, int money, int gameID )
+	{
+		this.name = name;
+		this.money = money;
+		this.gameID = gameID;
+		properties = new HashSet<AbstractProperty>();
+	}
+	
+	public Player( int id, String name, int money, int gameID, HashSet<AbstractProperty> properties, AbstractProperty currentLocation )
 	{
 		this.id = id;
 		this.name = name;
 		this.money = money;
-		properties = new HashSet<AbstractProperty>();
+		this.gameID = gameID;
+		this.properties = properties;
+		this.currentLocation = currentLocation;
 	}
 	
 	@Override
 	public int getID() {
 		return id;
+	}
+	
+	@Override
+	public void setID(int id) {
+		this.id = id;
+	}
+	
+	@Override
+	public int getGameID() {
+		return gameID;
 	}
 
 	@Override
@@ -55,5 +77,15 @@ public class Player extends AbstractPlayer {
 		properties.add( property );
 		setChanged();
 		notifyObservers();
+	}
+
+	@Override
+	public AbstractProperty getCurrentLocation() {
+		return currentLocation;
+	}
+
+	@Override
+	public void setCurrentLocation(AbstractProperty newLocation) {
+		currentLocation = newLocation;
 	}
 }

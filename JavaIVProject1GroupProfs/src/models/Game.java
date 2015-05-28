@@ -10,15 +10,22 @@ public class Game extends AbstractGame {
 	private Queue<AbstractPlayer> players;
 	private AbstractPlayer currentPlayer;
 	
-	public Game( int id, String name, HashSet<AbstractProperty> properties, Queue<AbstractPlayer> players )
+	public Game( String name )
+	{
+		this.name = name;
+		properties = new HashSet<AbstractProperty>();
+		players = new LinkedList<AbstractPlayer>();
+	}
+	
+	public Game( int id, String name, HashSet<AbstractProperty> properties, Queue<AbstractPlayer> players, AbstractPlayer currentPlayer )
 	{
 		this.id = id;
 		this.name = name;
 		this.properties = properties;
 		this.players = players;
-		currentPlayer = players.peek();
+		this.currentPlayer = currentPlayer;
 	}
-	
+
 	@Override
 	public int getID() {
 		return id;
@@ -66,12 +73,15 @@ public class Game extends AbstractGame {
 	}
 
 	@Override
+	public void setCurrentPlayer(AbstractPlayer player) {
+		currentPlayer = player;
+	}
+
+	@Override
 	public void nextPlayersTurn( int roll ) {
 		players.add( players.remove() );
 		currentPlayer = players.peek();
 		setChanged();
 		notifyObservers();
 	}
-	
-	
 }
