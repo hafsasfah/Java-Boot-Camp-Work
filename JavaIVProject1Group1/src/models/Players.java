@@ -10,6 +10,7 @@ import interfaces.iPlayers;
 
 public class Players extends aPlayers 
 {
+	public PlayersView playerview;
 	private String name;
 	private int location;
 	private int cash = 1500;
@@ -17,11 +18,12 @@ public class Players extends aPlayers
 	public Coordinates coord = new Coordinates();
 	
 	
-	public Players(String name,int x, int y, int id)
+	public Players(String name,int x, int y, int id, PlayersView view)
 	{
 		this.name = name;
 		this.coord.setRow(x);
 		this.coord.setColumn(y);
+		this.playerview = view;
 		
 	}
 

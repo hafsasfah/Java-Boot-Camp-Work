@@ -2,6 +2,7 @@ package views;
 
 import java.util.Observable;
 
+import controllers.GameController;
 import models.aGame;
 
 public class GameView implements iGameView {

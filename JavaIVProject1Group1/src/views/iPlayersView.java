@@ -1,10 +1,14 @@
 package views;
+import java.util.Observable;
 import java.util.Observer;
+
 import javax.swing.JPanel;
+
+import models.Players;
 
 public interface iPlayersView extends Observer {
 	
-	JPanel translateJframes();
-	void getPlayers();
-	void nextTurn(int x);
+	JPanel translateJframes(Players player);
+
+	void update(Observable o, Object arg);
 }
