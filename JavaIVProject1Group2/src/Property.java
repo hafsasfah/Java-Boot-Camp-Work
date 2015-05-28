@@ -23,10 +23,7 @@ public class Property
 
 	public Property()
 	{
-		
-		
-		this.ID = DiceRoll.getRollOne();
-		this.ID = DiceRoll.getRollTwo();
+
 
 	}
 	
