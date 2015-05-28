@@ -45,7 +45,7 @@ public class Controller extends Observable{
 	
 		GUI gui = new GUI(playerView, propView, gameboardView);
 		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		gui.setSize(800,600);
+		gui.setSize(1000,750);
 		gui.setVisible(true);
 		
 		
@@ -69,6 +69,7 @@ public class Controller extends Observable{
 	}
 	public static void playerRoll()
 	{	//die.rollDie()
+		int oldLocation = players[currentPlayer].getLocation();
 		players[currentPlayer].move(Dice.rollDie());	
 		control.update();
 		// -1 is our un-owned sentiment value, these properties don't charge rent but instead allow you to purchase them.
@@ -76,7 +77,11 @@ public class Controller extends Observable{
 		{
 			control.payRent();
 		}
-		//System.out.println("Move player to"+ players[currentPlayer].getLocation() );
+		
+		if (oldLocation > players[currentPlayer].getLocation()){
+			players[currentPlayer].setCash(200);
+		}
+		
 		 control.setChanged();
 	     control.notifyObservers();
 			
@@ -128,6 +133,9 @@ public class Controller extends Observable{
 	public static Player getCurrentPlayer() {
 		// TODO Auto-generated method stub
 		return players[currentPlayer];
+	}
+	public static Property[] getProperties(){
+		return properties;
 	}
 
 	
