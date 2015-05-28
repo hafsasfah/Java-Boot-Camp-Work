@@ -73,13 +73,11 @@ public class GUI extends JFrame
 		accessLayout.rowWeights = new double[]	{ 0.2, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1,
 				0.1, 0.1, 0.1, 0.1, 0.1, 0.2}; 
 		
-		
 		accessLayout.columnWeights = new double[] { 0.2, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1,
 				0.1, 0.1, 0.1, 0.1, 0.1, 0.2}; 
 		
-	
-		getContentPane().setLayout(accessLayout);
 		
+		getContentPane().setLayout(accessLayout);
 		
 		JLabel jail = new JLabel("   Jail  ");
 		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
@@ -96,7 +94,6 @@ public class GUI extends JFrame
 		JLabel partyStore = new JLabel("Party Store");
 		GridBagConstraints gbc_partyStore = new GridBagConstraints();
 		getContentPane().add(partyStore, gbc_partyStore);
-		
 		
 		getContentPane().setLayout(accessLayout);
 		
@@ -183,8 +180,7 @@ public class GUI extends JFrame
 						new Insets(0, 0, 0, 0), 0, 0));
 				
 				
-				tempPanel.setBorder(BorderFactory.createLineBorder(Color.BLUE));	
-		
+				tempPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));	
 				
 				JPanel innerPanel = new JPanel();
 				getContentPane().add(innerPanel, new GridBagConstraints(1, 1, 11, 11, 0.0, 0.0,
