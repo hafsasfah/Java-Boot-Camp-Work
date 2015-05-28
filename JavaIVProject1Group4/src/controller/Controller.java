@@ -78,7 +78,8 @@ public class Controller extends Observable{
 			control.payRent();
 		}
 		
-		if (oldLocation > players[currentPlayer].getLocation()){
+		if (oldLocation > players[currentPlayer].getLocation())
+		{
 			players[currentPlayer].setCash(200);
 		}
 		
