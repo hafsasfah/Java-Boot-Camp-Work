@@ -21,7 +21,7 @@ import logic.DiceRoll;
 
 //******Game board will build on the overall design of the game******//
 
-public class GameBoard extends JFrame 
+public class GUI extends JFrame 
 {
 
 	//This represents the Default Grid Values
@@ -36,7 +36,7 @@ public class GameBoard extends JFrame
 
 	public static void main(String[]args)
 	{
-		new GameBoard().setVisible(true);
+		new GUI().setVisible(true);
 		
 			int totalPlayer = 0;
 		
@@ -49,7 +49,7 @@ public class GameBoard extends JFrame
 	}
 	
 	
-	public GameBoard()
+	public GUI()
 	{
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		pack();
