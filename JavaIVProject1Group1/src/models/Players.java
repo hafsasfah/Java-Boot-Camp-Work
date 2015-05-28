@@ -8,37 +8,29 @@ import interfaces.iPlayers;
 
 public class Players extends aPlayers 
 {
-	private String move;
-	private int purchase;
-	private int payRent;
+	private String name;
 	private int location;
-	private int coordinates;
 	private int cash;
 	private int id;
 	Coordinates coord = new Coordinates();
 	
 	
-	public Players(String move, int purchase, int payRent, int location, int coordinates, int id)
+	public Players(String name,int x, int y, int id)
 	{
-		this.move = move;
-		this.purchase = purchase;
-		this.payRent = payRent;
+		this.name = name;
 		this.cash = cash;
+		this.coord.setRow(x);
+		this.coord.setColumn(y);
 		
 	}
 
 	@Override
 	public String getMove() {
 		
-		return this.move;
+		return this.name;
 	}
 
 	
-	@Override
-	public int getPayRent() {
-		
-		return this.payRent;
-	}
 
 	@Override
 	public int getCash() {
@@ -46,23 +38,7 @@ public class Players extends aPlayers
 		return this.cash;
 	}
 
-	@Override
-	public int setLocation() {
-		
-		return location;
-	}
 
-	@Override
-	public int setCoordinates() {
-		
-		return coordinates;
-	}
-
-	@Override
-	public int getPurchase() {
-		
-		return this.purchase;
-	}
 
 	@Override
 	public int getID() {

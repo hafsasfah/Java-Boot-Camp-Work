@@ -20,7 +20,6 @@ import javax.swing.border.LineBorder;
 
 import views.PropertyView;
 import models.Property;
-import data.PanelGenerator;
 
 
 
