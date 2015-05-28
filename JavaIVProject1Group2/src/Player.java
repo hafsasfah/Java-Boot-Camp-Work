@@ -11,18 +11,19 @@ public class Player {
 	private int id;
 	private String name;
 	private int money = 1500;
+	private int Property;
 	private static Player currentPlayer;
 	private Property location;
 	private int position;
 	
 	
 	
-	public Player( int id, String name, int money )
+	public Player( int id, String name, int money, int Propery)
 	{
 		this.id = id;
 		this.name = name;
 		this.money = money;
-		
+		this.Property = Property;
 	}
 	
 	public int getID() {
@@ -61,6 +62,9 @@ public class Player {
 		this.money -= money;
 		setChanged();
 		notifyObservers();
+	}
+	public int getProperty (int Property) {
+		return Property;
 	}
 
 
