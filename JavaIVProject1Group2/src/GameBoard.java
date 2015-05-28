@@ -1,4 +1,5 @@
 import java.awt.*;
+
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.JApplet;
@@ -9,6 +10,8 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
+
+
 //******Game board will build on the overall design of the game******//
 
 public class GameBoard extends JFrame 
@@ -17,7 +20,7 @@ public class GameBoard extends JFrame
 	//This represents the Default Grid Values
 	private int gridForX = 0;
 	private int gridForY = 0;
-	private JTextField text1; 
+	 
 	
 	
 	
@@ -42,6 +45,7 @@ public class GameBoard extends JFrame
 		
 		JLabel bank = new JLabel("Bank");
 		getContentPane().add(bank, BorderLayout.NORTH);
+		
 		createThePanels();
 	}
 	
@@ -121,6 +125,8 @@ public class GameBoard extends JFrame
 		getContentPane().add(burgerJoint, gbc_burgerJoint);
 		
 		
+		
+		
 
 		for(int j = 0; j < 4; j++)				//<-----------this represents the four sides Top, down, left, and right
 		{
@@ -167,6 +173,31 @@ public class GameBoard extends JFrame
 														GridBagConstraints.CENTER,
 														GridBagConstraints.BOTH,
 														new Insets(0,0,0,0), 0, 0));
+				
+				JLabel start = new JLabel(" START");
+				getContentPane().add(start, new GridBagConstraints(3, 3, 11, 11, 1.2, 1.2,
+														GridBagConstraints.SOUTHEAST,
+														GridBagConstraints.CENTER,
+														new Insets(0,0,30,0), 30, 0));
+				
+
+				JLabel fifthAvenue = new JLabel("Fifth Avenue");
+				getContentPane().add(fifthAvenue, new GridBagConstraints(8, 8, 11, 11, 0.2, 0.2,
+														GridBagConstraints.NORTHEAST,
+														GridBagConstraints.EAST,
+														new Insets(0,0,0,0),20, 0));
+				
+				JButton play = new JButton("Play");
+				getContentPane().add(play, new GridBagConstraints(5, 5, 11, 11, 0.2, 0.2,
+														GridBagConstraints.NORTH,
+														GridBagConstraints.CENTER,
+														new Insets(2,5,10,0), 50, 0));
+				
+				JButton diceRoll = new JButton("Dice Roll");
+				getContentPane().add(diceRoll, new GridBagConstraints(5, 5, 11, 11, 0.2, 0.2,
+														GridBagConstraints.CENTER,
+														GridBagConstraints.CENTER,
+														new Insets(0,0,0,0), 30, 0));
 				}
 			
 			}
