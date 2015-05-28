@@ -217,11 +217,11 @@ public class GameBoard extends JFrame
 						new Insets(2,5,10,0), 50, 0));
 				
 				
-				diceRoll = new JButton("Play");
+				diceRoll = new JButton("Buy");
 				getContentPane().add(diceRoll, new GridBagConstraints(5, 5, 11, 11, 0.2, 0.2,
 														GridBagConstraints.CENTER,
 														GridBagConstraints.CENTER,
-														new Insets(0,0,0,0), 30, 0));
+														new Insets(0,20,0,0), 80, 0));
 				}
 			
 			}
