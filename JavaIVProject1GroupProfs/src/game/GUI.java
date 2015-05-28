@@ -2,10 +2,10 @@ package game;
 
 import java.awt.*;
 import java.awt.event.*;
+
 import javax.swing.*;
 
-import controllers.GameController;
-import controllers.IGameController;
+import controllers.*;
 
 public class GUI extends JFrame 
 {
@@ -57,7 +57,7 @@ public class GUI extends JFrame
 			}
 			catch ( Exception ex )
 			{
-				
+				startLabel.setText("Please enter a valid number of players");
 			}
 		}
 	}
