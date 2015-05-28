@@ -7,7 +7,8 @@ import javax.swing.*;
 import controllers.*;
 import models.*;
 
-public class GameView implements iGameView {
+public class GameView implements iGameView 
+{
 
 	private aGame game;
 	private iGameController gameController;
@@ -52,19 +53,22 @@ public class GameView implements iGameView {
 	}
 	
 	@Override
-	public JPanel getGameView() {
+	public JPanel getGameView() 
+	{
 		return gamePanel;
 	}
 
 	@Override
-	public void update(Observable arg0, Object arg1) {
+	public void update(Observable arg0, Object arg1) 
+	{
 		currentPlayerLabel.setText( game.getCurrentPlayer().getName() );
 	}
 	
 	private class RollButtonListener implements ActionListener
 	{
 		@Override
-		public void actionPerformed(ActionEvent e) {
+		public void actionPerformed(ActionEvent e) 
+		{
 			gameController.nextPlayerRolls();
 		}
 	}
