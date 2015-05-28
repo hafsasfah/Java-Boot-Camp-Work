@@ -11,12 +11,13 @@ public class Player extends AbstractPlayer {
 	private int gameID;
 	private AbstractProperty currentLocation;
 	
-	public Player( String name, int money, int gameID )
+	public Player( String name, int money, int gameID, AbstractProperty currentLocation )
 	{
 		this.name = name;
 		this.money = money;
 		this.gameID = gameID;
 		properties = new HashSet<AbstractProperty>();
+		this.currentLocation = currentLocation;
 	}
 	
 	public Player( int id, String name, int money, int gameID, HashSet<AbstractProperty> properties, AbstractProperty currentLocation )
