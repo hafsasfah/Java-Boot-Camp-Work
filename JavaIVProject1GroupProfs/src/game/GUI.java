@@ -57,7 +57,7 @@ public class GUI extends JFrame
 			}
 			catch ( Exception ex )
 			{
-				startLabel.setText("Please enter a valid number of players");
+				ex.printStackTrace();
 			}
 		}
 	}
