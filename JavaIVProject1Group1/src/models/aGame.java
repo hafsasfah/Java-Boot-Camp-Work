@@ -14,4 +14,9 @@ public abstract class aGame {
 		
 	}
 
+	public Object getName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
