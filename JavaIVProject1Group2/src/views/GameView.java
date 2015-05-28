@@ -2,9 +2,9 @@ package views;
 import java.util.*;
 
 import javax.swing.JPanel;
-public class GameView<Monopoly>  implements IView{
+public class GameView<GameBoard>  implements IView{
 	
-	public GameView(Monopoly game) {
+	public GameView(GameBoard game) {
 	}
 
 	@Override

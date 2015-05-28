@@ -28,17 +28,7 @@ public class Monopoly extends JApplet
 	
 	public static void main(String []args)
 	{
-		int totalPlayer = 0;
 		
-		while(totalPlayer < 2 || totalPlayer > 8)
-		{
-			Scanner keyboard = new Scanner(System.in);
-			JOptionPane.showInputDialog("Enter Total Players: ");
-			totalPlayer = keyboard.nextInt();
-			
-		}
-		
-		Monopoly game = new Monopoly(totalPlayer);
 	
 	}
 	

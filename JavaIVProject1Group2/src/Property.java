@@ -4,6 +4,8 @@ import java.awt.*;
 import java.awt.geom.Rectangle2D;
 import java.util.ArrayList;
 
+import logic.DiceRoll;
+
 public class Property 
 {
 	
@@ -15,7 +17,19 @@ public class Property
 	private String name;
 	private int cost;
 	private int ID;
+	
 	ArrayList<Property> property = new ArrayList<Property>();	
+	
+
+	public Property()
+	{
+		
+		
+		this.ID = DiceRoll.getRollOne();
+		this.ID = DiceRoll.getRollTwo();
+
+	}
+	
 	
 	public Property(int id, String name, int cost)
 	{
@@ -23,6 +37,7 @@ public class Property
 		this.ID = id;
 		this.name = name;
 		this.cost = cost;
+	
 	}
 	
 	
@@ -66,7 +81,10 @@ public class Property
 	}
 	
 
-	
+	public ArrayList<Property> getProperty()
+	{
+		return property;
+	}
 	
 	public void initializingPropertyTest()
 	{
@@ -113,6 +131,10 @@ public class Property
 		
 	}
 		
+	
+	
+	
+	
 	
 	
 	

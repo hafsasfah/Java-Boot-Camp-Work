@@ -1,5 +1,8 @@
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -7,6 +10,7 @@ import javax.swing.JApplet;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
@@ -24,8 +28,6 @@ public class GameBoard extends JFrame
 	private int gridForX = 0;
 	private int gridForY = 0;
 	private JButton diceRoll;
-	private Player player;
-	private DiceRoll dice;
 	
 	ArrayList<Property> property = new ArrayList<Property>();				//Not Used yet
 	
@@ -34,12 +36,18 @@ public class GameBoard extends JFrame
 
 	public static void main(String[]args)
 	{
-		
 		new GameBoard().setVisible(true);
 		
+			int totalPlayer = 0;
+		
+		while(totalPlayer < 2 || totalPlayer > 8)
+		{
+			Scanner keyboard = new Scanner(System.in);
+			JOptionPane.showInputDialog("Enter Total Players: ");
+			totalPlayer = keyboard.nextInt();
+		}
 	}
 	
-
 	
 	public GameBoard()
 	{
@@ -212,8 +220,8 @@ public class GameBoard extends JFrame
 	
 		
 	
-		
 	
+			
 	
 	
 	

@@ -13,6 +13,8 @@ public class Player {
 	private int money = 1500;
 	private static Player currentPlayer;
 	private Property location;
+	private int position;
+	
 	
 	
 	public Player( int id, String name, int money )
@@ -113,16 +115,19 @@ public class Player {
 	}
 	
 	
-	public void changePlayer()
+	public int getCurrentPosition()
 	{
-		
-	
-		
+		return position;
 		
 	}
 	
-	
-	
+	public void setCurrentPosition(int position)
+	{
+		
+		this.position = position;
+		
+		
+	}
 	
 	//Shows the image of player
 	public void render(Graphics g) {
