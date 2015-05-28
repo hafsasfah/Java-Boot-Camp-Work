@@ -28,13 +28,16 @@ public class PlayerView implements IPlayerView {
 		panel = new JPanel();
 		panel.setLayout( new GridLayout( 3, 1 ));
 		nameLabel = new JLabel( player.getName() );
-		moneyLabel = new JLabel( "Money: " + player.getMoney() );
-		currentLocationLabel = new JLabel( "Parked: " + player.getCurrentLocation().getName() );
-		propertyLabel = new JLabel( createPropertyLabelString()  );
+		moneyLabel = new JLabel();
+		currentLocationLabel = new JLabel();
+		propertyLabel = new JLabel();
+		
 		
 		panel.add(nameLabel);
 		panel.add(moneyLabel);
 		panel.add(propertyLabel);
+		
+		update(null,null);
 	}
 	
 	@Override
