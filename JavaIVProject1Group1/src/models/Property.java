@@ -13,6 +13,7 @@ public class Property extends aProperty {
 	public Coordinates coord;
 	private Players player;
 	ArrayList<Players> parkedPlayers;
+	public boolean BUYABLE = true;
 	
 	
 	
@@ -26,7 +27,8 @@ public class Property extends aProperty {
 	}
 	
 	public Property(String name, int ID, int rentPrice, int purchasePrice, 
-			int row, int column) {
+			int row, int column)
+	{
 		this.name = name;
 		this.ID = ID;
 		this.rentPrice = rentPrice;

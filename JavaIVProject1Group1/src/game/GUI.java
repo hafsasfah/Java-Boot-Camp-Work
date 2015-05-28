@@ -3,11 +3,22 @@ package game;
 
 
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 
 import javax.swing.*;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.LineBorder;
 
+
+
+
+
+
+import views.PropertyView;
 import models.Property;
 import data.PanelGenerator;
 
@@ -23,7 +34,8 @@ public class GUI extends JFrame
 	private static final long serialVersionUID = 1L;
 	
 	public JPanel GameScreen;
-	public JPanel Gameboard;
+	public JPanel Monopoly;
+
 	
 	public JPanel[][] propertytiles;
 	
@@ -33,76 +45,23 @@ public class GUI extends JFrame
 	
 	public GUI()
 	{
-		Property test1 = new Property(0,0,"Test1");
-		Property test2 = new Property(3,0,"Test2");
-		Property test3 = new Property(3,3,"Test3");
-		testdatabase.add(test1);
-		testdatabase.add(test2);
-		testdatabase.add(test3);
-		
-		setSize(600, 600);
+
+
+		setSize(800, 600);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setResizable(false);
+		//setResizable(false);
 		GameScreen = new JPanel();
-		Gameboard = new JPanel();
+		Monopoly = new JPanel();
 		GameScreen.setLayout(new GridLayout(2,1));
-		Gameboard.setLayout(new GridLayout(4,4));
-		buildBoard(testdatabase);
-		translateJframes(propertytiles);
 		
-		GameScreen.add(Gameboard);
+		PropertyView panelgenerator = new PropertyView();
+		panelgenerator.buildBoard();
+		Monopoly = panelgenerator.translateJframes();
+		
+		
+		GameScreen.add(Monopoly);
 		this.add(GameScreen);
 		setVisible(true);
-	}
-	
-	public void buildBoard(ArrayList<Property> database) 
-	/* read each property from database
-	 * 
-	 * create a panel for the property
-	 * 
-	 * add property to gameboard JFrame based on the coordinates from the database
-	 * 
-	 * 
-	 */
-	{
-		//add specified panels
-		PanelGenerator panelgenerator = new PanelGenerator();
-		propertytiles = new JPanel[4][4];
-		for(int x = 0; x <= database.size() - 1 ; x++)
-		{
-			JPanel tempframe = panelgenerator.CreateAPanel(database.get(x));
-			propertytiles[(database.get(x).coord.getRow())][(database.get(x).coord.getColumn())] = tempframe;
-				
-		}
-		//fill in the empty JPanel slots
-		for(int i = 0; i < propertytiles.length; i++)
-			{
-			for(int k = 0; k < propertytiles[0].length; k++)
-			{
-				if(propertytiles[i][k] == null)
-				{
-					propertytiles[i][k] = new JPanel();
-				}
-					
-			}
-				
-		}
-			
-	}
-	
-	public void translateJframes(JPanel[][] propertytiles)
-	//output JPanels to the Gameboard Panel
-	{
-	for(int i = 0; i < propertytiles.length; i++)
-		{
-			for(int k = 0; k < propertytiles[0].length; k++)
-			{
-				Gameboard.add(propertytiles[i][k]);
-					
-			}
-				
-		}	
-			
 	}
 	
 	
