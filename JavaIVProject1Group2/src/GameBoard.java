@@ -175,7 +175,7 @@ public class GameBoard extends JFrame
 														GridBagConstraints.BOTH,
 														new Insets(0,0,0,0), 0, 0));
 				
-				JLabel start = new JLabel(" START");
+				JLabel start = new JLabel(" GO! ");
 				getContentPane().add(start, new GridBagConstraints(3, 3, 11, 11, 1.2, 1.2,
 														GridBagConstraints.SOUTHEAST,
 														GridBagConstraints.CENTER,
