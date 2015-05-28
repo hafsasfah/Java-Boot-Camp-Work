@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -21,7 +22,7 @@ public class GameBoard extends JFrame
 	private int gridForX = 0;
 	private int gridForY = 0;
 	 
-	
+	ArrayList<Property> property = new ArrayList<Property>();				//Not Used yet
 	
 	
 	//Creates the platforms for the Game board  

@@ -18,7 +18,7 @@ public class Property
 	
 	
 	
-	public Property(int n, int x, int y, String a, String name, int cost, Color color)
+	public Property(String name, int cost, Color color)
 	{
 		
 		this.name = name;
