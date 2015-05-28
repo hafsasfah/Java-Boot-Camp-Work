@@ -2,6 +2,7 @@ package views;
 
 import java.util.Observable;
 
+import javax.swing.BorderFactory;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -12,7 +13,6 @@ public class PropertyView implements IPropertyView {
 
 	private AbstractProperty property;
 	private JPanel panel;
-	private JLabel nameLabel;
 	private JLabel ownerLabel;
 	private JLabel purchasePriceLabel;
 	private JLabel rentalPriceLabel;
@@ -21,14 +21,15 @@ public class PropertyView implements IPropertyView {
 	public PropertyView( AbstractProperty property )
 	{
 		this.property = property;
+		property.addObserver(this);
+		
 		panel = new JPanel();
-		nameLabel = new JLabel( property.getName() );
+		panel.setBorder( BorderFactory.createTitledBorder( property.getName() ));
 		ownerLabel = new JLabel();
 		purchasePriceLabel = new JLabel();
 		rentalPriceLabel = new JLabel();
 		parkedPlayersLabel = new JLabel();
 		
-		panel.add( nameLabel );
 		panel.add( ownerLabel );
 		panel.add( purchasePriceLabel );
 		panel.add( rentalPriceLabel );
@@ -39,7 +40,14 @@ public class PropertyView implements IPropertyView {
 	
 	@Override
 	public void update(Observable o, Object arg) {
-		ownerLabel.setText( "Owner:" + property.getOwner().getName() );
+		if ( property.getOwner() != null )
+		{
+			ownerLabel.setText( "Owner:" + property.getOwner().getName() );
+		}
+		else
+		{
+			ownerLabel.setText( "Owner:" );
+		}
 		purchasePriceLabel.setText( "Purchase Price: " + property.getPurchasePrice() );
 		rentalPriceLabel.setText( "Rental Price: " + property.getRentalPrice() );
 		parkedPlayersLabel.setText( createParkedPlayersLabelString() );
