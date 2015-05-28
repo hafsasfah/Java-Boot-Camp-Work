@@ -19,6 +19,8 @@ public class PlayersView implements iPlayersView
 {
 	public JPanel Playerboard;
 	ArrayList<Players> listofplayers;
+	int turn = 0;
+	
 	public PlayersView()
 	{
 		Playerboard = new JPanel();
@@ -46,18 +48,32 @@ public class PlayersView implements iPlayersView
 			JPanel tempframe = new JPanel();
 			tempframe.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 			JTextArea propertyName = new JTextArea(listofplayers.get(i).getName(),10,5);
-			//propertyName.append(listofplayers.get(i).getName());
+			JLabel propertyName2 = new JLabel(String.valueOf("\n" + "(" + listofplayers.get(i).coord.getRow())+ ","
+											+ String.valueOf(listofplayers.get(i).coord.getColumn()) + ")");
 			propertyName.append(String.valueOf("\n" + "$" + listofplayers.get(i).getCash()));
-			propertyName.append(String.valueOf("\n" + "(" + listofplayers.get(i).coord.getRow())+ ","
-													+ String.valueOf(listofplayers.get(i).coord.getColumn()) + ")");
 			propertyName.setEditable(false);
 			tempframe.add(propertyName);
-			Playerboard.add(tempframe);	
+			tempframe.add(propertyName2);
+			Playerboard.add(tempframe);
 					
 		}
 		
 		return Playerboard;
 	
+	}
+	
+	public void nextTurn(int rollResult)
+	{
+		
+		listofplayers.get(turn).takeTurn(rollResult);
+		if(turn == listofplayers.size())
+		{
+			turn = 0;
+		}
+		else
+			turn++;
+		
+		
 	}
 	
 	
@@ -72,11 +88,6 @@ public class PlayersView implements iPlayersView
 		
 	}
 
-	@Override
-	public JPanel getPlayerPanel() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 		
 		
 }

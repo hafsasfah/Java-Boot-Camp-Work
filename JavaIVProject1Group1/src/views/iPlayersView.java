@@ -4,5 +4,7 @@ import javax.swing.JPanel;
 
 public interface iPlayersView extends Observer {
 	
-	JPanel getPlayerPanel();
+	JPanel translateJframes();
+	void getPlayers();
+	void nextTurn(int x);
 }
