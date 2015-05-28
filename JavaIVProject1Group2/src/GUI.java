@@ -22,10 +22,6 @@ import javax.swing.WindowConstants;
 
 import logic.DiceRoll;
 
-
-
-//******Game board will build on the overall design of the game******//
-
 public class GUI extends JFrame 
 {
 
@@ -43,18 +39,21 @@ public class GUI extends JFrame
 	{
 		new GUI().setVisible(true);
 		
+		String player1;
+		String player2;
+
+		Scanner keyboard = new Scanner(System.in);
+		JOptionPane.showInputDialog("Player 1 enter your name ");
+		player1 = keyboard.toString();
 		
-			int totalPlayer = 0;
 		
-		while(totalPlayer < 2 || totalPlayer > 8)
-		{
-			Scanner keyboard = new Scanner(System.in);
-			JOptionPane.showInputDialog("Enter Total Players: ");
-			totalPlayer = keyboard.nextInt();
-			
-			 
-		}
+		JOptionPane.showInputDialog("Player 2 enter your name ");
+		player2 = keyboard.toString();
+	
 	}
+		
+		
+
 	
 	
 	public GUI()
@@ -66,10 +65,15 @@ public class GUI extends JFrame
 		setSize(1000,700);
 		setPreferredSize(new Dimension(1000, 700));
 		
+	
 		JLabel bank = new JLabel("Bank");
 		getContentPane().add(bank, BorderLayout.NORTH);
 		
 		createThePanels();
+		
+		
+		
+		
 		
 	
 		
@@ -90,7 +94,7 @@ public class GUI extends JFrame
 		
 		
 		getContentPane().setLayout(accessLayout);
-		
+	
 		
 		
 		JLabel jail = new JLabel("   Jail  ");
@@ -183,6 +187,7 @@ public class GUI extends JFrame
 					break;
 				
 				}
+				
 							
 				getContentPane().add(tempPanel, 
 						new GridBagConstraints(gridForX, gridForY, 
@@ -198,13 +203,6 @@ public class GUI extends JFrame
 				tempPanel.setBackground(Color.CYAN);
 
 				
-				JPanel innerPanel = new JPanel();
-				innerPanel.setBackground(Color.WHITE);
-				
-				getContentPane().add(innerPanel, new GridBagConstraints(1, 1, 11, 11, 0.0, 0.0,
-														GridBagConstraints.CENTER,
-														GridBagConstraints.BOTH,
-														new Insets(0,0,0,0), 0, 0));
 				
 				JLabel start = new JLabel(" GO! ");
 				getContentPane().add(start, new GridBagConstraints(3, 3, 11, 11, 1.2, 1.2,
@@ -218,7 +216,8 @@ public class GUI extends JFrame
 														GridBagConstraints.NORTHEAST,
 														GridBagConstraints.EAST,
 														new Insets(0,0,0,0),20, 0));
-				
+	
+			
 				 new DiceRoll();
 				
 				JButton play = new JButton("Dice Roll");
@@ -226,7 +225,8 @@ public class GUI extends JFrame
 				{
 					public  void actionPerformed(ActionEvent e) 
 					{
-						javax.swing.JOptionPane.showMessageDialog (null,"you rolled "+ DiceRoll.getRoll());
+						GUI players = new GUI();
+						javax.swing.JOptionPane.showMessageDialog (null," rolled "+ DiceRoll.getRoll());
 					}
 				});
 				getContentPane().add(play, new GridBagConstraints(5, 5, 11, 11, 0.2, 0.2,
@@ -240,13 +240,19 @@ public class GUI extends JFrame
 														GridBagConstraints.CENTER,
 														GridBagConstraints.CENTER,
 														new Insets(0,20,0,0), 80, 0));
+				
+				
+				JPanel innerPanel = new JPanel();
+				innerPanel.setBackground(Color.WHITE);
+				
+
 				}
 			
 			}
 		
 		}	
 	
-		
+			
 	
 	
 			
