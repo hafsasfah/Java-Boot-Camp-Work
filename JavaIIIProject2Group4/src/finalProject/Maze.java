@@ -1,25 +1,20 @@
 package finalProject;
-import java.util.ArrayList;
+import java.util.Random;
 
-public class Maze extends DiceRoll {
+public class Maze  {
 
-	import java.util.Random;
+	
 
-public class Maze {
+ 
 
 	static Random r =  new Random();
 	static Random r2 = new Random();
 	static Random r3 = new Random();
 	static Random r4 = new Random();
 	
-	public static void main (String[] args) {
+	
 		
-		
-		String east,west,north,south;
-		
-	      switch (String) {
-		     case east: 
-		    	 System.out.println(roll1);
+	
 		    	  
 	static int north = r.nextInt(6)+1;
 	static int south  = r2.nextInt(6)+1; 
@@ -38,24 +33,10 @@ public class Maze {
 		    	 System.out.println("2 Orcs and a Dragon are in this room!");
 		    	 
 		    	 			break;
-		     case west:   
-		    	 System.out.println(roll2);
-		     case 2:   
-		    	 System.out.println("An Orc,2 Dragons and 5 wolves are in this room!");
-			 				break;
-		     case north:  
-		    	 System.out.println(roll3);
-		     case 3:  
-		    	 System.out.println("An Orc and 6 Dragons are in this room!");
-			 				break;
-		     case south: 
-		    	 System.out.println (roll4);
-		     case 4: 
-		    	 System.out.println ("9 Orcs and 2 Dragons are in this room!");
-			 				break;
+	
 	      		}
 		    
-			}	
+			
 		  
 		  
 	

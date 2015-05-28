@@ -206,9 +206,9 @@ public class GameBoard extends JFrame
 				JButton play = new JButton("Dice Roll");
 				play.addActionListener(new ActionListener()
 				{
-					public void actionPerformed(ActionEvent e) 
+					public  void actionPerformed(ActionEvent e) 
 					{
-						javax.swing.JOptionPane.showMessageDialog (null,"you rolled "+ DiceRoll.roll1);
+						javax.swing.JOptionPane.showMessageDialog (null,"you rolled "+ DiceRoll.getRoll());
 					}
 				});
 				getContentPane().add(play, new GridBagConstraints(5, 5, 11, 11, 0.2, 0.2,
