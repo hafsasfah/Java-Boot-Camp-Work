@@ -35,15 +35,30 @@ public class GameController implements IGameController {
 		gameRepository.create(game);
 		game.setID( gameRepository.getGameID(gameName) );
 		
+		AbstractProperty start = null;
+		
+		HashSet<AbstractProperty> properties = game.getProperties();
+		for ( int count = 0; count < 36; count++ )
+		{
+			AbstractProperty newProperty = new Property(count, count, "Name: " + count, 100, 25, null, new LinkedList<AbstractPlayer>(), 0);
+			if ( count == 0 )
+			{
+				start = newProperty;
+			}
+			properties.add( newProperty );
+		}
+		
+		
 		Queue<AbstractPlayer> players = game.getPlayers();
 		for ( int count = 0; count < playerNames.length; count++ )
 		{
-			Player newPlayer = new Player( playerNames[count], 1500, game.getID() );
+			Player newPlayer = new Player( playerNames[count], 1500, game.getID(), start );
 			playerRepository.create( newPlayer );
 			newPlayer.setID( playerRepository.getPlayerID( newPlayer.getName(), newPlayer.getGameID() ) );
 			players.add( newPlayer );
 		}		
 		game.setCurrentPlayer( players.peek() );
+		
 		gameView = new GameView( game, this );
 		
 		return gameView;
