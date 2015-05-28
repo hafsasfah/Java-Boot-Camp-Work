@@ -25,7 +25,7 @@ public class Players extends aPlayers
 	}
 
 	@Override
-	public String getMove() {
+	public String getName() {
 		
 		return this.name;
 	}

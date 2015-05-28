@@ -18,6 +18,8 @@ import javax.swing.border.LineBorder;
 
 
 
+
+import views.PlayersView;
 import views.PropertyView;
 import models.Property;
 
@@ -53,12 +55,15 @@ public class GUI extends JFrame
 		Monopoly = new JPanel();
 		GameScreen.setLayout(new GridLayout(2,1));
 		
+		PlayersView playerview = new PlayersView();
 		PropertyView panelgenerator = new PropertyView();
 		panelgenerator.buildBoard();
 		Monopoly = panelgenerator.translateJframes();
 		
+		playerview.getPlayers();
 		
 		GameScreen.add(Monopoly);
+		GameScreen.add(playerview.translateJframes());
 		this.add(GameScreen);
 		setVisible(true);
 	}
