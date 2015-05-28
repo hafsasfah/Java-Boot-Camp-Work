@@ -6,7 +6,12 @@ public class SampleClassTest {
 
 	@Test
 	public void test() {
-		SampleClass sampleClass = new SampleClass();
+		SampleClassTest sampleClass = new SampleClassTest();
 		assertTrue( sampleClass.isSample() );
+	}
+
+	private boolean isSample() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 }
