@@ -55,9 +55,11 @@ public class GameRepository implements iGameRepository {
 				aPlayers currentPlayer = playerRepository.get(results.getInt(3));
 				
 				Game savedGame = new Game(gameID, gameName);		
+				
+				return gameID;
 			}
 			
-			return results.getInt(1);
+			
 		}
 		catch (SQLException e) {
 			e.printStackTrace();
@@ -105,5 +107,4 @@ public class GameRepository implements iGameRepository {
 		}
 		return null;
 	}	
-
 }
