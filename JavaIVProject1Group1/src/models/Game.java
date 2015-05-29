@@ -14,22 +14,13 @@ public class Game extends aGame {
 	private int id;
 	private String name;
 	private HashSet<aProperty> properties;
-	private Queue<aPlayer> players;
-	private aPlayer currentPlayer;
+	//private Queue<aPlayer> players;
+	//private aPlayer currentPlayer;
 	
 	public Game(int gameID, String gameName) {
 		
 		this.gameID = gameID;
 		this.gameName = gameName;
-		
-		try {
-			Statement statement = connection.createStatement();
-			String insertsql = "CREATE TABLE \"Game\" (\"ID\" serial NOT NULL,\"Name\" character varying(50), \"Completed\" boolean, \"CurrentPlayer\" integer, CONSTRAINT \"PK\" PRIMARY KEY (\"ID\")) WITH ( OIDS=FALSE ); ALTER TABLE \"Game\" OWNER TO postgres;";
-			statement.execute(insertsql);
-		}
-			catch (Exception e) {
-				e.printStackTrace();
-		}
 	}
 
 	
@@ -66,6 +57,7 @@ public class Game extends aGame {
 		return properties;
 	}
 
+	/*
 	@Override
 	public Queue<aPlayer> getPlayers() 
 	{
@@ -87,12 +79,13 @@ public class Game extends aGame {
 		
 		return playersStillInGame == 1;
 	}
+	
 
 	@Override
 	public aPlayer getCurrentPlayer() {
 		return currentPlayer;
 	}
-
+*/
 	@Override
 	public void nextPlayersTurn( int roll ) {
 		players.add( players.remove() );

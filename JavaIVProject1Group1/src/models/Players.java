@@ -24,25 +24,6 @@ public class Players extends aPlayers
 	public Players(String name) {
 		this.name = name;
 		cash = 1500;
-		
-		try {
-			Statement statement = connection.createStatement();
-			String insertsql = "CREATE TABLE \"Players\" (\"ID\" serial NOT NULL, "
-					+ "\"Name\" character varying(50), \"Money\" integer, \"Game_ID\" integer, "
-					+ "\"ParkedProperty_ID\" integer,"
-					+ "CONSTRAINT \"Player_PK\" PRIMARY KEY (\"ID\"),"
-					+ "CONSTRAINT \"Player_Game_ID_FK\" FOREIGN KEY (\"Game_ID\") "
-					+ "REFERENCES \"Game\" (\"ID\") MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION)"
-					+ "WITH ( OIDS=FALSE ); ALTER TABLE \"Player\" OWNER TO postgres;"
-					+ "ALTER TABLE \"Game\" ADD CONSTRAINT \"Game_CurrentPlayer_FK\" FOREIGN KEY "
-					+ "(\"CurrentPlayer\") REFERENCES \"Player\" (\"ID\") "
-					+ "MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION;";
-		
-			statement.execute(insertsql);
-		}
-			catch (Exception e) {
-				e.printStackTrace();
-		}
 	}
 	
 	

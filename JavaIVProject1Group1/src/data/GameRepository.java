@@ -28,6 +28,19 @@ public class GameRepository implements iGameRepository {
 		}
 	}
 	
+	public void buildGameTable() {
+		try {
+			Statement statement = connection.createStatement();
+			String insertsql = "CREATE TABLE \"Game\" (\"ID\" serial NOT NULL,\"Name\" character varying(50), "
+					+ "\"Completed\" boolean, \"CurrentPlayer\" integer, CONSTRAINT \"PK\" PRIMARY KEY (\"ID\")) "
+					+ "WITH ( OIDS=FALSE ); ALTER TABLE \"Game\" OWNER TO postgres;";
+			statement.execute(insertsql);
+		}
+			catch (Exception e) {
+				e.printStackTrace();
+		}
+	}
+	
 	@Override
 	public boolean create(aGame game) {
 		try {
