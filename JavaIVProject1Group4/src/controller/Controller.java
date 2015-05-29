@@ -46,7 +46,7 @@ public class Controller extends Observable{
 	
 		GUI gui = new GUI(playerView, propView, gameboardView);
 		gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		gui.setSize(1000,750);
+		gui.setSize(1200,750);
 		gui.setVisible(true);
 		
 		
