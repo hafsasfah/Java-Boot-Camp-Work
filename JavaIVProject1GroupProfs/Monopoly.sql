@@ -11,6 +11,8 @@ GRANT ALL ON DATABASE "Monopoly" TO postgres;
 GRANT ALL ON DATABASE "Monopoly" TO public;
 
 
+\c Monopoly
+
 CREATE TABLE "Game"
 (
   "ID" serial NOT NULL,
