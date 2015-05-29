@@ -5,6 +5,7 @@ import java.util.Random;
 
 import javax.swing.JOptionPane;
 
+import models.FakeDatabase;
 import models.Players;
 import views.PlayersView;
 import views.iPlayersView;
@@ -15,7 +16,7 @@ public class PlayerController
 	int turn = 0;
 	public ArrayList<Players> listofplayers;
 	
-	
+	FakeDatabase database = new FakeDatabase();
 	public PlayersView playerview;
 	private Random random;
 	
@@ -27,8 +28,21 @@ public class PlayerController
 	
 	public void nextTurn()
 	{
+		int templocation = listofplayers.get(turn).getLocation();
 		int rollResult = (random.nextInt(6) + random.nextInt(6) + 2);
-		listofplayers.get(turn).takeTurn(rollResult);
+		if(templocation + rollResult > 40)
+		{
+			 templocation = templocation + rollResult - 40;
+			 listofplayers.get(turn).setLocationOccupied(database.testdatabase.get(templocation).getName());
+			 listofplayers.get(turn).setLocation(templocation);
+			 listofplayers.get(turn).takeTurn();
+		}
+		else
+		{
+			listofplayers.get(turn).setLocationOccupied(database.testdatabase.get(templocation + rollResult).getName());
+			listofplayers.get(turn).setLocation(templocation + rollResult);
+			listofplayers.get(turn).takeTurn();
+		}
 		if(turn + 1 == listofplayers.size())
 		{
 			turn = 0;

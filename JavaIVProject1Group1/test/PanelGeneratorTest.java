@@ -1,23 +1,24 @@
 import static org.junit.Assert.*;
-import interfaces.iProperty;
+
+import models.Property;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import data.PanelGenerator;
+import views.PropertyView;
 
 
 public class PanelGeneratorTest 
 {
 
 	
-	iProperty testproperty;
-	PanelGenerator panelgenerator;
+	Property testproperty;
+	PropertyView panelgenerator;
 			
 	@Before
 	public void setup()
 	{
-		panelgenerator = new PanelGenerator();
+		panelgenerator = new PropertyView();
 	}
 	
 	@Test
