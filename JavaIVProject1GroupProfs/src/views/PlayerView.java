@@ -28,6 +28,7 @@ public class PlayerView implements IPlayerView {
 		moneyLabel = new JLabel();
 		currentLocationLabel = new JLabel();
 		propertyLabel = new JLabel();
+		propertyLabel.setVerticalAlignment(SwingConstants.TOP);
 		
 		JPanel northPanel = new JPanel();
 		northPanel.setLayout( new GridLayout( 2, 1 ) );
@@ -35,11 +36,8 @@ public class PlayerView implements IPlayerView {
 		northPanel.add( moneyLabel );
 		northPanel.add( currentLocationLabel );
 		
-		JPanel centerPanel = new JPanel();
-		centerPanel.add( propertyLabel );
-		
 		panel.add(northPanel, BorderLayout.NORTH );
-		panel.add(centerPanel, BorderLayout.CENTER );
+		panel.add(propertyLabel, BorderLayout.WEST );
 		
 		update(null,null);
 	}
@@ -55,7 +53,7 @@ public class PlayerView implements IPlayerView {
 		}
 		else
 		{
-			currentLocationLabel.setText( "Parked: " + player.getCurrentLocation().getName() );
+			currentLocationLabel.setText( "On: " + player.getCurrentLocation().getName() );
 			propertyLabel.setText( createPropertyLabelString() );
 		}
 		
