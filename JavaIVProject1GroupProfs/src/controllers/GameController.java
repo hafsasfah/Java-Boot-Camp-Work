@@ -163,6 +163,7 @@ public class GameController implements IGameController {
 			if ( property.getName().equals("Jail"))
 			{
 				game.getCurrentPlayer().setCurrentLocation( property );
+				property.addParkedPlayer( game.getCurrentPlayer() );
 			}
 		}
 	}
