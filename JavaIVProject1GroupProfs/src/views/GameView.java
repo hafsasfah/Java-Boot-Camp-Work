@@ -37,11 +37,12 @@ public class GameView implements IGameView {
 		gamePanel.setLayout( new BorderLayout() );
 		
 		currentPlayerPanel = new JPanel();
+		currentPlayerPanel.setLayout( new GridLayout( 1, 4 ) );
 		titleLabel = new JLabel( );
 		currentPlayerLabel = new JLabel( );
 		lastRollLabel = new JLabel();
+		rollButton = new JButton();
 		update(null,null);
-		rollButton = new JButton("Roll");
 		rollButton.addActionListener( new RollButtonListener() );
 		currentPlayerPanel.add( titleLabel );
 		currentPlayerPanel.add( currentPlayerLabel );
@@ -116,11 +117,20 @@ public class GameView implements IGameView {
 		else
 		{
 			currentPlayerLabel.setText( "Current Player: " + game.getCurrentPlayer().getName() );
-			if (game.getLastRoll() != 0 )
+			if (game.getPreviousRoll() != 0 )
 			{
-				lastRollLabel.setText( game.getCurrentPlayer().getName() + " rolled a " + game.getLastRoll()
-						+ " and landed on " + game.getCurrentPlayer().getCurrentLocation().getName() );
+				lastRollLabel.setText( game.getPreviousPlayer().getName() + " rolled a " + game.getPreviousRoll()
+						+ " and landed on " + game.getPreviousPlayer().getCurrentLocation().getName() );
 			}
+		}
+		
+		if ( game.getPreviousPlayer() == game.getCurrentPlayer() )
+		{
+			rollButton.setText("Roll Again!");
+		}
+		else
+		{
+			rollButton.setText("Roll");
 		}
 		
 	}

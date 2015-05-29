@@ -10,8 +10,9 @@ public abstract class AbstractGame extends Observable {
 	public abstract Queue<AbstractPlayer> getPlayers();
 	public abstract boolean hasWinner();
 	public abstract AbstractPlayer getCurrentPlayer();
+	public abstract AbstractPlayer getPreviousPlayer();
 	public abstract void setCurrentPlayer( AbstractPlayer player );
-	public abstract void nextPlayersTurn( );
-	public abstract int getLastRoll();
-	public abstract void setLastRoll( int lastRoll );
+	public abstract void nextPlayersTurn( boolean rolledDoublesAndGetsToGoAgain );
+	public abstract int getPreviousRoll();
+	public abstract void setPreviousRoll( int previousRoll );
 }

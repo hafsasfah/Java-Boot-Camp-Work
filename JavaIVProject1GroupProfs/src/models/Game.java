@@ -9,7 +9,9 @@ public class Game extends AbstractGame {
 	private ArrayList<AbstractProperty> properties;
 	private Queue<AbstractPlayer> players;
 	private AbstractPlayer currentPlayer;
-	private int lastRoll;
+	private int previousRoll;
+	private AbstractPlayer previousPlayer;
+	private boolean previousRollWasDoubles;
 	
 	public Game( String name )
 	{
@@ -79,23 +81,32 @@ public class Game extends AbstractGame {
 	}
 
 	@Override
-	public void nextPlayersTurn( ) {
-		players.remove();
-		if ( !currentPlayer.hasLostGame() )
+	public void nextPlayersTurn( boolean rolledDoublesAndGetsToGoAgain ) {
+		if ( !rolledDoublesAndGetsToGoAgain )
 		{
-			players.add( currentPlayer );
+			players.remove();
+			if ( !currentPlayer.hasLostGame() )
+			{
+				players.add( currentPlayer );
+			}
 		}
 		
+		previousPlayer = currentPlayer;
 		currentPlayer = players.peek();
 		setChanged();
 		notifyObservers();
 	}
 
-	public int getLastRoll() {
-		return lastRoll;
+	public int getPreviousRoll() {
+		return previousRoll;
 	}
 
-	public void setLastRoll(int lastRoll) {
-		this.lastRoll = lastRoll;
+	public void setPreviousRoll(int previousRoll) {
+		this.previousRoll = previousRoll;
+	}
+
+	@Override
+	public AbstractPlayer getPreviousPlayer() {
+		return previousPlayer;
 	}
 }
