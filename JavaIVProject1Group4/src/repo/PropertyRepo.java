@@ -16,7 +16,7 @@ public class PropertyRepo {
 	public static void main(String [] args)
 	{
 		//buildDatabase();
-       new PropertyRepo();
+     //  new PropertyRepo();
 	}
 	
 	public Property[] buildProps(){
@@ -49,43 +49,6 @@ public class PropertyRepo {
 		
 		return props;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	private static void buildDatabase(){
 		 Connection connection;
 	       

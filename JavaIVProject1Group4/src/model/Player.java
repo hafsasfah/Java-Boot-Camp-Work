@@ -6,6 +6,7 @@ public class Player implements iPlayer {
 	String name;
 	int location;
 	int cash;
+	boolean isntBankrupt = true;
 	ArrayList<Property> ownedProperties;
 	
 	
@@ -18,6 +19,14 @@ public class Player implements iPlayer {
 	public String getName(){
 		return name;
 	}
+	public boolean playerIsntBankrupt(){
+			return isntBankrupt;
+		}
+		
+	public void playerWentBankrupt(){
+		this.isntBankrupt = false;
+	}
+	
 	public void addProp(Property prop){
 		ownedProperties.add(prop);
 	}

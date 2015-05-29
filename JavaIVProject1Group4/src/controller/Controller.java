@@ -3,6 +3,7 @@ package controller;
 import java.util.Observable;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import view.GameboardView;
 import view.PlayerView;
@@ -85,6 +86,10 @@ public class Controller extends Observable{
 		
 		 control.setChanged();
 	     control.notifyObservers();
+	     
+	     
+	     
+	     
 			
 	}
 	
@@ -92,6 +97,9 @@ public class Controller extends Observable{
 	{
 		int rentFee = currentProp.getPurchasePrice();
 		players[currentPlayer].setCash(-rentFee);
+		if(rentFee>players[currentPlayer].getCash()){
+	    	 players[currentPlayer].playerWentBankrupt();
+	     }
 		
 		players[ currentProp.getOwner()].setCash(rentFee);	
 		control.setChanged();
@@ -113,9 +121,34 @@ public class Controller extends Observable{
 		//System.out.println(players[currentPlayer].getName());
 		 control.setChanged();
 	     control.notifyObservers();
+	     if(!players[currentPlayer].playerIsntBankrupt()){
+	    	 gameStatusCheck();
+	    	 endTurn();
+	    	 
+	     }
+	     
 		
 	}
-
+	public static void gameStatusCheck(){
+		int playersleft = 0;
+		Player winner = players[0];
+		for(int i=1;i<players.length;i++){
+			if(players[i].playerIsntBankrupt()){
+				continue;
+			}
+			else
+				playersleft++;
+			
+		}
+		
+		if (playersleft <= 0){
+			for(int i=1;i<players.length;i++){
+				if(players[i].playerIsntBankrupt())
+					winner = players[i];
+			}
+			JOptionPane.showMessageDialog(null, winner.getName() + "is the winner!");
+		}
+	}
 	public static void buyProp()
 	{
 		
@@ -124,6 +157,9 @@ public class Controller extends Observable{
 		players[currentPlayer].addProp(currentProp);
 		control.setChanged();
 	     control.notifyObservers();
+	     if(propertyPrice>players[currentPlayer].getCash()){
+	    	 JOptionPane.showMessageDialog(null, "Player can't afford this property");
+	     }
 		
 	}
 
