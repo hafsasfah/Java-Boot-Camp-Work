@@ -5,19 +5,20 @@ import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 
+import jdk.nashorn.internal.runtime.Property;
 
 
 
-public class PropertyView implements Observer 
+
+public class PropertyView<GameController> implements Observer 
 {
-	private GameController player;
+	public  GameController player;
 	 
 	
 	
 	   public static void main(String[] args) {
 		   // creates watched and watcher objects
-		   Property watched = new Property("Original Value");
-		   	GameControlle
+		   String watched = ("Original Value");
 		   }	
 		   
 		   public void update(Observable obj, Object arg) {
