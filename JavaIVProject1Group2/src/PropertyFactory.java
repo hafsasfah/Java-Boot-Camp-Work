@@ -8,10 +8,11 @@ public class PropertyFactory extends Property implements iPropertyFactory
 				
 				
 				
-				public PropertyFactory(ArrayList<Property> property	)
+				public PropertyFactory(ArrayList<Property> property)
 				{
 					
 					this.property = property;
+					
 			
 				}
 				
@@ -21,6 +22,9 @@ public class PropertyFactory extends Property implements iPropertyFactory
 				{
 					return property;
 				}
+				
+				
+				
 				
 				public void setPropertyDataBase( ArrayList<Property> property)
 				{

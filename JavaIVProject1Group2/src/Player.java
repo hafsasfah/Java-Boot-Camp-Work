@@ -19,12 +19,13 @@ public class Player implements IPlayer
 	
 	
 	
-	public Player( int id, String name, int money, int PropertyOwned)
+	public Player( int id, String name, int money, int position, int PropertyOwned)
 	{
 		this.id = id;
 		this.name = name;
 		this.money = money;
 		this.propertyOwned = PropertyOwned;
+		this.position = position;
 	}
 	
 	public int getID() {

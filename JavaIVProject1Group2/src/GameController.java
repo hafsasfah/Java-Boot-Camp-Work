@@ -21,10 +21,10 @@ public class GameController
 	
 		
 		LinkedList<Player> object = new LinkedList<Player>();
-		ArrayList<Property> property = new ArrayList<Property>();	
+		ArrayList<PropertyFactory> property = new ArrayList<PropertyFactory>();	
 		
 		
-		public GameController(LinkedList<Player> playerObject, ArrayList<Property> propertyObject, 
+		public GameController(LinkedList<Player> playerObject, ArrayList<PropertyFactory> propertyObject, 
 				DiceRoll dice, Player[] aPlayer, int totalPlayers)
 		{
 			this.object = playerObject;
@@ -52,7 +52,7 @@ public class GameController
 			for(int i = 0; i < aPlayer.length; i++)
 			{
 				
-				aPlayer[i] = new Player(i, "Player " + (i +1), i, i);
+				aPlayer[i] = new Player(i, "Player " + (i +1), i, i, i);
 				
 			}
 			
@@ -78,9 +78,19 @@ public class GameController
 			
 			if(DiceRoll.getRoll() == aProperty.getID())
 			{
-				aPlayer[i].setMoney(aPlayer[i].getMoney() - aProperty.getPropertyCost());
+				if(aPlayer[i].getCurrentPosition() == aProperty.getID())
+				{
+					JOptionPane.showMessageDialog(null,"Player: " + aPlayer[i] + " is located at: " + aProperty.getID());
+				}if(aProperty.getPropertyCost() < aPlayer[i].getMoney())
+				{
+					aPlayer[i].setMoney(aPlayer[i].getMoney() - aProperty.getPropertyCost());
+					JOptionPane.showMessageDialog(null, aPlayer[i] + " has bought something!" 
+					+" Your remaining money: " + aPlayer[i].getMoney());
 				
-				System.out.println(aPlayer[i] + "has bought something!" + aPlayer[i].getMoney());
+				}if(aProperty.getPropertyCost() > aPlayer[i].getMoney())
+				{
+					JOptionPane.showMessageDialog(null, "You do not have enough money for buy that!");
+				}
 				
 			}else if(aPlayer[i].getMoney() < 0)
 			{
