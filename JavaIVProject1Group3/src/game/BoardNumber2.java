@@ -284,7 +284,7 @@ public BoardNumber2()
 	player1panel.add(ply1Label);
 	
 	JButton roll = new JButton("");
-	roll.setIcon(new ImageIcon (getClass().getResource("dice.jpg")));
+	roll.setIcon(new ImageIcon (getClass().getResource("200 .gif")));
 	CenterPanel.add(roll);
 	
 	JPanel player2panel = new JPanel();
