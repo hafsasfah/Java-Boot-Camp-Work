@@ -13,7 +13,7 @@ import views.iPlayersView;
 public class PlayerController 
 {
 	
-	int turn = 0;
+	public int turn = 0;
 	public ArrayList<Players> listofplayers;
 	
 	FakeDatabase database = new FakeDatabase();

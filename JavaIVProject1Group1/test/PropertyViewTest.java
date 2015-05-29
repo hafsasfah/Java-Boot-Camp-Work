@@ -8,7 +8,7 @@ import org.junit.Test;
 import views.PropertyView;
 
 
-public class PanelGeneratorTest 
+public class PropertyViewTest 
 {
 
 	
