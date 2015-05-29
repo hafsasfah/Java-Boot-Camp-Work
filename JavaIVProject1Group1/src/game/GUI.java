@@ -25,9 +25,13 @@ import javax.swing.border.LineBorder;
 
 
 
+
+
 import controllers.PlayerController;
+import controllers.PropertyController;
 import views.PlayersView;
 import views.PropertyView;
+import models.FakeDatabase;
 import models.Property;
 
 
@@ -49,13 +53,12 @@ public class GUI extends JFrame
 	
 	public JPanel[][] propertytiles;
 	
-	public ArrayList<Property> testdatabase = new ArrayList<Property>(); //serve as a substitute for table of properties from database
+	//public ArrayList<Property> testdatabase = new ArrayList<Property>(); //serve as a substitute for table of properties from database
 
 	
 	
 	public GUI()
 	{
-
 		setSize(800, 600);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//setResizable(false);
@@ -66,9 +69,9 @@ public class GUI extends JFrame
 		GameScreen.setLayout(new GridLayout(2,1));
 		
 		//PlayerController playercontrol = new PlayerController();
-		PropertyView panelgenerator = new PropertyView();
-		panelgenerator.buildBoard();
-		Monopoly = panelgenerator.translateJframes();
+		
+		PropertyController boardgenerator = new PropertyController();
+		Monopoly = boardgenerator.translateJframes();
 		
 		playercontrol.getPlayers();
 		taketurn = new JButton("Take Turn");

@@ -5,5 +5,5 @@ import javax.swing.JPanel;
 
 public interface iPropertyView extends Observer 
 {
-	JPanel translateJframes();
+	//JPanel translateJframes();
 }

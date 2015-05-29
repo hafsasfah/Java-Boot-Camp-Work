@@ -11,12 +11,29 @@ public class Players extends aPlayers
 {
 	public PlayersView playerview;
 	private String name;
-	private int location;
+	public String locationOccupied = "Collect & Go";
+	private int location = 0;
 	private int cash = 1500;
 	private int id;
 	public Coordinates coord = new Coordinates();
 	
 	
+	public String getLocationOccupied() {
+		return locationOccupied;
+	}
+
+	public void setLocationOccupied(String locationOccupied) {
+		this.locationOccupied = locationOccupied;
+	}
+
+	public int getLocation() {
+		return location;
+	}
+
+	public void setLocation(int location) {
+		this.location = location;
+	}
+
 	public Players(String name,int x, int y, int id, PlayersView view)
 	{
 		this.name = name;
@@ -26,50 +43,10 @@ public class Players extends aPlayers
 		
 	}
 
-	public void takeTurn(int rollResult)
+	public void takeTurn()
 	{
-		if(this.coord.getRow() == 10 && ((this.coord.getColumn() - rollResult) < 0))
-		{
-			rollResult = rollResult - this.coord.getColumn();
-			this.coord.setColumn(0);
-			this.coord.setRow(this.coord.getRow() - rollResult);
-			setChanged();
-			notifyObservers();
-		}
-		else if(this.coord.getRow() == 10 && this.coord.getColumn() >= 0)
-		{
-			this.coord.setColumn(this.coord.getColumn() - rollResult);
-			setChanged();
-			notifyObservers();
-		}
-		if(this.coord.getColumn() == 0 && (this.coord.getRow() - rollResult) < 0)
-		{
-			rollResult = rollResult - this.coord.getRow();
-			this.coord.setRow(0);
-			this.coord.setColumn(this.coord.getColumn() + rollResult);
-			setChanged();
-			notifyObservers();
-		}
-		else if(this.coord.getColumn() == 0 && this.coord.getRow() >= 0)
-		{
-			this.coord.setRow(this.coord.getRow() - rollResult);
-			setChanged();
-			notifyObservers();
-		}
-		if(this.coord.getRow() == 0 && ((this.coord.getColumn() + rollResult) > 10))
-		{
-			rollResult = rollResult - this.coord.getColumn();
-			this.coord.setColumn(5);
-			this.coord.setRow(this.coord.getRow() + rollResult);
-			setChanged();
-			notifyObservers();
-		}
-		else if(this.coord.getRow() == 0 && this.coord.getColumn() <= 10)
-		{
-			this.coord.setColumn(this.coord.getColumn() - rollResult);
-			setChanged();
-			notifyObservers();
-		}
+		setChanged();
+		notifyObservers();
 	}
 	
 	

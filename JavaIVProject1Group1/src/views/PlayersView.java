@@ -38,8 +38,7 @@ public class PlayersView implements iPlayersView
 		JPanel tempframe = new JPanel();
 		tempframe.setBorder(BorderFactory.createLineBorder(Color.BLACK));
 		JTextArea propertyName = new JTextArea(player.getName(),10,5);
-		propertyName2.setText(String.valueOf("\n" + "(" + player.coord.getRow())+ ","
-											+ String.valueOf(player.coord.getColumn()) + ")");
+		propertyName2.setText(player.getLocationOccupied());
 		propertyName.append(String.valueOf("\n" + "$" + player.getCash()));
 		propertyName.setEditable(false);
 		tempframe.add(propertyName);
@@ -56,8 +55,7 @@ public class PlayersView implements iPlayersView
 	@Override
 	public void update(Observable o, Object arg) 
 	{
-		this.propertyName2.setText(String.valueOf("\n" + "(" + player.coord.getRow())+ ","
-											+ String.valueOf(player.coord.getColumn()) + ")");
+		this.propertyName2.setText(player.getLocationOccupied());
 		
 	}
 
