@@ -30,12 +30,14 @@ public class PlayerController
 	{
 		int templocation = listofplayers.get(turn).getLocation();
 		int rollResult = (random.nextInt(6) + random.nextInt(6) + 2);
-		if(templocation + rollResult > 40)
+		if(templocation + rollResult >= 40)
 		{
 			 templocation = templocation + rollResult - 40;
 			 listofplayers.get(turn).setLocationOccupied(database.testdatabase.get(templocation).getName());
 			 listofplayers.get(turn).setLocation(templocation);
+			 listofplayers.get(turn).setCash(listofplayers.get(turn).getCash() + 500);
 			 listofplayers.get(turn).takeTurn();
+			 
 		}
 		else
 		{
@@ -43,12 +45,31 @@ public class PlayerController
 			listofplayers.get(turn).setLocation(templocation + rollResult);
 			listofplayers.get(turn).takeTurn();
 		}
+		
+	}
+	public void handleTurn()
+	{
 		if(turn + 1 == listofplayers.size())
 		{
 			turn = 0;
 		}
 		else
 			turn++;
+	}
+
+	public void buyProperty() 
+	{
+		int templocation = listofplayers.get(turn).getLocation();
+		if(database.testdatabase.get(templocation).getPurchasePrice() == 0 || database.testdatabase.get(templocation).isBUYABLE() == false)
+		{
+			JOptionPane.showMessageDialog(null, "You can't buy that property!");
+		}
+		else
+		{
+			listofplayers.get(turn).setCash(listofplayers.get(turn).getCash() - database.testdatabase.get(templocation).getPurchasePrice());
+			database.testdatabase.get(templocation).setBUYABLE(false);
+			listofplayers.get(turn).takeTurn();
+		}
 		
 	}
 	
@@ -64,4 +85,5 @@ public class PlayerController
 		}
 			
 	}
+
 }

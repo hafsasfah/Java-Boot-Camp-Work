@@ -11,13 +11,17 @@ public class Players extends aPlayers
 {
 	public PlayersView playerview;
 	private String name;
-	public String locationOccupied = "Collect & Go";
+	public String locationOccupied = "GO";
 	private int location = 0;
 	private int cash = 1500;
 	private int id;
 	public Coordinates coord = new Coordinates();
 	
 	
+	public void setCash(int cash) {
+		this.cash = cash;
+	}
+
 	public String getLocationOccupied() {
 		return locationOccupied;
 	}

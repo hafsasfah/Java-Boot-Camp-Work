@@ -17,7 +17,7 @@ public class FakeDatabase
 	public void fillDatabase()
 	{
 		
-		Property GO = new Property("GO",1, 30, 60, 10, 10);
+		Property GO = new Property("GO",1, 0, 0, 10, 10);
 		Property MedAv = new Property("Med. Avenue",2, 30, 60, 10, 9);
 		Property CommChest1 = new Property("Comm. Chest",3, 0, 0, 10, 8);
 		Property BaltAve = new Property("Bal. Avenue",4, 30, 60, 10, 7);

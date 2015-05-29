@@ -2,6 +2,7 @@ package views;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.Observable;
 
@@ -21,6 +22,7 @@ public class PlayersView implements iPlayersView
 
 	public JPanel Playerboard;
 	JLabel propertyName2 = new JLabel();
+	JLabel playerCash = new JLabel();
 	PlayerController playercontroller;
 	Players player;
 	
@@ -37,12 +39,13 @@ public class PlayersView implements iPlayersView
 		this.player = player;
 		JPanel tempframe = new JPanel();
 		tempframe.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-		JTextArea propertyName = new JTextArea(player.getName(),10,5);
+		JTextArea propertyName = new JTextArea(player.getName(),5,7);
+		playerCash.setText(String.valueOf("\n" + "$" + player.getCash()));
 		propertyName2.setText(player.getLocationOccupied());
-		propertyName.append(String.valueOf("\n" + "$" + player.getCash()));
-		propertyName.setEditable(false);
 		tempframe.add(propertyName);
 		tempframe.add(propertyName2);
+		tempframe.add(playerCash);
+		tempframe.setLayout(new GridLayout(3,1));
 		Playerboard.add(tempframe);
 				
 		return Playerboard;
@@ -56,6 +59,7 @@ public class PlayersView implements iPlayersView
 	public void update(Observable o, Object arg) 
 	{
 		this.propertyName2.setText(player.getLocationOccupied());
+		this.playerCash.setText(String.valueOf("\n" + "$" + player.getCash()));
 		
 	}
 

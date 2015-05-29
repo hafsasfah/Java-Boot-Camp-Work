@@ -41,6 +41,14 @@ public class Property extends aProperty {
 		}
 	}
 	
+	public boolean isBUYABLE() {
+		return BUYABLE;
+	}
+
+	public void setBUYABLE(boolean bUYABLE) {
+		BUYABLE = bUYABLE;
+	}
+
 	public Property(int row, int column, String name)
 	{
 		coord = new Coordinates();
