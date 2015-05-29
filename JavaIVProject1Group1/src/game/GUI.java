@@ -59,6 +59,7 @@ public class GUI extends JFrame
 		{
 			PlayerPanel.add(playercontrol.listofplayers.get(i).playerview.translateJframes(playercontrol.listofplayers.get(i)));
 		}
+		buybutton.setEnabled(false);
 		PlayerPanel.add(taketurn);
 		PlayerPanel.add(endturn);
 		PlayerPanel.add(buybutton);
@@ -75,6 +76,7 @@ public class GUI extends JFrame
 		{
 			playercontrol.nextTurn();
 			taketurn.setEnabled(false);
+			buybutton.setEnabled(true);
 		}
 		
 		
@@ -87,6 +89,7 @@ public class GUI extends JFrame
 		{
 			playercontrol.handleTurn();
 			taketurn.setEnabled(true);
+			buybutton.setEnabled(false);
 		}
 		
 		
@@ -98,6 +101,8 @@ public class GUI extends JFrame
 		public void actionPerformed(ActionEvent E)
 		{
 			playercontrol.buyProperty();
+			buybutton.setEnabled(false);
+			
 		}
 		
 		
