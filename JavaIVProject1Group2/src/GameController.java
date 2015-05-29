@@ -19,7 +19,7 @@ public class GameController
 		ArrayList<Property> property = new ArrayList<Property>();	
 		
 		
-		public GameController(LinkedList<Player> playerObject, ArrayList<Property> propertyObject)
+		public GameController(LinkedList<Player> playerObject, ArrayList<Property> propertyObject, DiceRoll dice)
 		{
 			this.object = playerObject;
 			this.property = propertyObject;	
@@ -51,12 +51,14 @@ public class GameController
 		public void getPlayerMovement()
 		{
 			
-			if(dice.equals(aProperty.getID()))
-			{
-				
-				 
-				
-			}
+			
+				if(DiceRoll.getRoll() == aProperty.getID())
+				{
+					
+		
+						
+									
+				}
 			
 		}
 		

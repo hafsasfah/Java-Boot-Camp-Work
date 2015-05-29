@@ -32,6 +32,10 @@ public class Player implements IPlayer
 	}
 
 
+	
+	
+	
+
 	public String getName() {
 		return name;
 	}
@@ -144,6 +148,13 @@ public class Player implements IPlayer
 	public void setPropertyOwned(int propertyOwned) {
 		
 		this.propertyOwned = propertyOwned;
+		
+	}
+
+	@Override
+	public void setID(int id) 
+	{
+		this.id = id;
 		
 	}
 	
