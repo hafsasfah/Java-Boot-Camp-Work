@@ -12,4 +12,6 @@ public abstract class AbstractGame extends Observable {
 	public abstract AbstractPlayer getCurrentPlayer();
 	public abstract void setCurrentPlayer( AbstractPlayer player );
 	public abstract void nextPlayersTurn( );
+	public abstract int getLastRoll();
+	public abstract void setLastRoll( int lastRoll );
 }

@@ -9,6 +9,7 @@ public class Game extends AbstractGame {
 	private ArrayList<AbstractProperty> properties;
 	private Queue<AbstractPlayer> players;
 	private AbstractPlayer currentPlayer;
+	private int lastRoll;
 	
 	public Game( String name )
 	{
@@ -88,5 +89,13 @@ public class Game extends AbstractGame {
 		currentPlayer = players.peek();
 		setChanged();
 		notifyObservers();
+	}
+
+	public int getLastRoll() {
+		return lastRoll;
+	}
+
+	public void setLastRoll(int lastRoll) {
+		this.lastRoll = lastRoll;
 	}
 }
