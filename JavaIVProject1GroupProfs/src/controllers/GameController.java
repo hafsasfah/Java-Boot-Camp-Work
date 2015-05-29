@@ -6,6 +6,7 @@ import java.util.*;
 import javax.swing.JOptionPane;
 
 import data.*;
+import factory.IPropertyFactory;
 import models.*;
 import views.*;
 
@@ -18,9 +19,12 @@ public class GameController implements IGameController {
 	private IPlayerRepository playerRepository;
 	private IPropertyRepository propertyRepository;
 	private Random random;
+	private IPropertyFactory propertyFactory;
 	
-	public GameController()
+	public GameController( IPropertyFactory propertyFactory )
 	{
+		this.propertyFactory = propertyFactory;
+		
 		random = new Random();
 		Connection connection = MonopolyConnectionProvider.createConnection();
 		gameRepository = new GameRepository( connection );
@@ -35,19 +39,9 @@ public class GameController implements IGameController {
 		gameRepository.create(game);
 		game.setID( gameRepository.getGameID(gameName) );
 		
-		AbstractProperty start = null;
-		
 		ArrayList<AbstractProperty> properties = game.getProperties();
-		for ( int count = 0; count < 36; count++ )
-		{
-			AbstractProperty newProperty = new Property(count, count, "Name: " + count, 200, 50, null, new LinkedList<AbstractPlayer>(), 0);
-			if ( count == 0 )
-			{
-				start = newProperty;
-			}
-			properties.add( newProperty );
-		}
-		
+		properties.addAll( propertyFactory.createProperties( game.getID() ) );
+		AbstractProperty start = properties.get(0);
 		
 		Queue<AbstractPlayer> players = game.getPlayers();
 		for ( int count = 0; count < playerNames.length; count++ )

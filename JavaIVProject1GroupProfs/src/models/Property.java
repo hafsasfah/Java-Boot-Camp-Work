@@ -26,6 +26,17 @@ public class Property extends AbstractProperty {
 		this.parkedPlayers = parkedPlayers;
 	}
 	
+	public Property(int sequenceNumber, String name, int purchasePrice, int rentalPrice, AbstractPlayer owner, int gameID ) 
+	{
+		this.sequenceNumber = sequenceNumber;
+		this.name = name;
+		this.purchasePrice = purchasePrice;
+		this.rentalPrice = rentalPrice;
+		this.owner = owner;
+		this.gameID = gameID;
+		this.parkedPlayers = new LinkedList<AbstractPlayer>();
+	}
+
 	@Override
 	public int getID() {
 		return id;
@@ -64,11 +75,6 @@ public class Property extends AbstractProperty {
 	@Override
 	public AbstractPlayer getOwner() {
 		return owner;
-	}
-
-	@Override
-	public int hashCode() {
-		return name.hashCode();
 	}
 
 	@Override

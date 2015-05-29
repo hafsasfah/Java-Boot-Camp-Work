@@ -6,6 +6,7 @@ import java.awt.event.*;
 import javax.swing.*;
 
 import controllers.*;
+import factory.ClassicMonopolyPropertyFactory;
 
 public class GUI extends JFrame 
 {
@@ -19,7 +20,7 @@ public class GUI extends JFrame
 	public GUI()
 	{
 		setTitle("Cartel");
-		setSize( 1500, 1024 );
+		setSize( 1600, 1024 );
 		setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
 		setLayout( new BorderLayout() );
 		
@@ -35,7 +36,7 @@ public class GUI extends JFrame
 		
 		add(startPanel, BorderLayout.CENTER );
 		
-		gameController = new GameController();
+		gameController = new GameController( new ClassicMonopolyPropertyFactory() );
 		
 		setVisible(true);
 	}

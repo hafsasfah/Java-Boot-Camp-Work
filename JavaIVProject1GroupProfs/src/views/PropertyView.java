@@ -46,6 +46,12 @@ public class PropertyView implements IPropertyView {
 			rentalPriceLabel.setText("");
 			purchasePriceLabel.setText( "Purchase Price: " + property.getPurchasePrice() );
 		}
+		else if ( property.getOwner().getName().equals("Bank") )
+		{
+			ownerLabel.setText("");
+			rentalPriceLabel.setText("");
+			purchasePriceLabel.setText("");
+		}
 		else
 		{
 			ownerLabel.setText( "Owner:" + property.getOwner().getName() );
