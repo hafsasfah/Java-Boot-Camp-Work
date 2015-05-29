@@ -11,7 +11,7 @@ public class Player implements IPlayer
 {
 	private int id;
 	private String name;
-	private int money = 1500;
+	private int money = 15000;
 	private int propertyOwned = 0;
 	private static Player currentPlayer;
 	private Property location;
