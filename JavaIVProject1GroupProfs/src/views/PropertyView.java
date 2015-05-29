@@ -2,12 +2,9 @@ package views;
 
 import java.util.Observable;
 
-import javax.swing.BorderFactory;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
 
-import models.AbstractPlayer;
-import models.AbstractProperty;
+import models.*;
 
 public class PropertyView implements IPropertyView {
 
@@ -56,6 +53,10 @@ public class PropertyView implements IPropertyView {
 		{
 			ownerLabel.setText( "Owner:" + property.getOwner().getName() );
 			rentalPriceLabel.setText( "Rental Price: " + property.getRentalPrice() );
+			if ( property.getPropertyGroup() instanceof UtilityPropertyGroup )
+			{
+				rentalPriceLabel.setText( rentalPriceLabel.getText() + "x roll");
+			}
 			purchasePriceLabel.setText("");
 		}
 		
