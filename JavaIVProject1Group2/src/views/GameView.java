@@ -8,14 +8,16 @@ public class GameView<GameBoard>  implements IView{
 	}
 
 	@Override
-	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
+	public void update(Observable o, Object arg) 
+	{
+		
+		
 		
 	}
 
 	@Override
 	public JPanel getGameView() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 	
