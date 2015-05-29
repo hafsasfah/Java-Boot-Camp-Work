@@ -32,8 +32,7 @@ public class PlayerRepository implements iPlayerRepository {
 	}
 
 	@Override
-	public boolean delete(aPlayers player) {
-		// TODO Auto-generated method stub
+	public boolean delete(aPlayers player) { // will not implement
 		return false;
 	}
 

@@ -19,14 +19,17 @@ public class Property extends aProperty {
 	public boolean BUYABLE = true;
 	private Connection connection;
 	
-	public Property() {
-				
+	public Property(String name) {
+		this.name = name;
+		rentPrice = 10;
+		purchasePrice = 100;
+		
 		try {
 			Statement statement = connection.createStatement();
 			String insertsql = "CREATE TABLE \"Property\" (\"ID\" serial NOT NULL,"
 					+ "\"Name\" character varying(50), \"PurchasePrice\" integer, "
 					+ "\"RentalPrice\" integer, \"Owner_Player_ID\" integer, "
-					+ "\"Game_ID\" integer,CONSTRAINT \"Property_PK\" PRIMARY KEY (\"ID\"), "
+					+ "\"Game_ID\" integer, CONSTRAINT \"Property_PK\" PRIMARY KEY (\"ID\"), "
 					+ "CONSTRAINT \"Property_Game_ID_FK\" FOREIGN KEY (\"Game_ID\") "
 					+ "REFERENCES \"Game\" (\"ID\") MATCH SIMPLE ON UPDATE NO ACTION ON DELETE "
 					+ "NO ACTION,"
@@ -78,6 +81,10 @@ public class Property extends aProperty {
 	@Override
 	public void chargePlayerRent(int rent) {
 		//null4now
+	}
+	
+	public Coordinates getCoord() {
+		return coord;
 	}
 
 	public int getOwnerID() {
