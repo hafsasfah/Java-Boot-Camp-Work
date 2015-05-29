@@ -33,15 +33,8 @@ public class PropertyRepository implements IPropertyRepository {
 	}
 
 	@Override
-	public boolean delete(AbstractProperty property) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public ArrayList<AbstractProperty> getAll() {
+	public ArrayList<AbstractProperty> getAllPropertiesInGame(int gameID) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 }

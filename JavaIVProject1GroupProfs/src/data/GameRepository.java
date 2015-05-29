@@ -79,10 +79,4 @@ public class GameRepository implements IGameRepository {
 		// TODO Auto-generated method stub
 		return false;
 	}
-
-	@Override
-	public boolean delete(AbstractGame game) {
-		// TODO Auto-generated method stub
-		return false;
-	}
 }

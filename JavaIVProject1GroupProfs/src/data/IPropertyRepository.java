@@ -8,7 +8,5 @@ public interface IPropertyRepository {
 	boolean create( AbstractProperty property );
 	AbstractProperty get( int propertyID );
 	boolean update( AbstractProperty property );
-	boolean delete( AbstractProperty property );
-	
-	ArrayList<AbstractProperty> getAll();
+	ArrayList<AbstractProperty> getAllPropertiesInGame( int gameID );
 }

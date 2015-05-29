@@ -10,5 +10,4 @@ public interface IPlayerRepository {
 	int getPlayerID( String name, int gameID );
 	Queue<AbstractPlayer> getPlayersInGame( int gameID );
 	boolean update( AbstractPlayer player );
-	boolean delete( AbstractPlayer player );
 }

@@ -7,5 +7,4 @@ public interface IGameRepository {
 	AbstractGame get( String name );
 	int getGameID( String name );
 	boolean update( AbstractGame game );
-	boolean delete( AbstractGame game );
 }

@@ -1,10 +1,7 @@
 package data;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.Queue;
+import java.sql.*;
+import java.util.*;
 
 import models.AbstractPlayer;
 
@@ -57,12 +54,6 @@ public class PlayerRepository implements IPlayerRepository {
 
 	@Override
 	public boolean update(AbstractPlayer player) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean delete(AbstractPlayer player) {
 		// TODO Auto-generated method stub
 		return false;
 	}
