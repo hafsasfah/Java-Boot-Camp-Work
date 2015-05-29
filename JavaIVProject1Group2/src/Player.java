@@ -7,7 +7,8 @@ import logic.DiceRoll;
 
 
 
-public class Player {
+public class Player implements IPlayer
+{
 	private int id;
 	private String name;
 	private int money = 1500;
@@ -97,13 +98,13 @@ public class Player {
 	
 
 	
-	public static Player getCurrentPlayer()
+	public Player getCurrentPlayer()
 	{
 		
 		return currentPlayer;
 	}
 	
-	public static void setCurrentPlayer(Player aCurrentPlayer)
+	public void setCurrentPlayer(Player aCurrentPlayer)
 	{
 		
 		currentPlayer = aCurrentPlayer;
@@ -138,21 +139,14 @@ public class Player {
 		
 		
 	}
-	
-	//Shows the image of player
-	public void render(Graphics g) {
-		
-		
-	}
 
-	
-	
-	//Updates 
-	public void tick() {
-		// TODO Auto-generated method stub
+	@Override
+	public void setPropertyOwned(int propertyOwned) {
+		
+		this.propertyOwned = propertyOwned;
 		
 	}
-
-
+	
+	
 
 }
