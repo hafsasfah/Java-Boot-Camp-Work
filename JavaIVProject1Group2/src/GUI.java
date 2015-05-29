@@ -29,9 +29,7 @@ public class GUI extends JFrame
 	private int gridForX = 0;
 	private int gridForY = 0;
 	private JButton diceRoll;
-	
-	ArrayList<Property> property = new ArrayList<Property>();				//Not Used yet
-	
+	GameController players;
 	
 	//Creates the platforms for the Game board  
 
@@ -41,7 +39,7 @@ public class GUI extends JFrame
 		
 		String player1;
 		String player2;
-
+		int totalPlayers = 0; 
 		Scanner keyboard = new Scanner(System.in);
 		JOptionPane.showInputDialog("Player 1 enter your name ");
 		player1 = keyboard.toString();
@@ -49,12 +47,27 @@ public class GUI extends JFrame
 		
 		JOptionPane.showInputDialog("Player 2 enter your name ");
 		player2 = keyboard.toString();
+		
+		while(totalPlayers < 2 || totalPlayers > 8)
+		{
+			
+			System.out.println("Total Players: ");
+			totalPlayers = keyboard.nextInt();
+			
+		}
+		
+		
+	
 	
 	}
 		
 		
 
-	
+	public GUI(int totalPlayers)
+	{
+		
+		
+	}
 	
 	public GUI()
 	
@@ -70,12 +83,6 @@ public class GUI extends JFrame
 		getContentPane().add(bank, BorderLayout.NORTH);
 		
 		createThePanels();
-		
-		
-		
-		
-		
-	
 		
 	}
 	
@@ -434,6 +441,7 @@ public class GUI extends JFrame
 				
 			
 				 new DiceRoll();
+				 GameController button = new GameController();
 				
 				JButton play = new JButton("Dice Roll");
 				play.addActionListener(new ActionListener()
@@ -450,15 +458,23 @@ public class GUI extends JFrame
 						new Insets(2,5,10,0), 50, 0));
 				
 				
-				diceRoll = new JButton("Buy");
-				getContentPane().add(diceRoll, new GridBagConstraints(5, 5, 11, 11, 0.2, 0.2,
+				JButton buy = new JButton("Buy");
+				button.addActionListener(new ActionListener()
+				{
+					public  void actionPerformed(ActionEvent e) 
+					{
+						GUI players = new GUI();
+						javax.swing.JOptionPane.showMessageDialog (null," Bought " + button.getPlayerPurchaseAction() );
+					}
+				});
+				
+				getContentPane().add(buy, new GridBagConstraints(5, 5, 11, 11, 0.2, 0.2,
 														GridBagConstraints.CENTER,
 														GridBagConstraints.CENTER,
 														new Insets(0,20,0,0), 80, 0));
 				
-
 				
-				
+			
 				JPanel innerPanel = new JPanel();
 				innerPanel.setBackground(Color.WHITE);
 				
@@ -473,6 +489,9 @@ public class GUI extends JFrame
 	
 	
 			
+
+	
+	
 	
 	
 	
