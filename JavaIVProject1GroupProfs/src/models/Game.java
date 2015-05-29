@@ -11,7 +11,6 @@ public class Game extends AbstractGame {
 	private AbstractPlayer currentPlayer;
 	private int previousRoll;
 	private AbstractPlayer previousPlayer;
-	private boolean previousRollWasDoubles;
 	
 	public Game( String name )
 	{
