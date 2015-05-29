@@ -28,14 +28,16 @@ public class PropertyRepository implements iPropertyRepository {
 			String insertsql = "CREATE TABLE \"Property\" (\"ID\" serial NOT NULL,"
 					+ "\"Name\" character varying(50), \"PurchasePrice\" integer, "
 					+ "\"RentalPrice\" integer, \"Owner_Player_ID\" integer, "
-					+ "\"Game_ID\" integer, CONSTRAINT \"Property_PK\" PRIMARY KEY (\"ID\"), "
+					+ "\"Game_ID\" integer)";
+					/*+ CONSTRAINT \"Property_PK\" PRIMARY KEY (\"ID\") ";
 					+ "CONSTRAINT \"Property_Game_ID_FK\" FOREIGN KEY (\"Game_ID\") "
 					+ "REFERENCES \"Game\" (\"ID\") MATCH SIMPLE ON UPDATE NO ACTION ON DELETE "
-					+ "NO ACTION,"
+					+ "NO ACTION, ";
 					+ "CONSTRAINT \"Property_Owner_Player_ID_FK\" FOREIGN KEY (\"Owner_Player_ID\")"
 					+ "REFERENCES \"Player\" (\"ID\") MATCH SIMPLE "
 					+ "ON UPDATE NO ACTION ON DELETE NO ACTION) "
-					+ "WITH ( OIDS=FALSE ); ALTER TABLE \"Property\" OWNER TO postgres;";
+					+ "WITH ( OIDS=FALSE ); ALTER TABLE \"Property\" OWNER TO postgres;";*/
+			
 			statement.execute(insertsql);
 		}
 			catch (Exception e) {

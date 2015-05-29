@@ -7,8 +7,12 @@ import java.awt.event.ActionListener;
 
 import javax.swing.*;
 
+import models.Property;
 import controllers.PlayerController;
 import controllers.PropertyController;
+import data.GameRepository;
+import data.PlayerRepository;
+import data.PropertyRepository;
 
 public class GUI extends JFrame
 {
@@ -110,7 +114,23 @@ public class GUI extends JFrame
 	public static void main(String[] args)
 	{
 		
+		Property place = new Property("MY HOUSE");
+		
+		PropertyRepository propertyRepo = new PropertyRepository();
+		propertyRepo.buildPropertyTable();
+		
+		PlayerRepository playerRepo = new PlayerRepository();
+		playerRepo.buildPlayerTable();
+		
+		GameRepository gameRepo = new GameRepository();
+		gameRepo.buildGameTable();
+		
+		propertyRepo.create(place);
+		propertyRepo.create(new Property("COFFEEHOUSE"));
+		
 		new GUI();
+		
+		
 		
 	}
 	
