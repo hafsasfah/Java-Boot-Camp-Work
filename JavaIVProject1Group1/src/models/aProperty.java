@@ -7,6 +7,7 @@ import java.util.Observable;
 
 public abstract class aProperty extends Observable {
 
+	public abstract int getOwnerID();
 	public abstract int getID();
 	public abstract int getPurchasePrice();
 	public abstract int getRentalPrice();

@@ -11,6 +11,7 @@ public class Property extends aProperty {
 	private int rentPrice;
 	private int purchasePrice;
 	private int ID;
+	private int ownerID;
 	private String name;
 	public Coordinates coord;
 	private Players player;
@@ -71,6 +72,14 @@ public class Property extends aProperty {
 		//null4now
 	}
 
+	public int getOwnerID() {
+		return this.ownerID;
+	}
+	
+	public void setOwnerID(int ownerID) {
+		this.ownerID = ownerID;
+	}
+	
 	@Override
 	public String getName() {
 		return name;
