@@ -72,50 +72,87 @@ public class GameController implements IGameController {
 
 	@Override
 	public void currentPlayerRolls() {
-		AbstractPlayer currentPlayer = game.getCurrentPlayer();
-		int roll = random.nextInt(6) + random.nextInt(6) + 2;
-		int nextPropertySequenceID = ( currentPlayer.getCurrentLocation().getSequenceNumber() + roll ) ;
-		int totalProperties = game.getProperties().size();
 		
-		if ( nextPropertySequenceID > totalProperties )
+
+		int numberOfTimesDoublesWereRolled = 0;
+		boolean rolledDoubles;
+		
+		do
 		{
-			currentPlayer.addMoney( GO_MONEY );
-		}
-		
-		nextPropertySequenceID %= totalProperties;
-		currentPlayer.getCurrentLocation().removeParkedPlayer( currentPlayer );
-		
-		AbstractProperty propertyLandedOn = game.getProperties().get( nextPropertySequenceID );
-		propertyLandedOn.addParkedPlayer( currentPlayer );
-		currentPlayer.setCurrentLocation( propertyLandedOn );
-		
-		AbstractPlayer owner = propertyLandedOn.getOwner();
-		
-		if ( owner == null )
-		{
-			currentPlayer.purchaseProperty( propertyLandedOn );
-			propertyLandedOn.setOwner( currentPlayer );
-		}
-		else
-		{
-			int rent = propertyLandedOn.getRentalPrice();
-			currentPlayer.spendMoney( rent );
-			if ( !currentPlayer.hasLostGame() )
+			int die1 = random.nextInt(6) + 1;
+			int die2 = random.nextInt(6) + 1;
+			int roll = die1 + die2;
+			game.setLastRoll(roll);
+			rolledDoubles = die1 == die2;
+			if ( rolledDoubles )
 			{
-				owner.addMoney( rent );
-			}
-		}
-		
-		if ( currentPlayer.hasLostGame() )
-		{
-			for ( AbstractProperty property : currentPlayer.getOwnedProperties() )
-			{
-				property.setOwner(null);
+				numberOfTimesDoublesWereRolled++;
 			}
 			
-			propertyLandedOn.removeParkedPlayer( currentPlayer );
-		}
+			AbstractPlayer currentPlayer = game.getCurrentPlayer();
+			
+			if ( numberOfTimesDoublesWereRolled == 3 )
+			{
+				for ( AbstractProperty property : game.getProperties() )
+				{
+					if ( property.getName().equals("Jail"))
+					{
+						currentPlayer.setCurrentLocation( property );
+					}
+				}
+			}
+			else
+			{
+				int nextPropertySequenceID = ( currentPlayer.getCurrentLocation().getSequenceNumber() + roll ) ;
+				int totalProperties = game.getProperties().size();
+				
+				if ( nextPropertySequenceID > totalProperties )
+				{
+					currentPlayer.addMoney( GO_MONEY );
+				}
+				
+				nextPropertySequenceID %= totalProperties;
+				currentPlayer.getCurrentLocation().removeParkedPlayer( currentPlayer );
+				
+				AbstractProperty propertyLandedOn = game.getProperties().get( nextPropertySequenceID );
+				propertyLandedOn.addParkedPlayer( currentPlayer );
+				currentPlayer.setCurrentLocation( propertyLandedOn );
+				
+				AbstractPlayer owner = propertyLandedOn.getOwner();
+				
+				if ( owner == null )
+				{
+					currentPlayer.purchaseProperty( propertyLandedOn );
+					propertyLandedOn.setOwner( currentPlayer );
+				}
+				else
+				{
+					int rent = propertyLandedOn.getRentalPrice();
+					currentPlayer.spendMoney( rent );
+					if ( !currentPlayer.hasLostGame() )
+					{
+						owner.addMoney( rent );
+					}
+				}
+				
+				if ( currentPlayer.hasLostGame() )
+				{
+					for ( AbstractProperty property : currentPlayer.getOwnedProperties() )
+					{
+						property.setOwner(null);
+					}
+					
+					propertyLandedOn.removeParkedPlayer( currentPlayer );
+				}
+			}
+		} while ( rolledDoubles );
+			
 		
+		nextPlayersTurn();
+	}
+	
+	private void nextPlayersTurn()
+	{
 		game.nextPlayersTurn( );
 	}
 }
