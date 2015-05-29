@@ -91,17 +91,12 @@ public class GameController implements IGameController {
 		boolean rolledDoubles = die1 == die2;
 		
 		AbstractPlayer currentPlayer = game.getCurrentPlayer();
+		currentPlayer.getCurrentLocation().removeParkedPlayer( currentPlayer );
 		
 		if ( numberOfTimesDoublesWereRolledInARow == 2 && rolledDoubles )
 		{
 			rolledDoubles = false;
-			for ( AbstractProperty property : game.getProperties() )
-			{
-				if ( property.getName().equals("Jail"))
-				{
-					currentPlayer.setCurrentLocation( property );
-				}
-			}
+			tryToSendCurrentPlayerToJail();
 		}
 		else
 		{
@@ -113,45 +108,62 @@ public class GameController implements IGameController {
 				currentPlayer.addMoney( GO_MONEY );
 			}
 			
-			nextPropertySequenceID %= totalProperties;
-			currentPlayer.getCurrentLocation().removeParkedPlayer( currentPlayer );
-			
+			nextPropertySequenceID %= totalProperties;		
 			AbstractProperty propertyLandedOn = game.getProperties().get( nextPropertySequenceID );
-			propertyLandedOn.addParkedPlayer( currentPlayer );
-			currentPlayer.setCurrentLocation( propertyLandedOn );
 			
-			AbstractPlayer owner = propertyLandedOn.getOwner();
-			
-			if ( owner == null )
+			if ( propertyLandedOn.getName().equals("Go to Jail"))
 			{
-				currentPlayer.purchaseProperty( propertyLandedOn );
-				propertyLandedOn.setOwner( currentPlayer );
+				tryToSendCurrentPlayerToJail();
 			}
 			else
 			{
-				int rent = propertyLandedOn.getRentalPrice();
-				if ( propertyLandedOn.getPropertyGroup() instanceof UtilityPropertyGroup )
+				propertyLandedOn.addParkedPlayer( currentPlayer );
+				currentPlayer.setCurrentLocation( propertyLandedOn );
+				
+				AbstractPlayer owner = propertyLandedOn.getOwner();
+				
+				if ( owner == null )
 				{
-					rent *= roll;
+					currentPlayer.purchaseProperty( propertyLandedOn );
+					propertyLandedOn.setOwner( currentPlayer );
 				}
-				currentPlayer.spendMoney( rent );
-				if ( !currentPlayer.hasLostGame() )
+				else
 				{
-					owner.addMoney( rent );
-				}
-			}
-			
-			if ( currentPlayer.hasLostGame() )
-			{
-				for ( AbstractProperty property : currentPlayer.getOwnedProperties() )
-				{
-					property.setOwner(null);
+					int rent = propertyLandedOn.getRentalPrice();
+					if ( propertyLandedOn.getPropertyGroup() instanceof UtilityPropertyGroup )
+					{
+						rent *= roll;
+					}
+					currentPlayer.spendMoney( rent );
+					if ( !currentPlayer.hasLostGame() )
+					{
+						owner.addMoney( rent );
+					}
 				}
 				
-				propertyLandedOn.removeParkedPlayer( currentPlayer );
+				if ( currentPlayer.hasLostGame() )
+				{
+					for ( AbstractProperty property : currentPlayer.getOwnedProperties() )
+					{
+						property.setOwner(null);
+					}
+					
+					propertyLandedOn.removeParkedPlayer( currentPlayer );
+				}
 			}
 		}			
 		
 		game.nextPlayersTurn(rolledDoubles );
+	}
+	
+	private void tryToSendCurrentPlayerToJail()
+	{
+		for ( AbstractProperty property : game.getProperties() )
+		{
+			if ( property.getName().equals("Jail"))
+			{
+				game.getCurrentPlayer().setCurrentLocation( property );
+			}
+		}
 	}
 }
