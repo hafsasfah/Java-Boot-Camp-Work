@@ -12,7 +12,6 @@ public abstract class AbstractProperty extends Observable implements Comparable<
 	public abstract int getRentalPrice();
 	public abstract AbstractPlayer getOwner();
 	public abstract void setOwner( AbstractPlayer owner );
-	public abstract int hashCode();
 	public abstract LinkedList<AbstractPlayer> getParkedPlayers();
 	public abstract boolean addParkedPlayer( AbstractPlayer player );
 	public abstract boolean removeParkedPlayer( AbstractPlayer player );
