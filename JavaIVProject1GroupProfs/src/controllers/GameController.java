@@ -13,16 +13,15 @@ import views.*;
 public class GameController implements IGameController {
 	
 	private static final int GO_MONEY = 200;
-	
+	private static final int BAIL_MONEY = 50;
 	private AbstractGame game;
 	private IGameRepository gameRepository;
 	private IPlayerRepository playerRepository;
 	private IPropertyRepository propertyRepository;
 	private Random random;
 	private IPropertyFactory propertyFactory;
-
 	private int numberOfTimesDoublesWereRolledInARow;
-	
+
 	public GameController( IPropertyFactory propertyFactory )
 	{
 		this.propertyFactory = propertyFactory;
@@ -164,6 +163,7 @@ public class GameController implements IGameController {
 			{
 				game.getCurrentPlayer().setCurrentLocation( property );
 				property.addParkedPlayer( game.getCurrentPlayer() );
+				game.getCurrentPlayer().spendMoney( BAIL_MONEY );
 			}
 		}
 	}
