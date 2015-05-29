@@ -8,7 +8,8 @@ import models.aPlayers;
 
 public class GameRepository implements iGameRepository {	
 	Connection connection;
-	iPlayerRepository playerRepository;
+	iPlayerRepository playerRepo;
+	iPropertyRepository propertyRepo;
 	
 	public GameRepository() {
 		
@@ -17,7 +18,8 @@ public class GameRepository implements iGameRepository {
 			String username = "postgres";
 			String password = "password";
 			
-			playerRepository = new PlayerRepository();
+			playerRepo = new PlayerRepository();
+			propertyRepo = new PropertyRepository();
 			
 			connection = DriverManager.getConnection(url, username, password);
 		}
@@ -52,7 +54,7 @@ public class GameRepository implements iGameRepository {
 			while (results.next()) {
 				int gameID = results.getInt(1);
 				String gameName = results.getString(2);
-				aPlayers currentPlayer = playerRepository.get(results.getInt(3));
+				aPlayers currentPlayer = playerRepo.get(results.getInt(3));
 				
 				Game savedGame = new Game(gameID, gameName);		
 				
