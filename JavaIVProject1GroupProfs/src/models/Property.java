@@ -12,12 +12,13 @@ public class Property extends AbstractProperty {
 	private int rentalPrice;
 	private AbstractPlayer owner;
 	private LinkedList<AbstractPlayer> parkedPlayers;
-	
+	private AbstractPropertyGroup propertyGroup;
 
-	public Property( int id, int sequenceNumber, String name, int purchasePrice, int rentalPrice, AbstractPlayer owner, LinkedList<AbstractPlayer> parkedPlayers, int gameID )
+	public Property( int id, int sequenceNumber, AbstractPropertyGroup propertyGroup, String name, int purchasePrice, int rentalPrice, AbstractPlayer owner, LinkedList<AbstractPlayer> parkedPlayers, int gameID )
 	{
 		this.id = id;
 		this.sequenceNumber = sequenceNumber;
+		this.propertyGroup = propertyGroup;
 		this.gameID = gameID;
 		this.name = name;
 		this.purchasePrice = purchasePrice;
@@ -26,9 +27,10 @@ public class Property extends AbstractProperty {
 		this.parkedPlayers = parkedPlayers;
 	}
 	
-	public Property(int sequenceNumber, String name, int purchasePrice, int rentalPrice, AbstractPlayer owner, int gameID ) 
+	public Property(int sequenceNumber, AbstractPropertyGroup propertyGroup, String name, int purchasePrice, int rentalPrice, AbstractPlayer owner, int gameID ) 
 	{
 		this.sequenceNumber = sequenceNumber;
+		this.propertyGroup = propertyGroup;
 		this.name = name;
 		this.purchasePrice = purchasePrice;
 		this.rentalPrice = rentalPrice;
@@ -45,6 +47,11 @@ public class Property extends AbstractProperty {
 	@Override
 	public void setID(int id) {
 		this.id = id;	
+	}
+	
+	@Override
+	public AbstractPropertyGroup getPropertyGroup() {
+		return propertyGroup;
 	}
 	
 	@Override
@@ -69,7 +76,7 @@ public class Property extends AbstractProperty {
 
 	@Override
 	public int getRentalPrice() {
-		return rentalPrice;
+		return propertyGroup.getModifiedRent(owner, rentalPrice);
 	}
 
 	@Override
@@ -90,23 +97,29 @@ public class Property extends AbstractProperty {
 	@Override
 	public void setOwner(AbstractPlayer owner) {
 		this.owner = owner;
-		setChanged();
-		notifyObservers();
+		for ( AbstractProperty property : propertyGroup.getProperties() )
+		{
+			property.forceUpdate();
+		}
 	}
 
 	@Override
 	public boolean addParkedPlayer(AbstractPlayer player) {
 		boolean changed = parkedPlayers.add( player );
-		setChanged();
-		notifyObservers();
+		forceUpdate();
 		return changed;
 	}
 
 	@Override
 	public boolean removeParkedPlayer(AbstractPlayer player) {
 		boolean changed = parkedPlayers.remove( player );
+		forceUpdate();
+		return changed;
+	}
+
+	@Override
+	public void forceUpdate() {
 		setChanged();
 		notifyObservers();
-		return changed;
 	}
 }
