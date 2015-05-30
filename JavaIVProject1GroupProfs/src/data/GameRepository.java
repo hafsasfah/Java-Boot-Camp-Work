@@ -62,7 +62,7 @@ public class GameRepository implements IGameRepository {
 				String gameName = results.getString(2);
 				AbstractPlayer currentPlayer = playerRepository.get( results.getInt(3) );
 				
-				Game savedGame = new Game( gameID, gameName, propertyRepository.getAll(), playerRepository.getPlayersInGame(gameID), currentPlayer );
+				Game savedGame = new Game( gameID, gameName, propertyRepository.getAllPropertiesInGame(gameID), playerRepository.getPlayersInGame(gameID), currentPlayer );
 				return savedGame;
 			}
 			

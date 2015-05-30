@@ -54,7 +54,16 @@ public class PlayerRepository implements IPlayerRepository {
 
 	@Override
 	public boolean update(AbstractPlayer player) {
-		// TODO Auto-generated method stub
+		try {
+			Statement statement = connection.createStatement();
+			String update = String.format("update \"Player\" set \"Money\" = %d, ParkedProperty_ID = %d "
+					+ "where \"ID\" = '%D' ", player.getMoney(), player.getCurrentLocation().getID(), player.getID() );
+			statement.executeUpdate(update);
+			return true;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return false;
 	}
 
