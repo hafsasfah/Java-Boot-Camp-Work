@@ -12,7 +12,7 @@ import views.*;
 
 public class GameController implements IGameController {
 	
-	private static final int GO_MONEY = 200;
+	private static final int GO_MONEY = 10;
 	private static final int BAIL_MONEY = 50;
 	private AbstractGame game;
 	private IGameRepository gameRepository;
