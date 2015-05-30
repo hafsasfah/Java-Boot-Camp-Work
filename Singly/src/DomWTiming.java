@@ -1,78 +1,106 @@
 import java.util.*;
 
 public class DomWTiming {
-	
-	public static void main(String[] args)
-	{
-		ArrayList<Integer> arrayList = new ArrayList<Integer>();
-		LinkedList<Integer> linkedList = new LinkedList<Integer>();
-		SinglyLinkedList<Integer> singlyLinkedList = new SinglyLinkedList<Integer>();
-		
-	}
-	
-	public long randomTimer (int n)
-	{
-		Random r = new Random();
-		
-		// add 1,000 ints to each, get timings
-		// add 1,000,000 ints to each, get timings
-		
-		long startTime, finishTime, elapsedTime;
-		
-		int[] x = new int [n];
-		for (int i = 0; i < n; i++)
-			x[i] = r.nextInt();
-		startTime = System.nanoTime();
-		
-		finishTime = System.nanoTime();
-		elapsedTime = finishTime - startTime;
-		return elapsedTime;
-		}
-	
-	public static void addRandomNumbersToList(String name, List<Integer> list, int numbersToAdd)
-	{
-		Random number = new Random(1000);
-		long startTime, finishTime, elapsedTime;
-		
-		startTime = System.nanoTime();
-		
-		int matches = 0;
-		
-		for(int count = 0; count < numbersToCheck; count++)
+
+		public void main (String[]args)
 		{
-			if(list.contains(random.nextInt(highestRandomNumber)))
+			ArrayList<Integer> arrayList = new ArrayList<Integer>();
+			TreeSet<Integer> treeSet = new TreeSet<Integer>();
+			HashSet<Integer> hashSet = new HashSet<Integer>();
+			
+			final int mill = 1000000;
+			long startTime, endTime, totalTime;
+			
+			Random rand = new Random();
+				
+			startTime = System.nanoTime();
+			for (int i = 0; i < 100000; i++) 
 			{
-				matches++;
-			}
-						
-		}
-		
-		finishTime = System.nanoTime();
-		elapsedTime = finishTime - startTime;
-		
-		System.out.printf( "Checking %d to %s took %f millseconds and found %d matches\n\n", 
-				numbersToCheck, name, elapsedTime / 1000000.0, matches );
-	}
-	
-	public static void checkListsForContainsNumber(String name, List<Integer> list, int numbersToAdd)
-	{
-		Random random = new Random(42);
-		long startTime, finishTime, elapsedTime;
-		startTime = System.nanoTime();
-		int matches = 0;
-		for ( int count = 0; count < numbersToCheck; count++ )
-		{
-			if ( list.contains( random.nextInt(highestRandomNumber) ) )
+				arrayList.add(rand.nextInt(mill));
+			}		
+				
+			endTime = System.nanoTime();
+			totalTime = (endTime - startTime) / mill;
+			System.out.println("ArrayList add time: " + totalTime);
+				
+			startTime = System.nanoTime();
+			for (int i = 0; i < 10000; i++) 
 			{
-				matches++;
+				arrayList.contains(rand.nextInt(mill));
 			}
-		}
-		
-		finishTime = System.nanoTime();
-		elapsedTime = finishTime - startTime;
-		
-		System.out.printf( "Checking %d to %s took %f millseconds and found %d matches\n\n", 
-				numbersToCheck, name, elapsedTime / 1000000.0, matches );
+				
+			endTime = System.nanoTime();
+			totalTime = (endTime - startTime) / mill;
+			System.out.println("ArrayList search time: " + totalTime);		
+
+			startTime = System.nanoTime();
+			for (int i = 0; i < 10000; i++) 
+			{
+				arrayList.remove(i);
+			}
+				
+			endTime = System.nanoTime();
+			totalTime = (endTime - startTime) /  mill;
+			System.out.println("ArrayList remove time: " + totalTime);
+				
+			startTime = System.nanoTime();
+			for (int i = 0; i < 100000; i++)
+			{
+				treeSet.add(rand.nextInt( mill));
+			}
+				
+			endTime = System.nanoTime();
+			totalTime = (endTime - startTime) / mill;
+			System.out.println("TreeSet add time: " + totalTime);
+				
+			startTime = System.nanoTime();
+			for (int i = 0; i < 10000; i++) 
+			{
+				treeSet.contains(rand.nextInt( mill));
+			}
+			
+			endTime = System.nanoTime();
+			totalTime = (endTime - startTime) /  mill;
+			System.out.println("TreeSet search time: " + totalTime);
+				
+			startTime = System.nanoTime();
+			for (int i = 0; i < 10000; i++)
+			{
+				treeSet.remove(i);
+			}
+				
+			endTime = System.nanoTime();
+			totalTime = (endTime - startTime) /  mill;
+			System.out.println("TreeSet remove time: " + totalTime);
+
+			startTime = System.nanoTime();
+			for (int i = 0; i < 100000; i++) 
+			{
+				hashSet.add(rand.nextInt( mill));
+			}
+				
+			endTime = System.nanoTime();
+			totalTime = (endTime - startTime) /  mill;
+			System.out.println("HashSet add time: " + totalTime);		
+				
+			startTime = System.nanoTime();
+			for (int i = 0; i < 10000; i++) 
+			{
+				hashSet.contains(rand.nextInt( mill));
+			}
+				
+			endTime = System.nanoTime();
+			totalTime = (endTime - startTime) /  mill;
+			System.out.println("HashSet search time: " + totalTime);
+
+			startTime = System.nanoTime();
+			for (int i = 0; i < 10000; i++) 
+			{
+				hashSet.remove(i);
+			}
+				
+			endTime = System.nanoTime();
+			totalTime = (endTime - startTime) /  mill;
+			System.out.println("HashSet remove time: " + totalTime);
+			}
 	}
-	
-}
