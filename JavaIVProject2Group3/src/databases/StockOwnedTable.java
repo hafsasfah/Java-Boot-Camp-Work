@@ -38,7 +38,7 @@ public class StockOwnedTable implements iStockOwnedTable {
 			String createStocksOwnedRow = String.format
 					("INSERT INTO \"StocksOwned\" (\"UserID\", \"Ticker\", \"Shares\")"
 							+ "VALUES ('%s', '%s', '%s');", 
-							stocksOwned.getUserID(), stocksOwned.getTicker(), stocksOwned.getShares());
+							stocksOwned.getUserId(), stocksOwned.getTicker(), stocksOwned.getShares());
 			statement.execute(createStocksOwnedRow);
 			return true;
 		}
