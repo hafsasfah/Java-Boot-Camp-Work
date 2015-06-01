@@ -1,5 +1,7 @@
 package databases;
 
+import models.iUser;
+
 public interface iUserTable {
 	public boolean create(iUser user);
 	//public void read();

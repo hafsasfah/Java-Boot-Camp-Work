@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import models.iStockPrices;
+
 /*
  * PK (Ticker, Date), Prices
  * 
