@@ -1,10 +1,11 @@
 package controller;
 import java.util.*;
 
+import model.*;
+
 public interface IStockController {
 	
-	
-	ArrayList<String> viewStock(); //Display Todays StockPrices
-	ArrayList<String> viewPerson(); //Display Person
-	ArrayList<String> viewTransaction();//Person Transaction [buy or sell stock]
+	ArrayList<Stock> viewStock(); //Display Todays StockPrices
+	ArrayList<Person> viewPerson(); //Display Person
+	ArrayList<Transactions> viewTransaction();//Person Transaction [buy or sell stock]
 }

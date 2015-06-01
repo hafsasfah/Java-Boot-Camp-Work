@@ -2,24 +2,30 @@ package controller;
 
 import java.util.ArrayList;
 
+import repo.StockRepo;
+import model.*;
+
 public class StockController implements IStockController{
 	
-	 ArrayList<String> Stock; 
-	 ArrayList<String> Transaction;
-	 ArrayList<String> Person;
+	 ArrayList<Stock> Stock; 
+	 ArrayList<Transactions> Transaction;
+	 ArrayList<Person> Person;
+	 StockRepo sr;
 
 	
 public void stockController()
 {
-	this.Stock = new ArrayList<String>();
-	this.Transaction= new ArrayList<String>();
-	this.Person = new ArrayList<String>();
+	sr = new StockRepo();
+	this.Stock = sr.getStockList();
+	this.Transaction= new ArrayList<Transactions>();
+	this.Person = new ArrayList<Person>();
 	
 }
 
 
 @Override
-public ArrayList<String> viewStock() {
+public ArrayList<Stock> viewStock() {
+	
 	return this.Stock;
 	// TODO Auto-generated method stub
 	
@@ -27,18 +33,24 @@ public ArrayList<String> viewStock() {
 
 
 @Override
-public ArrayList<String> viewPerson() {
+public ArrayList<Person> viewPerson() {
 	return this.Person;
 	// TODO Auto-generated method stub
 	
 }
 
 
+
+
+
+
 @Override
-public ArrayList<String> viewTransaction() {
-	return this.Transaction;
+public ArrayList<Transactions> viewTransaction() {
 	// TODO Auto-generated method stub
-	
+	return Transaction;
 }
+
+
+
 
 }
