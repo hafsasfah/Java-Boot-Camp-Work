@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import models.iUser;
+
 /*
  * PK (UserID), UserName, Cash
  * 
@@ -36,7 +38,7 @@ public class UserTable implements iUserTable {
 			String createUserRow = String.format
 					("INSERT INTO \"User\" (\"UserID\", \"UserName\", \"Cash\")"
 							+ "VALUES ('%s', '%s', '%s');", 
-							user.getUserID(), user.getUserName(), user.getCash());
+							user.getUserId(), user.getUserName(), user.getCash());
 			statement.execute(createUserRow);
 			return true;
 		}
