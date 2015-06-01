@@ -9,7 +9,7 @@ public class StockController implements IStockController{
 	 ArrayList<String> Person;
 
 	
-public void stockController(ArrayList<String> Stock, ArrayList<String> Transaction, ArrayList<String> Person)
+public void stockController()
 {
 	this.Stock = new ArrayList<String>();
 	this.Transaction= new ArrayList<String>();
