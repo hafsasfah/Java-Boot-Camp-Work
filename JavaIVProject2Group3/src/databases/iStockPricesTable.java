@@ -1,5 +1,7 @@
 package databases;
 
+import models.iStockPrices;
+
 public interface iStockPricesTable {
 	public boolean create(iStockPrices prices);
 	//public void read();

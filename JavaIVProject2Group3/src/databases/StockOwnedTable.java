@@ -5,6 +5,8 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import models.iStockOwned;
+
 /*
  * PK (UserID, Ticker), Shares
  * 
@@ -13,10 +15,10 @@ import java.sql.Statement;
  * Shares = int
  */
 
-public class StocksOwnedTable implements iStocksOwnedTable {
+public class StockOwnedTable implements iStockOwnedTable {
 	Connection connection;
 
-	public StocksOwnedTable() {
+	public StockOwnedTable() {
 		try {
 			String url = "jdbc:postgresql://localhost/StockGame";
 			String username = "postgres";
@@ -30,7 +32,7 @@ public class StocksOwnedTable implements iStocksOwnedTable {
 	}
 
 	@Override
-	public boolean create(iStocksOwned stocksOwned) {
+	public boolean create(iStockOwned stocksOwned) {
 		try {
 			Statement statement = connection.createStatement();
 			String createStocksOwnedRow = String.format
@@ -47,13 +49,13 @@ public class StocksOwnedTable implements iStocksOwnedTable {
 	}
 
 	@Override
-	public boolean update(iStocksOwned stocksOwned) {
+	public boolean update(iStockOwned stocksOwned) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean delete(iStocksOwned stocksOwned) {
+	public boolean delete(iStockOwned stocksOwned) {
 		return false;
 	}
 	
