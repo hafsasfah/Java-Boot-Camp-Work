@@ -6,16 +6,17 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /*
- * PK (Ticker), StockName
+ * PK (UserID, Ticker), Shares
  * 
+ * UserID = int
  * Ticker = String
- * StockName = String
+ * Shares = int
  */
 
-public class StocksTable implements iStocksTable {
+public class StocksOwnedTable implements iStocksOwnedTable {
 	Connection connection;
-	
-	public StocksTable() {
+
+	public StocksOwnedTable() {
 		try {
 			String url = "jdbc:postgresql://localhost/StockGame";
 			String username = "postgres";
@@ -29,14 +30,14 @@ public class StocksTable implements iStocksTable {
 	}
 
 	@Override
-	public boolean create(iStocks stocks) {
+	public boolean create(iStocksOwned stocksOwned) {
 		try {
 			Statement statement = connection.createStatement();
-			String createStockRow = String.format
-					("INSERT INTO \"Stocks\" (\"Ticker\", \"StockName\")"
-							+ "VALUES ('%s', '%s');", 
-							stocks.getTicker(), stocks.getStockName());
-			statement.execute(createStockRow);
+			String createStocksOwnedRow = String.format
+					("INSERT INTO \"StocksOwned\" (\"UserID\", \"Ticker\", \"Shares\")"
+							+ "VALUES ('%s', '%s', '%s');", 
+							stocksOwned.getUserID(), stocksOwned.getTicker(), stocksOwned.getShares());
+			statement.execute(createStocksOwnedRow);
 			return true;
 		}
 		catch (SQLException e) {
@@ -46,15 +47,15 @@ public class StocksTable implements iStocksTable {
 	}
 
 	@Override
-	public boolean update(iStocks stocks) {
+	public boolean update(iStocksOwned stocksOwned) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean delete(iStocks stocks) {
+	public boolean delete(iStocksOwned stocksOwned) {
 		return false;
 	}
-
+	
 	
 }

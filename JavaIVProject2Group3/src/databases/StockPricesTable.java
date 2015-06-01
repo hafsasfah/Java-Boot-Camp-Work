@@ -6,16 +6,17 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 /*
- * PK (Ticker), StockName
+ * PK (Ticker, Date), Prices
  * 
  * Ticker = String
- * StockName = String
+ * Date = String "6/1/15"
+ * Price = double
  */
 
-public class StocksTable implements iStocksTable {
+public class StockPricesTable implements iStockPricesTable {
 	Connection connection;
-	
-	public StocksTable() {
+
+	public StockPricesTable() {
 		try {
 			String url = "jdbc:postgresql://localhost/StockGame";
 			String username = "postgres";
@@ -29,14 +30,14 @@ public class StocksTable implements iStocksTable {
 	}
 
 	@Override
-	public boolean create(iStocks stocks) {
+	public boolean create(iStockPrices prices) {
 		try {
 			Statement statement = connection.createStatement();
-			String createStockRow = String.format
-					("INSERT INTO \"Stocks\" (\"Ticker\", \"StockName\")"
-							+ "VALUES ('%s', '%s');", 
-							stocks.getTicker(), stocks.getStockName());
-			statement.execute(createStockRow);
+			String createStockPriceRow = String.format
+					("INSERT INTO \"StockPrices\" (\"Ticker\", \"Date\", \"Price\")"
+							+ "VALUES ('%s', '%s', '%s');", 
+							prices.getTicker(), prices.getDate(), prices.getPrice());
+			statement.execute(createStockPriceRow);
 			return true;
 		}
 		catch (SQLException e) {
@@ -46,15 +47,16 @@ public class StocksTable implements iStocksTable {
 	}
 
 	@Override
-	public boolean update(iStocks stocks) {
+	public boolean update(iStockPrices prices) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean delete(iStocks stocks) {
+	public boolean delete(iStockPrices prices) {
 		return false;
 	}
-
 	
+
+
 }
