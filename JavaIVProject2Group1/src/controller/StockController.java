@@ -1,38 +1,42 @@
 package controller;
 
+import java.util.ArrayList;
+
 public class StockController implements IStockController{
 	
-	private IPersonRepo PersonRepo;
-	private IStockRepo StockRepo;
-	private ITransactionRepo TransactionRepo;
+	 ArrayList<String> Stock; 
+	 ArrayList<String> Transaction;
+	 ArrayList<String> Person;
+
 	
-	private IMarketView marketView;
-	
-public void stockController()
+public void stockController(ArrayList<String> Stock, ArrayList<String> Transaction, ArrayList<String> Person)
 {
-	PersonRepo = new PersonRepo();
-	StockRepo = new StockRepo();
-	TransactionRepo = new TransactionRepo();
-}
-
-
-public void IMarketView() {
-	// TODO Auto-generated method stub
+	this.Stock = new ArrayList<String>();
+	this.Transaction= new ArrayList<String>();
+	this.Person = new ArrayList<String>();
 	
 }
 
-public void IStockRepo() {
-	// TODO Auto-generated method stub
-	
-}
 
-public void IPersonRepo() {
+@Override
+public ArrayList<String> viewStock() {
+	return this.Stock;
 	// TODO Auto-generated method stub
 	
 }
 
 
-public void ITransactionRepo() {
+@Override
+public ArrayList<String> viewPerson() {
+	return this.Person;
+	// TODO Auto-generated method stub
+	
+}
+
+
+@Override
+public ArrayList<String> viewTransaction() {
+	return this.Transaction;
 	// TODO Auto-generated method stub
 	
 }

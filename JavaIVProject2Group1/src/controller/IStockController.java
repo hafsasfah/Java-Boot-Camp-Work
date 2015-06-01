@@ -3,8 +3,8 @@ import java.util.*;
 
 public interface IStockController {
 	
-	void IMarketView(); //Display MarketView
-	void IStockRepo(); //Display Todays StockPrices
-	void IPersonRepo(); //Display Person
-	void ITransactionRepo();//Person Transaction [buy or sell stock]
+	
+	ArrayList<String> viewStock(); //Display Todays StockPrices
+	ArrayList<String> viewPerson(); //Display Person
+	ArrayList<String> viewTransaction();//Person Transaction [buy or sell stock]
 }
