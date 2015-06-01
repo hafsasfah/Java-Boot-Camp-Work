@@ -16,6 +16,7 @@ public class FileIO {
  
   public void run() {
  
+	String csvFile = "S&P500Stocks.csv";
 	BufferedReader br = null;
 	String line = "";
 	String cvsSplitBy = ",";
@@ -26,7 +27,10 @@ public class FileIO {
 		while ((line = br.readLine()) != null) {
  
 		        // use comma as separator
+			String[] stocks = line.split(cvsSplitBy);
  
+			System.out.println("Stocks [Ticker Symbol = " + stocks[0] 
+                                 + " , name=" + stocks[1] + "]");
  
 		}
  
