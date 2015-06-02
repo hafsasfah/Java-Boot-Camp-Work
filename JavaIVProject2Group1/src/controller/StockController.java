@@ -10,9 +10,12 @@ public class StockController implements IStockController{
 	 ArrayList<Stock> stock; 
 	 ArrayList<Transactions> Transaction;
 	 ArrayList<Person> Person;
+	 
 	 StockRepo sr;
 public static void main(String[] args){
 	StockController sc = new StockController();
+	 TransactionRepo tr;
+	 PersonRepo pr;
 
 	
 }
@@ -21,15 +24,17 @@ public StockController()
 {
 	sr = new StockRepo();
 	this.stock = sr.getStockList();
-	this.Transaction= new ArrayList<Transactions>();
-	this.Person = new ArrayList<Person>();
+
 	
 	
-	for(Stock stocks:stock){
-		System.out.println(stocks.getname());
-	}
+
 	
 	
+	tr= new TransactionRepo();
+	this.Transaction= tr.getTransactionList();
+	
+	pr= new PersonRepo();
+	this.Person = pr.getPersonRepoList();
 }
 
 
@@ -37,30 +42,20 @@ public StockController()
 public ArrayList<Stock> viewStock() {
 	
 	return this.stock;
-	// TODO Auto-generated method stub
-	
+	// TODO Auto-generated method stub	
 }
 
 
 @Override
 public ArrayList<Person> viewPerson() {
 	return this.Person;
-	// TODO Auto-generated method stub
-	
+	// TODO Auto-generated method stub	
 }
-
-
-
-
-
 
 @Override
 public ArrayList<Transactions> viewTransaction() {
 	// TODO Auto-generated method stub
 	return Transaction;
 }
-
-
-
 
 }
