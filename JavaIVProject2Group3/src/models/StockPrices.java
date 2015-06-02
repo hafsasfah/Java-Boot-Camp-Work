@@ -1,5 +1,8 @@
 package models;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 public class StockPrices {
 	
 	private String date;
@@ -16,7 +19,8 @@ public class StockPrices {
 	
 	public String getDate()
 	{
-		return date;
+		DateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");
+		return formatter.format(date);
 	}
 	
 	public void setDate(String date)

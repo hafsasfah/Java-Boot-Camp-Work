@@ -6,7 +6,7 @@ import models.Stocks;
 import models.iStocks;
 
 public interface iStocksTable {
-	public boolean create(iStocks stocks);
+	public boolean create(Stocks stocks);
 	//public void read();
 	public List<Stocks> get();
 	public Stocks get(String ticker);
