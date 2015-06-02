@@ -14,7 +14,8 @@ public class MainThread
 	public static void main(String[] args) throws FileNotFoundException
 	{
 
-		StockRepo testRepo = new StockRepo();
+		StockRepo testRepo2 = new StockRepo();
+		testRepo2.buildStockTable();
 		
 		File scorefile = new File("C:\\Users\\F01000154.CORP-9ML9LV1\\Documents\\GitHub\\gecjdss\\Java4website\\stockinfo\\stocknames.csv");
 		//change file based on operation
@@ -25,11 +26,15 @@ public class MainThread
 			String line = scanner.nextLine();
 			String ticker = line.substring(0, line.indexOf(','));
 			String price = (line.substring(line.indexOf(',') + 1));
-			testRepo.addStockManual(ticker,price);
+			testRepo2.addStockManual(ticker,price);
 
 		}
 		
+<<<<<<< HEAD
 
+=======
+		/*
+>>>>>>> origin/JavaIVPRoject2Group4
 		while(scanner.hasNextLine()) //add prices
 		{
 			String line = scanner.nextLine();
