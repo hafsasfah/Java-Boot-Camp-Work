@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import models.Stocks;
 import models.iStocks;
 
 /*
@@ -85,6 +86,8 @@ public class StocksTable implements iStocksTable {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		
+		return null;
 	}
 	
 	@Override

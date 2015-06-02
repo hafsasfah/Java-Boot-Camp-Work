@@ -2,6 +2,7 @@ package databases;
 
 import java.util.List;
 
+import models.Stocks;
 import models.iStocks;
 
 public interface iStocksTable {
