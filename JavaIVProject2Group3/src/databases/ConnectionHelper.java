@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionHelper {
-	public static void connectionHelper() {
+	public static Connection connectionHelper() {
 		Connection connection;
 		try {
 			String url = "jdbc:postgresql://localhost/StockGame";
@@ -17,5 +17,6 @@ public class ConnectionHelper {
 		catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return null;
 	}
 }
