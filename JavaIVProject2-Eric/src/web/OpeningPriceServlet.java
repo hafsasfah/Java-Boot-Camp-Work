@@ -36,7 +36,7 @@ public class OpeningPriceServlet extends HttpServlet {
         	prices.addAll(openingPriceRepository.get(requestedTicker));
         }
         
-        buildOpeningPriceTable( prices );
+        out.println ( buildOpeningPriceTable( prices ) );
         
         out.println("</body>");
         out.println("</html>");
