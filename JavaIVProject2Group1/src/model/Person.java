@@ -6,24 +6,18 @@ public class Person
 {
 
 	String name;
-	String stock;
+	ArrayList<Stock> stock;
 	double purse;
 	
 	Scanner scan = new Scanner(System.in);
 	
-	public Person(String name, String stock, double purse) 
+	public Person(String name, double purse) 
 	{
 		this.name = name;
-		this.stock = stock;
+		this.stock = new ArrayList<Stock>();
 		this.purse = purse;
 	}
 	
-	public void name()
-	{
-	 	System.out.print("Enter you name: ");
-	 	name = scan.nextLine();
-	}
-
 	public String getName() 
 	{
 		return name;

@@ -40,6 +40,7 @@ public class StockInput {
 	}
 	public void readInTodaysPrice(){
 		String filename = "S&P500-2015-06-01.csv";
+		//S&P500-2015-06-01.csv
 		fileReader( filename);
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 		Date date = new Date();
@@ -48,12 +49,13 @@ public class StockInput {
         String url = "jdbc:postgresql://localhost/stock market";
         String user = "postgres";
         String password = "password";
+        String yesterday = "2015-06-01";
         try 
         {
         	connection = DriverManager.getConnection(url, user, password);
         
 	        Statement db = connection.createStatement();
-	        db.executeUpdate("DELETE FROM \"opening price\"");
+	      db.executeUpdate("DELETE FROM \"opening price\" where \"date\"= '" + yesterday+"'" );
 	      
 	       for(int i = 1;i<dataArray.size()-1;i++){ 
 	    	
@@ -68,7 +70,8 @@ public class StockInput {
 	    		   tokens[1] = tokens[1]+","+tokens[2];
 	    	   }
 	    	   System.out.println(tokens[0]+" : "+tokens[1]);
-	       db.executeUpdate("INSERT INTO \"opening price\" (\"ticker\", \"price\",\"date\") VALUES('"+tokens[0]+"','"+tokens[1]+"','"+dateFormat.format(date)+"')");
+	      // db.executeUpdate("INSERT INTO \"opening price\" (\"ticker\", \"price\",\"date\") VALUES('"+tokens[0]+"','"+tokens[1]+"','"+dateFormat.format(date)+"')");
+	    	   db.executeUpdate("INSERT INTO \"opening price\" (\"ticker\", \"price\",\"date\") VALUES('"+tokens[0]+"','"+tokens[1]+"','"+yesterday+"')");
 	       }
         }
         catch(SQLException e)

@@ -60,8 +60,8 @@ ArrayList<Stock> stocksList;
 			        }
 			        for(Stock stock: stocksList){
 			        	String ticker = stock.getTicker();
-			        	//String query = String.format("Select \"price\"from \"opening price\" where \"ticker\" = '%s' AND \"date\" = '%s'", ticker, dateFormat.format(date));
-			        	String query = String.format("Select \"price\"from \"opening price\" where \"ticker\" = '%s'", ticker);
+			        	String query = String.format("Select \"price\"from \"opening price\" where \"ticker\" = '%s' AND \"date\" = '%s'", ticker, dateFormat.format(date));
+			        	//String query = String.format("Select \"price\"from \"opening price\" where \"ticker\" = '%s'", ticker);
 			        	rs = db.executeQuery(query);
 			        	System.out.println(query);
 			        	if(rs.next()){
