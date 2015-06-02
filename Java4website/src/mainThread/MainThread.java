@@ -29,7 +29,7 @@ public class MainThread
 
 		}
 		
-/*
+
 		while(scanner.hasNextLine()) //add prices
 		{
 			String line = scanner.nextLine();
@@ -38,7 +38,7 @@ public class MainThread
 			testRepo.addStockPrices(ticker,price);
 
 		}
-		*/
+	
 
 		scanner.close();
 	}

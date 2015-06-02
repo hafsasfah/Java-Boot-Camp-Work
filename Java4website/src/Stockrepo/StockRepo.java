@@ -85,7 +85,7 @@ public class StockRepo
 		
 		
 	}
-	boolean addStockPrices(String name,double stockprice) //create in CRUD
+	public boolean addStockPrices(String name,double stockprice) //create in CRUD
 	{
 		try
 		{
