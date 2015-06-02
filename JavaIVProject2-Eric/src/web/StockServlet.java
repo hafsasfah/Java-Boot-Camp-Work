@@ -23,11 +23,10 @@ public class StockServlet extends HttpServlet {
         out.println( ServletHelper.createHead( "Stock" ) );
         out.println("<body>");
         
+        String pathInfo = request.getPathInfo();
         
-        String requestedTicker = request.getParameter( "ticker" );
-        if ( requestedTicker == null )
+        if ( pathInfo == null || pathInfo.equals("/") )
         {
-        
 	        out.println("<h1>S&P 500 Stocks</h1>");
 	        out.println("<table border='1'>");
 	        List<Stock> stocks = stockRepository.get();
@@ -47,7 +46,9 @@ public class StockServlet extends HttpServlet {
         }
         else
         {
-        	Stock stock = stockRepository.get( requestedTicker );
+        	String requestedTicker = pathInfo.substring( pathInfo.indexOf('/') + 1);
+        	
+        	Stock stock = stockRepository.get(requestedTicker) ;
         	if ( stock == null )
         	{
         		out.println( requestedTicker + " was not found" );
