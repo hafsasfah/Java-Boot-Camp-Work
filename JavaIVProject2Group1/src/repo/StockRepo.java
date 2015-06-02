@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 import model.Stock;
 
 
-public class StockRepo {
+public class StockRepo implements IStockRepo {
 ArrayList<Stock> stocksList;
 
 
