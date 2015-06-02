@@ -14,7 +14,7 @@ ArrayList<Stock> stocksList;
 
 	public static void main(String[] args){
 	
-		StockRepo sr = new StockRepo();
+	//	StockRepo sr = new StockRepo();
 	}
 
 

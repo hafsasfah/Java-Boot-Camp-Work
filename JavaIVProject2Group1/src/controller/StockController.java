@@ -7,18 +7,28 @@ import model.*;
 
 public class StockController implements IStockController{
 	
-	 ArrayList<Stock> Stock; 
+	 ArrayList<Stock> stock; 
 	 ArrayList<Transactions> Transaction;
 	 ArrayList<Person> Person;
 	 StockRepo sr;
+public static void main(String[] args){
+	StockController sc = new StockController();
 
 	
-public void stockController()
+}
+	
+public StockController()
 {
 	sr = new StockRepo();
-	this.Stock = sr.getStockList();
+	this.stock = sr.getStockList();
 	this.Transaction= new ArrayList<Transactions>();
 	this.Person = new ArrayList<Person>();
+	
+	
+	for(Stock stocks:stock){
+		System.out.println(stocks.getname());
+	}
+	
 	
 }
 
@@ -26,7 +36,7 @@ public void stockController()
 @Override
 public ArrayList<Stock> viewStock() {
 	
-	return this.Stock;
+	return this.stock;
 	// TODO Auto-generated method stub
 	
 }
