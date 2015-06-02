@@ -20,14 +20,11 @@ public class StockServlet extends HttpServlet {
             	
     	response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        out.println("<html>");
-        out.println("<head>");
-        out.println("<title>Stocks</title>");
-        out.println("</head>");
+        out.println( ServletHelper.createHead( "Stock" ) );
         out.println("<body>");
         
         
-        String requestedTicker = request.getParameter("ticker" );
+        String requestedTicker = request.getParameter( "ticker" );
         if ( requestedTicker == null )
         {
         
