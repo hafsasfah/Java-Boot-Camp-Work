@@ -17,7 +17,7 @@ public class MainThread
 		StockRepo testRepo2 = new StockRepo();
 		testRepo2.buildStockTable();
 		
-		File scorefile = new File("C:\\Users\\F01000154.CORP-9ML9LV1\\Documents\\GitHub\\gecjdss\\Java4website\\stockinfo\\stocknames.csv");
+		File scorefile = new File("C:\\Users\\F01000154.CORP-26J3TY1\\Documents\\GitHub\\gecjdss\\Java4website\\stockinfo\\stocknames.csv");
 		//change file based on operation
 		Scanner scanner = new Scanner(scorefile);
 		
@@ -31,19 +31,9 @@ public class MainThread
 		}
 		
 
-		/*
 
-		while(scanner.hasNextLine()) //add prices
-		{
-			String line = scanner.nextLine();
-			String ticker = line.substring(0, line.indexOf(','));
-			double price = Double.parseDouble(line.substring(line.indexOf(',') + 1));
-			testRepo.addStockPrices(ticker,price);
-
-		}
-	
-	*/
 		scanner.close();
 	}
 	
+		
 }

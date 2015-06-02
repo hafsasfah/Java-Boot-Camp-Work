@@ -17,7 +17,7 @@ public class StockRepo
 		{
 			String url = "jdbc:postgresql://localhost/Stocks";
 			String username = "postgres";
-			String password = "Citylost2";
+			String password = "Silver99";
 			
 			connection = DriverManager.getConnection(url, username, password);
 			
@@ -61,7 +61,7 @@ public class StockRepo
 		try
 		{
 			Statement statement = connection.createStatement();
-			String createStock = String.format(" INSERT INTO \"Stocks\""
+			String createStock = String.format(" INSERT INTO \"StocksSecond\""
 					+ "("
 					+ "\"Name\","
 					+ "\"CompanyName\""
@@ -78,7 +78,7 @@ public class StockRepo
 		}
 		catch(SQLException E)
 		{
-			System.out.println("You messed up");
+			System.out.println("You griffithed up");
 			E.printStackTrace();
 			return false;
 		}
@@ -90,7 +90,7 @@ public class StockRepo
 		try
 		{
 			Statement statement = connection.createStatement();
-			String createStock = String.format(" UPDATE \"Stocks\""
+			String createStock = String.format(" UPDATE \"StocksSecond\""
 					+ " SET \"CurrentPrice\" = '%f'"
 					+ " WHERE \"Name\" = '%s';",
 					stockprice, name);
@@ -113,7 +113,7 @@ public class StockRepo
 		try
 		{
 			Statement statement = connection.createStatement();
-			String getstockprice = String.format("SELECT \"CurrentPrice\" FROM \"Stocks\" WHERE \"Name\" = '%s';", stock.getStockName());
+			String getstockprice = String.format("SELECT \"CurrentPrice\" FROM \"StocksSecond\" WHERE \"Name\" = '%s';", stock.getStockName());
 			
 			ResultSet results = statement.executeQuery(getstockprice);
 			
@@ -137,7 +137,7 @@ public class StockRepo
 		try
 		{
 			Statement statement = connection.createStatement();
-			String updateStock = String.format("UPDATE \"CurrentPrice\" FROM \"Stocks\" WHERE \"Name\" = '%s';", stock.getStockName());
+			String updateStock = String.format("UPDATE \"CurrentPrice\" FROM \"StocksSecond\" WHERE \"Name\" = '%s';", stock.getStockName());
 			
 			statement.execute(updateStock);
 			return true;
@@ -156,7 +156,7 @@ public class StockRepo
 		try
 		{
 			Statement statement = connection.createStatement();
-			String deleteStock = String.format("DELETE FROM \"Stocks\" WHERE \"Name\" = '%s';", stock.getStockName());
+			String deleteStock = String.format("DELETE FROM \"StocksSecond\" WHERE \"Name\" = '%s';", stock.getStockName());
 			
 			statement.execute(deleteStock);
 			return true;
