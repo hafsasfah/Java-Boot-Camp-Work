@@ -7,6 +7,7 @@ public class User {
 	private String userName;
 	private int userID;
 	private double cash;
+	private double profit;
 	
 	public User(String userName, int userID)
 	{
@@ -14,6 +15,11 @@ public class User {
 		this.userID = userID;
 		cash = 50000;
 	} 
+	
+	public User()
+	{
+		
+	}
 	
 	public String getUserName()
 	{
@@ -27,14 +33,14 @@ public class User {
 		input.close();
 	}
 	
-	public int getUserId()
+	public int getUserID()
 	{
 		return userID;
 	}
 	
-	public void setUserId(int userId)
+	public void setUserID(int userID)
 	{
-		userID = ;
+		this.userID = userID;
 	}
 	
 	public double getCash()
