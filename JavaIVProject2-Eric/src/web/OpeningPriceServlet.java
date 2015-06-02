@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -23,17 +24,30 @@ public class OpeningPriceServlet extends HttpServlet {
         PrintWriter out = response.getWriter();
         out.println( ServletHelper.createHead( "OpeningPrice" ) );
         
-        String requestedTicker = request.getParameter( "ticker" );
+        Map<String, String[]> parameterMap = request.getParameterMap();
 
         List<OpeningPrice> prices = new ArrayList<OpeningPrice>();
+        String ticker = "ticker";
+        String date = "date";
+        boolean requestByTicker = parameterMap.containsKey(ticker);
+        boolean requestByDate = parameterMap.containsKey(date);
         
-        if ( requestedTicker == null )
+        if ( requestByTicker && requestByDate )
         {
-        	prices.addAll(openingPriceRepository.get());
+        	prices.addAll(openingPriceRepository.getByTickerAndDate( parameterMap.get(ticker)[0], parameterMap.get(date)[0] ) );
+        }
+        else if ( requestByTicker )
+        {
+        	prices.addAll(openingPriceRepository.getByTicker(parameterMap.get(ticker)[0]));
+        	
+        }
+        else if ( requestByDate )
+        {
+        	prices.addAll(openingPriceRepository.getByDate(parameterMap.get(date)[0]));
         }
         else
         {
-        	prices.addAll(openingPriceRepository.get(requestedTicker));
+        	prices.addAll(openingPriceRepository.get());
         }
         
         out.println ( buildOpeningPriceTable( prices ) );
