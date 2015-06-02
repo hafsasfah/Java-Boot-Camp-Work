@@ -30,11 +30,9 @@ public class MainThread
 
 		}
 		
-<<<<<<< HEAD
 
-=======
 		/*
->>>>>>> origin/JavaIVPRoject2Group4
+
 		while(scanner.hasNextLine()) //add prices
 		{
 			String line = scanner.nextLine();
@@ -44,7 +42,7 @@ public class MainThread
 
 		}
 	
-
+	*/
 		scanner.close();
 	}
 	
