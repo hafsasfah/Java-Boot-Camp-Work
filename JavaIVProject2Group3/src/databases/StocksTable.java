@@ -2,8 +2,11 @@ package databases;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 import models.iStocks;
 
@@ -48,15 +51,49 @@ public class StocksTable implements iStocksTable {
 	}
 
 	@Override
+	public List<Stocks> get() {
+		List<Stocks> stocks = new ArrayList<Stocks>(); 
+		
+		try {
+			Statement statement = connection.createStatement();
+			String query = String.format("SELECT \"Ticker\", \"Name\" FROM \"Stock\"" );
+			ResultSet results = statement.executeQuery(query);
+			
+			while (results.next()) {
+				stocks.add(new Stocks(results.getString(1), results.getString(2)) );
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return stocks;
+	}
+	
+	@Override
+	public Stocks get(String ticker) {
+		try {
+			Statement statement = connection.createStatement();
+			String query = String.format("SELECT \"Ticker\", \"Name\" FROM \"Stock\" "
+					+ "WHERE \"Ticker\" = '%s'", ticker);
+			ResultSet results = statement.executeQuery(query);
+			
+			if (results.next()) {
+				return new Stocks(results.getString(1), results.getString(2));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	@Override
 	public boolean update(iStocks stocks) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
 	public boolean delete(iStocks stocks) {
 		return false;
-	}
-
-	
+	}	
 }
