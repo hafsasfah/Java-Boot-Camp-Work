@@ -38,7 +38,7 @@ public class UserTable implements iUserTable {
 			String createUserRow = String.format
 					("INSERT INTO \"User\" (\"UserID\", \"UserName\", \"Cash\")"
 							+ "VALUES ('%s', '%s', '%s');", 
-							user.getUserId(), user.getUserName(), user.getCash());
+							user.getUserID(), user.getUserName(), user.getCash());
 			statement.execute(createUserRow);
 			return true;
 		}
