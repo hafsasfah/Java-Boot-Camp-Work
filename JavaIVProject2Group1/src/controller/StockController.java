@@ -14,8 +14,8 @@ public class StockController implements IStockController{
 	 StockRepo sr;
 public static void main(String[] args){
 	StockController sc = new StockController();
-	 TransactionRepo tr;
-	 PersonRepo pr;
+	// TransactionRepo tr;
+	// PersonRepo pr;
 
 	
 }
@@ -30,11 +30,11 @@ public StockController()
 
 	
 	
-	tr= new TransactionRepo();
-	this.Transaction= tr.getTransactionList();
+	//tr= new TransactionRepo();
+	//this.Transaction= tr.getTransactionList();
 	
-	pr= new PersonRepo();
-	this.Person = pr.getPersonRepoList();
+	//pr= new PersonRepo();
+	//this.Person = pr.getPersonRepoList();
 }
 
 
