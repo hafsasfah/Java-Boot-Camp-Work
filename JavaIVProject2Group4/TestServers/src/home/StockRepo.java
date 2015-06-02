@@ -37,7 +37,7 @@ public class StockRepo
 		try
 		{
 			Statement statement = connection.createStatement();
-			String buildstocktable = " CREATE TABLE \"Stocks\""
+			String buildstocktable = " CREATE TABLE \"Stocks2\""
 					+ " ("
 					+ " \"Name\" character varying(100) NOT NULL PRIMARY KEY,"
 					+ " \"CompanyName\" character varying(100),"
