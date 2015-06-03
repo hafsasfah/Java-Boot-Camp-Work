@@ -35,6 +35,8 @@ public class MainThread
 		
 		DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 		Date date = new Date();
+		
+		
 		//******** Add Names To Database ********\\
 		
 		while(scannerName.hasNextLine()) //add names
@@ -45,7 +47,10 @@ public class MainThread
 			stockcontroller.stockrepo.addStockNamesToDatabase(ticker,price, dateFormat.format(date));
 		}
 		
-		while(scannerPrice.hasNextLine()) //add names
+		//******** Add Prices To Database ********\\
+		
+		
+		while(scannerPrice.hasNextLine()) //add prices
 		{
 			String line = scannerPrice.nextLine();
 			String ticker = line.substring(0, line.indexOf(','));
