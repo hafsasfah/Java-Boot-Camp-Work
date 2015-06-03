@@ -23,24 +23,24 @@ public class StocksTable implements iStocksTable {
 	
 	public StocksTable() {
 		try {
+			Class.forName("org.postgresql.Driver");
 			String url = "jdbc:postgresql://localhost/StockGame";
 			String username = "postgres";
 			String password = "password";
 			
 			connection = DriverManager.getConnection(url, username, password);
 		}
-		catch (SQLException e) {
+		catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
-	@Override
 	public boolean create(Stocks stock) {
 		try {
 			Statement statement = connection.createStatement();
 			String createStockRow = String.format
 					("INSERT INTO \"Stocks\" (\"Ticker\", \"StockName\")"
-							+ "VALUES ('%s', '%s');", 
+							+ " VALUES ('%s', '%s');", 
 							stock.getTicker(), stock.getStockName());
 			statement.execute(createStockRow);
 			return true;

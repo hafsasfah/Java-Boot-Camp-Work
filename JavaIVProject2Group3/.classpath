@@ -2,6 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Users/F01000154.CORP-3FDTWW1/Documents/GitHub/gecjdss/JavaIVProject2Group3/external/servlet-api.jar"/>
+	<classpathentry kind="lib" path="C:/Users/F01000154.CORP-GT0N8W1/Documents/GitHub/gecjdss/JavaIVProject2Group3/external/servlet-api.jar"/>
+	<classpathentry kind="lib" path="C:/Users/F01000154.CORP-GT0N8W1/Documents/GitHub/gecjdss/external/postgresql-9.4-1201.jdbc41.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

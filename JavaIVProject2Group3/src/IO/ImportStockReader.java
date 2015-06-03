@@ -12,13 +12,14 @@ import databases.*;
 
 public class ImportStockReader {
 	public static void main(String []args){
-		new ImportStockReader( "S&P500Stocks" );
+		new ImportStockReader("C:\\Users\\F01000154.CORP-GT0N8W1\\Documents\\GitHub\\gecjdss\\JavaIVProject2Group3\\S&P500Stocks.csv" );
 	}
 	private ConnectionHelper stockRepository;
 	private StocksTable stocksTable;
 	
 	public ImportStockReader( String filename ){
 		stockRepository= new ConnectionHelper();
+		stocksTable=new StocksTable();
 		for (Stocks stock: read( filename))
 		{
 			stocksTable.create( stock );
@@ -41,7 +42,7 @@ public class ImportStockReader {
 					String line = scanner.nextLine();
 					int firstCommaIndex = line.indexOf(',');
 					String ticker = line.substring(0, firstCommaIndex );
-					String name = line.substring(firstCommaIndex + 1);
+					String name = line.substring(firstCommaIndex + 1).replace("\"", "");
 					stocks.add( new Stocks(ticker, name) );
 				}
 				scanner.close();
