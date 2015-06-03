@@ -19,22 +19,20 @@ public class BuyerRepo {
 	ArrayList<Person> buyersList;
 
 
-		public static void main(String[] args){
-			BuyerRepo br = new BuyerRepo();
-			br.buildBuyerList();
 		
-		}
 
 
 
-		public BuyerRepo(){
+		public BuyerRepo() throws ClassNotFoundException{
 			buyersList = new ArrayList<Person>();
+			buildBuyerList();
+			
 			
 		}
 		public ArrayList<Person> getBuyerList(){
 			return buyersList;
 		}
-		public void buildBuyerList(){
+		public void buildBuyerList() throws ClassNotFoundException{
 				Connection  connection;
 				
 				
@@ -43,7 +41,7 @@ public class BuyerRepo {
 			   //  String password = JOptionPane.showInputDialog("Enter Database password for user \""+user+"\"");
 				DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 				Date date = new Date();
-			     
+				Class.forName("org.postgresql.Driver");
 				 String url = "jdbc:postgresql://localhost/stock market";
 			     String user = "postgres";
 			     String password = "password";
@@ -58,7 +56,7 @@ public class BuyerRepo {
 				        	String name = rs.getString(1);
 				        	double purse = rs.getDouble(2);
 				        	buyersList.add(new Person(name,purse));
-				        	System.out.println(name +" : "+ purse);
+				        //	System.out.println(name +" : "+ purse);
 				        	//System.out.println(rs.getString(1)+ " : "+rs.getString(2));
 				        	
 				        	

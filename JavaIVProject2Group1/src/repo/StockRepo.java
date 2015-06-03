@@ -38,7 +38,12 @@ ArrayList<Stock> stocksList;
 		   //  String password = JOptionPane.showInputDialog("Enter Database password for user \""+user+"\"");
 			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			Date date = new Date();
-		     
+			try{
+			Class.forName("org.postgresql.Driver");
+			}
+			catch(Exception e){
+				
+			}
 			 String url = "jdbc:postgresql://localhost/stock market";
 		     String user = "postgres";
 		     String password = "password";
@@ -63,10 +68,10 @@ ArrayList<Stock> stocksList;
 			        	String query = String.format("Select \"price\"from \"opening price\" where \"ticker\" = '%s' AND \"date\" = '%s'", ticker, dateFormat.format(date));
 			        	//String query = String.format("Select \"price\"from \"opening price\" where \"ticker\" = '%s'", ticker);
 			        	rs = db.executeQuery(query);
-			        	System.out.println(query);
+			        	//System.out.println(query);
 			        	if(rs.next()){
 			        	stock.setPrice(rs.getDouble(1));
-			        	System.out.println(stock.getname()+" : "+stock.getPrice());
+			        	//System.out.println(stock.getname()+" : "+stock.getPrice());
 			        	}
 			        }
 			        

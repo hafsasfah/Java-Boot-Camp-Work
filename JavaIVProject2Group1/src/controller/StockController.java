@@ -2,29 +2,31 @@ package controller;
 
 import java.util.ArrayList;
 
-import repo.StockRepo;
+import repo.*;
 import model.*;
 
 public class StockController implements IStockController{
 	
 	 ArrayList<Stock> stock; 
 	 ArrayList<Transactions> Transaction;
-	 ArrayList<Person> Person;
-	 
+	 ArrayList<Person> person;
+	 BuyerRepo pr;
 	 StockRepo sr;
-public static void main(String[] args){
+public static void main(String[] args) throws ClassNotFoundException{
 	StockController sc = new StockController();
+	sc.viewPerson();
 	// TransactionRepo tr;
-	// PersonRepo pr;
+	
 
 	
 }
 	
-public StockController()
+public StockController() throws ClassNotFoundException
 {
 	sr = new StockRepo();
 	this.stock = sr.getStockList();
-
+	pr = new BuyerRepo();
+	this.person = pr.getBuyerList();
 	
 	
 
@@ -33,8 +35,8 @@ public StockController()
 	//tr= new TransactionRepo();
 	//this.Transaction= tr.getTransactionList();
 	
-	//pr= new PersonRepo();
-	//this.Person = pr.getPersonRepoList();
+	
+	
 }
 
 
@@ -48,7 +50,10 @@ public ArrayList<Stock> viewStock() {
 
 @Override
 public ArrayList<Person> viewPerson() {
-	return this.Person;
+	for(Person buyer: person){
+	System.out.println(buyer.getName());
+	}
+	return this.person;
 	// TODO Auto-generated method stub	
 }
 
