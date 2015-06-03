@@ -5,7 +5,7 @@ import Stockrepo.StockRepo;
 
 public class StockController
 {
-	StockRepo stockrepo;
+	public StockRepo stockrepo;
 	
 	public StockController()
 	{

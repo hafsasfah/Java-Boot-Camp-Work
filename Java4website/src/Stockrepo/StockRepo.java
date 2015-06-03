@@ -16,7 +16,7 @@ public class StockRepo
 		{
 			String url = "jdbc:postgresql://localhost/Stocks";
 			String username = "postgres";
-			String password = "Silver99";
+			String password = "Citylost2";
 			
 			connection = DriverManager.getConnection(url, username, password);
 			
@@ -42,25 +42,8 @@ public class StockRepo
 					+ " ("
 					+ " \"Name\" character varying(100) NOT NULL PRIMARY KEY,"
 					+ " \"CompanyName\" character varying(100),"
-					+ " \"CurrentPrice\" integer FOREIGN KEY REFERENCES \"Prices\","
-					+ " \"Date\" character varying(100) "
-					+ " )";
-			
-			statement.execute(buildstocktable);
-		}
-		catch(SQLException E)
-		{
-			E.printStackTrace();
-		}
-		
-		try
-		{
-			Statement statement = connection.createStatement();
-			String buildstocktable = " CREATE TABLE \"Prices\""
-					+ " ("
-					+ " \"Name\" character varying(100) NOT NULL,"
-					+ " \"Price\" integer NOT NULL PRIMARY KEY,"
-					+ " \"Date\" character varying(100)"
+					+ " \"CurrentPrice\" double precision ,"
+					+ " \"Date\" date "
 					+ " )";
 			
 			statement.execute(buildstocktable);
@@ -71,22 +54,24 @@ public class StockRepo
 		}
 		
 	}
-	public boolean addStockManual(String name,String companyname) //create in CRUD
+	public boolean addStockNamesToDatabase(String name,String companyname, String date) //create in CRUD
 	{
 		try
 		{
 			Statement statement = connection.createStatement();
-			String createStock = String.format(" INSERT INTO \"StocksSecond\""
+			String createStock = String.format(" INSERT INTO \"Stocks\""
 					+ "("
 					+ "\"Name\","
-					+ "\"CompanyName\""
+					+ "\"CompanyName\","
+					+ "\"Date\""
 					+ ")"
 					+ "VALUES"
 					+ "("
 					+ "'%s',"
+					+ "'%s',"
 					+ "'%s'"
 					+ ");",
-					name, companyname);
+					name, companyname, date);
 			
 			statement.execute(createStock);
 			return true;
@@ -100,12 +85,14 @@ public class StockRepo
 		
 		
 	}
-	public boolean addStockPrices(String name,double stockprice) //create in CRUD
+	
+	
+	public boolean addStockPricesToDatabase(String name,double stockprice) //create in CRUD
 	{
 		try
 		{
 			Statement statement = connection.createStatement();
-			String createStock = String.format(" UPDATE \"StocksSecond\""
+			String createStock = String.format(" UPDATE \"Stocks\""
 					+ " SET \"CurrentPrice\" = '%f'"
 					+ " WHERE \"Name\" = '%s';",
 					stockprice, name);
@@ -128,7 +115,7 @@ public class StockRepo
 		try
 		{
 			Statement statement = connection.createStatement();
-			String getstockprice = String.format("SELECT \"CurrentPrice\" FROM \"StocksSecond\" WHERE \"Name\" = '%s';", stock.getStockName());
+			String getstockprice = String.format("SELECT \"CurrentPrice\" FROM \"Stocks\" WHERE \"Name\" = '%s';", stock.getStockName());
 			
 			ResultSet results = statement.executeQuery(getstockprice);
 			
@@ -152,7 +139,7 @@ public class StockRepo
 		try
 		{
 			Statement statement = connection.createStatement();
-			String updateStock = String.format("UPDATE \"CurrentPrice\" FROM \"StocksSecond\" WHERE \"Name\" = '%s';", stock.getStockName());
+			String updateStock = String.format("UPDATE \"CurrentPrice\" FROM \"Stocks\" WHERE \"Name\" = '%s';", stock.getStockName());
 			
 			statement.execute(updateStock);
 			return true;
@@ -171,7 +158,7 @@ public class StockRepo
 		try
 		{
 			Statement statement = connection.createStatement();
-			String deleteStock = String.format("DELETE FROM \"StocksSecond\" WHERE \"Name\" = '%s';", stock.getStockName());
+			String deleteStock = String.format("DELETE FROM \"Stocks\" WHERE \"Name\" = '%s';", stock.getStockName());
 			
 			statement.execute(deleteStock);
 			return true;
