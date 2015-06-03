@@ -72,6 +72,7 @@ public class StockServlet extends HttpServlet{
 				        {
 				        	out.println( "<tr>" );
 				        	out.println( "<td>" + stock.getStockName() + "</td>" );
+				        	out.println( "<td>" + stock.getStockName() + "</td>" );
 				        	out.println( "</tr>" );
 				        }
 				        

@@ -21,6 +21,14 @@ public class StockModel
 		this.date = date;
 	}
 	
+	public StockModel(String name, String company, int price, int date)
+	{
+		this.companyName= company;
+		this.currentPrice = price;
+		this.stockName = name;
+		this.date = date;
+	}
+	
 	public int getCurrentPrice() 
 	{
 		return currentPrice;
