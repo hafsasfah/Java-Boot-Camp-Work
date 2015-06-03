@@ -7,5 +7,4 @@ import model.Person;
 public interface IPersonRepo {
 	ArrayList<Person> getPersonList();
 	void buildPersonList();
-
 }
