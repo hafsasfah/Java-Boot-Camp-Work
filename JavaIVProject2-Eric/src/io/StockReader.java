@@ -46,7 +46,7 @@ public class StockReader
 				String line = scanner.nextLine();
 				int firstCommaIndex = line.indexOf(',');
 				String ticker = line.substring(0, firstCommaIndex );
-				String name = line.substring(firstCommaIndex + 1);
+				String name = line.substring(firstCommaIndex + 1).replace("\"", "");
 				stocks.add( new Stock(ticker, name) );
 			}
 			scanner.close();
