@@ -4,7 +4,6 @@ import java.sql.*;
 
 import StockModel.StockModel;
 
-
 public class StockRepo 
 {
 
@@ -39,12 +38,12 @@ public class StockRepo
 		try
 		{
 			Statement statement = connection.createStatement();
-			String buildstocktable = " CREATE TABLE \"StocksSecond\""
+			String buildstocktable = " CREATE TABLE \"Stocks\""
 					+ " ("
 					+ " \"Name\" character varying(100) NOT NULL PRIMARY KEY,"
 					+ " \"CompanyName\" character varying(100),"
-					+ " \"CurrentPrice\" integer,"
-					+ " \"Date\" integer "
+					+ " \"CurrentPrice\" integer FOREIGN KEY REFERENCES \"Prices\","
+					+ " \"Date\" character varying(100) "
 					+ " )";
 			
 			statement.execute(buildstocktable);
@@ -54,6 +53,22 @@ public class StockRepo
 			E.printStackTrace();
 		}
 		
+		try
+		{
+			Statement statement = connection.createStatement();
+			String buildstocktable = " CREATE TABLE \"Prices\""
+					+ " ("
+					+ " \"Name\" character varying(100) NOT NULL,"
+					+ " \"Price\" integer NOT NULL PRIMARY KEY,"
+					+ " \"Date\" character varying(100)"
+					+ " )";
+			
+			statement.execute(buildstocktable);
+		}
+		catch(SQLException E)
+		{
+			E.printStackTrace();
+		}
 		
 	}
 	public boolean addStockManual(String name,String companyname) //create in CRUD
