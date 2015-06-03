@@ -40,7 +40,7 @@ public class StockRepo
 			Statement statement = connection.createStatement();
 			String buildstocktable = " CREATE TABLE \"Stocks\""
 					+ " ("
-					+ " \"Name\" character varying(100) NOT NULL PRIMARY KEY,"
+					+ " \"Name\" character varying(100) ,"
 					+ " \"CompanyName\" character varying(100),"
 					+ " \"CurrentPrice\" double precision ,"
 					+ " \"Date\" date "
