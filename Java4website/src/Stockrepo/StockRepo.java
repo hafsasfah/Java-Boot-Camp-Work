@@ -17,7 +17,7 @@ public class StockRepo
 		{
 			String url = "jdbc:postgresql://localhost/Stocks";
 			String username = "postgres";
-			String password = "Silver99";
+			String password = "dragon";
 			
 			connection = DriverManager.getConnection(url, username, password);
 			

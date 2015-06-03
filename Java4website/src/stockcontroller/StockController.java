@@ -11,7 +11,7 @@ public class StockController
 	{
 		stockrepo = new StockRepo();
 	}
-	
+
 	public void createStockListing(StockModel stock)
 	{
 		//stockrepo.addStock(stock);
