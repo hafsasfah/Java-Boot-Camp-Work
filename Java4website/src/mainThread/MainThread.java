@@ -18,6 +18,10 @@ public class MainThread
 	{
 
 		StockController stockcontroller = new StockController();
+		
+		//**** DO NOT BUILD TABLE IF IT ALREADY EXISTS ****\\
+		
+		
 		stockcontroller.stockrepo.buildStockTable();
 		
 		//**** CHANGE FILE PATHS BEFORE BUILDING ****\\
