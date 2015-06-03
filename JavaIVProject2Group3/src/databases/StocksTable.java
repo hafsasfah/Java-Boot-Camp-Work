@@ -35,13 +35,13 @@ public class StocksTable implements iStocksTable {
 	}
 
 	@Override
-	public boolean create(iStocks stocks) {
+	public boolean create(Stocks stock) {
 		try {
 			Statement statement = connection.createStatement();
 			String createStockRow = String.format
 					("INSERT INTO \"Stocks\" (\"Ticker\", \"StockName\")"
 							+ "VALUES ('%s', '%s');", 
-							stocks.getTicker(), stocks.getStockName());
+							stock.getTicker(), stock.getStockName());
 			statement.execute(createStockRow);
 			return true;
 		}
@@ -86,7 +86,6 @@ public class StocksTable implements iStocksTable {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		
 		return null;
 	}
 	
@@ -97,6 +96,12 @@ public class StocksTable implements iStocksTable {
 
 	@Override
 	public boolean delete(iStocks stocks) {
+		return false;
+	}
+
+	@Override
+	public boolean create(iStocks stocks) {
+		// TODO Auto-generated method stub
 		return false;
 	}	
 }

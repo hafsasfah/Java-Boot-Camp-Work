@@ -5,6 +5,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class ConnectionHelper {
+	public ConnectionHelper() {
+		// TODO Auto-generated constructor stub
+	}
+
 	public static Connection connectionHelper() {
 		Connection connection;
 		try {

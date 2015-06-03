@@ -18,7 +18,7 @@ public class ImportStockReader {
 	private StocksTable stocksTable;
 	
 	public ImportStockReader( String filename ){
-		stockRepository= new ConnectionHelper( ConnectionHelper.connectionHelper());
+		stockRepository= new ConnectionHelper();
 		for (Stocks stock: read( filename))
 		{
 			stocksTable.create( stock );
