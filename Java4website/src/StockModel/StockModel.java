@@ -6,14 +6,15 @@ public class StockModel
 
 	int currentPrice;
 	String stockName;
+	String companyName;
 	int date;
 
-	StockModel()
+	public StockModel()
 	{
 		this.stockName = "";
 	}
 
-	StockModel(int price, String name, int date)
+	public StockModel(int price, String name, int date)
 	{
 		this.currentPrice = price;
 		this.stockName = name;
@@ -34,7 +35,7 @@ public class StockModel
 	{
 		return stockName;
 	}
-
+	
 	public void setStockName(String stockName) 
 	{
 		this.stockName = stockName;
