@@ -10,8 +10,6 @@ import javax.servlet.http.*;
 
 import repo.dummyrepo;
 import model.Stock;
-import models.*;
-import data.*;
 
 public class StockServlet extends HttpServlet 
 {
