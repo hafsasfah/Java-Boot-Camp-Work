@@ -12,13 +12,12 @@ import databases.*;
 
 public class ImportStockReader {
 	public static void main(String []args){
-		new ImportStockReader("..\\S&P500Stocks.csv" );
+		new ImportStockReader("C:\\Users\\F01000154.CORP-GT0N8W1\\Workspace\\Practice\\src\\sql\\S&P500Stocks.csv" );
 	}
-	private ConnectionHelper stockRepository;
 	private StocksTable stocksTable;
 	
 	public ImportStockReader( String filename ){
-		stockRepository= new ConnectionHelper();
+		
 		stocksTable=new StocksTable();
 		for (Stocks stock: read( filename))
 		{
