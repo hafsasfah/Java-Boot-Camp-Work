@@ -26,9 +26,8 @@ public class Person
 		return name;
 	}
 
-	public void setName(String name) 
-	{
-		this.name = name;
+	public ArrayList<Stock> getStocks(){
+		return stocks;
 	}
 
 	public double getPurse() 
