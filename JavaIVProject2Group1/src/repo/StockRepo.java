@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
 import model.Stock;
 
 
-public class StockRepo implements IStockRepo {
+public class StockRepo  {
 ArrayList<Stock> stocksList;
 ConnectionHelper connectionHelper;
 ResultSet rs ;
@@ -46,6 +46,16 @@ Connection  connection;
 		return null;
 		}
 		*/
+	public Stock get(String tickerOrName) {
+		for(Stock stock:stocksList ){	
+			if (stock.getName().equals(tickerOrName)||stock.getTicker().equals(tickerOrName)){
+				return stock;
+			}
+		}
+		return null;
+		
+	}
+	
 	public void buildStockList(){
 			
 			

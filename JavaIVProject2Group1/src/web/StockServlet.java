@@ -18,7 +18,7 @@ public class StockServlet extends HttpServlet
     public void doGet(HttpServletRequest request, HttpServletResponse response)
     throws IOException, ServletException
     {
-    	dummyrepo stockRepository = new dummyrepo();
+    	StockRepo stockRepository = new StockRepo();
             	
     	response.setContentType("text/html");
         PrintWriter out = response.getWriter();
@@ -48,7 +48,8 @@ public class StockServlet extends HttpServlet
 	        out.println("</table>");
         }
         else
-        {
+        {	
+        	
         	Stock stock = stockRepository.get( requestedTicker );
         	if ( stock == null )
         	{
@@ -61,5 +62,23 @@ public class StockServlet extends HttpServlet
         }
 	    out.println("</body>");
         out.println("</html>");
+    }
+    
+    public StringBuilder createTable(List<Stock> stocks){
+    	StringBuilder output = new StringBuilder();
+    	if ( stocks.size() > 0 )
+        {
+        	output.append( "<tr><th>Ticker</th><th>Name</th></tr>" );
+        }
+        for ( Stock stock : stocks )
+        {
+        	output.append( "<tr>" );
+        	output.append( "<td>" + stock.getTicker() + "</td>" );
+        	output.append( "<td>" + stock.getName() + "</td>" );
+        	output.append( "</tr>" );
+        }
+        
+        output.append("</table>");
+        return output;
     }
 }

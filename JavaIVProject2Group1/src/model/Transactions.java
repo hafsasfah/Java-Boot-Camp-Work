@@ -19,17 +19,5 @@ public class Transactions
 		this.amountBought = amountBought;
 	}
 	
-	public double buyStock()
-	{
-		
-		return (purse - stockPrice);
-		
-	}
 	
-	public double sellStock()
-	{
-		
-		return (purse + stockPrice);
-		
-	}
 }

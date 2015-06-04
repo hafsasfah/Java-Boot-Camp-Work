@@ -6,10 +6,9 @@ import model.Person;
 import model.Stock;
 import model.Transactions;
 
-public class dummyrepo implements IStockRepo 
+public class dummyrepo 
 {
 
-	@Override
 	public ArrayList<Stock> getStockList() {
 		 // Create an ArrayList to hold some names.
 	      ArrayList<Stock> nameList = new ArrayList<Stock>();
@@ -23,7 +22,7 @@ public class dummyrepo implements IStockRepo
 
 	}
 
-	@Override
+	
 	public void buildStockList() {
 		// TODO Auto-generated method stub
 		
@@ -43,17 +42,16 @@ public class dummyrepo implements IStockRepo
 		
 	}
 	
-		@Override
 		public ArrayList<Transactions> getTransactions() {
 			 // Create an ArrayList to hold some Transactions.
 		      ArrayList<Transactions> TransactionList = new ArrayList<Transactions>();
 		      
 		      // Add some Transactions to the ArrayList.
-		      TransactionList.add(new Transactions(new Person("Chris", 20),new Stock("Apple", "AAPL"), 0, null, 0);
+		      TransactionList.add(new Transactions(new Person("Chris", 20),new Stock("Apple", "AAPL"), 0, null, 0));
 		      TransactionList.add(new Transactions (null, null, 0, null, 0));
 		      TransactionList.add(new Transactions(null, null, 0, null, 0));
 		      
-		      return nameList;
+		      return TransactionList;
 	}
 	}
 
