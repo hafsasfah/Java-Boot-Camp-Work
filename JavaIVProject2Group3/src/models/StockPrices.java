@@ -4,6 +4,7 @@ public class StockPrices {
 	
 	private String date;
 	private double price;
+	//private ticker;
 	
 	Stocks stocks = new Stocks();
 	
@@ -17,6 +18,10 @@ public class StockPrices {
 	public String getDate()
 	{
 		return date;
+	}
+	
+	public String getTicker() {
+		return stocks.getTicker();
 	}
 	
 	public void setDate(String date)
