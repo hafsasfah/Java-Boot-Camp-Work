@@ -46,7 +46,7 @@ public class StockServlet extends HttpServlet {
         }
         else
         {
-        	String requestedTicker = pathInfo.substring( pathInfo.indexOf('/') + 1);
+        	String requestedTicker = pathInfo.substring( 1 );
         	
         	Stock stock = stockRepository.get(requestedTicker) ;
         	if ( stock == null )
@@ -60,5 +60,33 @@ public class StockServlet extends HttpServlet {
         }
 	    out.println("</body>");
         out.println("</html>");
+    }
+    
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
+    	    throws IOException, ServletException
+    {
+    	StockRepository stockRepository = new StockRepository( StockConnectionProvider.createConnection() );
+    	
+    	response.setContentType("text/plain");
+        PrintWriter out = response.getWriter();
+        
+        
+        Map<String, String[]> parameterMap = request.getParameterMap();
+        
+        if ( parameterMap.containsKey("ticker") && parameterMap.containsKey("name") )
+        {
+        	if ( stockRepository.create( new Stock(parameterMap.get("ticker")[0], parameterMap.get("name")[0] )) )
+        	{
+        		out.println("Created Stock!");
+        	}
+        	else
+        	{
+        		out.println("Something bad happened!!!");
+        	}
+        }
+        else
+        {
+        	out.println("You have to have a ticker and name parameter!");
+        }
     }
 }
