@@ -2,6 +2,7 @@ package web;
 
 public class ServletHelper {
 
+
 	
 	public static String createHead( String title )
 
