@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import model.Person;
 import model.Stock;
+import model.Transactions;
 
 public class dummyrepo implements IStockRepo 
 {
@@ -41,5 +42,18 @@ public class dummyrepo implements IStockRepo
 		return buyers;
 		
 	}
+	
+		@Override
+		public ArrayList<Transactions> getTransactions() {
+			 // Create an ArrayList to hold some Transactions.
+		      ArrayList<Transactions> TransactionList = new ArrayList<Transactions>();
+		      
+		      // Add some Transactions to the ArrayList.
+		      TransactionList.add(new Transactions(new Person("Chris", 20),new Stock("Apple", "AAPL"), 0, null, 0);
+		      TransactionList.add(new Transactions (null, null, 0, null, 0));
+		      TransactionList.add(new Transactions(null, null, 0, null, 0));
+		      
+		      return nameList;
+	}
+	}
 
-}
