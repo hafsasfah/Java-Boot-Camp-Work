@@ -1,6 +1,8 @@
 package Stockrepo;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 import StockModel.StockModel;
 
@@ -16,21 +18,21 @@ public class StockRepo
 		{
 			String url = "jdbc:postgresql://localhost/Stocks";
 			String username = "postgres";
-			String password = "dragon";
-			
+			String password = "Citylost2";
 			connection = DriverManager.getConnection(url, username, password);
-			
-			
 		}
 		catch(SQLException E)
 		{
 			E.printStackTrace();
-			System.out.print("You messed up now.");
+			System.out.print("You messed up building the repo.");
 		}
-		
-		
+			
 	}
 	
+	public StockRepo(Connection connection)
+	{
+		this.connection = connection;
+	}
 	
 	public void buildStockTable()
 	{
@@ -38,12 +40,10 @@ public class StockRepo
 		try
 		{
 			Statement statement = connection.createStatement();
-			String buildstocktable = " CREATE TABLE \"Stocks\""
+			String buildstocktable = " CREATE TABLE \"StocksRepo\""
 					+ " ("
-					+ " \"Name\" character varying(100) ,"
-					+ " \"CompanyName\" character varying(100),"
-					+ " \"CurrentPrice\" double precision ,"
-					+ " \"Date\" date "
+					+ " \"ticker\" character varying(100) NOT NULL PRIMARY KEY ,"
+					+ " \"CompanyName\" character varying(100)"
 					+ " )";
 			
 			statement.execute(buildstocktable);
@@ -54,24 +54,23 @@ public class StockRepo
 		}
 		
 	}
-	public boolean addStockNamesToDatabase(String name,String companyname, String date) //create in CRUD
+	
+	public boolean addStockNamesToDatabase(String ticker,String companyname) //create in CRUD
 	{
 		try
 		{
 			Statement statement = connection.createStatement();
-			String createStock = String.format(" INSERT INTO \"Stocks\""
+			String createStock = String.format(" INSERT INTO \"StocksRepo\""
 					+ "("
-					+ "\"Name\","
-					+ "\"CompanyName\","
-					+ "\"Date\""
+					+ "\"ticker\","
+					+ "\"CompanyName\""
 					+ ")"
 					+ "VALUES"
 					+ "("
 					+ "'%s',"
-					+ "'%s',"
 					+ "'%s'"
 					+ ");",
-					name, companyname, date);
+					ticker, companyname);
 			
 			statement.execute(createStock);
 			return true;
@@ -87,150 +86,39 @@ public class StockRepo
 	}
 	
 	
-	public boolean addStockPricesToDatabase(String name,double stockprice) //create in CRUD
+	public List<StockModel> getallStocks()
 	{
+		
+		
+		List<StockModel> stocks = new ArrayList<StockModel>();
 		try
 		{
 			Statement statement = connection.createStatement();
-			String createStock = String.format(" UPDATE \"Stocks\""
-					+ " SET \"CurrentPrice\" = '%f'"
-					+ " WHERE \"Name\" = '%s';",
-					stockprice, name);
+			String getStockSym = String.format("SELECT \"ticker\" , \"CompanyName\" FROM \"StocksRepo\"");
 			
-			statement.execute(createStock);
-			return true;
-		}
-		catch(SQLException E)
-		{
-			System.out.println("You messed up");
-			E.printStackTrace();
-			return false;
-		}
-		
-		
-	}
-	
-	public String getCompanyName(String companyName)
-	{
-		String sqlErrorTemp = "Sql problem";
-		try
-		{
-			Statement statement = connection.createStatement();
-			
-			String getStockSym = String.format("SELECT \"Name\", \"CompanyName\" FROM \"StocksSeceond\" WHERE \"Name\" = '%s';", companyName);
-			
-			ResultSet results = statement.executeQuery(companyName);
+			ResultSet results = statement.executeQuery(getStockSym);
 			while(results.next())
 			{
-				String stockName = results.getString(1);
-				
-				return stockName;
+				stocks.add( new StockModel( results.getString(1), results.getString(2) ) );
 			}
+			
+			
 		}
 		catch(SQLException E)
 		{
 			E.printStackTrace();
 		}
-		return sqlErrorTemp;	
-	}
-	public String getStockSymbol(String Name)
-	{
-		String sqlErrorTemp = "Sql problem";
-		try
-		{
-			Statement statement = connection.createStatement();
-			
-			String getStockSym = String.format("SELECT \"CompanyName\" FROM \"StocksSeceond\" WHERE \"Name\" = '%s';", Name);
-			
-			ResultSet results = statement.executeQuery(Name);
-			while(results.next())
-			{
-				String stockName = results.getString(1);
-				
-				return stockName;
-			}
-		}
-		catch(SQLException E)
-		{
-			E.printStackTrace();
-		}
-		return sqlErrorTemp;		
+		
+		return stocks;
 	}
 	
-	public String getStockName(String Name)
-	{
-		String sqlErrorTemp = "Sql problem";
-		try
-		{
-			Statement statement = connection.createStatement();
-			
-			String getStockName = String.format("SELECT \"Name\" FROM \"StocksSeceond\" WHERE \"Name\" = '%s';", Name);
-			
-			ResultSet results = statement.executeQuery(Name);
-			while(results.next())
-			{
-				String stockName = results.getString(1);
-				
-				return stockName;
-			}
-		}
-		catch(SQLException E)
-		{
-			E.printStackTrace();
-		}
-		return sqlErrorTemp;
-		
-		
-	}
-	public int getStockPrice(StockModel stock)
-	{
-		try
-		{
-			Statement statement = connection.createStatement();
-			String getstockprice = String.format("SELECT \"CurrentPrice\" FROM \"Stocks\" WHERE \"Name\" = '%s';", stock.getStockName());
-			
-			ResultSet results = statement.executeQuery(getstockprice);
-			
-			while(results.next())
-			{
-				int stockprice = results.getInt(1);
-				return stockprice;
-			}
-			
-		}
-		catch(SQLException E)
-		{
-			E.printStackTrace();
-		}
-		return 0;
-
-	}
 	
-	public boolean updateStockPrice(StockModel stock)
+	boolean deleteStocks(String stock)
 	{
 		try
 		{
 			Statement statement = connection.createStatement();
-			String updateStock = String.format("UPDATE \"CurrentPrice\" FROM \"Stocks\" WHERE \"Name\" = '%s';", stock.getStockName());
-			
-			statement.execute(updateStock);
-			return true;
-		}
-		catch(SQLException E)
-		{
-			E.printStackTrace();
-			return false;	
-		}
-		
-		
-	}
-	
-	boolean deleteStocks(StockModel stock)
-	{
-		try
-		{
-			Statement statement = connection.createStatement();
-			String deleteStock = String.format("DELETE FROM \"Stocks\" WHERE \"Name\" = '%s';", stock.getStockName());
+			String deleteStock = String.format("DELETE FROM \"StocksRepo\" WHERE \"ticker\" = '%s';", stock);
 			
 			statement.execute(deleteStock);
 			return true;
