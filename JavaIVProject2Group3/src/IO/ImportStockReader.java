@@ -11,15 +11,17 @@ import repository.StockConnection;
 import databases.*;
 
 public class ImportStockReader {
-	private StocksTable stocksTable;
-	
-	public static void main(String []args) {
-		new ImportStockReader("S&P500Stocks.csv");
+
+	public static void main(String []args){
+		new ImportStockReader("C:\\Users\\F01000154.CORP-GT0N8W1\\Workspace\\Practice\\src\\sql\\S&P500Stocks.csv");
 	}
+	private StocksTable stocksTable;
 	
 	public ImportStockReader( String filename ){
 		stocksTable = new StocksTable();
 		for (Stocks stock: read(filename))
+		stocksTable=new StocksTable();
+		for (Stocks stock: read( filename))
 		{
 			stocksTable.create( stock );
 		}
