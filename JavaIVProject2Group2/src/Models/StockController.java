@@ -1,16 +1,16 @@
 package Models;
 
-import Repository.StockRepository;
+import Repository.PlayerRepository;
 
 public class StockController
 {
 
-	StockRepository stockrepo;
+	PlayerRepository stockrepo;
 	
 
 public StockController()
 	{
-	stockrepo = new StockRepository();
+	stockrepo = new PlayerRepository();
 	}
 
 public void createStockListing(StockModel stock)
