@@ -3,9 +3,9 @@ package web;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
-import Repository.PlayerRepository;
 
-public class PlayerServlet extends PlayerRepository {
+
+public class PlayerServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)
     throws IOException, ServletException
