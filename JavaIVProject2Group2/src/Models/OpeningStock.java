@@ -11,7 +11,7 @@ public class OpeningStock
 	{
 
 		this.setTicker(ticker);
-
+		this.setDate(date);
 		this.setPrice(price);
 	}
 	

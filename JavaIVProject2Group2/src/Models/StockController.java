@@ -1,5 +1,6 @@
 package Models;
 
+import Repository.StockConnectionProvider;
 import Repository.StockRepository;
 
 public class StockController
@@ -10,7 +11,7 @@ public class StockController
 
 public StockController()
 	{
-	stockrepo = new StockRepository();
+	stockrepo = new StockRepository( StockConnectionProvider.createConnection() );
 	}
 
 public void createStockListing(StockModel stock)
@@ -20,6 +21,6 @@ public void createStockListing(StockModel stock)
 
 public void updateDaily(StockModel stock)
 	{
-	stockrepo.updateStockPrice(stock);
+	//stockrepo.updateStockPrice(stock);
 	}
 }
