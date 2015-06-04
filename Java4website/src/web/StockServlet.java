@@ -9,8 +9,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.sql.Date;
-import java.sql.Timestamp;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +18,12 @@ import StockModel.StockModel;
 
 public class StockServlet extends HttpServlet{
 	
-	   public void doGet(HttpServletRequest request, HttpServletResponse response)
+	   /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	public void doGet(HttpServletRequest request, HttpServletResponse response)
 	   
 		throws IOException, ServletException
 			    {
@@ -32,19 +35,19 @@ public class StockServlet extends HttpServlet{
 						
 						String url = "jdbc:postgresql://localhost/Stocks";
 						String username = "postgres";
-						String password = "dragon";
+						String password = "Citylost2";
 						
 						connection = DriverManager.getConnection(url, username, password);	
 					}
 					catch(Exception E)
 					{
 						E.printStackTrace();
-						System.out.print("You messed up now.");
+						System.out.print("You messed up in the servlet.");
 					}
 			        
 			    	response.setContentType("text/html");
 			        PrintWriter out = response.getWriter();
-			        out.println("<html><head><title>Stock Sheet</title>");
+			        out.println("<html><head><title>Stock Sheet Check</title>");
 			        out.println("<link rel=\"stylesheet\" href=\"../../bootstrap.min.css\" />");
 			        out.println("</head>");
 			        out.println("<body>");
@@ -53,33 +56,38 @@ public class StockServlet extends HttpServlet{
 			        
 			        if ( pathInfo == null || pathInfo.equals("/") )
 			        {
-				        out.println("<h1>S&P 500 Stocks</h1>");
+				        out.println("<h1>S&P 500 Stocks Check</h1>");
 				        out.println("<div class=\"container\">");
-				        out.println("<table class=\"table-condensed\">");
+				        out.println("<table class=\"table\">");
+				        
+				        
 				        List<StockModel> stocks = new ArrayList<StockModel>();
+				        
+				        
 				        try
 				        {
 							Statement statement = connection.createStatement();
 							//String query = String.format("select \"Name\", \"CompanyName\" from \"StocksSecond\"" );
 							
-							String query = String.format("select \"Name\", \"CompanyName\", \"CurrentPrice\", \"Date\" from \"Stocks\"" );
+							String query = String.format("select \"Name\", \"CompanyName\" from \"Stocks\"" );
 							ResultSet results = statement.executeQuery(query);
 					        
 					        while(results.next())
 					        {
-					        	stocks.add(new StockModel(results.getString(1), results.getString(2), results.getInt(3), results.getString(4)));
+					        	stocks.add(new StockModel(results.getString(1), results.getString(2)));
 					        }
+					        
 				        }
-			    		catch (SQLException e) {
-						// TODO Auto-generated catch block
+			    		catch (SQLException e) 
+				        {
 						e.printStackTrace();
-					}
+				        }
+				        
 			        	out.println( "<tr>" );
 			        	out.println( "<td>Ticker Symbol</td>" );
 			        	out.println( "<td>Company Name</td>" );
-			        	out.println( "<td>Stock Price</td>" );
-			        	out.println( "<td>Date</td>" );
 			        	out.println( "</tr>" );
+			        	
 				        for ( StockModel stock : stocks )
 				        {
 				        	out.println( "<tr>" );
