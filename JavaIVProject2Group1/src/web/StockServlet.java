@@ -27,7 +27,7 @@ public class StockServlet extends HttpServlet
         out.println("<body>");
         
         
-        String requestedTicker = request.getParameter( "ticker" );
+        String requestedTicker = request.getParameter( "ticket" );
         if ( requestedTicker == null )
         {
         

@@ -49,15 +49,15 @@ public class BuyersServlet extends HttpServlet
 	        }
 	        else
 	        {
-	        	/*Person buyer = stockRepository.get( requestedTicker );
-	        	if ( stock == null )
+	        	Person buyer = Person.get( requestedTicker );
+	        	if ( buyer == null )
 	        	{
 	        		out.println( requestedTicker + " was not found" );
 	        	}
 	        	else
 	        	{
-	        		out.println( stock.getTicker() + " " + stock.getName() );
-	        	}*/
+	        		out.println( buyer.getTicker() + " " + buyer.getName() );
+	        	}
 	        }
 		    out.println("</body>");
 	        out.println("</html>");

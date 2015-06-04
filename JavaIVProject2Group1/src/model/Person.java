@@ -49,5 +49,9 @@ public class Person
 		this.stocks.remove(stock);
 		
 	}
+	public String getTicker() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 }
