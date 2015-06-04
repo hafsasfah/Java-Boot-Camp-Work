@@ -26,8 +26,8 @@ public class MainThread
 		
 		//**** CHANGE FILE PATHS BEFORE BUILDING ****\\
 		
-		File stockNameFile = new File("C:\\Users\\F01000154.CORP-9ML9LV1\\Documents\\GitHub\\gecjdss\\Java4website\\stockinfo\\stocknames.csv");
-		File stockPriceFile = new File("C:\\Users\\F01000154.CORP-9ML9LV1\\Documents\\GitHub\\gecjdss\\Java4website\\stockinfo\\stockprices.csv");
+		File stockNameFile = new File("C:\\Users\\F01000154.CORP-7VMCZW1\\Desktop\\s_p500stocks.csv");
+		File stockPriceFile = new File("C:\\Users\\F01000154.CORP-7VMCZW1\\Desktop\\s_p500-2015-06-01.csv");
 		
 		
 		Scanner scannerName = new Scanner(stockNameFile);

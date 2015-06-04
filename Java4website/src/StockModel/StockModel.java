@@ -7,21 +7,21 @@ public class StockModel
 	int currentPrice;
 	String stockName;
 	String companyName;
-	int date;
+	String date;
 
 	public StockModel()
 	{
 		this.stockName = "";
 	}
 
-	public StockModel(int price, String name, int date)
+	public StockModel(int price, String name, String date)
 	{
 		this.currentPrice = price;
 		this.stockName = name;
 		this.date = date;
 	}
 	
-	public StockModel(String name, String company, int price, int date)
+	public StockModel(String name, String company, int price, String date)
 	{
 		this.companyName= company;
 		this.currentPrice = price;
@@ -44,17 +44,21 @@ public class StockModel
 		return stockName;
 	}
 	
+	public String getCompanyName()
+	{
+		return companyName;
+	}
 	public void setStockName(String stockName) 
 	{
 		this.stockName = stockName;
 	}
 
-	public int getDate()
+	public String getDate()
 	{
 		return date;
 	}
 
-	public void setDate(int date)
+	public void setDate(String date)
 	{
 		this.date = date;
 	}
