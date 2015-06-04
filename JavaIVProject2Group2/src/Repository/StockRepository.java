@@ -18,7 +18,7 @@ public StockRepository( Connection connection )
 	{
 	try {
 	Statement statement = connection.createStatement();
-	String insertSQL = String.format("insert into \"Stock\" ( \"Ticker\", \"Name\" ) values ( '%s', '%s' )", stock.getTicker(), stock.getName().replace("'","''") );
+	String insertSQL = String.format("insert into \"Stock\" ( \"Ticker\", \"Price\" ) values ( '%s', '%s' )", stock.getTicker(), stock.getName().replace("'","''") );
 	statement.executeUpdate(insertSQL);
 	return true;
 	} 
