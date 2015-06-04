@@ -35,11 +35,11 @@ public class StockOwnedTable implements iStockOwnedTable {
 	public boolean create(iStockOwned stocksOwned) {
 		try {
 			Statement statement = connection.createStatement();
-			String createStocksOwnedRow = String.format
-					("INSERT INTO \"StocksOwned\" (\"UserID\", \"Ticker\", \"Shares\")"
-							+ "VALUES ('%s', '%s', '%s');", 
-							stocksOwned.getUserID(), stocksOwned.getTicker(), stocksOwned.getShares());
-			statement.execute(createStocksOwnedRow);
+			//String createStocksOwnedRow = String.format
+			//		("INSERT INTO \"StocksOwned\" (\"UserID\", \"Ticker\", \"Shares\")"
+			//				+ "VALUES ('%s', '%s', '%s');", 
+			//				stocksOwned.getUserID(), stocksOwned.getTicker(), stocksOwned.getShares());
+			//statement.execute(createStocksOwnedRow);
 			return true;
 		}
 		catch (SQLException e) {
