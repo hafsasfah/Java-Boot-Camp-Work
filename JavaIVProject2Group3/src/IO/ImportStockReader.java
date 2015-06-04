@@ -43,7 +43,7 @@ public class ImportStockReader {
 					String line = scanner.nextLine();
 					int firstCommaIndex = line.indexOf(',');
 					String ticker = line.substring(0, firstCommaIndex );
-					String name = line.substring(firstCommaIndex + 1).replace("\"", "");
+					String name = line.substring(firstCommaIndex + 1).replace("\"", "").replace("'","");
 					stocks.add( new Stocks(ticker, name) );
 				}
 				scanner.close();
