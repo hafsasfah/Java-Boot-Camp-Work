@@ -89,9 +89,9 @@ public void sellStock(String buyerName, String stockNameOrTicker){
 	}
 }
 
-public boolean addTransaction(){
+//public boolean addTransaction(){
 	
-}
+//}
 
 
 public ArrayList<Transactions> viewTransaction() {

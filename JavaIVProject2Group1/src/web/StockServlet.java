@@ -18,7 +18,8 @@ public class StockServlet extends HttpServlet
     public void doGet(HttpServletRequest request, HttpServletResponse response)
     throws IOException, ServletException
     {
-    	StockRepo stockRepository = new StockRepo();
+    //	StockRepo stockRepository = new StockRepo();
+    	dummyrepo stockRepository = new dummyrepo();
             	
     	response.setContentType("text/html");
         PrintWriter out = response.getWriter();
