@@ -16,7 +16,7 @@ public class StockRepo
 		{
 			String url = "jdbc:postgresql://localhost/Stocks";
 			String username = "postgres";
-			String password = "Citylost2";
+			String password = "dragon";
 			
 			connection = DriverManager.getConnection(url, username, password);
 			
@@ -110,7 +110,79 @@ public class StockRepo
 		
 	}
 	
-	int getStockPrice(StockModel stock)
+	public String getCompanyName(String companyName)
+	{
+		String sqlErrorTemp = "Sql problem";
+		try
+		{
+			Statement statement = connection.createStatement();
+			
+			String getStockSym = String.format("SELECT \"Name\", \"CompanyName\" FROM \"StocksSeceond\" WHERE \"Name\" = '%s';", companyName);
+			
+			ResultSet results = statement.executeQuery(companyName);
+			while(results.next())
+			{
+				String stockName = results.getString(1);
+				
+				return stockName;
+			}
+		}
+		catch(SQLException E)
+		{
+			E.printStackTrace();
+		}
+		return sqlErrorTemp;	
+	}
+	public String getStockSymbol(String Name)
+	{
+		String sqlErrorTemp = "Sql problem";
+		try
+		{
+			Statement statement = connection.createStatement();
+			
+			String getStockSym = String.format("SELECT \"CompanyName\" FROM \"StocksSeceond\" WHERE \"Name\" = '%s';", Name);
+			
+			ResultSet results = statement.executeQuery(Name);
+			while(results.next())
+			{
+				String stockName = results.getString(1);
+				
+				return stockName;
+			}
+		}
+		catch(SQLException E)
+		{
+			E.printStackTrace();
+		}
+		return sqlErrorTemp;		
+	}
+	
+	public String getStockName(String Name)
+	{
+		String sqlErrorTemp = "Sql problem";
+		try
+		{
+			Statement statement = connection.createStatement();
+			
+			String getStockName = String.format("SELECT \"Name\" FROM \"StocksSeceond\" WHERE \"Name\" = '%s';", Name);
+			
+			ResultSet results = statement.executeQuery(Name);
+			while(results.next())
+			{
+				String stockName = results.getString(1);
+				
+				return stockName;
+			}
+		}
+		catch(SQLException E)
+		{
+			E.printStackTrace();
+		}
+		return sqlErrorTemp;
+		
+		
+	}
+	public int getStockPrice(StockModel stock)
 	{
 		try
 		{
