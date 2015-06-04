@@ -3,15 +3,20 @@ package model;
 public class Transactions 
 {
 	
-	int purse;
-	int stockPrice;
-	String date;
 	
-	public Transactions(int purse, int stockPrice, String date) 
+	Person buyer;
+	Stock stock;
+	double stockPrice;
+	String date;
+	int amountBought;
+	
+	public Transactions(Person buyer, Stock stock, double stockPrice, String date, int amountBought) 
 	{
-		this.purse = purse;
+		this.buyer = buyer;
+		this.stock = stock;
 		this.stockPrice = stockPrice;
 		this.date = date;
+		this.amountBought = amountBought;
 	}
 	
 	public double buyStock()

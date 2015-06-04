@@ -1,13 +1,13 @@
 package web;
-	import java.io.*;
-	import java.util.*;
+import java.io.*;
+import java.util.*;
 
 	import javax.servlet.*;
-	import javax.servlet.http.*;
+import javax.servlet.http.*;
 
 	import repo.dummyrepo;
-	import model.*;
-	import repo.*;
+import model.*;
+import repo.*;
 
 public class BuyersServlet extends HttpServlet 
 	{
@@ -43,6 +43,9 @@ public class BuyersServlet extends HttpServlet
 		        }
 		        
 		        out.println("</table>");
+		        
+		        
+		        Person BuyerRepo = new Person(requestedTicker, 0);
 	        }
 	        else
 	        {
@@ -58,6 +61,7 @@ public class BuyersServlet extends HttpServlet
 	        }
 		    out.println("</body>");
 	        out.println("</html>");
+	        
 	    }
 	}
 
