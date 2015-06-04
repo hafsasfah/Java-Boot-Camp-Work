@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Models.Stock;
+import Repository.StockConnectionProvider;
 import Repository.StockRepository;
 
 public class StockServlet extends HttpServlet 
@@ -24,7 +25,7 @@ public class StockServlet extends HttpServlet
     	
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        out.println(ServletHelper.createHead( "Stock" ) );
+        //out.println(ServletHelper.createHead( "Stock" ) );
         out.println("<head>");
         out.println("</head>");
         out.println("<body>");
@@ -71,5 +72,5 @@ public class StockServlet extends HttpServlet
         out.println("</html>");
     }
 
-    }
 }
+
