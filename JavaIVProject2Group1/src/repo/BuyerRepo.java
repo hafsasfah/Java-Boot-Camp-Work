@@ -2,13 +2,20 @@ package repo;
 
 import java.sql.*;
 import java.util.ArrayList;
+
 import model.Person;
 import model.Stock;
 
 public class BuyerRepo {
 	ArrayList<Person> buyersList;
+	Connection  connection;
+	ConnectionHelper conectionHelper;
+	ResultSet rs ;
+	Statement db;
 	public BuyerRepo() {
 			buyersList = new ArrayList<Person>();
+			conectionHelper = new ConnectionHelper();
+			connection = conectionHelper.getconnection();
 			buildBuyerList();
 		}
 	public static void main(String[] args){
@@ -18,25 +25,15 @@ public class BuyerRepo {
 			return buyersList;
 		}
 		public void buildBuyerList() {
-				Connection  connection;
+				
 			  // String url = "jdbc:postgresql://localhost/"+JOptionPane.showInputDialog("Enter Database to read from ");
 			  //   String user = JOptionPane.showInputDialog("Enter Username for "+ url);
 			  //  String password = JOptionPane.showInputDialog("Enter Database password for user \""+user+"\"");
-				try {Class.forName("org.postgresql.Driver");
-				
-				}
-				catch(ClassNotFoundException e){
-					System.out.println(e);
-				}
-				 String url = "jdbc:postgresql://localhost/stock market";
-			     String user = "postgres";
-			     String password = "password";
-				 ResultSet rs;
-				 ResultSet result;
+		
 				  try 
 			        {
-			        	connection = DriverManager.getConnection(url, user, password);
-			            Statement db = connection.createStatement();
+			     
+			            db = connection.createStatement();
 				        rs = db.executeQuery("Select \"name\",\"bank\"from \"people\"");
 				        while(rs.next()){  	
 				        	String name = rs.getString(1);
@@ -78,12 +75,40 @@ public class BuyerRepo {
 			        	e.printStackTrace();
 			        	System.err.println("Got an exception! "); 
 			        }
+		}
+				  
+				/*(  
+				  public void getBuyerList(Person buyer ) {
+						
+					  // String url = "jdbc:postgresql://localhost/"+JOptionPane.showInputDialog("Enter Database to read from ");
+					  //   String user = JOptionPane.showInputDialog("Enter Username for "+ url);
+					  //  String password = JOptionPane.showInputDialog("Enter Database password for user \""+user+"\"");
 				
-				
-				
-			}
-		
-		
-	}
-
+						        	String name = buyer.getName();
+						        	String query = "select \"stock_name\", \"amount owned\"from \"owned stocks\" where \"player_name\"='"+name+"'";
+						        	try {
+										rs = db.executeQuery(query);
+									
+						        	//System.out.println(query);
+						        	while(rs.next()){
+							        	String stockName = rs.getString(1);
+							        	int amountOwned = rs.getInt(2);
+							        	buyer.addStock(new Stock(stockName,amountOwned));;
+						        	}
+						        	for(Stock stock: buyer.getStocks()){
+						        		String stockName = stock.getName();
+						        		String stockQuery = "select \"ticker\" from \"stocks\" where \"name\"='"+stockName+"'";
+						        		rs = db.executeQuery(stockQuery);
+						        		while(rs.next()){
+						        			String stockTicker = rs.getString(1);
+						        			stock.setTicker(stockTicker);
+						        		}
+						        	}
+						        	} catch (SQLException e) {
+										// TODO Auto-generated catch block
+										e.printStackTrace();
+									}
+						        						        	
+						        } */
+}
 

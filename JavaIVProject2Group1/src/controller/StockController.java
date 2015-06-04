@@ -5,59 +5,47 @@ import java.util.ArrayList;
 import repo.*;
 import model.*;
 
-public class StockController implements IStockController{
+public class StockController {
 	
 	 ArrayList<Stock> stock; 
 	 ArrayList<Transactions> Transaction;
 	 ArrayList<Person> person;
-	 BuyerRepo pr;
-	 StockRepo sr;
-public static void main(String[] args) throws ClassNotFoundException{
-	StockController sc = new StockController();
-	sc.viewPerson();
-	// TransactionRepo tr;
-	
+	 BuyerRepo br;
+	 StockRepo sr;	
 
 	
-}
-	
-public StockController() throws ClassNotFoundException
-{
+public StockController() {
 	sr = new StockRepo();
 	this.stock = sr.getStockList();
-	pr = new BuyerRepo();
-	this.person = pr.getBuyerList();
-	
-	
-
-	
-	
-	//tr= new TransactionRepo();
-	//this.Transaction= tr.getTransactionList();
-	
-	
+	br = new BuyerRepo();
+	this.person = br.getBuyerList();
 	
 }
 
 
-@Override
-public ArrayList<Stock> viewStock() {
+public ArrayList<Stock> getStocks() {
 	
 	return this.stock;
 	// TODO Auto-generated method stub	
 }
 
 
-@Override
-public ArrayList<Person> viewPerson() {
-	for(Person buyer: person){
-	System.out.println(buyer.getName());
-	}
+public ArrayList<Person> getPerson() {
+
 	return this.person;
 	// TODO Auto-generated method stub	
 }
+public Person getBuyer(String name){
+	for(Person buyer:person ){	
+		if (buyer.getName().equals(name)){
+			return buyer;
+		}
+	}
+	return null;
+	}
 
-@Override
+
+
 public ArrayList<Transactions> viewTransaction() {
 	// TODO Auto-generated method stub
 	return Transaction;

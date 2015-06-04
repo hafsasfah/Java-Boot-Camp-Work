@@ -13,6 +13,11 @@ import model.Stock;
 
 public class StockRepo implements IStockRepo {
 ArrayList<Stock> stocksList;
+ConnectionHelper connectionHelper;
+ResultSet rs ;
+Statement db;
+Connection  connection;
+
 
 
 	public static void main(String[] args){
@@ -24,6 +29,8 @@ ArrayList<Stock> stocksList;
 
 	public StockRepo(){
 		stocksList = new ArrayList<Stock>();
+		connectionHelper = new ConnectionHelper();
+		connection = connectionHelper.getconnection();
 		buildStockList();
 	}
 	public ArrayList<Stock> getStockList(){
@@ -38,7 +45,7 @@ ArrayList<Stock> stocksList;
 		return null;
 		}
 	public void buildStockList(){
-			Connection  connection;
+			
 			
 			
 			// String url = "jdbc:postgresql://localhost/"+JOptionPane.showInputDialog("Enter Database to read from ");
@@ -46,21 +53,10 @@ ArrayList<Stock> stocksList;
 		   //  String password = JOptionPane.showInputDialog("Enter Database password for user \""+user+"\"");
 			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 			Date date = new Date();
-			try{
-			Class.forName("org.postgresql.Driver");
-			}
-			catch(Exception e){
-				
-			}
-			 String url = "jdbc:postgresql://localhost/stock market";
-		     String user = "postgres";
-		     String password = "password";
-			 ResultSet rs;
+		
 			  try 
 		        {
-		        	connection = DriverManager.getConnection(url, user, password);
-		        
-			        Statement db = connection.createStatement();
+		       db= connection.createStatement();
 			        rs = db.executeQuery("Select \"ticker\",\"name\"from \"stocks\"");
 			        while(rs.next()){  	
 			        	String ticker = rs.getString(1);
