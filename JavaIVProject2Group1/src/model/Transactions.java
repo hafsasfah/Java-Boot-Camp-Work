@@ -2,7 +2,7 @@ package model;
 
 public class Transactions 
 {
-
+	
 	int purse;
 	int stockPrice;
 	String date;

@@ -6,7 +6,7 @@ public class Person
 {
 
 	String name;
-	ArrayList<Stock> stock;
+	ArrayList<Stock> stocks;
 	double purse;
 	
 	Scanner scan = new Scanner(System.in);
@@ -14,8 +14,11 @@ public class Person
 	public Person(String name, double purse) 
 	{
 		this.name = name;
-		this.stock = new ArrayList<Stock>();
+		this.stocks = new ArrayList<Stock>();
 		this.purse = purse;
+	}
+	public void addStock(Stock stock){
+		this.stocks.add(stock);
 	}
 	
 	public String getName() 

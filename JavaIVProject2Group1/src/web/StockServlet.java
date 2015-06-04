@@ -1,6 +1,6 @@
 package web;
 
-import io.StockReader;
+
 
 import java.io.*;
 import java.util.*;
@@ -9,9 +9,8 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 
 import repo.dummyrepo;
-import model.Stock;
-import models.*;
-import data.*;
+import model.*;
+import repo.*;
 
 public class StockServlet extends HttpServlet 
 {

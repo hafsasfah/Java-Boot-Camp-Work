@@ -2,6 +2,7 @@ package repo;
 
 import java.util.ArrayList;
 
+import model.Person;
 import model.Stock;
 
 public class dummyrepo implements IStockRepo 
@@ -24,6 +25,20 @@ public class dummyrepo implements IStockRepo
 	@Override
 	public void buildStockList() {
 		// TODO Auto-generated method stub
+		
+	}
+	public Stock get(String string){
+		return null;
+	}
+	public ArrayList<Person> getbuyers(){
+		ArrayList<Person> buyers = new  ArrayList<Person>();
+		
+		buyers.add(new Person("Chris",20));
+		buyers.add(new Person("Mario",20));
+		buyers.add(new Person("Blaire",20));
+		buyers.add(new Person("Tommie",20));
+		
+		return buyers;
 		
 	}
 
