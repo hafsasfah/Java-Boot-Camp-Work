@@ -11,7 +11,7 @@ import databases.StockPricesTable;
 
 public class ImportStockPrices {
 	public static void main(String []args){
-		new ImportStockPrices("C:\\Users\\F01000154.CORP-GT0N8W1\\Documents\\GitHub\\gecjdss\\JavaIVProject2Group3\\s_p500-2015-06-01.csv","2015-06-02");
+		new ImportStockPrices("C:\\Users\\F01000154.CORP-GT0N8W1\\Documents\\GitHub\\gecjdss\\JavaIVProject2Group3\\S&P500Stocks.csv","2015-06-02");
 			}
 	
 private StockPricesTable prices;
@@ -20,7 +20,7 @@ private String date;
 	
 	public ImportStockPrices( String filename, String date){
 		this.filename=filename;
-		this.date
+		this.date = date;
 		
 		prices=new StockPricesTable();
 		for (Stocks stock: read( filename))
