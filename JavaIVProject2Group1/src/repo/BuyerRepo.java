@@ -21,6 +21,32 @@ public class BuyerRepo {
 	public static void main(String[] args){
 		BuyerRepo br = new BuyerRepo();
 	}
+	
+	
+	
+	
+	public boolean update(Person buyer){	        
+        Statement db;
+		try {
+			db = connection.createStatement();
+
+        db.executeUpdate("UPDATE\"people\" set (\"bank\"='"+ buyer.getPurse() +"' where \"name\"='"+buyer.getName()+"')");
+	    return true;   
+	    
+	
+		} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		return false;
+	}
+}
+   
+	
+	
+	
+	
+	
+	
 		public ArrayList<Person> getBuyerList(){
 			return buyersList;
 		}
@@ -76,6 +102,34 @@ public class BuyerRepo {
 			        	System.err.println("Got an exception! "); 
 			        }
 		}
+		
+		
+		
+		
+		public boolean newBuyer(Person buyer){	        
+		        Statement db;
+				try {
+					db = connection.createStatement();
+		        db.executeUpdate("INSERT INTO \"people\" (\"name\", \"bank\") VALUES('"+buyer.getName()+"','"+buyer.getPurse()+"')");
+			    return true;   
+			
+				} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return false;
+			}
+		}
+	        
+
+
+		
+			
+			
+			
+			
+			
+			
+		
 				  
 				/*(  
 				  public void getBuyerList(Person buyer ) {

@@ -35,9 +35,19 @@ public class Person
 		return purse;
 	}
 
-	public void setPurse(double purse)
+	public void buyStock(Stock stock)
 	{
-		this.purse = purse;
+		this.purse -= stock.getPrice();
+		this.addStock(stock);
+	}
+	public void sellStock(Stock stock)
+	{
+		this.purse += stock.getPrice();
+		this.removeStock(stock);
+	}
+	private void removeStock(Stock stock) {
+		this.stocks.remove(stock);
+		
 	}
 	
 }
