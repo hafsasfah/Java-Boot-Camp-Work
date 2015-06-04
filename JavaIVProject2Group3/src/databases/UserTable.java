@@ -35,11 +35,11 @@ public class UserTable implements iUserTable {
 	public boolean create(iUser user) {
 		try {
 			Statement statement = connection.createStatement();
-			String createUserRow = String.format
-					("INSERT INTO \"User\" (\"UserID\", \"UserName\", \"Cash\")"
-							+ "VALUES ('%s', '%s', '%s');", 
-							user.getUserID(), user.getUserName(), user.getCash());
-			statement.execute(createUserRow);
+			//String createUserRow = String.format
+			//		("INSERT INTO \"User\" (\"UserID\", \"UserName\", \"Cash\")"
+			//				+ "VALUES ('%s', '%s', '%s');", 
+			//				user.getUserID(), user.getUserName(), user.getCash());
+			//statement.execute(createUserRow);
 			return true;
 		}
 		catch (SQLException e) {
