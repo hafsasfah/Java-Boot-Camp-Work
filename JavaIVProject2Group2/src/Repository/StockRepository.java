@@ -1,5 +1,10 @@
 package Repository;
 
+<<<<<<< HEAD
+public class StockRepository {
+
+}
+=======
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -79,3 +84,4 @@ public StockRepository( Connection connection )
 		return null;
 }
 }
+>>>>>>> origin/JavaIVProject2Group2
