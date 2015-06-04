@@ -1,48 +1,35 @@
 package Models;
 
-import java.util.Scanner;
-public class Player {
+public class Player
+{
 
-	private String userName;
-	private int userID;
-	private double cash;
- 
-	public Player(String userName, int userID)
+	private String name;
+	private double money;
+
+	public Player( String name, double money )
+	
 	{
-	this.userName = userName;
-	this.userID = userID;
-	cash = 50000;
+	this.setName(name);
+	this.setMoney(money);
 	}
 
-	public String getUserName()
-	{
-	return userName;
+	public String getName() {
+	
+		return name;
 	}
 
-	public void setUserName(String userName)
-	{
-	Scanner input = new Scanner(System.in);
-	userName = input.nextLine();
-	input.close();
+	public void setName(String name) {
+	
+		this.name = name;
 	}
 
-	public int getUserId()
-	{
-	return userID;
+	public double getMoney() {
+	
+		return money;
 	}
 
-	public void setUserId(int userId)
-	{
-	this.userID = userID;
-	}
-
-	public double getCash()
-	{
-	return cash;
-	}
-
-	public void setCash(double profit)
-	{
-	cash += profit;
+	public void setMoney(double money) {
+	
+		this.money = money;
 	}
 }

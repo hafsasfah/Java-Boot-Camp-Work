@@ -25,7 +25,7 @@ public class StockServlet extends HttpServlet
     	
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        //out.println(ServletHelper.createHead( "Stock" ) );
+        out.println(ServletHelper.createHead( "Stock" ) );
         out.println("<head>");
         out.println("</head>");
         out.println("<body>");
