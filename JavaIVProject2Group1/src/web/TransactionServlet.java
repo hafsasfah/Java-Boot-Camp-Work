@@ -34,11 +34,13 @@ public class TransactionServlet extends HttpServlet {
 				        {
 				        	out.println( "<tr><th>Transactions</th><th>Dates</th></tr>" );
 				        }
-				        for ( Transactions trasactions : Transactions )
+				        for ( Transactions trasaction : Transactions )
 				        {
 				        	out.println( "<tr>" );
-				        	out.printf( "<td>" + Transactions,(requestedTicker) + "</td>" );
-				        	out.printf( "<td>" + Transactions,(requestedTicker)+ "</td>" );
+				        	out.printf( "<td>" + trasaction.getDate() + "</td>" );
+				        	out.printf( "<td>" + trasaction.getStockPrice()+ "</td>" );
+				        	out.printf( "<td>" + trasaction.getAmountBought() + "</td>" );
+				        	out.printf( "<td>" + trasaction.getBuyer() + "</td>" );
 				        	out.println( "</tr>" );
 				        }
 				        
