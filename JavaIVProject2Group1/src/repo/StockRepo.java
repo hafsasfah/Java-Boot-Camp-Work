@@ -29,6 +29,14 @@ ArrayList<Stock> stocksList;
 	public ArrayList<Stock> getStockList(){
 		return stocksList;
 	}
+	public Stock getStockList(String tickerOrName){
+		for (Stock stock: stocksList){
+			if (stock.getName().equals(tickerOrName)||stock.getTicker().equals(tickerOrName)){
+				return stock;
+			}
+		}
+		return null;
+		}
 	public void buildStockList(){
 			Connection  connection;
 			
