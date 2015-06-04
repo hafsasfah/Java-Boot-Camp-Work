@@ -12,9 +12,8 @@ import databases.*;
 
 public class ImportStockReader {
 	public static void main(String []args){
-		new ImportStockReader("C:\\Users\\F01000154.CORP-GT0N8W1\\Workspace\\Practice\\src\\sql\\S&P500Stocks.csv");}
-		//new ImportStockReader("C:\\Users\\F01000154.CORP-3FDTWW1\\Documents\\GitHub\\gecjdss\\JavaIVProject2Group3\\S&P500Stocks.csv");}
-		//("C:\\Users\\F01000154.CORP-GT0N8W1\\Workspace\\Practice\\src\\sql\\S&P500Stocks.csv");
+		new ImportStockReader(".\\S&P500Stocks.csv");
+	}	
 	
 	private StocksTable stocksTable;
 	
