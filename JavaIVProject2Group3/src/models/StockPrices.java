@@ -4,39 +4,43 @@ public class StockPrices {
 	
 	private String date;
 	private double price;
-	//private ticker;
+	private String ticker;
 	
-	Stocks stocks = new Stocks();
+	//Stocks stocks = new Stocks();
+	
+	public StockPrices() {}
 	
 	public StockPrices(String ticker, String date, double price)
 	{
-		ticker = stocks.getTicker();
-		this.date = date;
-		this.price = price;
+		this.setTicker(ticker);
+		this.setDate(date);
+		this.setPrice(price);
 	}
-	
-	public String getDate()
-	{
+
+	public String getDate() {
 		return date;
 	}
-	
-	public String getTicker() {
-		return stocks.getTicker();
-	}
-	
-	public void setDate(String date)
-	{
+
+	public void setDate(String date) {
 		this.date = date;
 	}
-	
-	public double getPrice()
-	{
+
+	public double getPrice() {
 		return price;
 	}
-	
-	public void setPrice(int price)
-	{
+
+	public void setPrice(double price) {
 		this.price = price;
 	}
+
+	public String getTicker() {
+		return ticker;
+	}
+
+	public void setTicker(String ticker) {
+		this.ticker = ticker;
+	}
+	
+	
 	
 }
