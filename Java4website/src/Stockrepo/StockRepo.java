@@ -112,6 +112,33 @@ public class StockRepo
 		return stocks;
 	}
 	
+	public StockModel get(String ticker)
+	{
+		
+		StockModel tempStock = new StockModel("Error","Error");
+
+		try
+		{
+			Statement statement = connection.createStatement();
+			String getStockSym = String.format("SELECT \"ticker\" , \"CompanyName\" FROM \"StocksRepo\" WHERE \"ticker\" = '%s';",ticker);
+			
+			ResultSet results = statement.executeQuery(getStockSym);
+			while(results.next())
+			{
+				tempStock = ( new StockModel( results.getString(1), results.getString(2) ) );
+			}
+			
+		return tempStock;	
+		}
+		
+		catch(SQLException E)
+		{
+			E.printStackTrace();
+			return null;
+		}
+		
+		
+	}
 	
 	boolean deleteStocks(String stock)
 	{

@@ -2,13 +2,8 @@ package web;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -35,6 +30,7 @@ public class StockServlet extends HttpServlet{
 			        
 			    	response.setContentType("text/html");
 			        PrintWriter out = response.getWriter();
+			        
 			        out.println("<html><head><title>Stock Sheet Check</title>");
 			        out.println("<link rel=\"stylesheet\" href=\"../../bootstrap.min.css\" />");
 			        out.println("</head>");
@@ -67,12 +63,52 @@ public class StockServlet extends HttpServlet{
 				        out.println("</table>");
 				        out.println("</div>");
 			        }
+			        else
+			        {
+			        	String requestedTicker = pathInfo.substring(1);
+			        	
+			        	StockModel stock = stockRepository.get(requestedTicker) ;
+			        	if ( stock == null )
+			        	{
+			        		out.println( requestedTicker + " was not found" );
+			        	}
+			        	else
+			        	{
+			        		out.println( stock.getStockName() + " " + stock.getCompanyName() );
+			        	}
+			        	
+			        }
 
 				    out.println("</body>");
 			        out.println("</html>");
 			    }
 
-	
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
+		{
+		StockRepo stockRepository = new StockRepo( StockConnectionProvider.createConnection() );
+
+		response.setContentType("text/plain");
+		PrintWriter out = response.getWriter();
+
+
+		Map<String, String[]> parameterMap = request.getParameterMap();
+
+		if ( parameterMap.containsKey("ticker") && parameterMap.containsKey("name") )
+		{
+			if ( stockRepository.addStockNamesToDatabase(parameterMap.get("ticker")[0], parameterMap.get("name")[0]))
+			{
+				out.println("Created Stock!");
+			}
+			else
+			{
+				out.println("Something bad happened!!!");
+			}
+		}
+		else
+		{
+			out.println("You have to have a ticker and name parameter!");
+		}
+		}
 	
 	
 }
