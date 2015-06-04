@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+import models.StockPrices;
 import models.iStockPrices;
 
 /*
@@ -32,7 +33,7 @@ public class StockPricesTable implements iStockPricesTable {
 	}
 
 	@Override
-	public boolean create(iStockPrices prices) {
+	public boolean create(StockPrices prices) {
 		try {
 			Statement statement = connection.createStatement();
 			String createStockPriceRow = String.format
@@ -56,6 +57,12 @@ public class StockPricesTable implements iStockPricesTable {
 
 	@Override
 	public boolean delete(iStockPrices prices) {
+		return false;
+	}
+
+	@Override
+	public boolean create(iStockPrices prices) {
+		// TODO Auto-generated method stub
 		return false;
 	}
 	

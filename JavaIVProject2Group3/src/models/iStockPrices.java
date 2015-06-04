@@ -6,5 +6,6 @@ public interface iStockPrices {
 	void setPrice(int price);
 	int getDate();
 	void setDate(int date);
+	Object getTicker();
 	
 }
