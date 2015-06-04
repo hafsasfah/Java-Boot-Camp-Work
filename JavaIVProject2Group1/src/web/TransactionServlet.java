@@ -32,15 +32,15 @@ public class TransactionServlet extends HttpServlet {
 				        List<Transactions> Transactions = stockRepository.getTransactions();
 				        if ( Transactions.size() > 0 )
 				        {
-				        	out.println( "<tr><th>Transactions</th><th>Dates</th></tr>" );
+				        	out.println( "<tr><th>Transactions</th><th>Buyer</th><th>Dates</th><th>Prices</th><th>Stock</th></tr>" );
 				        }
 				        for ( Transactions trasaction : Transactions )
 				        {
 				        	out.println( "<tr>" );
+				        	out.printf( "<td>" + trasaction.getBuyer() + "</td>" );
 				        	out.printf( "<td>" + trasaction.getDate() + "</td>" );
 				        	out.printf( "<td>" + trasaction.getStockPrice()+ "</td>" );
 				        	out.printf( "<td>" + trasaction.getAmountBought() + "</td>" );
-				        	out.printf( "<td>" + trasaction.getBuyer() + "</td>" );
 				        	out.println( "</tr>" );
 				        }
 				        
