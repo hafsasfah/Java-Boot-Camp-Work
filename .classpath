@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="GroupEric/src"/>
+	<classpathentry kind="src" path="GroupEric/test"/>
+	<classpathentry kind="src" path="JavaIIIProject2Group1/src"/>
+	<classpathentry kind="src" path="JavaIIIProject2Group1/test"/>
+	<classpathentry kind="src" path="JavaIIIProject2Group2/src"/>
+	<classpathentry kind="src" path="JavaIIIProject2Group2/test"/>
+	<classpathentry kind="src" path="JavaIIIProject2Group3/interfaces"/>
+	<classpathentry kind="src" path="JavaIIIProject2Group3/src"/>
+	<classpathentry kind="src" path="JavaIIIProject2Group3/test"/>
+	<classpathentry kind="src" path="JavaIIIProject2Group4/src"/>
+	<classpathentry kind="src" path="JavaIIIProject2Group4/test"/>
+	<classpathentry kind="src" path="JavaIIIProject2GroupProfs/interfaces"/>
+	<classpathentry kind="src" path="JavaIIIProject2GroupProfs/src"/>
+	<classpathentry kind="src" path="JavaIIIProject2GroupProfs/test"/>
+	<classpathentry kind="src" path="JavaIVProject1Group4/src"/>
+	<classpathentry kind="src" path="JavaIVProject1Group4/test"/>
+	<classpathentry kind="src" path="SinglyLinkedList/src"/>
+	<classpathentry kind="src" path="SinglyLinkedList/test"/>
+	<classpathentry kind="src" path="TDDExample/src"/>
+	<classpathentry kind="lib" path="external/mockito-all-2.0.2-beta.jar"/>
+	<classpathentry kind="lib" path="external/postgresql-9.4-1201.jdbc41.jar"/>
+	<classpathentry kind="lib" path="GroupEric/external/mockito-all-2.0.2-beta.jar"/>
+	<classpathentry kind="lib" path="JavaIIIProject2Group3/lib/mockito-all-2.0.2-beta.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="TDDExample/bin"/>
+</classpath>
