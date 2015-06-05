@@ -1,11 +1,14 @@
 package repo;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Map;
+
 
 import model.Person;
 import model.Stock;
@@ -28,6 +31,7 @@ public class BuyerRepo {
 		}
 	public static void main(String[] args){
 		BuyerRepo br = new BuyerRepo();
+		br.newBuyer(new Person("Kody",2000));
 	}
 	
 	public ArrayList<Person> getBuyerList(String name){
@@ -143,6 +147,7 @@ public class BuyerRepo {
 				try {
 					db = connection.createStatement();
 		        db.executeUpdate("INSERT INTO \"people\" (\"name\", \"bank\") VALUES('"+buyer.getName()+"','"+buyer.getPurse()+"')");
+		        System.out.println("Created Buyer");
 			    return true;   
 			
 				} catch (SQLException e) {
@@ -151,6 +156,7 @@ public class BuyerRepo {
 				return false;
 			}
 		}
+	
 	
 }
 

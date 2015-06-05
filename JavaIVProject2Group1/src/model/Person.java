@@ -15,6 +15,12 @@ public Person(String name, double purse)
 		this.stocks = new HashMap<Stock, Integer>();
 		this.purse = purse;
 	}
+public Person(String name) 
+{
+	this.name = name;
+	this.stocks = new HashMap<Stock, Integer>();
+	this.purse = 0.0;
+}
 public Person(String name, Stock stock, int amountOwned) 
 {
 	this.stocks = new HashMap<Stock, Integer>();
