@@ -1,50 +1,27 @@
 package FileIO;
-
-<<<<<<< HEAD
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
-
-public class ImportTickerAndStockDate {
-	
-	public static void ImportTickerAndStockDate () throws FileNotFoundException {
-		Scanner scanner = new Scanner(new File("s&p500-2015-06-01.csv"));
-		scanner.useDelimiter(",");
-		while(scanner.hasNext()){
-		System.out.print(scanner.next()+"|");
-		}
-
-		scanner.close();
-
-		}
-		
-		public static void main (String args[]) throws FileNotFoundException{
-			ImportTickerAndStockDate();
-		}
-}
-
-
-=======
 import java.io.*;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
-
 import Models.OpeningStock;
 import Repository.OpeningStockRepository;
 import Repository.StockConnectionProvider;
-public class ImportTickerandStockDate {
+
+public class TickerandStockDate {
 
 	public static void main(String[] args)
 {
-		new ImportTickerandStockDate( "S&P500-2015-06-01.csv", "2015-06-01");
+		new TickerandStockDate( "S&P500-2015-06-01.csv", "2015-06-01");
 }
 private OpeningStockRepository openingPriceRepository;
 private String filename;
 private String date;
 
-public ImportTickerandStockDate( String filename, String date )
+public TickerandStockDate( String filename, String date )
 {
 	this.filename = filename;
 	this.date = date;
@@ -85,4 +62,4 @@ e.printStackTrace();
 return null;
 }
 }
->>>>>>> 0ef229b92091e6ab0a0b48ccf91f54ec2c98688f
+

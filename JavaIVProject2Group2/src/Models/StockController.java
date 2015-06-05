@@ -15,7 +15,7 @@ public StockController()
 
 public void createStockListing(StockModel stock)
 	{
-	//stockrepo.addStock(stock);
+
 	}
 
 public void updateDaily(StockModel stock)
