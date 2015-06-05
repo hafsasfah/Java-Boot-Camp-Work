@@ -48,8 +48,8 @@ public class User {
 		return cash;
 	}
 	
-	public void setCash(double profit)
+	public void setCash(double cash)
 	{
-		cash += profit;
+		this.cash = cash;
 	}
 }
