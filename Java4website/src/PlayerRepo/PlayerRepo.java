@@ -1,7 +1,10 @@
 package PlayerRepo;
+
+
 import java.sql.*;
 import java.util.List;
 import java.util.ArrayList;
+
 
 
 import PlayerModel.PlayerModel;
@@ -124,6 +127,59 @@ public class PlayerRepo
 		return players;
 		
 	}
+	
+	
+	public PlayerModel getASinglePlayer( String name )
+	{
+		try {
+			
+			Statement statement = connection.createStatement();
+			String SinglePlayerInQuery = String.format("select \"Name\", \"Cash\" from \"Player\" where \"Name\" = '%s'", name );
+			ResultSet results = statement.executeQuery(SinglePlayerInQuery);
+			while ( results.next() )
+			{
+				return new PlayerModel( results.getString(1), results.getDouble(2) );
+			}
+			
+		} catch (SQLException E) {
+			
+			E.printStackTrace();
+		}
+		
+		return null;
+	}
+	
+	
+	
+	public boolean update(PlayerModel player)
+	{
+		
+		try
+		{
+			
+			Statement statement = connection.createStatement();
+			String insert = String.format(" update \"PlayerModel\" , set \"Cash\" = %.2f where \"Name\" = '%s' ;" 
+					, player.getThePlayerName(), player.getThePlayerCash() );  
+		
+			
+			statement.executeQuery(insert);
+			
+			return true;
+			
+		}catch(SQLException E)
+		{
+			
+			E.printStackTrace();
+			return false;
+			
+		}
+		
+		
+		
+		
+		
+	}
+	
 	
 	
 	
