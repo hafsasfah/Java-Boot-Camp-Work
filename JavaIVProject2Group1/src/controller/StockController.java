@@ -14,8 +14,8 @@ public class StockController {
 	 StockRepo sr;	
 	 public static void main(String[] args){
 			
-			StockController sc = new StockController();
-			sc.buyStock(Blair, MMM, 1)
+			//StockController sc = new StockController();
+			//sc.buyStock(Blair, MMM, 1)
 		}
 	
 public StockController() {
@@ -86,6 +86,7 @@ public boolean buyStock(String buyerName, String stockNameOrTicker,int amount){
 			
 		}
 	}
+	return false;
 }
 public void sellStock(String buyerName, String stockNameOrTicker){
 	for(Person buyer: person){
