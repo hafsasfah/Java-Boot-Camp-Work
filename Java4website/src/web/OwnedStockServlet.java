@@ -120,7 +120,7 @@ private static final long serialVersionUID = 1L;
         	
         	if (putData.containsKey("name") && putData.containsKey("ticker") && putData.containsKey("numberOwned"))
         	{
-        		if(ownedstockrepo.addStockToDatabase(new OwnedStock(putData.get("name"), putData.get("ticker"), Integer.parseInt(putData.get("numberOwned")))))
+        		if(ownedstockrepo.addStockToDatabase(new OwnedStock(putData.get("ticker"), putData.get("name"), Integer.parseInt(putData.get("numberOwned")))))
         		{
         			out.println("Owned Stock Recorded!");
         		}
