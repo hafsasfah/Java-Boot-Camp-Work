@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import Repository.StockConnectionProvider;
-import Repository.StockRepository;
+import Repository.PlayerRepository;
 import Models.Stock;
 
 public class ImportTickerandStockName
@@ -17,11 +17,11 @@ public class ImportTickerandStockName
 
 		new ImportTickerandStockName( "S&P500Stocks.csv" );
 	}
-	private Repository.StockRepository stockRepository;
+	private Repository.PlayerRepository stockRepository;
 	public ImportTickerandStockName( String filename )
 	{
 
-		stockRepository = new StockRepository( StockConnectionProvider.createConnection() );
+		stockRepository = new PlayerRepository( StockConnectionProvider.createConnection() );
 
 		for ( Stock stock : read( filename ) )
 		{

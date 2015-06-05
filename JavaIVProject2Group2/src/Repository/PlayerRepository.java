@@ -19,7 +19,7 @@ public class PlayerRepository
 	{
 		try {
 		Statement statement = connection.createStatement();
-		String insertSQL = String.format("insert into \"Player\" ( \"Name\", \"Money\" ) values ( '%s', '%.2f' )", player.getName(), player.getMoney() );
+		String insertSQL = String.format("insert into \"Player\" ( \"Name\", \"Money\" ) values ( '%s', '%.2f' )", player.getUserName(), player.getCash() );
 		statement.executeUpdate(insertSQL);
 		return true;
 		} 
@@ -41,7 +41,7 @@ public class PlayerRepository
 	while ( results.next() )
 	{
 
-		players.add( new Player( results.getString(1), results.getDouble(2) ) );
+		players.add( new Player(query, 0  ) );
 }
 
 	} catch (SQLException e) {
@@ -63,7 +63,7 @@ return players;
 		while ( results.next() )
 	{
 	
-			return new Player( results.getString(1), results.getDouble(2) );
+			return new Player(name, 0  );
 	}
 	}
 		catch (SQLException e) {
@@ -80,7 +80,7 @@ return players;
 	
 		try {
 		Statement statement = connection.createStatement();
-		String insertSQL = String.format(" update \"Player\" set \"Money\" = %.2f where \"Name\" = '%s';", player.getMoney(), player.getName() );
+		String insertSQL = String.format(" update \"Player\" set \"Money\" = %.2f where \"Name\" = '%s';", player.getCash(), player.getUserName() );
 		statement.executeUpdate(insertSQL);
 		return true;
 	} 
