@@ -24,7 +24,7 @@ public class StockOwnedServlet extends HttpServlet {
             	
     	response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        out.println( ServletHelper.createHead( "Stock" ) );
+        out.println( ServletHelper.createHead( "Stock Owned" ) );
         out.println("<body>");
         
         String pathInfo = request.getPathInfo();
