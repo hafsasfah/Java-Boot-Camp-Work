@@ -64,7 +64,7 @@ public class StockPricesTable implements iStockPricesTable {
 		try {
 		
 		Statement statement = connection.createStatement();
-		String query = String.format("select \"Ticker\", \"Date\", \"Price\" from \"OpeningPrice\"" );
+		String query = String.format("select \"Ticker\", \"Date\", \"Price\" from \"StockPrices\"" );
 		ResultSet results = statement.executeQuery(query);
 		openingPrices.addAll( parseResults( results ) );
 			
@@ -83,7 +83,7 @@ public class StockPricesTable implements iStockPricesTable {
 		try {
 		
 		Statement statement = connection.createStatement();
-		String query = String.format("select \"Ticker\", \"Date\", \"Price\" from \"OpeningPrice\" where \"Ticker\" = '%s'", tickerName );
+		String query = String.format("select \"Ticker\", \"Date\", \"Price\" from \"StockPrices\" where \"Ticker\" = '%s'", tickerName );
 		ResultSet results = statement.executeQuery(query);
 		openingPrices.addAll( parseResults( results ) );
 			
@@ -102,7 +102,7 @@ public class StockPricesTable implements iStockPricesTable {
 		try {
 		
 		Statement statement = connection.createStatement();
-		String query = String.format("select \"Ticker\", \"Date\", \"Price\" from \"OpeningPrice\" where \"Date\" = '%s'", date );
+		String query = String.format("select \"Ticker\", \"Date\", \"Price\" from \"StockPrices\" where \"Date\" = '%s'", date );
 		ResultSet results = statement.executeQuery(query);
 		openingPrices.addAll( parseResults( results ) );
 			
@@ -121,7 +121,7 @@ public class StockPricesTable implements iStockPricesTable {
 		try {
 		
 		Statement statement = connection.createStatement();
-		String query = String.format("select \"Ticker\", \"Date\", \"Price\" from \"OpeningPrice\" where \"Ticker\" = '%s' and \"Date\" = '%s'", ticker, date );
+		String query = String.format("select \"Ticker\", \"Date\", \"Price\" from \"StockPrices\" where \"Ticker\" = '%s' and \"Date\" = '%s'", ticker, date );
 		ResultSet results = statement.executeQuery(query);
 		openingPrices.addAll( parseResults( results ) );
 			

@@ -6,8 +6,6 @@ public class StockPrices {
 	private double price;
 	private String ticker;
 	
-	//Stocks stocks = new Stocks();
-	
 	public StockPrices() {}
 	
 	public StockPrices(String ticker, String date, double price)
@@ -40,7 +38,4 @@ public class StockPrices {
 	public void setTicker(String ticker) {
 		this.ticker = ticker;
 	}
-	
-	
-	
 }
