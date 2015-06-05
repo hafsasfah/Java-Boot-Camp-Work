@@ -7,7 +7,7 @@ public class PlayerModel
 	private String name;
 	private double cash; 
 	
-	
+	//if (putData.containsKey("name") && putData.containsKey("ticker") && putData.containsKey("numberOwned"))
 	
 	public PlayerModel(String name, double cash)
 	{
