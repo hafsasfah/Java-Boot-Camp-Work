@@ -13,12 +13,18 @@ public class StockController {
 	 BuyerRepo br;
 	 StockRepo sr;	
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> origin/JavaIVProject2Group1
 	 public static void main(String[] args){
 			
 			//StockController sc = new StockController();
 			//sc.buyStock(Blair, MMM, 1)
 		}
+<<<<<<< HEAD
+>>>>>>> origin/JavaIVProject2Group1
+=======
 >>>>>>> origin/JavaIVProject2Group1
 	
 public StockController() {
