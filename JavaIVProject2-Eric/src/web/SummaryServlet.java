@@ -20,10 +20,28 @@ public class SummaryServlet extends HttpServlet {
 		List<Summary> summaries = new ArrayList<Summary>();
 		List<OpeningPrice> todayPrices = openingPriceRepository.getByDate( ServletHelper.todaysDate() );
 		
-		for ( Player player : playerRepository.get() )
-		{
-			summaries.add( new Summary( player, ownedStockRepository.getOwnedStocksForSinglePlayer( player.getName() ), todayPrices ) );
-		}
+		
+		String pathInfo = request.getPathInfo();
+        
+        if ( pathInfo == null || pathInfo.equals("/") )
+        {
+		
+		
+			for ( Player player : playerRepository.get() )
+			{
+				summaries.add( new Summary( player, ownedStockRepository.getOwnedStocksForSinglePlayer( player.getName() ), todayPrices ) );
+			}
+        }
+        else
+        {
+        	String requestedPlayer = pathInfo.substring( 1 );
+        	
+        	Player player = playerRepository.getSinglePlayer( requestedPlayer );
+        	if ( player != null )
+        	{
+        		summaries.add( new Summary( player, ownedStockRepository.getOwnedStocksForSinglePlayer( player.getName() ), todayPrices ) );
+        	}
+        }
 		
     	response.setContentType("text/html");
         PrintWriter out = response.getWriter();
