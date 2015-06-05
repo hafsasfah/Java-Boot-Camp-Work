@@ -1,8 +1,11 @@
 package web;
 
+
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -106,6 +109,32 @@ public class PlayerServlet
 				throws IOException, ServletException
 	{
 		
+
+		PlayerRepo playerRepository = new PlayerRepo( StockConnectionProvider.createConnection() );
+    	
+    	response.setContentType("text/plain");
+        PrintWriter out = response.getWriter();
+        
+        Map<String, String[]> parameterMapping = request.getParameterMap();
+        
+        if ( parameterMapping.containsKey("name") )
+        {
+        	PlayerModel player = new PlayerModel( parameterMapping.get("name")[0], 3000 );
+        	if ( playerRepository.buildPlayer(player) )
+        	{
+        		out.println("You have built a new player!");
+        	}
+        	else
+        	{
+        		out.println("A problem has occured!");
+        	}
+        }
+        else
+        {
+        	out.println("You need to have a name parameter!");
+        }
+		
+	
 		
 	}
 	

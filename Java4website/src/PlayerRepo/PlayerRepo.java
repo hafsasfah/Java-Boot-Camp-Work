@@ -22,7 +22,7 @@ public class PlayerRepo
 		
 	}
 	
-	
+	/*
 	public PlayerRepo()
 	{
 		
@@ -30,7 +30,7 @@ public class PlayerRepo
 		{
 			String url = "jdbc:postgresql://localhost/Stocks";
 			String username = "postgres";
-			String password = "dragon";
+			String password = "Silver99";
 			
 			connection = DriverManager.getConnection(url, username, password);
 			
@@ -45,7 +45,9 @@ public class PlayerRepo
 		
 	}
 	
+	**/
 	
+	/*
 	public void buildPlayerTable()
 	{
 		
@@ -72,7 +74,8 @@ public class PlayerRepo
 		
 		
 	}
-	
+	**/
+
 	
 	
 	
