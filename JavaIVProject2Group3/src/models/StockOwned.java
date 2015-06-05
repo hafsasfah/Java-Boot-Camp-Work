@@ -4,13 +4,23 @@ public class StockOwned {
 	private String userName;
 	private String ticker;
 	private int shares;
+	private int userID;
 		
+	
+
 	public StockOwned(String userName, String ticker, int shares) {
 		this.setUserName(userName);
 		this.setTicker(ticker);
 		this.setShares(shares);
 	}
+	
+	public int getUserID() {
+		return userID;
+	}
 
+	public void setUserID(int userID) {
+		this.userID = userID;
+	}
 	public String getUserName() {
 		return userName;
 	}
