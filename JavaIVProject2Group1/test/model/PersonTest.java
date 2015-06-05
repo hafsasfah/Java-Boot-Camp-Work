@@ -1,28 +1,28 @@
 package model;
 
 import static org.junit.Assert.*;
-import model.Person;
 
 import org.junit.Test;
 
-public class PersonTest 
-{
+public class PersonTest {
 
 	@Test
 	public void testGetName() 
 	{
+		Person test = new Person("Mario", 0);
 		
-		Person test = new Person("Mario", 0);		
 		assertEquals(test.getName(),"Mario");
+		
+		
 	}
 
 	@Test
 	public void testGetStocks() 
 	{
-		
 		Person test = new Person("Mario", 0);
 		test.addStock(new Stock("Apple","APPL"),20);
 		assertNotNull(test.getStocks());
+	//"Apple","APPL", 5
 	}
 
 	@Test
@@ -48,5 +48,6 @@ public class PersonTest
 	{
 		fail("Not yet implemented");
 	}
+
 
 }

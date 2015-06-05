@@ -9,6 +9,7 @@ public class Person
 	//ArrayList<Stock> stocks;
 	double purse;
 	Map<Stock, Integer> stocks;
+	
 public Person(String name, double purse) 
 	{
 		this.name = name;
