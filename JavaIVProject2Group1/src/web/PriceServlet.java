@@ -10,7 +10,6 @@ import repo.*;
 
 
 //Add code to add Price to list
-public class PriceServlet 
 public class PriceServlet extends HttpServlet 
 
 {
