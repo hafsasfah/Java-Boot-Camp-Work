@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Map;
 
 import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -15,13 +16,15 @@ import PlayerModel.PlayerModel;
 import PlayerRepo.PlayerRepo;
 import Stockrepo.StockConnectionProvider;
 
-public class PlayerServlet 
+public class PlayerServlet extends HttpServlet
 {
 
-	
-	
-	
-	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5447183495469656155L;
+
+
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException
 	{

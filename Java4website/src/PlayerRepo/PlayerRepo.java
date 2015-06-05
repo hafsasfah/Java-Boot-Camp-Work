@@ -23,6 +23,8 @@ public class PlayerRepo
 	}
 	
 	
+	
+	
 	public PlayerRepo()
 	{
 		
@@ -45,7 +47,7 @@ public class PlayerRepo
 		
 	}
 	
-
+	
 	
 	
 	public void buildPlayerTable()
@@ -75,7 +77,7 @@ public class PlayerRepo
 		
 	}
 	
-
+ 	
 	
 	
 	
@@ -115,9 +117,6 @@ public class PlayerRepo
 			{
 				players.add( new PlayerModel( results.getString(1), results.getDouble(2) ) );
 			}
-			
-		
-			
 			
 			
 		}catch(SQLException E)
