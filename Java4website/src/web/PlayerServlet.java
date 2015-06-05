@@ -14,6 +14,10 @@ import Stockrepo.StockConnectionProvider;
 
 public class PlayerServlet 
 {
+
+	
+	
+	
 	
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws IOException, ServletException
@@ -43,12 +47,14 @@ public class PlayerServlet
         		
         	}
         	
-        	for(PlayerModel player : players)
+        	
+        	
+        	for(int i = 0; i < players.size(); i++)
         	{
         		
         		out.println( "<tr>" );
-	        	out.println( "<td>" + player.getThePlayerName()+ "</td>" );
-	        	out.println( "<td>" + String.format( "%.2f", player.getThePlayerCash()) + "</td>" );
+	        	out.println( "<td>" + players.get(i).getThePlayerName() + "</td>" );
+	        	out.println( "<td>" + String.format( "%.2f", players.get(i).getThePlayerCash()) + "</td>" );
 	        	out.println( "</tr>" );
         		
         	}
@@ -57,14 +63,51 @@ public class PlayerServlet
         	
         }
         
+        else
+        {
+        	try
+        	{
+        		
+        		String requestedPlayer = pathInformation.substring(1);
+        		
+        		PlayerModel player = playerRepository.getASinglePlayer(requestedPlayer);
+        		
+        		if(player == null)
+        		{
+        			
+        			out.print(requestedPlayer + " cannot be found. ");
+        			
+        		}else
+        		{
+        			
+        			out.println(player.getThePlayerName() + " " + player.getThePlayerCash());
+        				
+        		}
         
+        		
+        	}catch(Exception E)
+        	{
+        		
+        		System.out.println("There is a problem in requested player.");
+        		E.printStackTrace();
+        		
+        	}
+    
+        }
         
+        out.println("</body>");
+        out.println("/html");
         
 		
 	}
 	
 	
-	
+	public void doPost(HttpServletRequest request, HttpServletResponse response)
+				throws IOException, ServletException
+	{
+		
+		
+	}
 	
 	
 	
