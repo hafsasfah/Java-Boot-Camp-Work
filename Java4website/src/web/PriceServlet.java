@@ -79,6 +79,7 @@ public class PriceServlet extends HttpServlet
 	{
 		StringBuilder output = new StringBuilder();
 		
+		output.append("<div class=\"container\">");
 		output.append("<table border='1'>");
 		output.append( "<tr><th>Ticker</th><th>Date</th><th>Price</th></tr>" );
 		
@@ -92,6 +93,7 @@ public class PriceServlet extends HttpServlet
         	output.append( "</tr>" );
         }
         output.append("</table>");
+        output.append("</div>");
         
         return output.toString();
 	}
