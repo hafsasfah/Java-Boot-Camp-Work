@@ -1,6 +1,6 @@
 package PlayerModel;
 
-public class Player 
+public class PlayerModel 
 {
 	
 	
@@ -9,7 +9,7 @@ public class Player
 	
 	
 	
-	public Player(String name, double cash)
+	public PlayerModel(String name, double cash)
 	{
 		
 		this.name = name;

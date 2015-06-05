@@ -1,7 +1,11 @@
 package PlayerRepo;
 import java.sql.*;
+import java.util.List;
+import java.util.ArrayList;
 
-import PlayerModel.Player;
+
+import PlayerModel.PlayerModel;
+import StockModel.StockModel;
 
 public class PlayerRepo 
 {
@@ -69,7 +73,7 @@ public class PlayerRepo
 	
 	
 	
-	public boolean buildPlayer(Player player)
+	public boolean buildPlayer(PlayerModel player)
 	{
 		try
 		{
@@ -92,6 +96,34 @@ public class PlayerRepo
 	}
 	
 	
+	public List<PlayerModel> getAllPlayers()
+	{
+		List<PlayerModel> players = new ArrayList<PlayerModel>();
+		try
+		{
+			Statement statement = connection.createStatement();
+			String getPlayerNameAndCash = String.format("SELECT \"Name\" , \"Cash\" FROM \"Player\"");
+			
+			ResultSet results = statement.executeQuery(getPlayerNameAndCash);
+			while(results.next())
+			{
+				players.add( new PlayerModel( results.getString(1), results.getDouble(2) ) );
+			}
+			
+		
+			
+			
+			
+		}catch(SQLException E)
+		{
+			E.printStackTrace();
+		
+		}
+		
+		
+		return players;
+		
+	}
 	
 	
 	
