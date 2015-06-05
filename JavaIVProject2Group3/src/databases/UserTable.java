@@ -24,13 +24,14 @@ public class UserTable implements iUserTable {
 	
 	public UserTable() {
 		try {
+			Class.forName("org.postgresql.Driver");
 			String url = "jdbc:postgresql://localhost/StockGame";
 			String username = "postgres";
 			String password = "password";
 			
 			connection = DriverManager.getConnection(url, username, password);
 		}
-		catch (SQLException e) {
+		catch (Exception e) {
 			e.printStackTrace();
 		}
 	}

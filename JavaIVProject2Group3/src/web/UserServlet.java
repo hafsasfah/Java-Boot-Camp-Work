@@ -77,7 +77,7 @@ public class UserServlet extends HttpServlet {
         
         if ( parameterMap.containsKey("UserName") )
         {
-        	User user = new User( parameterMap.get("UserName")[0], Integer.parseInt(parameterMap.get("userID")[0]));
+        	User user = new User( parameterMap.get("UserName")[0], new Random().nextInt() );
         	if ( userTable.create(user))
         	{
         		out.println("User Created! (Hopefully)");
