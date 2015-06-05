@@ -22,7 +22,7 @@ public class UserServlet extends HttpServlet {
             	
     	response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        out.println( ServletHelper.createHead( "Stock" ) );
+        out.println( ServletHelper.createHead( "User" ) );
         out.println("<body>");
         
         String pathInfo = request.getPathInfo();
@@ -34,7 +34,7 @@ public class UserServlet extends HttpServlet {
 	        List<User> users = userTable.get();
 	        if ( users.size() > 0 )
 	        {
-	        	out.println( "<tr><th>Name</th><th>Money</th></tr>" );
+	        	out.println( "<tr><th>UserName</th><th>Cash</th></tr>" );
 	        }
 	        for ( User user : users )
 	        {
@@ -75,9 +75,9 @@ public class UserServlet extends HttpServlet {
         
         Map<String, String[]> parameterMap = request.getParameterMap();
         
-        if ( parameterMap.containsKey("name") )
+        if ( parameterMap.containsKey("UserName") )
         {
-        	User user = new User( parameterMap.get("name")[0], Integer.parseInt(parameterMap.get("userID")[0]));
+        	User user = new User( parameterMap.get("UserName")[0], Integer.parseInt(parameterMap.get("userID")[0]));
         	if ( userTable.create(user))
         	{
         		out.println("User Created! (Hopefully)");
