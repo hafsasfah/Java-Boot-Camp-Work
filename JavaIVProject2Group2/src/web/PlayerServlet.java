@@ -1,23 +1,17 @@
 package web;
 
-<<<<<<< HEAD
 
-=======
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
->>>>>>> origin/JavaIVProject2Group2
 
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+
+import java.io.*;
+import java.util.*;
+
+import javax.servlet.*;
+import javax.servlet.http.*;
 
 import Models.Player;
-import Models.Stock;
-import Repository.PlayerRepository;
+import Repository.FakePlayerRepo;
 import Repository.StockConnectionProvider;
-<<<<<<< HEAD
 import Models.*;
 import data.*;
 
@@ -26,80 +20,58 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 
 
-=======
-import Repository.StockRepository;
->>>>>>> origin/JavaIVProject2Group2
 
-public class PlayerServlet extends HttpServlet 
-{
+public class PlayerServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)
     throws IOException, ServletException
     {
-<<<<<<< HEAD
 
             	
     	response.setContentType("text/html");
-=======
-    	
-    	PlayerRepository pRepository = new PlayerRepository( StockConnectionProvider.createConnection() );
-    	
-    	
-        response.setContentType("text/html");
->>>>>>> origin/JavaIVProject2Group2
         PrintWriter out = response.getWriter();
-        out.println(ServletHelper.createHead( "Player" ) );
-        out.println("<head>");
-        out.println("</head>");
+        //out.println( ServletHelper.createHead( "Player" ) );
         out.println("<body>");
-        out.println("</body>");
-        out.println("</html>");
         
         String pathInfo = request.getPathInfo();
         
-        if ( pathInfo == null || pathInfo.equals("/") )
+        if ( Player.size() > 0 )
         {
-	        out.println("<h1>S&P 500 Stocks</h1>");
+        	FakePlayerRepo playerRepository = new FakePlayerRepo ();
+	        out.println("<h1>Player</h1>");
 	        out.println("<table border='1'>");
-<<<<<<< HEAD
 	        List<Player> players = FakePlayerRepo.get();
 	        if ( players.size() > 0 )
-=======
-	        List<Player> player = PlayerRepository.get();
-	        
-	        if ( player.size() > 0 )
->>>>>>> origin/JavaIVProject2Group2
 	        {
-	        	out.println( "<tr><th>Money</th><th>Name</th></tr>" );
+	        	out.println( "<tr><th>Player</th><th>Bank</th></tr>" );
 	        }
-	        for ( Player name : player )
+	        for ( Player player : players )
 	        {
 	        	out.println( "<tr>" );
-	        	out.println( "<td>" + ((Player) player).getMoney() + "</td>" );
-	        	out.println( "<td>" + ((Player) player).getName() + "</td>" );
+	        	out.println( "<td>" + player.getUserName() + "</td>" );
+	        	out.println( "<td>" + player.getCash() + "</td>" );
 	        	out.println( "</tr>" );
 	        }
 	        
-	        out.println("</table>");
-        }
+	        out.println("</table>");}
+        
         else
         {
-        	String requestedTicker = pathInfo.substring( pathInfo.indexOf('/') + 1);
+        	String requestedPlayer = pathInfo.substring( 1 );
         	
-        	 player = PlayerRepository.get(player) ;
+        	List<Player> player = FakePlayerRepo.get() ;
         	if ( player == null )
         	{
-        		out.println( requestedTicker + " was not found" );
+        		out.println( requestedPlayer + " was not found" );
         	}
         	else
         	{
-        		out.println( stock.getTicker() + " " + player.getName() );
+        		out.println( ((Player) player).getUserName() + " " + ((Player) player).getCash() );
         	}
         }
 	    out.println("</body>");
         out.println("</html>");
     }
-<<<<<<< HEAD
 	
 	public void doPost(HttpServletRequest request, HttpServletResponse response)
     	    throws IOException, ServletException
@@ -115,6 +87,7 @@ public class PlayerServlet extends HttpServlet
         if ( parameterMap.containsKey("name") )
         {
         	Player player = new Player( parameterMap.get("name")[0], 1500 );
+
         	if ( playerRepository.create( player ) )
         	{
         		out.println("Created Player!");
@@ -143,7 +116,3 @@ public class PlayerServlet extends HttpServlet
         
     }
 
-=======
-
-}
->>>>>>> origin/JavaIVProject2Group2
