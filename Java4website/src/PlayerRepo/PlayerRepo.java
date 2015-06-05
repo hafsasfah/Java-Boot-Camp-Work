@@ -32,7 +32,7 @@ public class PlayerRepo
 		{
 			String url = "jdbc:postgresql://localhost/Stocks";
 			String username = "postgres";
-			String password = "Silver99";
+			String password = "Citylost2";
 			
 			connection = DriverManager.getConnection(url, username, password);
 			
@@ -58,7 +58,7 @@ public class PlayerRepo
 			
 			
 			Statement statement = connection.createStatement();
-			String buildPlayerTable = " CREATE TABLE \"Player\" " 
+			String buildPlayerTable = " CREATE TABLE \"Players\" " 
 										+"  \"Name\" character varying(100), " 
 										+ "  \"Cash\" double precision, " + ")"; 
 			
@@ -87,7 +87,7 @@ public class PlayerRepo
 		{
 			Statement statement = connection.createStatement();
 			
-			String createPlayerInSQL = String.format("insert into \"Player\" (\"Name\" ", " \"Cash\" )  VALUES ( '%s', '%.2f')" , 
+			String createPlayerInSQL = String.format("insert into \"Players\" (\"Name\" ", " \"Money\" )  VALUES ( '%s', '%.2f')" , 
 					player.getThePlayerName(), player.getThePlayerCash());  
 			
 			statement.executeQuery(createPlayerInSQL);
@@ -110,7 +110,7 @@ public class PlayerRepo
 		try
 		{
 			Statement statement = connection.createStatement();
-			String getPlayerNameAndCash = String.format("SELECT \"Name\" , \"Cash\" FROM \"Player\"");
+			String getPlayerNameAndCash = String.format("SELECT \"Name\" , \"Money\" FROM \"Player\"");
 			
 			ResultSet results = statement.executeQuery(getPlayerNameAndCash);
 			while(results.next())
@@ -136,7 +136,7 @@ public class PlayerRepo
 		try {
 			
 			Statement statement = connection.createStatement();
-			String SinglePlayerInQuery = String.format("select \"Name\", \"Cash\" from \"Player\" where \"Name\" = '%s'", name );
+			String SinglePlayerInQuery = String.format("select \"Name\", \"Money\" from \"Player\" where \"Name\" = '%s'", name );
 			ResultSet results = statement.executeQuery(SinglePlayerInQuery);
 			while ( results.next() )
 			{
@@ -160,7 +160,7 @@ public class PlayerRepo
 		{
 			
 			Statement statement = connection.createStatement();
-			String insert = String.format(" update \"PlayerModel\" , set \"Cash\" = %.2f where \"Name\" = '%s' ;" 
+			String insert = String.format(" update \"PlayerModel\" , set \"Money\" = %.2f where \"Name\" = '%s' ;" 
 					, player.getThePlayerName(), player.getThePlayerCash() );  
 		
 			

@@ -45,25 +45,27 @@ public class PriceServlet extends HttpServlet
         boolean requestByTicker = parameterMap.containsKey(ticker);
         boolean requestByDate = parameterMap.containsKey(date);
         
-        /*
+        
         if ( requestByTicker && requestByDate )
         {
-        	prices.addAll(openingPriceRepository.getByTickerAndDate( parameterMap.get(ticker)[0], parameterMap.get(date)[0] ) );
+        	out.println("Double values went this far.");
+        	prices.addAll(openingPriceRepository.getByTickerAndDate(parameterMap.get(ticker)[0], parameterMap.get(date)[0] ) );
+        	
         }
-        */
-        if ( requestByTicker )
+        else if (requestByTicker)
         {
+        	out.println("request ticker");
         	prices.addAll(openingPriceRepository.getByTicker(parameterMap.get(ticker)[0]));
         	
         }
-        /*
         else if ( requestByDate )
         {
+        	out.println("request date");
         	prices.addAll(openingPriceRepository.getByDate(parameterMap.get(date)[0]));
         }
-        */
         else
         {
+        	out.println("request all");
         	prices.addAll(openingPriceRepository.get());
         }
         

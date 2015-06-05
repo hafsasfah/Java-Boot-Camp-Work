@@ -22,11 +22,11 @@ public class MainThread
 		//**** DO NOT BUILD TABLE IF IT ALREADY EXISTS ****\\
 		
 		
-		stockcontroller.pricerepo.buildStockTable();
+		//stockcontroller.pricerepo.buildStockTable();
 		
 		//**** CHANGE FILE PATHS BEFORE BUILDING ****\\
 		
-		File stockNameFile = new File("C:\\Users\\F01000154.CORP-9ML9LV1\\Documents\\GitHub\\gecjdss\\Java4website\\stockinfo\\stockprices.csv");
+		File stockNameFile = new File("C:\\Users\\F01000154.CORP-9ML9LV1\\Documents\\GitHub\\gecjdss\\Java4website\\stockinfo\\stockprices2.csv");
 		
 		
 		Scanner scannerPrice = new Scanner(stockNameFile);
@@ -53,7 +53,7 @@ public class MainThread
 			String line = scannerPrice.nextLine();
 			String ticker = line.substring(0, line.indexOf(','));
 			double price = (Double.parseDouble(line.substring(line.indexOf(',') + 1)));
-			stockcontroller.pricerepo.addStockPricesToDatabase(ticker,price, "01/06/2015");
+			stockcontroller.pricerepo.addStockPricesToDatabase(ticker,price, "02/06/2015");
 		}
 
 

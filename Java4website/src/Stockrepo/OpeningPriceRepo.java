@@ -146,8 +146,78 @@ public class OpeningPriceRepo
 		
 		
 	}
+
+	public List<StockModel> getByDate(String date)
+	{
+		
+		List<StockModel> stocks = new ArrayList<StockModel>();
+
+		try
+		{
+			Statement statement = connection.createStatement();
+			String getStockSym = String.format("SELECT \"Price\" , \"ticker\" , \"Date\" FROM \"OpeningPriceRepo\" WHERE \"Date\" = '%s';",date);
+			
+			ResultSet results = statement.executeQuery(getStockSym);  
+			while(results.next())
+			{
+				stocks.add(new StockModel(Double.parseDouble(results.getString(1)),results.getString(2), results.getString(3)));
+			}
+			
+		return stocks;	
+		}
+		
+		catch(SQLException E)
+		{
+			E.printStackTrace();
+			return null;
+		}
+		
+		
+	}
 	
-	
+	public List<StockModel> getByTickerAndDate(String ticker,String date)
+	{
+		
+		List<StockModel> stocks = new ArrayList<StockModel>();
+
+		try
+		{
+			Statement statement = connection.createStatement();
+			String getStockSym = String.format("SELECT \"Price\" , \"ticker\" , \"Date\" FROM \"OpeningPriceRepo\" WHERE \"ticker\" = '%s' AND \"Date\" = '%s';",ticker,date);
+			
+			ResultSet results = statement.executeQuery(getStockSym);  
+
+			stocks.addAll(parseResults(results));
+			
+		}
+		
+		catch(SQLException E)
+		{
+			E.printStackTrace();
+			return null;
+		}
+		
+		return stocks;	
+	}
+
+
+	private List<StockModel> parseResults( ResultSet results )
+	{
+		List<StockModel> stocks = new ArrayList<StockModel>();
+		try
+		{
+			while ( results.next() )
+			{
+				stocks.add(new StockModel(Double.parseDouble(results.getString(1)),results.getString(2), results.getString(3)));
+			}
+		} 
+		catch (SQLException e)
+		{
+			
+			e.printStackTrace();
+		}
+		return stocks;
+	}
 	
 	
 	
