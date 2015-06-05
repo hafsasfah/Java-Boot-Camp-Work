@@ -154,7 +154,7 @@ public class StocksOwnedServlet extends HttpServlet
         
         String requestedName = request.getParameter( "name" );
         String requestedTicker = request.getParameter( "ticker" );
-        String requestedNumberOwned = request.getParameter( "numberOwned" );
+        String requestedNumberOwned = request.getParameter( "amount" );
         
         if ( requestedName!=null && requestedTicker!=null && requestedNumberOwned!=null)
         {

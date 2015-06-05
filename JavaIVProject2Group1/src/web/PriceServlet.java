@@ -5,11 +5,12 @@ import java.util.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-import repo.dummyrepo;
-import model.Stock;
+import model.*;
+import repo.*;
+
 
 //Add code to add Price to list
-public class PriceServlet 
+public class PriceServlet extends HttpServlet 
 {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
