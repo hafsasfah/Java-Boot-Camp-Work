@@ -2,6 +2,7 @@ package repo;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Map;
 
 import model.Person;
 import model.Stock;
@@ -19,25 +20,37 @@ public class BuyerRepo {
 			buildBuyerList();
 		}
 	public static void main(String[] args){
-		BuyerRepo br = new BuyerRepo();
+		//BuyerRepo br = new BuyerRepo();
+	}
+	
+	public ArrayList<Person> getBuyerList(String name){
+		ArrayList<Person> result = new ArrayList<Person>();
+		for(Person buyer: this.buyersList){
+			if (buyer.getName().equals(name)){
+				result.add(buyer);
+			}
+		}
+		return result;
 	}
 	
 	
-	
-	
-	public boolean update(Person buyer){	        
+	public void update(Person buyer){	        
         Statement db;
 		try {
 			db = connection.createStatement();
 
         db.executeUpdate("UPDATE\"people\" set (\"bank\"='"+ buyer.getPurse() +"' where \"name\"='"+buyer.getName()+"')");
-	    return true;   
+	   
+	    for(Stock stock: buyer.getStocks().keySet()){
+	    	
+	    db.executeUpdate("UPDATE\"owned stocks\" set (\"amount\"='"+ buyer.getPurse() +"' where \"name\"='"+buyer.getName()+"')");
+	    }
 	    
 	
 		} catch (SQLException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
-		return false;
+		
 	}
 }
    
@@ -74,11 +87,11 @@ public class BuyerRepo {
 				        	while(rs.next()){
 				        	String stockName = rs.getString(1);
 				        	int amountOwned = rs.getInt(2);
-				        	buyer.addStock(new Stock(stockName,amountOwned));;
+				        	buyer.addStock(new Stock(stockName),amountOwned);;
 				        	}
 				        					        	}
 				         for(Person buyer: buyersList){
-				        	for(Stock stock: buyer.getStocks()){
+				        	for(Stock stock: buyer.getStocks().keySet()){
 				        		String name = stock.getName();
 				        	String query = "select \"ticker\" from \"stocks\" where \"name\"='"+name+"'";
 				        	rs = db.executeQuery(query);
@@ -88,10 +101,8 @@ public class BuyerRepo {
 				          	stock.setTicker(stockTicker);
 				          	}
 				        	}
-				        	System.out.println(buyer.getName());
-				        	for(Stock ownedstock:buyer.getStocks()){
-				        		System.out.println(ownedstock.getTicker()+" : "+ownedstock.getName()+" : "+ownedstock.getAmountOwned());
-				        	}
+				        	
+				        	
 				        	
 				        }
 				        

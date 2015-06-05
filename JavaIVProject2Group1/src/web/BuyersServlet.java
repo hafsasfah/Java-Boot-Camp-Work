@@ -23,8 +23,8 @@ public class BuyersServlet extends HttpServlet
 	        out.println("<body>");
 	        
 	        
-	        String requestedTicker = request.getParameter( "ticker" );
-	        if ( requestedTicker == null )
+	        String requestedName = request.getParameter( "name" );
+	        if ( requestedName == null )
 	        {
 	        
 		        out.println("<h1>S&P 500 Stocks</h1>");
@@ -45,19 +45,37 @@ public class BuyersServlet extends HttpServlet
 		        out.println("</table>");
 		        
 		        
-		        Person BuyerRepo = new Person(requestedTicker, 0);
+		       
+	        }
+	        else if( requestedName != null ){
+	        	
+	        	out.println("<h1>S&P 500 Stocks</h1>");
+		        out.println("<table border='1'>");
+		        List<Person> buyers = stockRepository.getbuyers();
+		        if ( buyers.size() > 0 )
+		        {
+		        	out.println( "<tr><th>Name</th><th>Bank</th></tr>" );
+		        }
+		        for ( Person buyer : buyers ) {
+		        	if(buyer.getName().equals(requestedName)){
+		        	out.println( "<tr>" );
+		        	out.println( "<td>" + buyer.getName() + "</td>" );
+		        	out.println( "<td>" + buyer.getPurse() + "</td>" );
+		        	out.println( "</tr>" );
+		        }
+		        }
+		        
+		        out.println("</table>");
+		        
+		        
+		        Person BuyerRepo = new Person(requestedName, 0);
+	        	
 	        }
 	        else
 	        {
-	        	Person buyer = Person.get( requestedTicker );
-	        	if ( buyer == null )
-	        	{
-	        		out.println( requestedTicker + " was not found" );
-	        	}
-	        	else
-	        	{
-	        		out.println( buyer.getTicker() + " " + buyer.getName() );
-	        	}
+	     
+	        		out.println( requestedName + " was not found" );
+	     
 	        }
 		    out.println("</body>");
 	        out.println("</html>");

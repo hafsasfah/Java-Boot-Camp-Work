@@ -37,6 +37,9 @@ public class StockInput {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
+	
 	}
 	public void readInTodaysPrice(){
 		String filename = "S&P500-2015-06-01.csv";

@@ -18,8 +18,8 @@ public class StockServlet extends HttpServlet
     public void doGet(HttpServletRequest request, HttpServletResponse response)
     throws IOException, ServletException
     {
-    //	StockRepo stockRepository = new StockRepo();
-    	dummyrepo stockRepository = new dummyrepo();
+    	StockRepo stockRepository = new StockRepo();
+    //	dummyrepo stockRepository = new dummyrepo();
             	
     	response.setContentType("text/html");
         PrintWriter out = response.getWriter();
@@ -27,7 +27,7 @@ public class StockServlet extends HttpServlet
         out.println("<body>");
         
         
-        String requestedTicker = request.getParameter( "ticket" );
+        String requestedTicker = request.getParameter( "ticker" );
         if ( requestedTicker == null )
         {
         
@@ -48,19 +48,26 @@ public class StockServlet extends HttpServlet
 	        
 	        out.println("</table>");
         }
-        else
-        {	
-        	
-        	Stock stock = stockRepository.get( requestedTicker );
-        	if ( stock == null )
-        	{
-        		out.println( requestedTicker + " was not found" );
-        	}
-        	else
-        	{
-        		out.println( stock.getTicker() + " " + stock.getName() );
-        	}
+        else if( requestedTicker != null ){
+        	 out.println("<h1>S&P 500 Stocks</h1>");
+ 	        out.println("<table border='1'>");
+ 	        List<Stock> stocks = stockRepository.getStockList();
+ 	        if ( stocks.size() > 0 )
+ 	        {
+ 	        	out.println( "<tr><th>Ticker</th><th>Name</th></tr>" );
+ 	        }
+ 	        for ( Stock stock : stocks ) {
+ 	        	if(stock.getTicker().equals(requestedTicker)){
+ 	        	out.println( "<tr>" );
+ 	        	out.println( "<td>" + stock.getTicker() + "</td>" );
+ 	        	out.println( "<td>" + stock.getName() + "</td>" );
+ 	        	out.println( "</tr>" );
+ 	        	}
+ 	        }
+ 	        
+ 	        out.println("</table>");
         }
+       
 	    out.println("</body>");
         out.println("</html>");
     }

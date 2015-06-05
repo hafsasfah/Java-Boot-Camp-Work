@@ -6,19 +6,24 @@ public class Person
 {
 
 	String name;
-	ArrayList<Stock> stocks;
+	//ArrayList<Stock> stocks;
 	double purse;
-	
-	Scanner scan = new Scanner(System.in);
-	
-	public Person(String name, double purse) 
+	Map<Stock, Integer> stocks;
+public Person(String name, double purse) 
 	{
 		this.name = name;
-		this.stocks = new ArrayList<Stock>();
+		this.stocks = new HashMap<Stock, Integer>();
 		this.purse = purse;
 	}
-	public void addStock(Stock stock){
-		this.stocks.add(stock);
+public Person(String name, Stock stock, int amountOwned) 
+{
+	this.stocks = new HashMap<Stock, Integer>();
+	this.name = name;
+	this.stocks.put(stock, amountOwned);
+	this.purse = 0;
+}
+	public void addStock(Stock stock,int amountOwned){
+		this.stocks.put(stock,amountOwned);
 	}
 	
 	public String getName() 
@@ -26,7 +31,7 @@ public class Person
 		return name;
 	}
 
-	public ArrayList<Stock> getStocks(){
+	public Map<Stock, Integer> getStocks(){
 		return stocks;
 	}
 
@@ -35,20 +40,38 @@ public class Person
 		return purse;
 	}
 
-	public void buyStock(Stock stock)
+	public void buyStock(Stock stock,int amount)
 	{
 		this.purse -= stock.getPrice();
-		this.addStock(stock);
-	}
-	public void sellStock(Stock stock)
-	{
-		this.purse += stock.getPrice();
-		this.removeStock(stock);
-	}
-	private void removeStock(Stock stock) {
-		this.stocks.remove(stock);
+		try{
+			
+			stocks.put(stock, stocks.get(stock) + amount);
+			
+		}
+		catch(Exception e){
+			stocks.put(stock,  amount);
+		}
 		
 	}
+	public void sellStock(Stock stock, int amount)
+	{
+		this.purse += stock.getPrice();
+try{
+			
+			stocks.put(stock, stocks.get(stock) + amount);
+			if(stocks.get(stock) <= 0){
+				stocks.remove(stock);
+			}
+			
+		}
+		catch(Exception e){
+			stocks.put(stock,  amount);
+		}
+	}
+//	private void removeStock(Stock stock) {
+	//	this.stocks.remove(stock);
+		
+//	}
 	public String getTicker() {
 		// TODO Auto-generated method stub
 		return null;

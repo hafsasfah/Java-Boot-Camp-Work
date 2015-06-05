@@ -66,7 +66,7 @@ public void buyStock(String buyerName, String stockNameOrTicker){
 		if(buyer.getName().equals(buyerName)){
 			for(Stock stock:stocks){
 				if(stock.getName().equals(stockNameOrTicker)||stock.getTicker().equals(stockNameOrTicker)){
-					buyer.buyStock(stock);
+					//buyer.buyStock(stock);
 					br.update(buyer);
 				}
 			}
@@ -79,7 +79,7 @@ public void sellStock(String buyerName, String stockNameOrTicker){
 		if(buyer.getName().equals(buyerName)){
 			for(Stock stock:stocks){
 				if(stock.getName().equals(stockNameOrTicker)||stock.getTicker().equals(stockNameOrTicker)){
-					buyer.sellStock(stock);
+					//buyer.sellStock(stock);
 					br.update(buyer);
 					
 				}
