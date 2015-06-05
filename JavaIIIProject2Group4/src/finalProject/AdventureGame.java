@@ -19,7 +19,7 @@ public class AdventureGame  extends JFrame  // RENAME CLASS TO THE PLAYER CLASS?
 	JPanel PlayerPaneNames ;
 	JPanel PlayerPaneStats ;
 	JPanel MonsterPaneStats;
-	JLabel statsLabel ;
+	
 	
 	public static void main (String[] args)
 	{
@@ -27,6 +27,9 @@ public class AdventureGame  extends JFrame  // RENAME CLASS TO THE PLAYER CLASS?
 		new AdventureGame();
 		
 	}
+	JLabel statsLabel;
+	JLabel statsLabel2;
+	
 	private String player1name;
 	private String player2name;
 	private String player3name;
@@ -35,9 +38,11 @@ public class AdventureGame  extends JFrame  // RENAME CLASS TO THE PLAYER CLASS?
 	private Stats monster1Stats;
 	private Stats monster2Stats;
 	Stats player1Stats;
-	private Stats player2Stats;	
+	Stats player2Stats;	
+	Stats player3Stats;
+	Stats player4Stats;
 	
-	private Character player1;
+	
 	
 	
 public AdventureGame()
@@ -61,14 +66,32 @@ public AdventureGame()
 		JButton btnNewButton = new JButton("Fight!!!");
 		btnNewButton.addActionListener(new ActionListener()
 		{
+			
+		
 			public void actionPerformed(ActionEvent e) 
+		
 			{
-				int attack = player1Stats.getStrg() - monster1Stats.getHp();
+				monster1Stats.setMonsterHp( monster1Stats.getMonsterHp() - player1Stats.getStrg() );
+				monster2Stats.setMonsterHp( monster2Stats.getMonsterHp() - player1Stats.getStrg() );
+				player1Stats.setHp( player1Stats.getHp() - monster1Stats.getMonsterStrg());
+				player1Stats.setHp( player1Stats.getHp() - monster2Stats.getMonsterStrg());
 				
-				jt.setText("The monster took "+player1Stats.getStrg()+" damage!");	
 				
-			 
+				jt.setText(player1name+" did "+player1Stats.getStrg()+" damage to the monster!"+ "\nAND EVERYBODY DIES MUHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAHAH");
+				
+				statsLabel.setText("<html>Dragon: <br/> DEX: "+monster1Stats.getDex()+"<br/> STRG: "+
+			    			 monster1Stats.getStrg() +"<br/> INTEL: "+monster1Stats.getIntel()+"<br/> HEALTH: "+monster1Stats.getMonsterHp());
+				
+				statsLabel2.setText("<html>Orc 1: <br/> DEX: "+monster2Stats.getDex()+"<br/> STRG: "+
+		    			 monster2Stats.getStrg() +"<br/> INTEL: "+monster2Stats.getIntel()+"<br/> HEALTH: "+monster2Stats.getMonsterHp());	 
+				
+				PlayerPaneStats.add(statsLabel);
+				MonsterPaneStats.add(statsLabel);
+				MonsterPaneStats.add(statsLabel2);
+				return;
+				
 			}
+			
 		});
 		contentPane.add(btnNewButton);
 		
@@ -132,18 +155,18 @@ public AdventureGame()
 			     case 1: 
 			    	 jt.setText("2 Orcs and a Dragon are in this room!");
 			    	
-			    	 JLabel statsLabel = new JLabel("<html>Dragon: <br/> DEX: "+monster1Stats.getDex()+"<br/> STRG: "+
-			    			 monster1Stats.getStrg() +"<br/> INTEL: "+monster1Stats.getIntel()+"<br/> HEALTH: "+monster1Stats.getHp());
+			    	 statsLabel = new JLabel("<html>Dragon: <br/> DEX: "+monster1Stats.getDex()+"<br/> STRG: "+
+			    			 monster1Stats.getStrg() +"<br/> INTEL: "+monster1Stats.getIntel()+"<br/> HEALTH: "+monster1Stats.getMonsterHp());
 			    	 
-			    	 JLabel statsLabel2 = new JLabel("<html>Dragon: <br/> DEX: "+monster2Stats.getDex()+"<br/> STRG: "+
-			    			 monster2Stats.getStrg() +"<br/> INTEL: "+monster2Stats.getIntel()+"<br/> HEALTH: "+monster2Stats.getHp());
+			    	 JLabel statsLabel2 = new JLabel("<html>Orc 1: <br/> DEX: "+monster2Stats.getDex()+"<br/> STRG: "+
+			    			 monster2Stats.getStrg() +"<br/> INTEL: "+monster2Stats.getIntel()+"<br/> HEALTH: "+monster2Stats.getMonsterHp());
 			    	 
-			    	 JLabel statsLabel3 = new JLabel("<html>Dragon: <br/> DEX: "+player1Stats.getDex()+"<br/> STRG: "+
-			    			 player1Stats.getStrg() +"<br/> INTEL: "+player1Stats.getIntel()+"<br/> HEALTH: "+player1Stats.getHp());
+			    	/**JLabel statsLabel3 = new JLabel("<html>Orc 2: <br/> DEX: "+player1Stats.getDex()+"<br/> STRG: "+
+			    			 player1Stats.getStrg() +"<br/> INTEL: "+player1Stats.getIntel()+"<br/> HEALTH: "+player1Stats.getHp());*/
 			    	 
 			    	MonsterPaneStats.add(statsLabel);
 			    	MonsterPaneStats.add(statsLabel2);
-			    	MonsterPaneStats.add(statsLabel3);
+			    	//MonsterPaneStats.add(statsLabel3);
 						
 					MonsterPaneStats.revalidate();
 			    	 
@@ -194,10 +217,10 @@ public AdventureGame()
 		
 		
 		
-		/*this.player1name = JOptionPane.showInputDialog("Player 1 please enter your name.");
+		this.player1name = JOptionPane.showInputDialog("Player 1 please enter your name.");
 		this.player2name = JOptionPane.showInputDialog("Player 2 please enter your name.");
 		this.player3name = JOptionPane.showInputDialog("Player 3 please enter your name.");
-		this.player4name = JOptionPane.showInputDialog("Player 4 please enter your name.");*/
+		this.player4name = JOptionPane.showInputDialog("Player 4 please enter your name.");
 		
 		PlayerPane = new JPanel();
 		PlayerPaneNames = new JPanel();
