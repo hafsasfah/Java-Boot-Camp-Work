@@ -1,6 +1,7 @@
 package model;
 
 import static org.junit.Assert.*;
+
 import org.junit.Test;
 
 public class TransactionsTest 
@@ -9,7 +10,9 @@ public class TransactionsTest
 	@Test
 	public void testGetBuyer()
 	{
-		fail("Not yet implemented");
+		
+		Transactions test = new Transactions("Mario", 0);		
+		assertEquals(test.getName(),"Mario");
 	}
 
 	@Test
