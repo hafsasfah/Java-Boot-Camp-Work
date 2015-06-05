@@ -1,11 +1,12 @@
 package models;
 
 public interface iUser {
-
+	
+	
 	String getUserName();
 	void setUserName(String name);
-	int getUserId();
-	void setUserId(int userId);
+	int getUserID();
+	void setUserID(int userID);
 	double getCash();
 	void setCash();
 }
