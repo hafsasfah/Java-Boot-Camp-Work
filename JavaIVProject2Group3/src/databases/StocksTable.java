@@ -75,7 +75,7 @@ public class StocksTable implements iStocksTable {
 	public Stocks get(String ticker) {
 		try {
 			Statement statement = connection.createStatement();
-			String query = String.format("SELECT \"Ticker\", \"Name\" FROM \"Stocks\" "
+			String query = String.format("SELECT \"Ticker\", \"StockName\" FROM \"Stocks\" "
 					+ "WHERE \"Ticker\" = '%s'", ticker);
 			ResultSet results = statement.executeQuery(query);
 			

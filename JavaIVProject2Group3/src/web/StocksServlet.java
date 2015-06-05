@@ -51,7 +51,7 @@ public class StocksServlet extends HttpServlet {
         }
         else
         {
-        	String requestedTicker = pathInfo.substring( pathInfo.indexOf('/') + 1);
+        	String requestedTicker = pathInfo.substring(1);
         	
         	Stocks stock = stocksTable.get(requestedTicker) ;
         	if ( stock == null )
