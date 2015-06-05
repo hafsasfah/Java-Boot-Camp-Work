@@ -15,6 +15,7 @@ public Person(String name, double purse)
 		this.stocks = new HashMap<Stock, Integer>();
 		this.purse = purse;
 	}
+
 public Person(String name, Stock stock, int amountOwned) 
 {
 	this.stocks = new HashMap<Stock, Integer>();
@@ -22,7 +23,9 @@ public Person(String name, Stock stock, int amountOwned)
 	this.stocks.put(stock, amountOwned);
 	this.purse = 0;
 }
-	public void addStock(Stock stock,int amountOwned){
+
+	public void addStock(Stock stock,int amountOwned)
+	{
 		this.stocks.put(stock,amountOwned);
 	}
 	
@@ -31,7 +34,8 @@ public Person(String name, Stock stock, int amountOwned)
 		return name;
 	}
 
-	public Map<Stock, Integer> getStocks(){
+	public Map<Stock, Integer> getStocks()
+	{
 		return stocks;
 	}
 
@@ -43,7 +47,8 @@ public Person(String name, Stock stock, int amountOwned)
 	public void buyStock(Stock stock,int amount)
 	{
 		this.purse -= stock.getPrice();
-		try{
+		try
+		{
 			
 			stocks.put(stock, stocks.get(stock) + amount);
 			
@@ -53,10 +58,12 @@ public Person(String name, Stock stock, int amountOwned)
 		}
 		
 	}
+	
 	public void sellStock(Stock stock, int amount)
 	{
 		this.purse += stock.getPrice();
-try{
+		try
+		{
 			
 			stocks.put(stock, stocks.get(stock) + amount);
 			if(stocks.get(stock) <= 0){
@@ -68,13 +75,10 @@ try{
 			stocks.put(stock,  amount);
 		}
 	}
-//	private void removeStock(Stock stock) {
-	//	this.stocks.remove(stock);
-		
-//	}
-	public String getTicker() {
+
+	public String getTicker() 
+	{
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
 }

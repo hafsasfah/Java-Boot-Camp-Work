@@ -22,7 +22,7 @@ public class PriceServlet
 		        out.println("<html>" );
 		        out.println("<body>");
 		        
-		        
+		        //Add price and Date, and be able to search by price and date
 		        String requestedTicker = request.getParameter( "ticker" );
 		        if ( requestedTicker == null )
 		        {
