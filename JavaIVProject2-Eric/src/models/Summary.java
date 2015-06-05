@@ -40,7 +40,7 @@ public class Summary
 		
 		for ( OwnedStock stock : ownedStocks )
 		{
-			netWorth += priceMap.get( stock.getTicker() );
+			netWorth += stock.getNumberOwned() * priceMap.get( stock.getTicker() );
 		}
 		
 		return netWorth;
