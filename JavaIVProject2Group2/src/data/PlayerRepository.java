@@ -4,7 +4,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import models.Stock;
+import Models.Player;
+import Models.Stock;
 
 public class PlayerRepository {
 	
@@ -15,7 +16,7 @@ public class PlayerRepository {
 		this.connection = connection;
 	}
 	
-	public boolean create( Player player )
+	public void create( Player player )
 	{
 		
 	}
