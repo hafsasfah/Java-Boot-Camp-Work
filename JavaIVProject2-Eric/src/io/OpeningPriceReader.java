@@ -14,7 +14,7 @@ public class OpeningPriceReader {
 	
 	public static void main(String[] args)
 	{
-		new OpeningPriceReader( "C:\\Users\\Eric\\Desktop\\S&P500-2015-06-04.csv", "2015-06-04" );
+		new OpeningPriceReader( "C:\\Users\\Eric\\Desktop\\S&P500-2015-06-05.csv", "2015-06-05" );
 	}
 
 	private OpeningPriceRepository openingPriceRepository;
