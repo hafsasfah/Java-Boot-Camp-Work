@@ -1,6 +1,6 @@
 package web;
 
-<<<<<<< HEAD
+
 
 
 import java.io.*;
@@ -14,20 +14,19 @@ import Repository.FakePlayerRepo;
 import Repository.StockConnectionProvider;
 import Models.*;
 import data.*;
-=======
+
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
->>>>>>> origin/JavaIVProject2Group2
+
 
 public class PlayerServlet extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)
     throws IOException, ServletException
     {
-<<<<<<< HEAD
-        
+
             	
     	response.setContentType("text/html");
         PrintWriter out = response.getWriter();
@@ -41,7 +40,7 @@ public class PlayerServlet extends HttpServlet {
         	FakePlayerRepo playerRepository = new FakePlayerRepo ();
 	        out.println("<h1>Player</h1>");
 	        out.println("<table border='1'>");
-	        List<Player> players = playerRepository.get();
+	        List<Player> players = FakePlayerRepo.get();
 	        if ( players.size() > 0 )
 	        {
 	        	out.println( "<tr><th>Player</th><th>Bank</th></tr>" );
@@ -102,7 +101,7 @@ public class PlayerServlet extends HttpServlet {
         	out.println("You have to have a name parameter!");
         }
     }
-=======
+
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         out.println("<html>");
@@ -112,6 +111,7 @@ public class PlayerServlet extends HttpServlet {
         out.println("<h1>Player Repository</h1>");
         out.println("</body>");
         out.println("</html>");
+        
+        
     }
->>>>>>> origin/JavaIVProject2Group2
-}
+
