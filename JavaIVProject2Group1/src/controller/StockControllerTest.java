@@ -8,6 +8,8 @@ public class StockControllerTest {
 
 	@Test
 	public void testGetStocks() {
+		//give it stocks 
+		//search stocks and make sure its not equal to null
 		fail("Not yet implemented");
 	}
 
