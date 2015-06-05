@@ -48,7 +48,7 @@ public class UserServlet extends HttpServlet {
         }
         else
         {
-        	String requestedUser = pathInfo.substring( 1 );
+        	String requestedUser = pathInfo.substring(1);
         	
         	User user = userTable.getSingleUser(requestedUser) ;
         	if ( user == null )
@@ -57,7 +57,7 @@ public class UserServlet extends HttpServlet {
         	}
         	else
         	{
-        		out.println( user.getUserName() + " " + user.getCash() );
+        		out.println(user.getUserName() + " " + user.getCash());
         	}
         }
 	    out.println("</body>");
@@ -78,18 +78,18 @@ public class UserServlet extends HttpServlet {
         if ( parameterMap.containsKey("UserName") )
         {
         	User user = new User( parameterMap.get("UserName")[0], new Random().nextInt() );
-        	if ( userTable.create(user))
+        	if (userTable.create(user))
         	{
-        		out.println("User Created! (Hopefully)");
+        		out.println("User Created! Money is a bitch that never sleeps!");
         	}
         	else
         	{
-        		out.println("Something bad happened!!!");
+        		out.println("Something bad happened!!! Bulls make money. Bears make money. Pigs? They get slaughtered.");
         	}
         }
         else
         {
-        	out.println("You have to have a name parameter!");
+        	out.println("You have to have a name parameter! The mother of all evil is speculation.");
         }
     }
 	
