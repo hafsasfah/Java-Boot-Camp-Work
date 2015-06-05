@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 
 
+
 import PlayerModel.PlayerModel;
 
 
@@ -87,19 +88,19 @@ public class PlayerRepo
 		{
 			Statement statement = connection.createStatement();
 			
-			String createPlayerInSQL = String.format("insert into \"Players\" (\"Name\" ", " \"Money\" )  VALUES ( '%s', '%.2f')" , 
-					player.getThePlayerName(), player.getThePlayerCash());  
+			String createPlayerInSQL = String.format("insert into \"Players\" (\"Name\" , \"Money\" )  VALUES ( '%s', '%.2f');" , player.getThePlayerName(), player.getThePlayerCash());  
 			
-			statement.executeQuery(createPlayerInSQL);
+			statement.execute(createPlayerInSQL);
+			
 			return true;
 			
-		}catch(SQLException E)
+		}
+		catch(SQLException E)
 		{
 			System.out.println("There is a problem in createPlayer!");
 			E.printStackTrace();
 			return false;
 		}
-		
 		
 	}
 	
@@ -110,7 +111,7 @@ public class PlayerRepo
 		try
 		{
 			Statement statement = connection.createStatement();
-			String getPlayerNameAndCash = String.format("SELECT \"Name\" , \"Money\" FROM \"Player\"");
+			String getPlayerNameAndCash = String.format("SELECT \"Name\" , \"Money\" FROM \"Players\"");
 			
 			ResultSet results = statement.executeQuery(getPlayerNameAndCash);
 			while(results.next())
@@ -136,7 +137,7 @@ public class PlayerRepo
 		try {
 			
 			Statement statement = connection.createStatement();
-			String SinglePlayerInQuery = String.format("select \"Name\", \"Money\" from \"Player\" where \"Name\" = '%s'", name );
+			String SinglePlayerInQuery = String.format("select \"Name\", \"Money\" from \"Players\" where \"Name\" = '%s'", name );
 			ResultSet results = statement.executeQuery(SinglePlayerInQuery);
 			while ( results.next() )
 			{

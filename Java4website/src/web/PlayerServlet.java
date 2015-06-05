@@ -37,6 +37,7 @@ public class PlayerServlet extends HttpServlet
         out.println("<link rel=\"stylesheet\" href=\"../../bootstrap.min.css\" />");
         out.println("</head>");
         out.println("<body>");
+
         
         String pathInformation = request.getPathInfo();
 		
@@ -46,6 +47,8 @@ public class PlayerServlet extends HttpServlet
         	out.println("<h1>Players</h1>");
         	List<PlayerModel> players = playerRepository.getAllPlayers();
         	
+    		out.println("<table border='1'>");
+    		
         	if(players.size() > 0)
         	{
         		
@@ -102,18 +105,17 @@ public class PlayerServlet extends HttpServlet
         }
         
         out.println("</body>");
-        out.println("/html");
+        out.println("</html>");
         
 		
 	}
 	
 	
-	public void doPost(HttpServletRequest request, HttpServletResponse response)
-				throws IOException, ServletException
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
 	{
 		
 
-		PlayerRepo playerRepository = new PlayerRepo( StockConnectionProvider.createConnection() );
+		PlayerRepo playerRepository = new PlayerRepo(StockConnectionProvider.createConnection());
     	
     	response.setContentType("text/plain");
         PrintWriter out = response.getWriter();
@@ -122,14 +124,14 @@ public class PlayerServlet extends HttpServlet
         
         if ( parameterMapping.containsKey("name") )
         {
-        	PlayerModel player = new PlayerModel( parameterMapping.get("name")[0], 3000 );
-        	if ( playerRepository.buildPlayer(player) )
+        	PlayerModel player = new PlayerModel( parameterMapping.get("name")[0], 1500 );
+        	if (playerRepository.buildPlayer(player))
         	{
         		out.println("You have built a new player!");
         	}
         	else
         	{
-        		out.println("A problem has occured!");
+        		out.println("A problem has occured while creating " + parameterMapping.get("name")[0] + "!");
         	}
         }
         else
@@ -140,10 +142,6 @@ public class PlayerServlet extends HttpServlet
 	
 		
 	}
-	
-	
-	
-	
 	
 
 }
