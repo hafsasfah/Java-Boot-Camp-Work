@@ -1,17 +1,19 @@
 package models;
 
+import java.util.Random;
+
 public class StockOwned {
 	private String userName;
 	private String ticker;
 	private int shares;
 	private int userID;
-		
 	
 
 	public StockOwned(String userName, String ticker, int shares) {
 		this.setUserName(userName);
 		this.setTicker(ticker);
 		this.setShares(shares);
+		this.setUserID(new Random().nextInt());
 	}
 	
 	public int getUserID() {

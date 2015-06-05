@@ -10,7 +10,7 @@ import databases.StockPricesTable;
 
 public class ImportStockPrices {
 	public static void main(String []args){
-		new ImportStockPrices(".\\S&P500-2015-06-04.csv","2015-06-04");
+		new ImportStockPrices(".\\S&P500-2015-06-05.csv","2015-06-05");
 	}
 	
 	private StockPricesTable prices;

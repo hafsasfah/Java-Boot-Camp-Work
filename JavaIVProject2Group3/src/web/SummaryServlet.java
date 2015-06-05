@@ -41,14 +41,14 @@ public class SummaryServlet extends HttpServlet {
 			
 			for (Summary s: summary  )
 			{
-				out.println("<h2>Player: "+ s.getUser().getUserName()+ " - Net Worth: " + String.format("%.2f", s.getNetworth())+ "</h2>");
+				out.println("<h2>User: "+ s.getUser().getUserName()+ " - Net Worth: " + String.format("%.2f", s.getNetworth())+ "</h2>");
 				out.println("<h4>Cash: "+ String.format("%.2f", s.getUser().getCash())+ "</h4>");
 				
 				out.println("<table border ='1'>");
 				out.println("<tr>"
 								+"<th> Ticker</th>"
-								+"<th> Nmber of Stock Owned </th>" 
-								+"<th> Current Price per Stock</th>"
+								+"<th> Shares </th>" 
+								+"<th> Current Price</th>"
 								+"<th> Total</th>"
 								+"</tr>");
 				for ( StockOwned stockOwned : s.getOwnedStock() )
