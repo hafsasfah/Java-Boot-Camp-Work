@@ -29,8 +29,7 @@ public class StockServlet extends HttpServlet
         out.println("<head>");
         out.println("</head>");
         out.println("<body>");
-        out.println("</body>");
-        out.println("</html>");
+        
         
         String pathInfo = request.getPathInfo();
         

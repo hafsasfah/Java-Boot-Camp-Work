@@ -16,7 +16,7 @@ public class ImportTickerAndStockDate
 
 	public static void main(String[] args)
 	{
-			new ImportTickerAndStockDate( "S&P500-2015-06-01.csv", "2015-06-01");
+			new ImportTickerAndStockDate( "S&P500-2015-06-05.csv", "2015-06-05");
 	}
 	
 private OpeningStockRepository openingPriceRepository;

@@ -11,6 +11,7 @@ public class PlayerRepository
 	private Connection connection;
 
 	public PlayerRepository( Connection connection )
+	
 	{
 	this.connection = connection;
 	}
@@ -19,7 +20,7 @@ public class PlayerRepository
 	{
 		try {
 		Statement statement = connection.createStatement();
-		String insertSQL = String.format("insert into \"Player\" ( \"Name\", \"Money\" ) values ( '%s', '%.2f' )", player.getName(), player.getMoney() );
+		String insertSQL = String.format("insert into \"Player\" ( \"Name\", \"Money\" ) values ( '%s', %.2f )", player.getName(), player.getMoney() );
 		statement.executeUpdate(insertSQL);
 		return true;
 		} 
