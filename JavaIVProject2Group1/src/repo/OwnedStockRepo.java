@@ -8,8 +8,7 @@ import java.util.Date;
 
 import javax.swing.JOptionPane;
 
-import model.Person;
-import model.Stock;
+import model.*;
 
 
 public class OwnedStockRepo  {
@@ -24,8 +23,8 @@ Connection  connection;
 	public static void main(String[] args){
 	
 	//	StockRepo sr = new StockRepo();
-		OwnedStockRepo osr = new OwnedStockRepo();
-		osr.newOwnedStock("Mario", "MMM", 10);
+	//	OwnedStockRepo osr = new OwnedStockRepo();
+	//	osr.newOwnedStock("Mario", "MMM", 10);
 	}
 
 

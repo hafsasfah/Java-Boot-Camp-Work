@@ -12,14 +12,20 @@ public class StockController {
 	 ArrayList<Person> person;
 	 BuyerRepo br;
 	 StockRepo sr;	
-
+<<<<<<< HEAD
+=======
+	 public static void main(String[] args){
+			
+			//StockController sc = new StockController();
+			//sc.buyStock(Blair, MMM, 1)
+		}
+>>>>>>> origin/JavaIVProject2Group1
 	
 public StockController() {
 	sr = new StockRepo();
 	this.stocks = sr.getStockList();
 	br = new BuyerRepo();
 	this.person = br.getBuyerList();
-	
 }
 
 

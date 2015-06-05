@@ -21,8 +21,9 @@ public class StockTest {
 
 	@Test
 	public void testGetPrice() {
-		Stock test = new Stock("100");
-		assertEquals(test.getPrice(), "100");
+		Stock test = new Stock("BlairLLC");
+		test.openingPrice = 100;
+		assertEquals(test.getPrice(), 100, 0);
 	}
 
 }
