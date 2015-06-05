@@ -31,10 +31,10 @@ public class StockOwnedServlet extends HttpServlet {
         
         if ( pathInfo == null || pathInfo.equals("/") )
         {
-	        out.println("<h1>Players</h1>");
+	        out.println("<h1>Stock Owned</h1>");
 	        out.println("<table border='1'>");
 	        List<StockOwned> ownedStocks = stockOwnedTable.get();
-	        out.println( "<tr><th>Player</th><th>Ticker</th><th>Number Owned</th></tr>" );
+	        out.println( "<tr><th>User</th><th>Ticker</th><th>Shares</th></tr>" );
 	        
 	        for ( StockOwned ownedStock : ownedStocks ) {
 	        	out.println( "<tr>" );
@@ -75,24 +75,24 @@ public class StockOwnedServlet extends HttpServlet {
         
         Map<String, String[]> parameterMap = request.getParameterMap();
         
-        if ( parameterMap.containsKey("ticker") && parameterMap.containsKey("playerName")  && parameterMap.containsKey("numberOwned") )
+        if ( parameterMap.containsKey("Ticker") && parameterMap.containsKey("UserName")  && parameterMap.containsKey("Shares") )
         {
         	UserTable userTable = new UserTable();
-        	User user = userTable.getSingleUser( parameterMap.get("playerName")[0] );
+        	User user = userTable.getSingleUser( parameterMap.get("UserName")[0] );
         	
         	StockPricesTable stockPricesTable = new StockPricesTable();
         	
-        	List<StockPrices> openingPrice = stockPricesTable.getByTickerAndDate(parameterMap.get("ticker")[0], ServletHelper.todaysDate() ); 	
+        	List<StockPrices> openingPrice = stockPricesTable.getByTickerAndDate(parameterMap.get("Ticker")[0], ServletHelper.todaysDate() ); 	
         	
         	if (openingPrice.size() > 0) {
         		double todaysOpeningPrice = openingPrice.get(0).getPrice();
-        		double costOfStock = todaysOpeningPrice * Integer.parseInt(parameterMap.get("numberOwned")[0]);
+        		double costOfStock = todaysOpeningPrice * Integer.parseInt(parameterMap.get("Shares")[0]);
         		
         		if ( user.getCash() > costOfStock ) {
-	        		if ( stockOwnedTable.create(new StockOwned(parameterMap.get("playerName")[0], parameterMap.get("ticker")[0],
-	            			Integer.parseInt(parameterMap.get("numberOwned")[0]))))
+	        		if ( stockOwnedTable.create(new StockOwned(parameterMap.get("UserName")[0], parameterMap.get("Ticker")[0],
+	            			Integer.parseInt(parameterMap.get("Shares")[0]))))
 	            	{
-	            		out.println("Created OwnedStock!");
+	            		out.println("Created StockOwned!");
 	            		user.setCash( user.getCash() - costOfStock );
 	            		userTable.update(user);
 	            	}
@@ -103,17 +103,17 @@ public class StockOwnedServlet extends HttpServlet {
         		}
         		else
         		{
-        			out.println("Player does not have enough money to buy " + parameterMap.get("ticker")[0]);
+        			out.println("User does not have enough money to buy " + parameterMap.get("Ticker")[0]);
         		}
         	}
         	else
         	{
-        		out.println("No price data found for stock: " + parameterMap.get("ticker")[0]);
+        		out.println("No price data found for stock: " + parameterMap.get("Ticker")[0]);
         	}
         }
         else
         {
-        	out.println("You have to have a ticker and playerName and numberOwned parameter!");
+        	out.println("You have to have a Ticker and UserName and Shares parameter!");
         }
     }
 	
@@ -141,13 +141,13 @@ public class StockOwnedServlet extends HttpServlet {
         		putData.put(splitLine[0], splitLine[1]);
         	}
         	
-        	if (putData.containsKey("userName") && putData.containsKey("ticker") && putData.containsKey("shares")) {
-        		stockOwnedTable.update(new StockOwned( putData.get("playerName"), 
-        				putData.get("ticker"), Integer.parseInt( putData.get("numberOwned"))));
+        	if (putData.containsKey("UserName") && putData.containsKey("Ticker") && putData.containsKey("Shares")) {
+        		stockOwnedTable.update(new StockOwned( putData.get("UserName"), 
+        				putData.get("Ticker"), Integer.parseInt( putData.get("Shares"))));
         	}
         	
         	else {
-        		out.println( "You must provide a playerName, ticker and numberOwned!");
+        		out.println( "You must provide a UserName, Ticker and Shares!");
         	}
         		
         	
