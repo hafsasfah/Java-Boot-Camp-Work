@@ -24,7 +24,8 @@ public class PriceServlet
 		        
 		        //Add price and Date, and be able to search by price and date
 		        String requestedTicker = request.getParameter( "ticker" );
-		        if ( requestedTicker == null )
+		        String requestedDate = request.getParameter( "date" );
+		        if ( requestedTicker == null && requestedDate == null )
 		        {
 		        
 			        out.println("<h1>S&P 500 Stocks</h1>");
@@ -37,8 +38,9 @@ public class PriceServlet
 			        for ( Stock stock : stocks )
 			        {
 			        	out.println( "<tr>" );
-			        	out.println( "<td>" + stock.getTicker() + "</td>" );
-			        	out.println( "<td>" + stock.getName() + "</td>" );
+			        	out.printf( "<td>" + stock.getTicker() + "</td>" );
+			        	out.printf( "<td>" + stock.getPrice() + "</td>");
+			        	out.printf( "<td>" + stock.getName() + "</td>" );
 			        	out.println( "</tr>" );
 			        }
 			        
