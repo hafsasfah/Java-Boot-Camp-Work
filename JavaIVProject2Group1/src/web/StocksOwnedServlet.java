@@ -8,6 +8,8 @@ import java.util.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
+import controller.StockController;
+import repo.BuyerRepo;
 import repo.dummyrepo;
 import model.*;
 import repo.*;
@@ -141,4 +143,32 @@ public class StocksOwnedServlet extends HttpServlet
 	    out.println("</body>");
         out.println("</html>");
     } 
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
+    	    throws IOException, ServletException
+    {
+		StockController sc = new StockController();
+    	System.out.println("Accessed post method");
+    	response.setContentType("text/plain");
+        PrintWriter out = response.getWriter();
+        
+        
+        String requestedName = request.getParameter( "name" );
+        String requestedTicker = request.getParameter( "ticker" );
+        String requestedNumberOwned = request.getParameter( "numberOwned" );
+        
+        if ( requestedName!=null && requestedTicker!=null && requestedNumberOwned!=null)
+        {
+        	System.out.println("Found name");
+        	Person player = new Person( requestedName, 2000 );
+        	if ( sc.buyStock(requestedName, requestedTicker, Integer.parseInt(requestedNumberOwned))){
+        		out.println("Stock Bought!");
+        	}
+        	else{
+        		out.println("Error buying Stock");
+        	}
+        }
+        else{
+        	out.println("No name was given.");
+        }
+    }
 }

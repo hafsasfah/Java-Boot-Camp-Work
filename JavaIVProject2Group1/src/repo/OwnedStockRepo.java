@@ -24,6 +24,8 @@ Connection  connection;
 	public static void main(String[] args){
 	
 	//	StockRepo sr = new StockRepo();
+		OwnedStockRepo osr = new OwnedStockRepo();
+		osr.newOwnedStock("Mario", "MMM", 10);
 	}
 
 
@@ -64,6 +66,26 @@ Connection  connection;
 			
 			return buyers;
 		}
+	public boolean newOwnedStock(String name, String ticker, int amountOwned){	        
+        Statement db;
+		try {
+			db = connection.createStatement();
+			StockRepo stockRepo = new StockRepo();
+			Stock stock = stockRepo.get(ticker)	;		
+			
+			
+			
+			
+        db.executeUpdate("INSERT INTO \"owned stocks\" (\"stock_name\", \"player_name\", \"amount owned\") VALUES('"+stock.getTicker()+"','"+name+"','"+amountOwned+"')");
+      System.out.println("Bought stock");
+	    return true;   
+	
+		} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+		return false;
+	}
+}
 	
 	
 }
