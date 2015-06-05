@@ -59,7 +59,7 @@ public class UserTable implements iUserTable {
 		try {
 			
 			Statement statement = connection.createStatement();
-			String query = String.format("select \"Name\", \"Money\" from \"User\"" );
+			String query = String.format("select \"UserName\", \"Cash\" from \"User\"" );
 			ResultSet results = statement.executeQuery(query);
 			while ( results.next() )
 			{
@@ -79,7 +79,7 @@ public class UserTable implements iUserTable {
 		try 
 		{
 			Statement statement = connection.createStatement();
-			String query = String.format("select \"Name\", \"Money\" from \"User\" where \"Name\" = '%s'", name );
+			String query = String.format("select \"UserName\", \"Cash\" from \"User\" where \"UserName\" = '%s'", name );
 			ResultSet results = statement.executeQuery(query);
 			while ( results.next() )
 			{
@@ -100,7 +100,7 @@ public class UserTable implements iUserTable {
 	public boolean update(User user) {
 		try {
 			Statement statement = connection.createStatement();
-			String insertSQL = String.format(" update \"Player\" set \"Money\" = %.2f where \"Name\" = '%s';", user.getCash(), user.getUserName() );
+			String insertSQL = String.format(" update \"User\" set \"Cash\" = %.2f where \"UserName\" = '%s';", user.getCash(), user.getUserName() );
 			statement.executeUpdate(insertSQL);
 			
 			return true;
