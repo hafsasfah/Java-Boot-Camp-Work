@@ -4,7 +4,7 @@ package StockModel;
 public class StockModel 
 {
 
-	int currentPrice;
+	double currentPrice;
 	String stockName;
 	String companyName;
 	String date;
@@ -14,7 +14,7 @@ public class StockModel
 		this.stockName = "";
 	}
 
-	public StockModel(int price, String name, String date)
+	public StockModel(double price, String name, String date)
 	{
 		this.currentPrice = price;
 		this.stockName = name;
@@ -36,9 +36,9 @@ public class StockModel
 
 	}
 	
-	public int getCurrentPrice() 
+	public double getCurrentPrice() 
 	{
-		return currentPrice;
+		return this.currentPrice;
 	}
 
 	public void setCurrentPrice(int currentPrice) 

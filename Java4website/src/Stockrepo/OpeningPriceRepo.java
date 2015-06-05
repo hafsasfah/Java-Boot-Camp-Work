@@ -2,8 +2,13 @@ package Stockrepo;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+
+import StockModel.StockModel;
 
 public class OpeningPriceRepo 
 {
@@ -88,5 +93,63 @@ public class OpeningPriceRepo
 		
 		
 	}
+	
+	public List<StockModel> get()
+	{
+		
+		List<StockModel> stocks = new ArrayList<StockModel>();
+		try
+		{
+			Statement statement = connection.createStatement();
+			String getStockSym = String.format("SELECT \"Price\" , \"ticker\" , \"Date\" FROM \"OpeningPriceRepo\"");
+			
+			ResultSet results = statement.executeQuery(getStockSym);
+			while(results.next())
+			{
+				stocks.add(new StockModel(Double.parseDouble(results.getString(1)),results.getString(2), results.getString(3)));
+			}
+			
+			
+		}
+		catch(SQLException E)
+		{
+			E.printStackTrace();
+		}
+		
+		return stocks;
+	}
+	
+	public List<StockModel> getByTicker(String ticker)
+	{
+		
+		List<StockModel> stocks = new ArrayList<StockModel>();
+
+		try
+		{
+			Statement statement = connection.createStatement();
+			String getStockSym = String.format("SELECT \"Price\" , \"ticker\" , \"Date\" FROM \"OpeningPriceRepo\" WHERE \"ticker\" = '%s';",ticker);
+			
+			ResultSet results = statement.executeQuery(getStockSym);  
+			while(results.next())
+			{
+				stocks.add(new StockModel(Double.parseDouble(results.getString(1)),results.getString(2), results.getString(3)));
+			}
+			
+		return stocks;	
+		}
+		
+		catch(SQLException E)
+		{
+			E.printStackTrace();
+			return null;
+		}
+		
+		
+	}
+	
+	
+	
+	
+	
 	
 }
