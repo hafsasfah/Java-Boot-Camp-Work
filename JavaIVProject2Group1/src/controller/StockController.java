@@ -69,23 +69,48 @@ public boolean buyStock(String buyerName, String stockNameOrTicker,int amount){
 	OwnedStockRepo osr = new OwnedStockRepo();
 	for(Person buyer: person){
 		if(buyer.getName().equals(buyerName)){
+			
 			for(Stock stock:stocks){
-				if(stock.getName().equals(stockNameOrTicker)||stock.getTicker().equals(stockNameOrTicker)){
-					if (buyer.getPurse()<stock.getPrice()){
-						return false;
-						
-					}else{
-						buyer.buyStock(stock,amount);
-						br.update(buyer);
-						osr.newOwnedStock(buyerName, stockNameOrTicker, amount);
-						return true;
-					}
-						
+				
+						if(stock.getName().equals(stockNameOrTicker)||stock.getTicker().equals(stockNameOrTicker)){
+							for (Stock ownedstock:buyer.getStocks().keySet()){
+								if(stock.getName().equals(ownedstock.getName())){
+								if (buyer.getPurse()<stock.getPrice()){
+									return false;
+									
+								}else{
+									
+									br.update(buyer.buyStock(stock,amount),stock.getPrice());
+									amount += buyer.getStocks().get(ownedstock);
+									if(osr.updateOwnedStock(buyerName, stockNameOrTicker, amount))
+									return true;
+									else
+										return false;
+								}
+							}	
+				}
+				}
+				
+			
+		
+				
+					
+						if (buyer.getPurse()<stock.getPrice()){
+							return false;
+							
+						}else{
+							buyer.buyStock(stock,amount);
+							br.update(buyer);
+							osr.newOwnedStock(buyerName, stockNameOrTicker, amount);
+							return false;
+							//return true;
+						}
+					}	
 				}
 			}
 			
-		}
-	}
+		
+	//end of for loop
 	return false;
 }
 public void sellStock(String buyerName, String stockNameOrTicker){

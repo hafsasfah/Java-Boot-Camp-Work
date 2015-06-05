@@ -17,7 +17,7 @@ public class PriceServlet extends HttpServlet
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
 		    throws IOException, ServletException
 		    {
-		    	dummyrepo stockRepository = new dummyrepo();
+		    	StockRepo stockRepository = new StockRepo();
 		            	
 		    	response.setContentType("text/html");
 		        PrintWriter out = response.getWriter();

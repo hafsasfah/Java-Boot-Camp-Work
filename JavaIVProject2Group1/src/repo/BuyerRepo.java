@@ -45,17 +45,17 @@ public class BuyerRepo {
 	}
 	
 	
-	public void update(Person buyer){	        
+	public void update(Person buyer,double price){	        
         Statement db;
 		try {
 			db = connection.createStatement();
 
-        db.executeUpdate("UPDATE\"people\" set (\"bank\"='"+ buyer.getPurse() +"' where \"name\"='"+buyer.getName()+"')");
-	   
-	    for(Stock stock: buyer.getStocks().keySet()){
+        db.executeUpdate("UPDATE\"people\" set (\"bank\"="+ (buyer.getPurse()-price) +" where \"name\"='"+buyer.getName()+"')");
+	 /*  
+	 for(Stock stock: buyer.getStocks().keySet()){
 	    	
 	    db.executeUpdate("UPDATE\"owned stocks\" set (\"amount\"='"+ buyer.getPurse() +"' where \"name\"='"+buyer.getName()+"')");
-	    }
+	    }*/
 	    
 	
 		} catch (SQLException e) {

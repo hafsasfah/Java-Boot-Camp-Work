@@ -51,7 +51,7 @@ public Person(String name, Stock stock, int amountOwned)
 		return purse;
 	}
 
-	public void buyStock(Stock stock,int amount)
+	public Person buyStock(Stock stock,int amount)
 	{
 		this.purse -= stock.getPrice();
 		try
@@ -63,7 +63,7 @@ public Person(String name, Stock stock, int amountOwned)
 		catch(Exception e){
 			stocks.put(stock,  amount);
 		}
-		
+		return this;
 	}
 	
 	public void sellStock(Stock stock, int amount)

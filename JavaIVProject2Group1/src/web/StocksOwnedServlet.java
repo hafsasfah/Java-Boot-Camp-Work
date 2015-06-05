@@ -168,7 +168,7 @@ public class StocksOwnedServlet extends HttpServlet
         	}
         }
         else{
-        	out.println("No name was given.");
+        	out.println("Error ");
         }
     }
 }
