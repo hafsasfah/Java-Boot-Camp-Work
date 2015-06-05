@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import PlayerModel.PlayerModel;
+import PlayerRepo.PlayerRepo;
 import StockModel.OwnedStock;
 import StockModel.StockModel;
 import Stockrepo.OpeningPriceRepo;
@@ -90,4 +92,41 @@ private static final long serialVersionUID = 1L;
 	    return output.toString();
 	}
 	
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
+	{
+		
+		OwnedStockRepo ownedstockrepo = new OwnedStockRepo(StockConnectionProvider.createConnection());
+		PlayerRepo playerRepository = new PlayerRepo(StockConnectionProvider.createConnection());
+    	
+    	response.setContentType("text/plain");
+        PrintWriter out = response.getWriter();
+        
+        Map<String, String[]> parameterMapping = request.getParameterMap();
+        
+		String line = parameterMapping.get("name")[0];
+		
+		String ticker = line.substring(0, line.indexOf('&'));
+		String price = (line.substring(line.indexOf('&') + 1));
+        
+        if ( parameterMapping.containsKey("name") )
+        {
+        	PlayerModel player = new PlayerModel( parameterMapping.get("name")[0], 1500 );
+        	
+        	if (playerRepository.buildPlayer(player))
+        	{
+        		out.println("You have built a new player!");
+        	}
+        	else
+        	{
+        		out.println("A problem has occured while creating " + parameterMapping.get("name")[0] + "!");
+        	}
+        }
+        else
+        {
+        	out.println("You need to have a name parameter!");
+        }
+		
+	
+		
+	}
 }
