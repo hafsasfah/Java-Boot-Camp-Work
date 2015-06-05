@@ -46,12 +46,5 @@ public class OwnedStockTest {
 		assertFalse(list.isEmpty());
 	}
 	
-	@Test
-	public void testSize()
-	{
-		assertEquals(0, list.size());
-		
-		assertEquals(1, list.size());
-	}
 
 }
