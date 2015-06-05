@@ -16,7 +16,11 @@ public class StockServlet extends HttpServlet
     {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
+<<<<<<< HEAD
         out.println("<html>");
+=======
+        out.println(ServletHelper.createHead( "Stock" ) );
+>>>>>>> origin/JavaIVProject2Group2
         out.println("<head>");
         out.println("<title>Hello World!</title>");
         out.println("</head>");
