@@ -82,10 +82,4 @@ public Person(String name, Stock stock, int amountOwned)
 			stocks.put(stock,  amount);
 		}
 	}
-
-	public String getTicker() 
-	{
-		// TODO Auto-generated method stub
-		return null;
-	}
 }

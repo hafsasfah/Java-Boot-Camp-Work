@@ -28,25 +28,8 @@ public class PersonTest
 	@Test
 	public void testGetPurse() 
 	{
-		fail("Not yet implemented");
+		
+		Person test = new Person("Mario", 100);		
+		assertEquals(test.getPurse(),100,0);
 	}
-
-	@Test
-	public void testBuyStock() 
-	{
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testSellStock() 
-	{
-		fail("Not yet implemented");
-	}
-
-	@Test
-	public void testGetTicker() 
-	{
-		fail("Not yet implemented");
-	}
-
 }
