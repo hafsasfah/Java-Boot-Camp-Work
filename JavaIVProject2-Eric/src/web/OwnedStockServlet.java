@@ -81,10 +81,8 @@ public class OwnedStockServlet extends HttpServlet {
         	Player player = playerRepository.getSinglePlayer( parameterMap.get("playerName")[0] );
         	
         	OpeningPriceRepository openingPriceRepository = new OpeningPriceRepository( StockConnectionProvider.createConnection() );
-        	Date date = Calendar.getInstance().getTime();
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            String today = sdf.format(date);
-        	List<OpeningPrice> openingPrice = openingPriceRepository.getByTickerAndDate(parameterMap.get("ticker")[0], today ); 	
+        	
+        	List<OpeningPrice> openingPrice = openingPriceRepository.getByTickerAndDate(parameterMap.get("ticker")[0], ServletHelper.todaysDate() ); 	
         	
         	if ( openingPrice.size() > 0 )
         	{
