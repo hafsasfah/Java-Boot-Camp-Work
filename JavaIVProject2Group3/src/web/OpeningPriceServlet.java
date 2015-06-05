@@ -16,13 +16,14 @@ import databases.*;
 
 public class OpeningPriceServlet extends HttpServlet {
 
-	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException
-    {
+	private static final long serialVersionUID = 1L;
+
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		StockPricesTable stockPricesTable = new StockPricesTable();
     	
     	response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        out.println( ServletHelper.createHead( "OpeningPrice" ) );
+        out.println(ServletHelper.createHead("OpeningPrice"));
         
         Map<String, String[]> parameterMap = request.getParameterMap();
 
@@ -32,25 +33,21 @@ public class OpeningPriceServlet extends HttpServlet {
         boolean requestByTicker = parameterMap.containsKey(ticker);
         boolean requestByDate = parameterMap.containsKey(date);
         
-        if ( requestByTicker && requestByDate )
-        {
-        	prices.addAll(stockPricesTable.getByTickerAndDate( parameterMap.get(ticker)[0], parameterMap.get(date)[0] ) );
+        if (requestByTicker && requestByDate) {
+        	prices.addAll(stockPricesTable.getByTickerAndDate(parameterMap.get(ticker)[0], parameterMap.get(date)[0]));
         }
-        else if ( requestByTicker )
-        {
+        else if (requestByTicker) {
         	prices.addAll(stockPricesTable.getByTicker(parameterMap.get(ticker)[0]));
         	
         }
-        else if ( requestByDate )
-        {
+        else if (requestByDate) {
         	prices.addAll(stockPricesTable.getByDate(parameterMap.get(date)[0]));
         }
-        else
-        {
+        else {
         	prices.addAll(stockPricesTable.get());
         }
         
-        out.println ( buildStockPricesTable( prices ) );
+        out.println (buildStockPricesTable(prices));
         
         out.println("</body>");
         out.println("</html>");
@@ -61,15 +58,15 @@ public class OpeningPriceServlet extends HttpServlet {
 		StringBuilder output = new StringBuilder();
 		
 		output.append("<table border='1'>");
-		output.append( "<tr><th>Ticker</th><th>Date</th><th>Price</th></tr>" );
+		output.append("<tr><th>Ticker</th><th>Price</th><th>Date</th></tr>");
         
         for ( StockPrices price : prices )
         {
-        	output.append( "<tr>" );
-        	output.append( "<td>" + price.getTicker() + "</td>" );
-        	output.append( "<td>" + price.getDate() + "</td>" );
-        	output.append( "<td>" + price.getPrice() + "</td>" );
-        	output.append( "</tr>" );
+        	output.append("<tr>");
+        	output.append("<td>" + price.getTicker() + "</td>");
+        	output.append("<td>" + price.getPrice() + "</td>");
+        	output.append("<td>" + price.getDate() + "</td>");
+        	output.append("</tr>");
         }
         output.append("</table>");
         
