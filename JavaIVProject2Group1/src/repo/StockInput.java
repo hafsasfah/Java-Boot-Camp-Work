@@ -34,7 +34,7 @@ public class StockInput {
 				dataArray.add(infile.nextLine());
 			}
 			} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		}
 		
@@ -42,7 +42,7 @@ public class StockInput {
 	
 	}
 	public void readInTodaysPrice(){
-		String filename = "S&P500-2015-06-01.csv";
+		String filename = "S&P500-2015-06-04.csv";// TODO make sure to delete the fake Friday prices before adding new ones. 
 		//S&P500-2015-06-01.csv
 		fileReader( filename);
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
@@ -52,13 +52,13 @@ public class StockInput {
         String url = "jdbc:postgresql://localhost/stock market";
         String user = "postgres";
         String password = "password";
-        String yesterday = "2015-06-01";
+        String yesterday = "2015-06-05";
         try 
         {
         	connection = DriverManager.getConnection(url, user, password);
         
 	        Statement db = connection.createStatement();
-	      db.executeUpdate("DELETE FROM \"opening price\" where \"date\"= '" + yesterday+"'" );
+	     // db.executeUpdate("DELETE FROM \"opening price\" where \"date\"= '" + yesterday+"'" );
 	      
 	       for(int i = 1;i<dataArray.size()-1;i++){ 
 	    	

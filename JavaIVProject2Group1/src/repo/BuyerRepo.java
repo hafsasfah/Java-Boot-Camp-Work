@@ -1,7 +1,10 @@
 package repo;
 
 import java.sql.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Map;
 
 import model.Person;
@@ -13,14 +16,18 @@ public class BuyerRepo {
 	ConnectionHelper conectionHelper;
 	ResultSet rs ;
 	Statement db;
+	DateFormat dateFormat;
+	Date date;
 	public BuyerRepo() {
+		dateFormat = new SimpleDateFormat("yyyy/MM/dd");
+		 date = new Date();
 			buyersList = new ArrayList<Person>();
 			conectionHelper = new ConnectionHelper();
 			connection = conectionHelper.getconnection();
 			buildBuyerList();
 		}
 	public static void main(String[] args){
-		//BuyerRepo br = new BuyerRepo();
+		BuyerRepo br = new BuyerRepo();
 	}
 	
 	public ArrayList<Person> getBuyerList(String name){
@@ -87,7 +94,8 @@ public class BuyerRepo {
 				        	while(rs.next()){
 				        	String stockName = rs.getString(1);
 				        	int amountOwned = rs.getInt(2);
-				        	buyer.addStock(new Stock(stockName),amountOwned);;
+				        	buyer.addStock(new Stock(stockName),amountOwned);
+				        	
 				        	}
 				        					        	}
 				         for(Person buyer: buyersList){
@@ -95,16 +103,29 @@ public class BuyerRepo {
 				        		String name = stock.getName();
 				        	String query = "select \"ticker\" from \"stocks\" where \"name\"='"+name+"'";
 				        	rs = db.executeQuery(query);
+				        	
 				        
 				        	while(rs.next()){
 				        	String stockTicker = rs.getString(1);
 				          	stock.setTicker(stockTicker);
+				          	
 				          	}
 				        	}
-				        	
-				        	
-				        	
 				        }
+				         for(Person buyer: buyersList){
+					        	for(Stock stock: buyer.getStocks().keySet()){
+					        		String ticker = stock.getTicker();
+					        	String query = "select \"price\" from \"opening price\" where \"ticker\"='"+ticker+"' AND \"date\"='"+dateFormat.format(date)+"'";
+					        	rs = db.executeQuery(query);
+					        	
+					        
+					        	while(rs.next()){
+					        	double price = Double.parseDouble(rs.getString(1));
+					          	stock.setPrice(price);
+					          	//System.out.println("Stock price: "+ price);
+					          	}
+					        	}
+					        }
 				        
 			        }
 			        catch(SQLException e)
@@ -130,50 +151,6 @@ public class BuyerRepo {
 				return false;
 			}
 		}
-	        
-
-
-		
-			
-			
-			
-			
-			
-			
-		
-				  
-				/*(  
-				  public void getBuyerList(Person buyer ) {
-						
-					  // String url = "jdbc:postgresql://localhost/"+JOptionPane.showInputDialog("Enter Database to read from ");
-					  //   String user = JOptionPane.showInputDialog("Enter Username for "+ url);
-					  //  String password = JOptionPane.showInputDialog("Enter Database password for user \""+user+"\"");
-				
-						        	String name = buyer.getName();
-						        	String query = "select \"stock_name\", \"amount owned\"from \"owned stocks\" where \"player_name\"='"+name+"'";
-						        	try {
-										rs = db.executeQuery(query);
-									
-						        	//System.out.println(query);
-						        	while(rs.next()){
-							        	String stockName = rs.getString(1);
-							        	int amountOwned = rs.getInt(2);
-							        	buyer.addStock(new Stock(stockName,amountOwned));;
-						        	}
-						        	for(Stock stock: buyer.getStocks()){
-						        		String stockName = stock.getName();
-						        		String stockQuery = "select \"ticker\" from \"stocks\" where \"name\"='"+stockName+"'";
-						        		rs = db.executeQuery(stockQuery);
-						        		while(rs.next()){
-						        			String stockTicker = rs.getString(1);
-						        			stock.setTicker(stockTicker);
-						        		}
-						        	}
-						        	} catch (SQLException e) {
-										// TODO Auto-generated catch block
-										e.printStackTrace();
-									}
-						        						        	
-						        } */
+	
 }
 
