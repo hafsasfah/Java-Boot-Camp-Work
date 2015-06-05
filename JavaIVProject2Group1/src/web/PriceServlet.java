@@ -10,7 +10,6 @@ import repo.*;
 
 
 //Add code to add Price to list
-
 public class PriceServlet extends HttpServlet 
 
 {
@@ -36,14 +35,15 @@ public class PriceServlet extends HttpServlet
 			        List<Stock> stocks = stockRepository.getStockList();
 			        if ( stocks.size() > 0 )
 			        {
-			        	out.println( "<tr><th>Ticker</th><th>Name</th></tr>" );
+			        	out.println( "<tr><th>Ticker</th><th>Name</th><td>Price</td></tr>" );
 			        }
 			        for ( Stock stock : stocks )
 			        {
 			        	out.println( "<tr>" );
 			        	out.printf( "<td>" + stock.getTicker() + "</td>" );
-			        	out.printf( "<td>" + stock.getPrice() + "</td>");
 			        	out.printf( "<td>" + stock.getName() + "</td>" );
+			        	out.printf( "<td>" + stock.getPrice() + "</td>");
+			        	
 			        	out.println( "</tr>" );
 			        }
 			        
