@@ -29,7 +29,7 @@ public class UserServlet extends HttpServlet {
         
         if ( pathInfo == null || pathInfo.equals("/") )
         {
-	        out.println("<h1>Players</h1>");
+	        out.println("<h1>Users</h1>");
 	        out.println("<table border='1'>");
 	        List<User> users = userTable.get();
 	        if ( users.size() > 0 )
