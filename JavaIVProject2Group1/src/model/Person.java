@@ -9,6 +9,7 @@ public class Person
 	//ArrayList<Stock> stocks;
 	double purse;
 	Map<Stock, Integer> stocks;
+	
 public Person(String name, double purse) 
 	{
 		this.name = name;
@@ -80,11 +81,5 @@ public Person(String name, Stock stock, int amountOwned)
 		catch(Exception e){
 			stocks.put(stock,  amount);
 		}
-	}
-
-	public String getTicker() 
-	{
-		// TODO Auto-generated method stub
-		return null;
 	}
 }

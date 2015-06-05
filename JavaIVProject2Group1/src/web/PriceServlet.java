@@ -1,5 +1,5 @@
 package web;
-import java.io.*;
+import java.io.*; 
 import java.util.*;
 
 import javax.servlet.*;
@@ -10,7 +10,9 @@ import repo.*;
 
 
 //Add code to add Price to list
+public class PriceServlet 
 public class PriceServlet extends HttpServlet 
+
 {
 
 	public void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -25,7 +27,8 @@ public class PriceServlet extends HttpServlet
 		        
 		        //Add price and Date, and be able to search by price and date
 		        String requestedTicker = request.getParameter( "ticker" );
-		        if ( requestedTicker == null )
+		        String requestedDate = request.getParameter( "date" );
+		        if ( requestedTicker == null && requestedDate == null )
 		        {
 		        
 			        out.println("<h1>S&P 500 Stocks</h1>");
@@ -38,8 +41,9 @@ public class PriceServlet extends HttpServlet
 			        for ( Stock stock : stocks )
 			        {
 			        	out.println( "<tr>" );
-			        	out.println( "<td>" + stock.getTicker() + "</td>" );
-			        	out.println( "<td>" + stock.getName() + "</td>" );
+			        	out.printf( "<td>" + stock.getTicker() + "</td>" );
+			        	out.printf( "<td>" + stock.getPrice() + "</td>");
+			        	out.printf( "<td>" + stock.getName() + "</td>" );
 			        	out.println( "</tr>" );
 			        }
 			        
