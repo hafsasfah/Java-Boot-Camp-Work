@@ -8,7 +8,7 @@ import Models.*;
 public class PlayerRepository
 {
 
-	private Connection connection;
+	private static Connection connection;
 
 	public PlayerRepository( Connection connection )
 	{
@@ -30,7 +30,7 @@ public class PlayerRepository
 		return false;
 }
 
-	public List<Player> get()
+	public static List<Player> get()
 	{
 	List<Player> players = new ArrayList<Player>();
 
