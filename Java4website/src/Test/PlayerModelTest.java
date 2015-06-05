@@ -20,7 +20,7 @@ List<PlayerModel> list;
 	@Before
 	public void before()
 	{
-		player = new PlayerModel("Hero", 45);
+		player = new PlayerModel("Robert", 100);
 		list = new ArrayList<PlayerModel>();
 	}
 	
