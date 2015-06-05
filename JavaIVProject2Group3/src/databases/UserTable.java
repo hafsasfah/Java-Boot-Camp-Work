@@ -97,7 +97,7 @@ public class UserTable implements iUserTable {
 	}
 
 	@Override
-	public boolean update(iUser user) {
+	public boolean update(User user) {
 		try {
 			Statement statement = connection.createStatement();
 			String insertSQL = String.format(" update \"Player\" set \"Money\" = %.2f where \"Name\" = '%s';", user.getCash(), user.getUserName() );

@@ -78,7 +78,7 @@ public class StockOwnedServlet extends HttpServlet {
         if ( parameterMap.containsKey("ticker") && parameterMap.containsKey("playerName")  && parameterMap.containsKey("numberOwned") )
         {
         	UserTable userTable = new UserTable();
-        	User user = userTable.getSinglePlayer( parameterMap.get("playerName")[0] );
+        	User user = userTable.getSingleUser( parameterMap.get("playerName")[0] );
         	
         	StockPricesTable stockPricesTable = new StockPricesTable();
         	
@@ -158,11 +158,5 @@ public class StockOwnedServlet extends HttpServlet {
         }
         
     }
-	
-}
-	
-	
-	
-	
 	
 }
