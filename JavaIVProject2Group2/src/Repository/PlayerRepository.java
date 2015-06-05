@@ -3,6 +3,7 @@ package Repository;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
 import Models.*;
 
 public class PlayerRepository
@@ -15,11 +16,11 @@ public class PlayerRepository
 	this.connection = connection;
 	}
 
-	public boolean create( Player player )
+	public boolean create( Stock stock )
 	{
 		try {
 		Statement statement = connection.createStatement();
-		String insertSQL = String.format("insert into \"Player\" ( \"Name\", \"Money\" ) values ( '%s', '%.2f' )", player.getUserName(), player.getCash() );
+		String insertSQL = String.format("insert into \"Player\" ( \"Name\", \"Money\" ) values ( '%s', '%.2f' )", stock.getName(), stock.getCash() );
 		statement.executeUpdate(insertSQL);
 		return true;
 		} 
