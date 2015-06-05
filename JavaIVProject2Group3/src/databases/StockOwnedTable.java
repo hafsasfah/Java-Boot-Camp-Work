@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.List;
 
+import models.StockOwned;
 import models.iStockOwned;
 
 /*
@@ -20,13 +22,14 @@ public class StockOwnedTable implements iStockOwnedTable {
 
 	public StockOwnedTable() {
 		try {
+			Class.forName("org.postgresql.Driver");
 			String url = "jdbc:postgresql://localhost/StockGame";
 			String username = "postgres";
 			String password = "password";
 			
 			connection = DriverManager.getConnection(url, username, password);
 		}
-		catch (SQLException e) {
+		catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
@@ -57,6 +60,11 @@ public class StockOwnedTable implements iStockOwnedTable {
 	@Override
 	public boolean delete(iStockOwned stocksOwned) {
 		return false;
+	}
+
+	public List<StockOwned> get() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

@@ -49,8 +49,8 @@ public class OpeningPriceServlet extends HttpServlet {
         	prices.addAll(stockPricesTable.get());
         }
         
-        //out.println (buildStockPricesTable(prices));
-        
+        out.println (buildStockPricesTable(prices));
+        /*
         out.println("<table border='1'>");
         out.println("<tr><th>Ticker</th><th>Price</th><th>Date</th></tr>");
         
@@ -62,7 +62,7 @@ public class OpeningPriceServlet extends HttpServlet {
         	out.println("</tr>");
         }
         out.println("</table>");
-        //
+        */
         
         out.println("</body>");
         out.println("</html>");
