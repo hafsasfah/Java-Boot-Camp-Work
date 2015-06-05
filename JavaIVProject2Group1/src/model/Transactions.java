@@ -3,26 +3,34 @@ package model;
 public class Transactions 
 {
 	
-	
 	Person buyer;
-	public Person getBuyer() {
-		return buyer;}
+	public Person getBuyer() 
+	{
+		return buyer;
+	}
 
 	public void setStock(Stock stock) 
-		{
+	{
 			this.stock = stock;
-		}
+	}
 
-	public double getStockPrice() {
-		return stockPrice;}
+	public double getStockPrice() 
+	{
+		return stockPrice;
+	}
 
-	public void setStockPrice(double stockPrice) {
-		this.stockPrice = stockPrice;}
+	public void setStockPrice(double stockPrice) 
+	{
+		this.stockPrice = stockPrice;
+	}
 
-	public String getDate() {
-		return date;}
+	public String getDate() 
+	{
+		return date;
+	}
 
-	public int getAmountBought() {
+	public int getAmountBought()
+	{
 		return amountBought;
 	}
 
@@ -47,7 +55,6 @@ public class Transactions
 
 	int amountBought;
 		public void setAmountBought(int amountBought) 
-	
 		{
 			this.amountBought = amountBought;
 		}
@@ -59,7 +66,5 @@ public class Transactions
 		this.stockPrice = stockPrice;
 		this.date = date;
 		this.amountBought = amountBought;
-	}
-	
-	
+	}	
 }
