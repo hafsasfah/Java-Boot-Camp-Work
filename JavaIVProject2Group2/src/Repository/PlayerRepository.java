@@ -3,12 +3,13 @@ package Repository;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+
 import Models.*;
 
 public class PlayerRepository
 {
 
-	private Connection connection;
+	private static Connection connection;
 
 	public PlayerRepository( Connection connection )
 	
@@ -16,7 +17,7 @@ public class PlayerRepository
 	this.connection = connection;
 	}
 
-	public boolean create( Player player )
+	public boolean create( Stock stock )
 	{
 		try {
 		Statement statement = connection.createStatement();
@@ -31,7 +32,7 @@ public class PlayerRepository
 		return false;
 }
 
-	public List<Player> get()
+	public static List<Player> get()
 	{
 	List<Player> players = new ArrayList<Player>();
 
@@ -42,7 +43,7 @@ public class PlayerRepository
 	while ( results.next() )
 	{
 
-		players.add( new Player( results.getString(1), results.getDouble(2) ) );
+		players.add( new Player(query, 0  ) );
 }
 
 	} catch (SQLException e) {
@@ -64,7 +65,7 @@ return players;
 		while ( results.next() )
 	{
 	
-			return new Player( results.getString(1), results.getDouble(2) );
+			return new Player(name, 0  );
 	}
 	}
 		catch (SQLException e) {
@@ -81,7 +82,7 @@ return players;
 	
 		try {
 		Statement statement = connection.createStatement();
-		String insertSQL = String.format(" update \"Player\" set \"Money\" = %.2f where \"Name\" = '%s';", player.getMoney(), player.getName() );
+		String insertSQL = String.format(" update \"Player\" set \"Money\" = %.2f where \"Name\" = '%s';", player.getCash(), player.getUserName() );
 		statement.executeUpdate(insertSQL);
 		return true;
 	} 
@@ -90,6 +91,11 @@ return players;
 		}
 	
 		return false;
+	}
+
+	public void updateStockPrice(StockModel stock) {
+		
+		
 	}
 	
 }

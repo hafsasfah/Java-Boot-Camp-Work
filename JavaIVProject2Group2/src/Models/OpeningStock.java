@@ -1,9 +1,9 @@
 package Models;
 
-public class OpeningStock {
 
+public class OpeningStock
 	
-	
+	{
 	private String ticker;
 	private double price;
 	private String date;
@@ -45,4 +45,3 @@ public class OpeningStock {
 		this.date = date;
 	}
 }
-
