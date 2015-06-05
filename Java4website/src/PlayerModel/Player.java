@@ -1,4 +1,4 @@
-package StockModel;
+package PlayerModel;
 
 public class Player 
 {
