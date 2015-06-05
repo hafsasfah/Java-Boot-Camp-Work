@@ -12,7 +12,7 @@ import databases.*;
 
 public class ImportStockReader {
 	public static void main(String []args){
-		new ImportStockReader(".//S&P500Stocks.csv");
+		new ImportStockReader(".\\S&P500Stocks.csv");
 	}	
 	
 	private StocksTable stocksTable;
