@@ -91,5 +91,10 @@ return players;
 	
 		return false;
 	}
+
+	public void updateStockPrice(StockModel stock) {
+		
+		
+	}
 	
 }

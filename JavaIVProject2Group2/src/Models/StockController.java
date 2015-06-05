@@ -10,7 +10,7 @@ public class StockController
 
 public StockController()
 	{
-	stockrepo = new PlayerRepository();
+	stockrepo = new PlayerRepository(null);
 	}
 
 public void createStockListing(StockModel stock)
