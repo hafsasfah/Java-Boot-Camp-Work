@@ -103,15 +103,7 @@ public class PlayerServlet extends HttpServlet {
         }
     }
 
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
-        out.println("<html>");
-        out.println("<head>");
-        out.println("</head>");
-        out.println("<body>");
-        out.println("<h1>Player Repository</h1>");
-        out.println("</body>");
-        out.println("</html>");
+        
         
         
     }
