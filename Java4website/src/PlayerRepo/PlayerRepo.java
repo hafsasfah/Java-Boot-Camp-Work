@@ -126,7 +126,7 @@ public class PlayerRepo
 	}
 	
 	
-	public PlayerModel getASinglePlayer( String name )
+	public PlayerModel getASinglePlayer(String name)
 	{
 		try {
 			

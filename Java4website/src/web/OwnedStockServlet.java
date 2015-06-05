@@ -125,7 +125,7 @@ private static final long serialVersionUID = 1L;
         	if (putData.containsKey("name") && putData.containsKey("ticker") && putData.containsKey("numberOwned"))
         	{
         		
-        		if(playerRepository.getASinglePlayer(putData.get("name")).getThePlayerCash() < 0)
+        		if(playerRepository.getASinglePlayer(putData.get("name")).getThePlayerCash() > 0)
         		{
         		
 	        		if(ownedstockrepo.addStockToDatabase(new OwnedStock(putData.get("ticker"), putData.get("name"), Integer.parseInt(putData.get("numberOwned")))))
