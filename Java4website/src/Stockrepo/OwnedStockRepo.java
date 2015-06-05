@@ -105,6 +105,38 @@ public class OwnedStockRepo
 		return ownedStocks;
 	}
 	
+	public boolean addStockToDatabase(OwnedStock stock) //create in CRUD
+	{
+		try
+		{
+			Statement statement = connection.createStatement();
+			String createStock = String.format(" INSERT INTO \"StocksOwned\""
+					+ "("
+					+ "\"Name\","
+					+ "\"ticker\","
+					+ "\"NumberOwned\""
+					+ ")"
+					+ "VALUES"
+					+ "("
+					+ "'%s',"
+					+ "'%s',"
+					+ "'%d'"
+					+ ");",
+					stock.getPlayer(), stock.getTicker(), stock.getOwned());
+			
+			statement.execute(createStock);
+			return true;
+		}
+		catch(SQLException E)
+		{
+			System.out.println("You griffithed up");
+			E.printStackTrace();
+			return false;
+		}
+		
+		
+	}
+	
 	public boolean update( OwnedStock ownedStock )
 	{
 		try 

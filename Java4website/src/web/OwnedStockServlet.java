@@ -1,8 +1,11 @@
 package web;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -14,8 +17,6 @@ import javax.servlet.http.HttpServletResponse;
 import PlayerModel.PlayerModel;
 import PlayerRepo.PlayerRepo;
 import StockModel.OwnedStock;
-import StockModel.StockModel;
-import Stockrepo.OpeningPriceRepo;
 import Stockrepo.OwnedStockRepo;
 import Stockrepo.StockConnectionProvider;
 
@@ -96,37 +97,56 @@ private static final long serialVersionUID = 1L;
 	{
 		
 		OwnedStockRepo ownedstockrepo = new OwnedStockRepo(StockConnectionProvider.createConnection());
-		PlayerRepo playerRepository = new PlayerRepo(StockConnectionProvider.createConnection());
+		//PlayerRepo playerRepository = new PlayerRepo(StockConnectionProvider.createConnection());
     	
     	response.setContentType("text/plain");
         PrintWriter out = response.getWriter();
         
-        Map<String, String[]> parameterMapping = request.getParameterMap();
-        
-		String line = parameterMapping.get("name")[0];
-		
-		String ticker = line.substring(0, line.indexOf('&'));
-		String price = (line.substring(line.indexOf('&') + 1));
-        
-        if ( parameterMapping.containsKey("name") )
+        try
         {
-        	PlayerModel player = new PlayerModel( parameterMapping.get("name")[0], 1500 );
+        	BufferedReader br = new BufferedReader(new InputStreamReader(request.getInputStream()));
+        	String data = br.readLine();
         	
-        	if (playerRepository.buildPlayer(player))
+        	String[] keyValuePairs = data.split("&");
+        	
+        	
+        	Map<String,String> putData = new HashMap<String,String>();
+        	
+        	for (String keyValuePair : keyValuePairs)
         	{
-        		out.println("You have built a new player!");
+        		String[] splitLine = keyValuePair.split("=");
+        		putData.put(splitLine[0], splitLine[1]);
         	}
+        	
+        	if (putData.containsKey("name") && putData.containsKey("ticker") && putData.containsKey("numberOwned"))
+        	{
+        		if(ownedstockrepo.addStockToDatabase(new OwnedStock(putData.get("name"), putData.get("ticker"), Integer.parseInt(putData.get("numberOwned")))))
+        		{
+        			out.println("Owned Stock Recorded!");
+        		}
+        		else
+        		{
+        			out.println("Couldn't record stock transaction!");
+        		}
+        	}
+        	
+        	else if (putData.containsKey("name") && putData.containsKey("ticker") || putData.containsKey("numberOwned"))
+        	{
+        		out.println("Ya got something at least.");
+        	}
+        	
         	else
         	{
-        		out.println("A problem has occured while creating " + parameterMapping.get("name")[0] + "!");
+        		
+        		out.println("Can't read all fields!");
         	}
+        		
+        	
         }
-        else
+        catch ( Exception e )
         {
-        	out.println("You need to have a name parameter!");
+        	out.println( "Couldn't get requested info." );
         }
-		
-	
 		
 	}
 }
