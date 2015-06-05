@@ -17,6 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import PlayerModel.PlayerModel;
 import PlayerRepo.PlayerRepo;
 import StockModel.OwnedStock;
+import Stockrepo.OpeningPriceRepo;
 import Stockrepo.OwnedStockRepo;
 import Stockrepo.StockConnectionProvider;
 
@@ -76,7 +77,8 @@ private static final long serialVersionUID = 1L;
 	{
 		StringBuilder output = new StringBuilder();
 		
-		output.append("<table border='1'>");
+    	output.append("<div class=\"container\"> ");
+		output.append("<table class=\"table\">");
 		output.append( "<tr><th>Ticker</th><th>Player</th><th>Amount Owned</th></tr>" );
 		
 	    
@@ -89,7 +91,8 @@ private static final long serialVersionUID = 1L;
 	    	output.append( "</tr>" );
 	    }
 	    output.append("</table>");
-	    
+    	output.append("</div>");
+    	
 	    return output.toString();
 	}
 	
@@ -97,7 +100,8 @@ private static final long serialVersionUID = 1L;
 	{
 		
 		OwnedStockRepo ownedstockrepo = new OwnedStockRepo(StockConnectionProvider.createConnection());
-		//PlayerRepo playerRepository = new PlayerRepo(StockConnectionProvider.createConnection());
+		PlayerRepo playerRepository = new PlayerRepo(StockConnectionProvider.createConnection());
+		OpeningPriceRepo pricerepo = new OpeningPriceRepo(StockConnectionProvider.createConnection());
     	
     	response.setContentType("text/plain");
         PrintWriter out = response.getWriter();
@@ -120,14 +124,26 @@ private static final long serialVersionUID = 1L;
         	
         	if (putData.containsKey("name") && putData.containsKey("ticker") && putData.containsKey("numberOwned"))
         	{
-        		if(ownedstockrepo.addStockToDatabase(new OwnedStock(putData.get("ticker"), putData.get("name"), Integer.parseInt(putData.get("numberOwned")))))
+        		
+        		if(playerRepository.getASinglePlayer(putData.get("name")).getThePlayerCash() < 0)
         		{
-        			out.println("Owned Stock Recorded!");
+        		
+	        		if(ownedstockrepo.addStockToDatabase(new OwnedStock(putData.get("ticker"), putData.get("name"), Integer.parseInt(putData.get("numberOwned")))))
+	        		{
+	        			out.println("Owned Stock Recorded!");
+	        		}
+	        		else
+	        		{
+	        			out.println("Couldn't record stock transaction!");
+	        		}
+	        		
         		}
+        		
         		else
         		{
-        			out.println("Couldn't record stock transaction!");
+        			out.println("You cant afford that!");
         		}
+        		
         	}
         	
         	else if (putData.containsKey("name") && putData.containsKey("ticker") || putData.containsKey("numberOwned"))
@@ -150,3 +166,5 @@ private static final long serialVersionUID = 1L;
 		
 	}
 }
+
+

@@ -56,15 +56,12 @@ public class PlayerRepo
 		
 		try
 		{
-			
-			
 			Statement statement = connection.createStatement();
 			String buildPlayerTable = " CREATE TABLE \"Players\" " 
 										+"  \"Name\" character varying(100), " 
 										+ "  \"Cash\" double precision, " + ")"; 
 			
 			statement.executeQuery(buildPlayerTable);
-			
 			
 			
 		}catch(SQLException E)
@@ -78,10 +75,7 @@ public class PlayerRepo
 		
 	}
 	
- 	
-	
-	
-	
+
 	public boolean buildPlayer(PlayerModel player)
 	{
 		try

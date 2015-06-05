@@ -175,6 +175,35 @@ public class OpeningPriceRepo
 		
 	}
 	
+	public double getTickerPrice(String ticker)
+	{
+
+		double tempprice = 0;
+		try
+		{
+			Statement statement = connection.createStatement();
+			String getStockSym = String.format("SELECT \"Price\" FROM \"OpeningPriceRepo\" WHERE \"ticker\" = '%s';",ticker);
+			
+			ResultSet results = statement.executeQuery(getStockSym);  
+			while(results.next())
+			{
+				tempprice = Double.parseDouble(results.toString());
+				
+			}
+			
+			return tempprice;
+		}
+		
+		catch(SQLException E)
+		{
+			E.printStackTrace();
+			return 0;
+		}
+		
+		
+	}
+	
+	
 	public List<StockModel> getByTickerAndDate(String ticker,String date)
 	{
 		

@@ -47,7 +47,8 @@ public class PlayerServlet extends HttpServlet
         	out.println("<h1>Players</h1>");
         	List<PlayerModel> players = playerRepository.getAllPlayers();
         	
-    		out.println("<table border='1'>");
+        	out.println("<div class=\"container\"> ");
+    		out.println("<table class=\"table\">");
     		
         	if(players.size() > 0)
         	{
@@ -69,6 +70,7 @@ public class PlayerServlet extends HttpServlet
         	}
         	
         	out.println("</table>");
+        	out.println("<div class=\"</div>\"> ");
         	
         }
         
