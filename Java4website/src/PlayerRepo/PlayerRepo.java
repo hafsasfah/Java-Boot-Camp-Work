@@ -8,7 +8,7 @@ import java.util.ArrayList;
 
 
 import PlayerModel.PlayerModel;
-import StockModel.StockModel;
+
 
 public class PlayerRepo 
 {
@@ -22,7 +22,7 @@ public class PlayerRepo
 		
 	}
 	
-	/*
+	
 	public PlayerRepo()
 	{
 		
@@ -45,9 +45,9 @@ public class PlayerRepo
 		
 	}
 	
-	**/
+
 	
-	/*
+	
 	public void buildPlayerTable()
 	{
 		
@@ -74,7 +74,7 @@ public class PlayerRepo
 		
 		
 	}
-	**/
+	
 
 	
 	
