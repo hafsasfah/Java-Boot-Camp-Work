@@ -1,19 +1,19 @@
 package models;
 
 
-public class Player implements AbstractPlayer {
+public abstract class Player implements AbstractPlayer {
 	
 
 	private int playerId;
 	private String playerName;
 	private int  playerCash;
-	
+	private Object currentLocation;
 
-
-public Player(int playerId, String playerName, int playerCash){
+public Player(int playerId, String playerName, int playerCash, Object currentLocation){
 	this.playerId = playerId;
 	this.playerName = playerName;
 	this.playerCash = playerCash;
+	this.setCurrentLocation(currentLocation);
 }
 	@Override
 	public int getplayerId()
@@ -31,15 +31,12 @@ public Player(int playerId, String playerName, int playerCash){
 		return playerCash;
 	}
 	
-	@Override
-	public void purchaseProperty( )
-	{
-	   return ;
+	public Object getCurrentLocation() {
+		return currentLocation;
 	}
-
-	@Override
-	public void currentLocation() {
-		// TODO Auto-generated method stub
+	
+	public void setCurrentLocation(Object currentLocation) {
+		this.currentLocation = currentLocation;
 		
 	}
  

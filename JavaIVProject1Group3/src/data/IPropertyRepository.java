@@ -1,5 +1,7 @@
 package data;
 
+import com.MonopolyGame.AbstractProperty;
+
 public interface IPropertyRepository {
 
 	boolean create( AbstractProperty property );

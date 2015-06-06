@@ -12,4 +12,7 @@ public abstract class AbstractProperty extends Observable
 	public abstract void setRent();
 	public abstract int getCostOfProperty();
 	public abstract void setCostOfProperty();
+	
 }
+
+
