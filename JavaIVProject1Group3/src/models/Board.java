@@ -2,7 +2,7 @@ package models;
 
 import javax.swing.*;
 
-import models.Property;
+import com.MonopolyGame.Property;
 
 public class Board {
 	
