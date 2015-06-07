@@ -1,5 +1,6 @@
 package com.MonopolyGame;
 
+import java.util.LinkedList;
 import java.util.Observable;
 
 public abstract class AbstractProperty extends Observable
@@ -12,7 +13,11 @@ public abstract class AbstractProperty extends Observable
 	public abstract void setRent();
 	public abstract int getCostOfProperty();
 	public abstract void setCostOfProperty();
-	public abstract LinkedList<AbtractPlayer> getParkedPlayers();
+	public abstract LinkedList<AbstractPlayer> getParkedPlayers();
+	public void addParkedPlayer(AbstractPlayer currentPlayer) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }
 
