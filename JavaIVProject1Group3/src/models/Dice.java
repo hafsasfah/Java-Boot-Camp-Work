@@ -1,6 +1,7 @@
 package models;
 
 import java.util.Random;
+import java.util.Scanner;
 
 public class Dice implements IDice {
 
@@ -13,6 +14,21 @@ public class Dice implements IDice {
         int roll2 = rand.nextInt(6) +1;
         int sum = roll1 + roll2;
         return sum;
+	}
+
+	public static Object getRoll() {
+		
+		int number; 
+		Random randomNumbers = new Random();
+		do{
+			number = randomNumbers.nextInt(12)+1;
+			System.out.println (number);
+		}while((number)>13);
+		
+		return number;
+		
+
+		
 	}
 	
 	

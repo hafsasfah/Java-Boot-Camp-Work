@@ -1,76 +1,98 @@
 package com.MonopolyGame;
+ 
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.LinkedList;
+
+import javax.swing.JOptionPane;
+
+import models.Dice;
+import views.ViewProperty;
 
 
-	import java.sql.Connection;
-import java.util.*;
-
-	import javax.swing.JOptionPane;
-
-	import data.*;
-import models.*;
-import views.*;
-
-	public class Controller implements IController {
+public class Controller 
+{
+	private Dice dice;
+	private com.MonopolyGame.Player[] Player;
+	private Property Property;
+	private int i = 0;
+	
+	
+		
+		LinkedList<Player> object = new LinkedList<Player>();
+		ArrayList<PropertyFactory> property = new ArrayList<PropertyFactory>();	
 		
 		
-		private AbstractGame game;
-		private IPropertyRepository gameRepository;
-		private IPlayerRepo playerRepository;
-		private IPropertyRepository propertyRepository;
-		private Random random;
-		
-
-		public Controller( )
+		public Controller(LinkedList<Player> playerObject, ArrayList<PropertyFactory> propertyObject, 
+				Dice dice, Player[] Player, int totalPlayers)
 		{
-			random = new Random();
+			this.object = playerObject;
+			this.property = propertyObject;	
+			this.dice = dice;
+			this.Player = Player;
 		}
-		
-		public void currentPlayerRolls() {
-			
-			int die1 = random.nextInt(6) + 1;
-			int die2 = random.nextInt(6) + 1;
-			int roll = die1 + die2;
+	
+		public Controller() 
+		{
 			
 			
-			
-			AbstractPlayer currentPlayer = (AbstractPlayer) game.getCurrentPlayer();
-			currentPlayer.getCurrentLocation();
-			
-			
-				int nextPropertySequenceID = currentPlayer.getCurrentLocation()+ roll  ;
+			Player = new Player[2];
+			for(int i = 0; i < Player.length; i++)
+			{
 				
-				AbstractProperty propertyLandedOn = game.getProperties().get( nextPropertySequenceID );
+				Player[i] = new Player(i, "Player " + (i +1), i, i, i);
 				
-					propertyLandedOn.addParkedPlayer( currentPlayer );
-					currentPlayer.setCurrentLocation( propertyLandedOn );
-					
-					AbstractPlayer owner = propertyLandedOn.getOwner();
-					
-					if ( owner == null )
-					{
-						currentPlayer.purchaseProperty( propertyLandedOn );
-						propertyLandedOn.setOwner( currentPlayer );
-					}
-					else
-					{
-						int rent = propertyLandedOn.getRentalPrice();
-						if ( propertyLandedOn.getPropertyGroup())
-						{
-							rent *= roll;
-						}
-						currentPlayer.spendMoney( rent );
-						
-					}
-					
-					
-						
+			}
 		}
+
+		public int getPlayerPurchaseAction()
+		{
+			
+			if(Dice.getRoll() == Property.getNameOfProperty())
+			{
+				if(Player[i].getLocation() == Property.getNameOfProperty())
+				{
+					JOptionPane.showMessageDialog(null,"Player: " + Player[i] + " is located at: " + Property.getNameOfProperty());
+				}if(Property.getCostOfProperty() < Player[i].getplayerCash())
+				{
+					Player[i].setPlayerCash;(Player[i].getplayerCash()) - Property.getCostOfProperty());
+					JOptionPane.showMessageDialog(null, Player[i] + " has bought something!" 
+					+" Your remaining money: " + Player[i].getplayerCash());
 				
-					
-			
-			
+				}if(Property.getCostOfProperty() > Player[i].getplayerCash())
+				{
+					JOptionPane.showMessageDialog(null, "You do not have enough money for buy that!");
+				}
+				
+			}else if(Player[i].getplayerCash() < 0)
+			{
+				JOptionPane.showMessageDialog(null, "Sorry you are out of money!");
+			}
+			return Player[i].getplayerCash();
+		
+		}
+}
 		
 		
 		
-	}
+		
+		
+		
+	
+		
+
+
+
+
+
+
+		
+	
+	
+	
+	
+	
+	
+	
+	
 

@@ -3,6 +3,8 @@ package com.MonopolyGame;
 import java.util.LinkedList;
 import java.util.Observable;
 
+import UtilityPropertyGroup;
+
 public abstract class AbstractProperty extends Observable
 {
 	public abstract String getNameOfProperty();
@@ -17,6 +19,22 @@ public abstract class AbstractProperty extends Observable
 	public void addParkedPlayer(AbstractPlayer currentPlayer) {
 		// TODO Auto-generated method stub
 		
+	}
+	public AbstractPlayer getOwner() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	public void setOwner(AbstractPlayer currentPlayer) {
+		// TODO Auto-generated method stub
+		
+	}
+	public int getRentalPrice() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+	public UtilityPropertyGroup getPropertyGroup() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }
