@@ -1,6 +1,6 @@
 package AdventureGameInterface;
 
-import AdventureGame.Weapon;
+import AdventureGameClass.Weapon;
 
 public interface IWeaponFactory 
 {

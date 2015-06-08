@@ -1,4 +1,4 @@
-package AdventureGameInterface;
+package TestCases;
 import static org.junit.Assert.*;
 
 import org.junit.Test;

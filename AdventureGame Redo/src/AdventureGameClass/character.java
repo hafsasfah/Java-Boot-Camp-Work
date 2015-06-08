@@ -117,7 +117,7 @@ public class character implements iCharacter
 	@Override
 	public String getInventory() {
 		// TODO Auto-generated method stub
-		return null;
+		return Item;
 	}
 
 	@Override

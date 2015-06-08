@@ -1,6 +1,6 @@
 package AdventureGameClass;
 
-import java.awt.*;
+import java.awt.*; 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -21,7 +21,12 @@ public class Gui extends JFrame
 	
 	character Team;
 	RandomRoom createDungeon = new RandomRoom();
-	
+	private JButton buttonNorth;
+	private JButton buttonWest;
+	private JButton buttonSouth;
+	private JButton buttonEast;
+	private JButton buttonAttack;
+	private JButton buttonRun;
 	private JPanel playerLabel;
 	private JTextArea playerStats;
 	private JTextArea outputMUD; 
@@ -29,12 +34,7 @@ public class Gui extends JFrame
 	private JScrollPane scroller;
 	private JPanel buttonMap;
 	private JPanel attackMap;
-	private JButton buttonNorth;
-	private JButton buttonWest;
-	private JButton buttonSouth;
-	private JButton buttonEast;
-	private JButton buttonAttack;
-	private JButton buttonRun;
+	
 
     static byte gridLayout[][]  =  
     	{
@@ -53,7 +53,7 @@ public class Gui extends JFrame
     };
 
 
-    Room dungeon[][] = new Room [10][10];
+    Room dungeon[][] = new Room [10][20];
 
 	
 	public Gui()
@@ -99,10 +99,11 @@ public class Gui extends JFrame
 	public void refreshCharacterPanel()
 	{
 		playerStats.setText("Character Name: " + Team.getName() + "\n"
-				+ "Health: " + Team.getHitPoints() + "\n"
+				+ "HP: " + Team.getHitPoints() + "\n"
 				+ "Strength: " + Team.getStrength() + "\n"
 				+ "Dexterity: " + Team.getDexterity() + "\n"
-				+ "Intelligence: " + Team.getWisdom());	
+				+ "Wisdom: " + Team.getWisdom() + "\n"
+				+ "Mana:  "+ Team.getMana());
 	}
 	public void buildTextPanel()
 	{
@@ -207,10 +208,10 @@ public class Gui extends JFrame
 	private class MovementButtonListener implements ActionListener
 	{
 	
-		public void actionPerformed(ActionEvent E)
+		public void actionPerformed(ActionEvent T)
 		{
 			dungeon[Team.location.row][Team.location.column].container.remove(Team);
-			if(E.getSource() == buttonNorth)
+			if(T.getSource() == buttonNorth)
 			{
 				Team.location.row -= 1;
 				dungeon[Team.location.row][Team.location.column].container.add(Team);
@@ -220,7 +221,7 @@ public class Gui extends JFrame
 				outputMUD.append("\n" + dungeon[Team.location.row][Team.location.column].roomDescription());
 				
 			}
-			if(E.getSource() == buttonWest)
+			if(T.getSource() == buttonWest)
 			{
 				Team.location.column -= 1;
 				dungeon[Team.location.row][Team.location.column].container.add(Team);
@@ -229,7 +230,7 @@ public class Gui extends JFrame
 				outputMUD.append("\nMoved West.");
 				outputMUD.append("\n" + dungeon[Team.location.row][Team.location.column].roomDescription());
 			}
-			if(E.getSource() == buttonSouth)
+			if(T.getSource() == buttonSouth)
 			{
 				Team.location.row += 1;
 				dungeon[Team.location.row][Team.location.column].container.add(Team);
@@ -238,7 +239,7 @@ public class Gui extends JFrame
 				outputMUD.append("\nMoved South.");
 				outputMUD.append("\n" + dungeon[Team.location.row][Team.location.column].roomDescription());
 			}
-			if(E.getSource() == buttonEast)
+			if(T.getSource() == buttonEast)
 			{
 				Team.location.column += 1;
 				dungeon[Team.location.row][Team.location.column].container.add(Team);
